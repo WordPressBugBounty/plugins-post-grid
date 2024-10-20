@@ -45,6 +45,8 @@ class PGBlockPostAuthorields
     $fieldLinkToMeta = isset($fieldOptions['linkToMeta']) ? $fieldOptions['linkToMeta'] : '';
     $fieldLinkTarget = isset($fieldOptions['linkTarget']) ? $fieldOptions['linkTarget'] : '';
     $fieldAvatarSize = isset($fieldOptions['avatarSize']) ? $fieldOptions['avatarSize'] : '';
+    $fieldDefaultAvatar = isset($fieldOptions['defaultAvatar']) ? $fieldOptions['defaultAvatar'] : '';
+    $fieldAvatarRating = isset($fieldOptions['avatarRating']) ? $fieldOptions['avatarRating'] : '';
     $fieldDateFormat = isset($fieldOptions['dateFormat']) ? $fieldOptions['dateFormat'] : '';
     $fieldCustomUrl = isset($fieldOptions['customUrl']) ? $fieldOptions['customUrl'] : '';
     $fieldPrefix = isset($fieldOptions['prefix']) ? $fieldOptions['prefix'] : '';
@@ -113,6 +115,7 @@ class PGBlockPostAuthorields
       $isVisible = post_grid_visible_parse($visible);
       if (!$isVisible) return;
     }
+
     // //* Visible condition
     ob_start();
 ?>
@@ -144,10 +147,10 @@ class PGBlockPostAuthorields
         <?php echo wp_kses_post($fontIconHtml); ?>
       <?php endif; ?>
       <?php if (!empty($fieldLink)) : ?>
-        <a <?php if ($fieldLinkTo == 'authorMail') : ?> href="<?php echo esc_url('mailto:' . $fieldLink); ?>"
-          <?php else : ?> href="<?php echo esc_url($fieldLink); ?>" <?php endif; ?>
-          target="<?php echo esc_attr($fieldLinkTarget); ?>" <?php //echo ($linkAttrStr); 
-                                                              ?>>
+        <a <?php if ($fieldLinkTo == 'authorMail') : ?> href="<?php echo esc_url('mailto:' . $fieldLink); ?>" <?php else : ?>
+          href="<?php echo esc_url($fieldLink); ?>" <?php endif; ?> target="<?php echo esc_attr($fieldLinkTarget); ?>"
+          <?php //echo ($linkAttrStr); 
+          ?>>
         <?php endif; ?>
         <?php if (!empty($prefixText) && $prefixPosition == 'beforeField') : ?>
           <span class="<?php echo esc_attr($prefixClass); ?>">
@@ -163,8 +166,8 @@ class PGBlockPostAuthorields
         <?php
         elseif ($metaKey == 'avatar') :
         ?>
-          <img class="fieldVal" src="<?php echo esc_url(get_avatar_url($post_author_id, ['size' => $fieldAvatarSize])) ?>"
-            alt=" <?php echo esc_attr(get_the_author_meta('display_name', $post_author_id)) ?> " />
+          <img class="fieldVal" src="<?php echo esc_url(get_avatar_url($post_author_id, ['size' => $fieldAvatarSize, 'default' => $fieldDefaultAvatar, 'rating' => $fieldAvatarRating]));
+                                      ?>" alt=" <?php echo esc_attr(get_the_author_meta('display_name', $post_author_id)) ?> " />
         <?php
         endif;
         ?>
@@ -186,7 +189,9 @@ class PGBlockPostAuthorields
       <?php endif; ?>
     </<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $PGBlockPostAuthorields = new PGBlockPostAuthorields();

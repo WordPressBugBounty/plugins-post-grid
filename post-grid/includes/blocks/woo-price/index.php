@@ -157,7 +157,9 @@ class PGBlockWooPrice
       </<?php echo pg_tag_escape($wrapperTag); ?>>
     <?php endif; ?>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $PGBlockWooPrice = new PGBlockWooPrice();

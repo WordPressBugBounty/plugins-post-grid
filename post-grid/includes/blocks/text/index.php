@@ -142,8 +142,7 @@ class PGBlockPostText
     endif;
     if (!empty($wrapperTag)) :
 ?>
-      <<?php echo pg_tag_escape($wrapperTag); ?>
-        class="<?php echo esc_attr($blockId); ?> <?php echo esc_attr($wrapperClass); ?>" id="<?php echo esc_attr($textId); ?>"
+      <<?php echo pg_tag_escape($wrapperTag); ?> class="<?php echo esc_attr($blockId); ?> <?php echo esc_attr($wrapperClass); ?>" id="<?php echo esc_attr($textId); ?>"
         <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>"
         <?php endif; ?> <?php if (!empty($tooltipRules)): ?> data-tooltip="<?php echo esc_attr(json_encode($tooltipRules)) ?>"
         <?php endif; ?> <?php if (!empty($tiltRules)): ?> data-tilt="<?php echo esc_attr(json_encode($tiltRules)) ?>"
@@ -167,7 +166,9 @@ class PGBlockPostText
       </<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
     endif;
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $BlockPostGrid = new PGBlockPostText();

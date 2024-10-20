@@ -490,6 +490,10 @@
   height: 5rem;
 }
 
+.h-40 {
+  height: 10rem;
+}
+
 .h-5 {
   height: 1.25rem;
 }
@@ -984,6 +988,10 @@
 
 .rounded-\[0\.25rem\] {
   border-radius: 0.25rem;
+}
+
+.rounded-\[3px\] {
+  border-radius: 3px;
 }
 
 .rounded-\[6px\] {
@@ -1610,6 +1618,16 @@
   padding-bottom: 10px;
 }
 
+.py-\[3px\] {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.py-\[7px\] {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1737,6 +1755,10 @@
 .\!text-3xl {
   font-size: 1.875rem !important;
   line-height: 2.25rem !important;
+}
+
+.\!text-\[11px\] {
+  font-size: 11px !important;
 }
 
 .\!text-\[13px\] {

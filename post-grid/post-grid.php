@@ -3,7 +3,7 @@
 Plugin Name: Post Grid Gutenberg Blocks
 Plugin URI: https://comboblocks.com/
 Description: Post Grid is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 2.2.96
+Version: 2.2.97
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -28,7 +28,7 @@ if (!class_exists('PostGrid')) {
       define('post_grid_plugin_dir', plugin_dir_path(__FILE__));
       define('post_grid_plugin_basename', plugin_basename(__FILE__));
       define('post_grid_plugin_name', 'Combo Blocks');
-      define('post_grid_version', '2.2.96');
+      define('post_grid_version', '2.2.97');
       define('post_grid_server_url', 'https://pickplugins.com/demo/post-grid/');
 
 
@@ -38,6 +38,8 @@ if (!class_exists('PostGrid')) {
       $postGridCss = [];
       $postGridCssY = [];
       $postGridScriptData = [];
+      $postGridScriptData['siteUrl'] = get_bloginfo('url');
+
       $postGridFonts = [];
 
 
@@ -298,6 +300,9 @@ if (!class_exists('PostGrid')) {
       if (!in_array('post-grid/social-share', $disabled)) {
         require_once(post_grid_plugin_dir . 'includes/blocks/social-share/index.php');
       }
+      if (!in_array('post-grid/reactions', $disabled)) {
+        require_once(post_grid_plugin_dir . 'includes/blocks/reactions/index.php');
+      }
       if (!in_array('post-grid/breadcrumb', $disabled)) {
         require_once(post_grid_plugin_dir . 'includes/blocks/breadcrumb/index.php');
       }
@@ -339,6 +344,12 @@ if (!class_exists('PostGrid')) {
       }
       if (!in_array('post-grid/team-showcase', $disabled)) {
         require_once(post_grid_plugin_dir . 'includes/blocks/team-showcase/index.php');
+      }
+      if (!in_array('post-grid/terms-showcase', $disabled)) {
+        require_once(post_grid_plugin_dir . 'includes/blocks/terms-showcase/index.php');
+      }
+      if (!in_array('post-grid/user-showcase', $disabled)) {
+        require_once(post_grid_plugin_dir . 'includes/blocks/user-showcase/index.php');
       }
 
 
@@ -468,9 +479,9 @@ if (!class_exists('PostGrid')) {
       if (!in_array('post-grid/woo-product-tabs', $disabled)) {
         require_once(post_grid_plugin_dir . 'includes/blocks/woo-product-tabs/index.php');
       }
-      if (!in_array('post-grid/woo-breadcrumb', $disabled)) {
-        require_once(post_grid_plugin_dir . 'includes/blocks/woo-breadcrumb/index.php');
-      }
+      // if (!in_array('post-grid/woo-breadcrumb', $disabled)) {
+      //   require_once(post_grid_plugin_dir . 'includes/blocks/woo-breadcrumb/index.php');
+      // }
       if (!in_array('post-grid/post-comments', $disabled)) {
         require_once(post_grid_plugin_dir . 'includes/blocks/post-comments/index.php');
       }

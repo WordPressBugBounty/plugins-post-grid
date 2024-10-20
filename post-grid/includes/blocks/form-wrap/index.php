@@ -84,7 +84,9 @@ class PGBlockFormWrap
       <div class="<?php echo esc_attr($blockId); ?>-responses pg-form-responses" style="display: none;"></div>
     </div>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $BlockPostGrid = new PGBlockFormWrap();

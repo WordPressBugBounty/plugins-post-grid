@@ -86,7 +86,9 @@ class PGBlockMasonryWrap
 			<?php echo wp_kses_post($content) ?>
 		</div>
 <?php
-		return ob_get_clean();
+		$html = ob_get_clean();
+		$cleanedHtml = post_grid_clean_html($html);
+		return $cleanedHtml;
 	}
 }
 $BlockPostGrid = new PGBlockMasonryWrap();

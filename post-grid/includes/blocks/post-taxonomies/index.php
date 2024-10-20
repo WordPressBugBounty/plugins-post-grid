@@ -236,7 +236,9 @@ class PGBlockPostTaxonomies
       <?php endif; ?>
     </<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $PGBlockPostTaxonomies = new PGBlockPostTaxonomies();

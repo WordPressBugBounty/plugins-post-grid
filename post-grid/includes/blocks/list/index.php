@@ -71,11 +71,7 @@ class PGBlockList
     ob_start();
     if (!empty($wrapperTag)) :
 ?>
-      <<?php echo pg_tag_escape($wrapperTag); ?> class="
-                    <?php echo esc_attr($blockId); ?>
-                    <?php echo esc_attr($wrapperClass); ?>
-                    <?php echo esc_attr($blockAlign); ?>" <?php if ($itemReversed) { ?> reversed <?php } ?> <?php if ($itemStart) { ?> start="<?php echo esc_attr($itemStart); ?>"
-        <?php   } ?>>
+      <<?php echo pg_tag_escape($wrapperTag); ?> class="<?php echo esc_attr($blockId); ?> <?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockAlign); ?>" <?php if ($itemReversed) { ?> reversed <?php } ?> <?php if ($itemStart) { ?> start="<?php echo esc_attr($itemStart); ?>" <?php } ?>>
         <?php
         if (!empty($items))
           foreach ($items as $index => $item) {
@@ -107,7 +103,11 @@ class PGBlockList
     endif;
     ?>
 <?php
-    return ob_get_clean();
+
+
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $PGBlockList = new PGBlockList();

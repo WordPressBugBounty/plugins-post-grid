@@ -24,6 +24,7 @@ class PGBlockPostQuery
     wp_enqueue_style('font-awesome-5');
     global $postGridCssY;
     global $postGridScriptData;
+    global $postGridPrams;
     global $PGPostQuery;
     global $PGBlockPostQuery;
     $blockId = isset($attributes['blockId']) ? $attributes['blockId'] : '';
@@ -58,14 +59,22 @@ class PGBlockPostQuery
     $overideGET = isset($queryArgs['overideGET']) ? $queryArgs['overideGET'] : false;
     $parsed_block = isset($block->parsed_block) ? $block->parsed_block : [];
     $innerBlocks = isset($parsed_block['innerBlocks']) ? $parsed_block['innerBlocks'] : [];
-    $postGridScriptData[$postGridId]['queryArgs'] = isset($queryArgs['items']) ? $queryArgs['items'] : [];
-    $postGridScriptData[$postGridId]['layout']['rawData'] = serialize_blocks($innerBlocks);
+    $postGridScriptData['queryArgs'] = isset($queryArgs['items']) ? $queryArgs['items'] : [];
+    $postGridScriptData['layout']['rawData'] = serialize_blocks($innerBlocks);
+    $postGridPrams[$postGridId]['queryArgs'] = isset($queryArgs['items']) ? $queryArgs['items'] : [];
+    $postGridPrams[$postGridId]['layout']['rawData'] = serialize_blocks($innerBlocks);
+
+
     $query_args = post_grid_parse_query_prams(isset($queryArgs['items']) ? $queryArgs['items'] : []);
     if ($overideGET) {
       if (!empty($query_args)) {
         foreach ($query_args as $query_key => $query_arg) {
-          if (isset($_GET[$query_key])) {
-            $query_args[$query_key] = $_GET[$query_key];
+
+          //var_dump($_GET['_' . $query_key]);
+
+
+          if (isset($_GET['_' . $query_key])) {
+            $query_args[$query_key] = $_GET['_' . $query_key];
           } else {
             $query_args[$query_key] = $query_arg;
           }
@@ -91,6 +100,9 @@ class PGBlockPostQuery
     }
     $posts = [];
     $responses = [];
+
+
+
     $PGPostQuery = new WP_Query($query_args);
     $blockArgs = [
       'blockId' => $blockId,
@@ -99,11 +111,17 @@ class PGBlockPostQuery
       ],
       'noPosts' => false
     ];
+
+
+
     ob_start();
 ?>
     <?php
     if (!$itemsWrapExcluded) :
     ?>
+
+
+
       <div class="loop-loading"></div>
       <div class="<?php echo esc_attr($blockId); ?> pg-post-query items-loop" id="items-loop-<?php echo esc_attr($blockId); ?>" data-blockargs="<?php echo esc_attr(json_encode($blockArgs)); ?>">
       <?php
@@ -163,7 +181,9 @@ class PGBlockPostQuery
     <?php
       endif; ?>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $BlockPostGrid = new PGBlockPostQuery();

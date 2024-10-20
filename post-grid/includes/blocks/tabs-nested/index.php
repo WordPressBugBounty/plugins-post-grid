@@ -130,7 +130,7 @@ class PGBlockTabs
         ?>
       </div>
       <div class='panels-wrap'>
-        <?php echo wp_kses_post($content); ?>
+        <?php echo ($content); ?>
       </div>
       <div class="progress">
         <div class="progress-fill"></div>
@@ -139,7 +139,9 @@ class PGBlockTabs
     <?php
     ?>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $BlockPostGrid = new PGBlockTabs();

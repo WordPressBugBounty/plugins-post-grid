@@ -43,6 +43,8 @@ class PGBlockUserFields
     $fieldLinkToMeta = isset($fieldOptions['linkToMeta']) ? $fieldOptions['linkToMeta'] : '';
     $fieldLinkTarget = isset($fieldOptions['linkTarget']) ? $fieldOptions['linkTarget'] : '';
     $fieldAvatarSize = isset($fieldOptions['avatarSize']) ? $fieldOptions['avatarSize'] : '';
+    $fieldDefaultAvatar = isset($fieldOptions['defaultAvatar']) ? $fieldOptions['defaultAvatar'] : '';
+    $fieldAvatarRating = isset($fieldOptions['avatarRating']) ? $fieldOptions['avatarRating'] : '';
     $fieldDateFormat = isset($fieldOptions['dateFormat']) ? $fieldOptions['dateFormat'] : '';
     $fieldCustomUrl = isset($fieldOptions['customUrl']) ? $fieldOptions['customUrl'] : '';
     $fieldPrefix = isset($fieldOptions['prefix']) ? $fieldOptions['prefix'] : '';
@@ -142,8 +144,10 @@ class PGBlockUserFields
         <?php echo wp_kses_post($fontIconHtml); ?>
       <?php endif; ?>
       <?php if (!empty($fieldLink)) : ?>
-        <a <?php if ($fieldLinkTo == 'authorMail') : ?> href="<?php echo esc_url('mailto:' . $fieldLink); ?>" <?php else : ?> href="<?php echo esc_url($fieldLink); ?>" <?php endif; ?> target="<?php echo esc_attr($fieldLinkTarget); ?>" <?php //echo $linkAttrStr; 
-                                                                                                                                                                                                                                            ?>>
+        <a <?php if ($fieldLinkTo == 'authorMail') : ?> href="<?php echo esc_url('mailto:' . $fieldLink); ?>" <?php else : ?>
+          href="<?php echo esc_url($fieldLink); ?>" <?php endif; ?> target="<?php echo esc_attr($fieldLinkTarget); ?>"
+          <?php //echo $linkAttrStr; 
+          ?>>
         <?php endif; ?>
         <?php if (!empty($prefixText) && $prefixPosition == 'beforeField') : ?>
           <span class="<?php echo esc_attr($prefixClass); ?>">
@@ -156,10 +160,25 @@ class PGBlockUserFields
           <span class="fieldVal">
             <?php echo wp_kses_post(get_the_author_meta($metaKey, $userId)) ?>
           </span>
-        <?php
+          <?php
+        elseif ($metaKey == 'roles') :
+
+          $metaValue = get_the_author_meta('roles', $userId);
+          if (is_array($metaValue)):
+          ?>
+            <span class="fieldVal">
+              <?php echo wp_kses_post(implode(', ', $metaValue)); ?>
+            </span>
+          <?php
+          endif;
+
+
+
         elseif ($metaKey == 'avatar') :
-        ?>
-          <img class="fieldVal" src="<?php echo esc_url(get_avatar_url($userId, ['size' => $fieldAvatarSize])) ?>" alt=" <?php echo esc_attr(get_the_author_meta('display_name', $userId)) ?> " />
+          ?>
+          <img class="fieldVal"
+            src="<?php echo esc_url(get_avatar_url($userId, ['size' => $fieldAvatarSize, 'default' => $fieldDefaultAvatar, 'rating' => $fieldAvatarRating])) ?>"
+            alt=" <?php echo esc_attr(get_the_author_meta('display_name', $userId)) ?> " />
           <?php
         elseif ($metaKey == 'custom') :
           if ($customFieldType == 'imageId') {
@@ -169,14 +188,24 @@ class PGBlockUserFields
             $height = isset($attachment_metadata['height']) ? $attachment_metadata['height'] : '';
             $attachment_url = wp_get_attachment_image_url($thumb_id, $customFieldSize);
           ?>
-            <img class="fieldVal" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" src="<?php echo esc_url($attachment_url) ?>" alt="<?php echo esc_attr(get_the_author_meta('display_name', $userId)) ?> " />
-          <?php
+            <img class="fieldVal" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>"
+              src="<?php echo esc_url($attachment_url) ?>"
+              alt="<?php echo esc_attr(get_the_author_meta('display_name', $userId)) ?> " />
+            <?php
           } else {
-          ?>
-            <span class="fieldVal">
-              <?php echo wp_kses_post(get_user_meta($userId, $customField, true)) ?>
-            </span>
+
+
+
+            if (!empty($customField)) {
+              $metaValue = get_user_meta($userId, $customField, true);
+
+            ?>
+              <span class="fieldVal">
+                <?php echo wp_kses_post($metaValue)
+                ?>
+              </span>
         <?php
+            }
           }
         endif;
         ?>
@@ -198,7 +227,9 @@ class PGBlockUserFields
       <?php endif; ?>
     </<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $PGBlockUserFields = new PGBlockUserFields();

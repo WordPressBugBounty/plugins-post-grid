@@ -87,6 +87,10 @@ export function setupAccordion() {
 								content.style.display = "none";
 							}
 							accordionHeader.addEventListener("click", (event) => {
+
+
+
+								event.stopImmediatePropagation();
 								event.preventDefault();
 								accordionHeader.classList.toggle("accordion-header-active");
 								content.style.height = "auto";

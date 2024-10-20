@@ -90,7 +90,9 @@ class PGBlockFormFieldHcaptcha
       </div>
     </div>
 <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    $cleanedHtml = post_grid_clean_html($html);
+    return $cleanedHtml;
   }
 }
 $PGBlockFormFieldHcaptcha = new PGBlockFormFieldHcaptcha();

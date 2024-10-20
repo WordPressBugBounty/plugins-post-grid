@@ -65,10 +65,12 @@ class PGBlockTabsNestedItem
 		ob_start();
 ?>
 		<div class="pg-tabs-panel  <?php echo ($uid == $activeTab) ? '' : '' ?>" data-tab-id="<?php echo esc_attr($uid); ?>" hidden="true" aria-hidden="true" role="tabpanel" aria-labelledby="<?php echo esc_attr($uid); ?>">
-			<?php echo wp_kses_post($content); ?>
+			<?php echo ($content); ?>
 		</div>
 <?php
-		return ob_get_clean();
+		$html = ob_get_clean();
+		$cleanedHtml = post_grid_clean_html($html);
+		return $cleanedHtml;
 	}
 }
 $BlockPostGrid = new PGBlockTabsNestedItem();
