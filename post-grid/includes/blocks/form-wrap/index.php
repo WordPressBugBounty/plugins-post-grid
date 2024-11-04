@@ -20,12 +20,13 @@ class PGBlockFormWrap
   // front-end output from the gutenberg editor 
   function theHTML($attributes, $content, $block)
   {
-    if (has_block('post-grid/form-wrap')) {
-      wp_enqueue_script('pg_block_scripts');
-      wp_enqueue_style('pg_block_styles');
-    }
+
     global $postGridCssY;
     global $PGFormProps;
+    global $postGridBlocksVars;
+
+
+
     $popupId = isset($block->context['post-grid/popupId']) ? $block->context['post-grid/popupId'] : '';
     $post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';
     $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
@@ -35,9 +36,10 @@ class PGBlockFormWrap
     $blockAlign = isset($attributes['align']) ? 'align' . $attributes['align'] : '';
     $visible = isset($attributes['visible']) ? $attributes['visible'] : [];
     $rules = isset($visible['rules']) ? $visible['rules'] : [];
-    $onSubmit = isset($attributes['onSubmit']) ? $attributes['onSubmit'] : '';
-    $onProcess = isset($attributes['onProcess']) ? $attributes['onProcess'] : '';
-    $afterSubmit = isset($attributes['afterSubmit']) ? $attributes['afterSubmit'] : '';
+    $onSubmit = isset($attributes['onSubmit']) ? $attributes['onSubmit'] : [];
+    $onProcess = isset($attributes['onProcess']) ? $attributes['onProcess'] : [];
+    $afterSubmit = isset($attributes['afterSubmit']) ? $attributes['afterSubmit'] : [];
+    $submitTriggers = isset($attributes['submitTriggers']) ? $attributes['submitTriggers'] : [];
     $form = isset($attributes['form']) ? $attributes['form'] : [];
     $formOptions = isset($form['options']) ? $form['options'] : '';
     $formClass = isset($formOptions['class']) ? $formOptions['class'] : '';
@@ -64,9 +66,17 @@ class PGBlockFormWrap
       $isVisible = post_grid_visible_parse($visible);
       if (!$isVisible) return;
     }
+
+
+
+
+
+
+
     // //* Visible condition
     ob_start();
 ?>
+
     <div
       class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>">
       <form class="<?php echo esc_attr($formClass); ?> " id="<?php echo esc_attr($blockId); ?>"
@@ -75,7 +85,11 @@ class PGBlockFormWrap
         data-formArgs='<?php echo esc_attr(json_encode($formArgs)); ?>' <?php if (!empty($onProcess)) : ?>
         data-onProcessArgs='<?php echo esc_attr(json_encode($onProcess)); ?>' <?php endif; ?>
         <?php if (!empty($afterSubmit)) : ?> data-afterSubmitArgs='<?php echo esc_attr(json_encode($afterSubmit)); ?>'
-        <?php endif; ?> <?php if (!empty($visible)) : ?> data-pgfw-visible='<?php echo esc_attr(json_encode($visible)); ?>'
+        <?php endif; ?>
+        <?php if (!empty($submitTriggers)) : ?> data-submittriggers='<?php echo esc_attr(json_encode($submitTriggers)); ?>'
+        <?php endif; ?>
+
+        <?php if (!empty($visible)) : ?> data-pgfw-visible='<?php echo esc_attr(json_encode($visible)); ?>'
         <?php endif; ?>>
         <?php echo ($content) ?>
         <?php wp_nonce_field('wp_rest', '_wpnonce'); ?>
@@ -83,7 +97,17 @@ class PGBlockFormWrap
       <div class="<?php echo esc_attr($blockId); ?>-loading pg-form-loading" style="display: none;">Loading...</div>
       <div class="<?php echo esc_attr($blockId); ?>-responses pg-form-responses" style="display: none;"></div>
     </div>
+
+
 <?php
+
+    if (has_block('post-grid/form-wrap')) {
+
+      wp_enqueue_style('pg_block_styles');
+      wp_enqueue_script('pg_block_scripts');
+      wp_localize_script('pg_block_scripts', 'post_grid_blocks_vars', $postGridBlocksVars);
+    }
+
     $html = ob_get_clean();
     $cleanedHtml = post_grid_clean_html($html);
     return $cleanedHtml;

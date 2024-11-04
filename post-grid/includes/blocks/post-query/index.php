@@ -70,17 +70,21 @@ class PGBlockPostQuery
       if (!empty($query_args)) {
         foreach ($query_args as $query_key => $query_arg) {
 
-          //var_dump($_GET['_' . $query_key]);
 
 
           if (isset($_GET['_' . $query_key])) {
-            $query_args[$query_key] = $_GET['_' . $query_key];
+
+            $query_args[$query_key] = isset($_GET['_' . $query_key]) ? $_GET['_' . $query_key] : $query_arg;
           } else {
             $query_args[$query_key] = $query_arg;
           }
         }
       }
     }
+
+
+
+
     $query_args = apply_filters("pgb_post_query_prams", $query_args, ["blockId" => $blockId]);
     if (array_key_exists('post_parent', $query_args)) {
       $post_parent_value = $query_args['post_parent'];
@@ -100,6 +104,9 @@ class PGBlockPostQuery
     }
     $posts = [];
     $responses = [];
+
+
+
 
 
 
@@ -123,7 +130,8 @@ class PGBlockPostQuery
 
 
       <div class="loop-loading"></div>
-      <div class="<?php echo esc_attr($blockId); ?> pg-post-query items-loop" id="items-loop-<?php echo esc_attr($blockId); ?>" data-blockargs="<?php echo esc_attr(json_encode($blockArgs)); ?>">
+      <div class="<?php echo esc_attr($blockId); ?> pg-post-query items-loop"
+        id="items-loop-<?php echo esc_attr($blockId); ?>" data-blockargs="<?php echo esc_attr(json_encode($blockArgs)); ?>">
       <?php
     endif;
       ?>
@@ -147,6 +155,9 @@ class PGBlockPostQuery
             //look to see if your block is in the post content -> if yes continue past it if no then render block as normal
             $html .= render_block($block);
           }
+
+
+
       ?>
           <?php if ($itemWrapExcluded) : ?>
           <?php else : ?>
@@ -162,7 +173,9 @@ class PGBlockPostQuery
               echo esc_attr($odd_even_class);
             } ?> ">
             <?php endif; ?>
-            <?php echo wp_kses_post($html);
+            <?php
+
+            echo ($html);
             ?>
             <?php if ($itemWrapExcluded) : ?>
             <?php else : ?>

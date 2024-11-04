@@ -143,7 +143,7 @@ class PGBlockContentSlider
 				</div>
 				<div class="splide__track">
 					<ul class="splide__list">
-						<?php echo wp_kses_post($content) ?>
+						<?php echo ($content) ?>
 					</ul>
 				</div>
 				<ul class="splide__pagination "></ul>

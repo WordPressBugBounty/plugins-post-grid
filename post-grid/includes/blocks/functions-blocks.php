@@ -174,6 +174,40 @@ function post_grid_parse_css_class($classStr, $obj)
       } elseif (strpos($item, 'postStatus') !== false) {
         $poststatus = get_post_status();
         $newArr[$index] = str_replace('postStatus', $poststatus, $item);
+      } elseif (strpos($item, 'tutorLmsTotalEnrolled') !== false) {
+        $TotalEnrolled = 0;
+        if (function_exists("tutor_utils")) {
+          $TotalEnrolled = tutor_utils()->count_enrolled_users_by_course();
+        }
+        $newArr[$index] = str_replace('tutorLmsTotalEnrolled', $TotalEnrolled, $item);
+      } elseif (strpos($item, 'tutorLmsCourseDuration') !== false) {
+        $course_duration = 0;
+        if (function_exists("get_tutor_course_duration_context")) {
+          $course_duration = get_tutor_course_duration_context();
+        }
+        $newArr[$index] = str_replace('tutorLmsCourseDuration', $course_duration, $item);
+      } elseif (strpos($item, 'tutorLmsLastUpdated') !== false) {
+        $modified_date = get_the_modified_date(get_option('date_format'));
+
+        $newArr[$index] = str_replace('tutorLmsLastUpdated', $modified_date, $item);
+      } elseif (strpos($item, 'tutorLmsCourseLevel') !== false) {
+        $course_level = get_tutor_course_level(get_the_ID());
+
+        $newArr[$index] = str_replace('tutorLmsCourseLevel', $course_level, $item);
+      } elseif (strpos($item, 'tutorLmsCourseProgressTotal') !== false) {
+        $course_id           = get_the_ID();
+        $course_progress     = tutor_utils()->get_course_completed_percent($course_id, 0, true);
+        $total_count = isset($course_progress['total_count']) ? $course_progress['total_count'] : '';
+        $newArr[$index] = str_replace('tutorLmsCourseProgressTotal', $total_count, $item);
+      } elseif (strpos($item, 'tutorLmsCourseProgressCompleted') !== false) {
+        $course_progress     = tutor_utils()->get_course_completed_percent($course_id, 0, true);
+        $completed_count = isset($course_progress['completed_count']) ? $course_progress['completed_count'] : '';
+        $newArr[$index] = str_replace('tutorLmsCourseProgressCompleted', $completed_count, $item);
+      } elseif (strpos($item, 'tutorLmsCourseLessonCount') !== false) {
+        $course_id           = get_the_ID();
+
+        $lesson_count     = tutor_utils()->get_lesson_count_by_course($course_id);
+        $newArr[$index] = str_replace('tutorLmsCourseLessonCount', $lesson_count, $item);
       } elseif (strpos($item, 'authorId') !== false) {
         $postauthor = get_the_author_meta($field = 'ID');
         $newArr[$index] = str_replace('authorId', $postauthor, $item);
@@ -807,8 +841,8 @@ function post_grid_parse_query_users($queryArgs)
     } elseif ($id == 'meta_type_key') {
       $query_args['meta_type_key'] = $val;
     } elseif ($id == 'meta_key') {
-      $query_args['meta_key'] =
-        !empty($val) ? explode(',', $val) : [];
+
+      $query_args['meta_key'] = $val;
     } elseif ($id == 'meta_value') {
       $query_args['meta_value'] =
         !empty($val) ? explode(',', $val) : [];
@@ -873,7 +907,6 @@ function post_grid_global_vars()
 {
   global $postGridScriptData;
 
-  //var_dump($postGridScriptData);
   //wp_enqueue_script('pg_block_scripts');
 
   // wp_register_script('post-grid-global-vars', '', array(), '', true);
@@ -981,7 +1014,19 @@ function post_grid_block_categories($categories, $context)
 //     return true;
 // }
 //add_action('wp_footer', 'post_grid_page_styles', 80);
-add_action('wp_enqueue_scripts', 'post_grid_page_styles');
+
+
+if (is_fse_enabled()) {
+  add_action('wp_enqueue_scripts', 'post_grid_page_styles');
+} else {
+  add_action('get_footer', 'post_grid_page_styles', 99);
+}
+
+
+
+
+
+
 function post_grid_page_styles()
 {
   global $postGridFonts;
@@ -1086,6 +1131,15 @@ function post_grid_page_styles()
   endif;
 }
 add_action('wp_footer', 'post_grid_global_json_ld', 80);
+
+
+
+
+
+
+
+
+
 function post_grid_global_json_ld()
 {
   global $postGridLdJson;
@@ -1102,7 +1156,21 @@ function post_grid_global_json_ld()
   }
 }
 //add_action('wp_footer', 'post_grid_global_styles', 80);
-add_action('wp_enqueue_scripts', 'post_grid_global_styles');
+//add_action('wp_enqueue_scripts', 'post_grid_global_styles');
+
+
+if (is_fse_enabled()) {
+  add_action('wp_enqueue_scripts', 'post_grid_global_styles');
+} else {
+  add_action('get_footer', 'post_grid_global_styles', 99);
+}
+
+
+
+
+
+
+
 function post_grid_global_styles()
 {
   global $postGridFonts;
@@ -1198,6 +1266,9 @@ function post_grid_global_styles()
     }
     $reponsiveCss .= '}';
   }
+
+
+
   ?>
   <?php if (!empty($reponsiveCss)):
     wp_enqueue_style(
@@ -1227,6 +1298,8 @@ function post_grid_blocks_styles()
                   if ('font-family' == $att && !empty($val)) {
                     $postGridFonts[$val] = $val;
                   }
+
+
                   // $reponsiveCssGroups[$device][$selector][$att] = $val;
                   if (is_string($val)) {
                     $reponsiveCssGroups[$device][$selector][$att] = str_replace("u0022", '"', $val);
@@ -1286,7 +1359,9 @@ function post_grid_blocks_styles()
     }
     $reponsiveCss .= '}';
   }
-  //error_log($reponsiveCss);
+
+
+
   wp_enqueue_style(
     'post-grid-blocks-styles',
     post_grid_plugin_url . 'assets/block-css/block-styles.css'
@@ -1295,8 +1370,24 @@ function post_grid_blocks_styles()
     wp_add_inline_style('post-grid-blocks-styles', $reponsiveCss);
   endif;
 }
-add_action('get_footer', 'post_grid_blocks_styles', 99);
+
+if (is_fse_enabled()) {
+  add_action('wp_enqueue_scripts', 'post_grid_blocks_styles', 99);
+} else {
+  //add_action('wp_footer', 'post_grid_blocks_styles', 99);
+  add_action('get_footer', 'post_grid_blocks_styles', 99);
+}
+
+
+
 add_action('elementor/editor/init', 'post_grid_blocks_styles');
+
+function is_fse_enabled()
+{
+  // Check if the current theme supports `block-templates` which indicates FSE compatibility
+  return function_exists('wp_is_block_theme') && wp_is_block_theme();
+}
+
 function post_grid_blocks_styles_fonts()
 {
   global $postGridCssY;
@@ -1421,12 +1512,23 @@ function post_grid_custom_fonts()
   wp_add_inline_style('post-grid-custom-fonts', $faceStr);
 }
 //add_action('wp_footer', 'post_grid_custom_fonts', 999);
-add_action('wp_enqueue_scripts', 'post_grid_custom_fonts');
+//add_action('wp_enqueue_scripts', 'post_grid_custom_fonts');
+
+if (is_fse_enabled()) {
+  add_action('wp_enqueue_scripts', 'post_grid_custom_fonts');
+} else {
+  add_action('get_footer', 'post_grid_custom_fonts', 99);
+}
+
+
+
+
+
+
 function post_grid_google_fonts()
 {
   $post_grid_block_editor = get_option('post_grid_block_editor');
   $googleFonts = isset($post_grid_block_editor['googleFonts']) ? $post_grid_block_editor['googleFonts'] : [];
-  //var_dump($googleFonts);
   $fonts = '';
   $fontsArr = [];
   if (!empty($googleFonts)) {
@@ -2867,10 +2969,8 @@ function post_grid_visible_parse($visible)
       if ($id == 'urlPrams') {
         $value = isset($arg['value']) ? $arg['value'] : '';
         $prams = explode(",", $value);
-        //var_dump($value);
         $queryArray = array();
         parse_str($_SERVER['QUERY_STRING'], $queryArray);
-        //var_dump($queryArray);
         $pramExist = !empty(array_intersect($prams, array_keys($queryArray)));
         if ($pramExist) {
           $isAccess = true;
@@ -2879,6 +2979,29 @@ function post_grid_visible_parse($visible)
           $conditions[$i]['args'][$j] = $isAccess;
         }
       }
+      if ($id == 'urlPramsVal') {
+        $value = isset($arg['value']) ? $arg['value'] : '';
+
+        $key = isset($arg['key']) ? $arg['key'] : '';
+        $prams = explode(",", $key);
+
+
+        $queryArray = array();
+        parse_str($_SERVER['QUERY_STRING'], $queryArray);
+        $pramExist = !empty(array_intersect($prams, array_keys($queryArray)));
+
+
+
+        if ($pramExist && $queryArray[$key] == $value) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+
+
+
       if ($id == 'urlString') {
         $value = isset($arg['value']) ? $arg['value'] : '';
         $compare = isset($arg['compare']) ? $arg['compare'] : '';
@@ -2970,7 +3093,6 @@ function post_grid_visible_parse($visible)
         $value = isset($arg['value']) ? (int) $arg['value'] : '';
         $compare = isset($arg['compare']) ? $arg['compare'] : '=';
 
-        //var_dump($compare);
 
         if ($compare == '=') {
           if ($comments_count == $value) {
@@ -3033,10 +3155,6 @@ function post_grid_visible_parse($visible)
 
         $value = isset($arg['value']) ?  $arg['value'] : '';
         $compare = isset($arg['compare']) ? $arg['compare'] : '=';
-
-        // var_dump($metaKey);
-        // var_dump($value);
-        // var_dump($metaValue);
 
         if ($compare == '=') {
           if ($metaValue == $value) {
@@ -3542,6 +3660,107 @@ function post_grid_visible_parse($visible)
           $conditions[$i]['args'][$j] = $isAccess;
         }
       }
+      if ($id == 'tutorLmsIsErolled') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+
+        global $is_enrolled;
+
+        if ($is_enrolled) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+      if ($id == 'tutorLmsIsPublicCourse') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+        $is_public            = get_post_meta(get_the_ID(), '_tutor_is_public_course', true) == 'yes';
+
+
+        if ($is_public) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+      if ($id == 'tutorLmsIsPrivileged') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+        $is_privileged_user = false;
+        if (function_exists("tutor_utils")) {
+          $is_privileged_user   = tutor_utils()->has_user_course_content_access();
+        }
+
+        if ($is_privileged_user) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+      if ($id == 'tutorLmsIsPurchasable') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+        $is_purchasable = false;
+        if (function_exists("tutor_utils")) {
+          $is_purchasable = tutor_utils()->is_course_purchasable();
+        }
+
+        if ($is_purchasable) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+      if ($id == 'tutorLmsIsCompletedCourse') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+        $is_completed_course = false;
+        if (function_exists("tutor_utils")) {
+          $is_completed_course = tutor_utils()->is_completed_course();
+        }
+        if ($is_completed_course) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+      if ($id == 'tutorLmsCanRetakeCourse') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+        $retake_course = false;
+        if (function_exists("tutor_utils")) {
+          $retake_course       = tutor_utils()->can_user_retake_course();
+        }
+        if ($retake_course) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+      if ($id == 'tutorLmsIsCourseFullyBooked') {
+        // $value = isset($arg['value']) ? $arg['value'] : '';
+        // $compare = isset($arg['compare']) ? $arg['compare'] : '=';
+        $fully_booked = false;
+        if (function_exists("tutor_utils")) {
+          $fully_booked       = tutor_utils()->is_course_fully_booked(null);
+        }
+        if ($fully_booked) {
+          $isAccess = true;
+          $conditions[$i]['args'][$j] = $isAccess;
+        } else {
+          $conditions[$i]['args'][$j] = $isAccess;
+        }
+      }
+
+
+
       if ($id == 'isSearch') {
         if (is_search()) {
           $value = isset($arg['value']) ? $arg['value'] : '';
@@ -4513,7 +4732,7 @@ function post_grid_check_sidebars()
   //global $sidebars_widgets;
   $sidebar_widgets = wp_get_sidebars_widgets();
 
-  //var_dump($sidebar_widgets);
+
 
 
   if (!empty($sidebar_widgets)):
@@ -4521,17 +4740,10 @@ function post_grid_check_sidebars()
 
       foreach ($sidebars as $widget_id) {
         //$sidebar_content = get_sidebar_content(); // Your custom function to get the content
-        var_dump($widget_id);
 
         ob_start();
         dynamic_sidebar($widget_id);
         $sidebar_html = ob_get_clean();
-
-        error_log($sidebar_html);
-
-
-
-        //var_dump($widget_instance);
       }
 
 

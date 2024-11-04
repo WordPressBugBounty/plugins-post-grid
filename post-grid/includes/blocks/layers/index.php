@@ -26,6 +26,10 @@ class PGBlockLayers
     $the_post = get_post($post_ID);
     $conditions = isset($attributes['conditions']) ? $attributes['conditions'] : [];
     $conditionsRules = isset($conditions['rules']) ? $conditions['rules'] : [];
+    $animateOn = isset($attributes['animateOn']) ? $attributes['animateOn'] : [];
+    $animateRules = isset($animateOn['rules']) ? $animateOn['rules'] : [];
+    $tilt = isset($attributes['tilt']) ? $attributes['tilt'] : [];
+    $tiltRules = isset($tilt['rules']) ? $tilt['rules'] : [];
     $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
     $wrapperOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
     $wrapperClass = isset($wrapperOptions['class']) ? $wrapperOptions['class'] : '';
@@ -72,18 +76,28 @@ class PGBlockLayers
       $isVisible = post_grid_visible_parse($visible);
       if (!$isVisible) return;
     }
+
+    if (!empty($animateRules)) {
+      wp_enqueue_style('pgpopup_animate');
+    }
+
+    if (!empty($tiltRules)) {
+      wp_enqueue_script('vanilla-tilt.min');
+    }
+
     // //* Visible condition
     ob_start();
     if ($wrapperTag == 'a') { ?>
-      <a id="<?php echo esc_attr($wrapperID); ?>" class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>" target="<?php echo esc_attr($wrapperLinkTarget); ?>" rel="<?php echo esc_attr($wrapperRel); ?>" href="<?php echo esc_url($linkUrl); ?>">
+      <a id="<?php echo esc_attr($blockId); ?>" class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>" target="<?php echo esc_attr($wrapperLinkTarget); ?>" rel="<?php echo esc_attr($wrapperRel); ?>" href="<?php echo esc_url($linkUrl); ?>">
         <?php echo ($content) ?>
       </a>
     <?php
     } else { ?>
-      <<?php echo pg_tag_escape($wrapperTag); ?> id="<?php echo esc_attr($wrapperID); ?>" class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>"
+      <<?php echo pg_tag_escape($wrapperTag); ?> id="<?php echo esc_attr($blockId); ?>" class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>"
         <?php if (!empty($conditionsRules)): ?>
-        data-conditions="<?php echo esc_attr(json_encode($conditionsRules)); ?>"
-        <?php endif; ?>>
+        data-conditions="<?php echo esc_attr(json_encode($conditionsRules)); ?>" <?php endif; ?>
+        <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>" <?php endif; ?>
+        <?php if (!empty($tiltRules)): ?> data-tilt="<?php echo esc_attr(json_encode($tiltRules)) ?>" <?php endif; ?>>
         <?php echo ($content) ?> </<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
     }

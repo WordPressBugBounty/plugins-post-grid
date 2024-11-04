@@ -82,7 +82,7 @@ class PGBlockPopup
         <span class='close' data-popup-id="<?php echo esc_attr($blockId); ?>" close-animation="<?php echo esc_attr($closeWrapAnimation); ?>">
           <?php echo wp_kses_post($closeIconHtml); ?>
         </span>
-        <?php echo wp_kses_post($content) ?>
+        <?php echo ($content) ?>
       </div>
     </div>
 <?php

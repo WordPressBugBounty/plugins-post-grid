@@ -18,26 +18,7 @@ class PGBlockImage
     );
   }
 
-  function validateImageUrl($url)
-  {
-    // Get HTTP headers
-    $headers = @get_headers($url);
 
-    // Check if the request was successful (200 OK)
-    if ($headers && strpos($headers[0], '200') !== false) {
-      // Check if the URL points to a valid image
-      return @getimagesize($url);
-    } elseif (isset($headers[0]) && strpos($headers[0], '404') !== false) {
-      error_log("Image URL is not valid. " . $url);
-      //return false;
-    } elseif (isset($headers[0]) && strpos($headers[0], '403') !== false) {
-      error_log("Image URL is not valid. " . $url);
-
-      //return false;
-    }
-
-    //return "An error occurred or the URL is unreachable.";
-  }
 
   // front-end output from the gutenberg editor 
   function theHTML($attributes, $content, $block)

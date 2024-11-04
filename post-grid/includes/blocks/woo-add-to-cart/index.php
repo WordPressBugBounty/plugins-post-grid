@@ -121,7 +121,13 @@ class PGBlockWooAddToCart
             data-quantity="<?php echo esc_attr($quantityInputQuantity); ?>" data-product_id="<?php echo esc_attr($post_ID); ?>"
             data-product_sku="<?php echo esc_attr($productSku); ?>" aria-label="<?php echo esc_attr($cartBtnRel); ?>"
             aria-describedby="<?php echo esc_attr($cartBtnRel); ?>" rel="<?php echo esc_attr($cartBtnRel); ?>"
-            href="<?php echo esc_attr($cartUrl); ?>">
+            <?php if ($cartBtnAjax):
+              //wp_enqueue_script("wc-add-to-cart");
+
+            ?>
+            <?php else: ?>
+            href="<?php echo esc_attr($cartUrl); ?>"
+            <?php endif; ?>>
             <?php if ($iconPosition == 'beforeCartText') : ?>
               <?php echo wp_kses_post($fontIconHtml); ?>
             <?php endif; ?>

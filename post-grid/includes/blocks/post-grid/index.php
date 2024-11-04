@@ -193,7 +193,7 @@ class PGBlockPostGrid
     ob_start();
 ?>
     <div class="pg-post-grid <?php echo esc_attr($containerClass); ?> <?php echo esc_attr($blockId); ?>  <?php echo esc_attr($blockAlign); ?>">
-      <?php echo wp_kses_post($content) ?>
+      <?php echo ($content) ?>
     </div>
 <?php
     $html = ob_get_clean();

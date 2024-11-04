@@ -4,10 +4,12 @@ export function setupForm() {
 		const pgFormSubmitted = new Event("pgFormSubmitted");
 		var conditions = document.querySelectorAll(`[data-conditions]`);
 		var calculations = document.querySelectorAll(`[data-calculations]`);
+		var submittriggers = document.querySelectorAll(`[data-submittriggers]`);
 
 		var conditionsSelector = [];
 		var calculationsSelector = {};
 		var calculationsFields = {};
+
 
 
 		var pgForms = document.querySelectorAll(".pg-form-wrap form");
@@ -22,6 +24,119 @@ export function setupForm() {
 				}
 			});
 		}
+
+		function addEvent(obj, evt, fn) {
+			if (obj.addEventListener) {
+				obj.addEventListener(evt, fn, false);
+			} else if (obj.attachEvent) {
+				obj.attachEvent("on" + evt, fn);
+			}
+		}
+
+
+
+
+		if (submittriggers != null) {
+			var onsubmitProceed = true;
+			var submitFormByTriggers = [];
+			submittriggers.forEach((form) => {
+
+
+
+				var formId = form.getAttribute("data-formId");
+
+				var submittriggers = form.getAttribute("data-submittriggers");
+				var submittriggersObj = JSON.parse(submittriggers);
+				var formByID = document.querySelector(`[data-formid="${formId}"]`);
+				var onprocessargs = formByID.getAttribute("data-onprocessargs");
+
+				var formargs = formByID.getAttribute("data-formargs");
+				var formargsObj = JSON.parse(formargs);
+				var fieldInfo = formargsObj.fieldInfo;
+				var onprocessargsObj = JSON.parse(onprocessargs);
+
+				var loadingWrap = document.querySelector("." + formId + "-loading");
+
+				submittriggersObj.map((item) => {
+
+					var id = item.id;
+
+
+
+
+					if (id == "onChangeForm") {
+
+						form.addEventListener("change", (event) => {
+
+							const formData = new FormData(form);
+
+							formData.append("formType", formargsObj.type);
+							formData.append("onprocessargs", JSON.stringify(onprocessargsObj));
+
+
+							submitFormByTriggers['onChangeForm'] = true;
+							loadingWrap.style.display = "block";
+							processSubmit(formId, formData);
+						})
+					}
+
+					if (id == "onChangeFields") {
+						var value = item.value;
+						var selectorHndle = document.querySelector(`[name="${value}"]`);
+						selectorHndle.addEventListener("input", (event) => {
+							submitFormByTriggers['onChangeFields'] = true;
+
+						})
+
+					}
+
+					if (id == "clickElement") {
+						var value = item.value;
+						if (value.length == 0) return;
+						var selectorHndle = document.querySelector(value);
+						selectorHndle.addEventListener("click", (event) => {
+							submitFormByTriggers['clickElement'] = true;
+
+						})
+
+					}
+
+					if (id == "onExit") {
+
+						addEvent(document, "mouseout", function (e) {
+
+
+
+
+							if (e.toElement == null && e.relatedTarget == null) {
+
+
+								e.preventDefault();
+								e.defaultPrevented;
+								var confirmationMessage = "tab close";
+								e.preventDefault();
+								submitFormByTriggers['onExit'] = true;
+
+								//return "Are you sure you want to exit?";
+								//(e || window.event).returnValue = confirmationMessage; //Gecko + IE
+								return confirmationMessage;
+
+							}
+						});
+					}
+
+
+
+
+
+				})
+
+			})
+
+
+		}
+
+
 
 
 
@@ -40,11 +155,319 @@ export function setupForm() {
 					var args = item.args
 					args.map((arg) => {
 						var selector = arg.selector
-						conditionsSelector.push(selector);
+
+						if (!conditionsSelector.includes(selector)) {
+							conditionsSelector.push(selector);
+
+						}
 					})
 				})
 			});
+
+
+			conditionsSelector.map((selectorName) => {
+
+
+				var selectorHndles = document.querySelectorAll(`[name="${selectorName}"]`);
+				if (selectorHndles == null) return;
+
+				selectorHndles.forEach((selectorHndle) => {
+
+					var targetType = selectorHndle.type;
+					var checked = selectorHndle.checked;
+					var targetValX = selectorHndle.value;
+					conditions.forEach((conditionWrap) => {
+
+						if (!checked) {
+							return;
+						}
+
+						var conditionArg = conditionWrap.getAttribute("data-conditions");
+						var conditionObj = JSON.parse(conditionArg);
+						conditionObj.map((item) => {
+							var args = item.args
+							args.map((arg) => {
+
+								var selector = arg.selector
+								var value = arg.value
+								var values = arg.values
+								var compare = arg.compare
+								if (selectorName == selector) {
+									if (compare == 'empty') {
+										if (targetValX.length == 0) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'notEmpty') {
+										if (targetValX.length > 0) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'lengthEqual') {
+										if (targetValX.length == parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'lengthGtEq') {
+										if (targetValX.length >= parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'lengthGt') {
+										if (targetValX.length > parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'lengthLtEq') {
+										if (targetValX.length <= parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'lengthLt') {
+										if (targetValX.length < parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == '>=') {
+										if (targetValX >= parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == '<=') {
+										if (targetValX <= parseInt(value)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == '=') {
+										if (value == targetValX) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == '!=') {
+										if (value != targetValX) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'contain') {
+										if (targetValX.includes(values)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'notContain') {
+										if (!targetValX.includes(values)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'between') {
+										if (parseInt(targetValX) > values[0] && parseInt(targetValX) < values[1]) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'exist') {
+										if (targetValX.includes(values)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+									if (compare == 'regexp') {
+
+										var pattern = new RegExp(value);
+										if (targetValX.match(pattern)) {
+											conditionWrap.style.display = "block";
+										} else {
+											conditionWrap.style.display = "none";
+										}
+									}
+								}
+
+							})
+
+						})
+
+					});
+
+					selectorHndle.addEventListener("input", (event) => {
+
+						var targetVal = event.target.value;
+
+
+
+						conditions.forEach((conditionWrap) => {
+							var conditionArg = conditionWrap.getAttribute("data-conditions");
+							var conditionObj = JSON.parse(conditionArg);
+							conditionObj.map((item) => {
+								var args = item.args
+								args.map((arg) => {
+
+									var selector = arg.selector
+									var value = arg.value
+									var values = arg.values
+									var compare = arg.compare
+									if (selectorName == selector) {
+										if (compare == 'empty') {
+											if (targetVal.length == 0) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'notEmpty') {
+											if (targetVal.length > 0) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'lengthEqual') {
+											if (targetVal.length == parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'lengthGtEq') {
+											if (targetVal.length >= parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'lengthGt') {
+											if (targetVal.length > parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'lengthLtEq') {
+											if (targetVal.length <= parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'lengthLt') {
+											if (targetVal.length < parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == '>=') {
+											if (targetVal >= parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == '<=') {
+											if (targetVal <= parseInt(value)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == '=') {
+											if (value == targetVal) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == '!=') {
+											if (value != targetVal) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'contain') {
+											if (targetVal.includes(values)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'notContain') {
+											if (!targetVal.includes(values)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'between') {
+											if (parseInt(targetVal) > values[0] && parseInt(targetVal) < values[1]) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'exist') {
+											if (targetVal.includes(values)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+										if (compare == 'regexp') {
+
+											var pattern = new RegExp(value);
+											if (targetVal.match(pattern)) {
+												conditionWrap.style.display = "block";
+											} else {
+												conditionWrap.style.display = "none";
+											}
+										}
+									}
+
+								})
+
+							})
+
+						});
+
+
+					})
+				})
+
+
+
+			})
 		}
+
+
+
+
+
 		if (calculations != null) {
 			calculations.forEach((calculationsWrap) => {
 				var rules = calculationsWrap.getAttribute("data-calculations");
@@ -106,185 +529,7 @@ export function setupForm() {
 
 		}
 
-		conditionsSelector.map((selectorName) => {
 
-			var selectorHndles = document.querySelectorAll(`[name="${selectorName}"]`);
-			if (selectorHndles == null) return;
-
-			selectorHndles.forEach((selectorHndle) => {
-				selectorHndle.addEventListener("input", (event) => {
-
-					var targetVal = event.target.value;
-
-
-					conditions.forEach((conditionWrap) => {
-						var conditionArg = conditionWrap.getAttribute("data-conditions");
-						var conditionObj = JSON.parse(conditionArg);
-						conditionObj.map((item) => {
-							var args = item.args
-							args.map((arg) => {
-
-
-
-								var selector = arg.selector
-								var value = arg.value
-								var values = arg.values
-								var compare = arg.compare
-
-
-
-								if (selectorName == selector) {
-
-
-
-									if (compare == 'empty') {
-										if (targetVal.length == 0) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'notEmpty') {
-										if (targetVal.length > 0) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'lengthEqual') {
-										if (targetVal.length == parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'lengthGtEq') {
-										if (targetVal.length >= parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'lengthGt') {
-										if (targetVal.length > parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'lengthLtEq') {
-										if (targetVal.length <= parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'lengthLt') {
-										if (targetVal.length < parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == '>=') {
-										if (targetVal >= parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == '<=') {
-										if (targetVal <= parseInt(value)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-
-
-
-
-
-
-									if (compare == '=') {
-										if (value == targetVal) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == '!=') {
-										if (value != targetVal) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-
-
-
-
-									if (compare == 'contain') {
-										if (targetVal.includes(values)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'notContain') {
-										if (!targetVal.includes(values)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'between') {
-										if (parseInt(targetVal) > values[0] && parseInt(targetVal) < values[1]) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'exist') {
-										if (targetVal.includes(values)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-									if (compare == 'regexp') {
-
-										var pattern = new RegExp(value);
-										if (targetVal.match(pattern)) {
-											conditionWrap.style.display = "block";
-										} else {
-											conditionWrap.style.display = "none";
-										}
-									}
-
-
-
-
-
-
-
-
-
-								}
-
-							})
-
-						})
-
-					});
-
-
-				})
-			})
-
-
-
-		})
 
 
 
@@ -312,6 +557,13 @@ export function setupForm() {
 						var onprocessargsObj = JSON.parse(onprocessargs);
 						formData.append("formType", formargsObj.type);
 						formData.append("onprocessargs", JSON.stringify(onprocessargsObj));
+
+						var allowed_user_meta = post_grid_blocks_vars[formId].allowed_user_meta
+
+
+						formData.append("allowedUserMeta", JSON.stringify(allowed_user_meta));
+
+
 						var loadingWrap = document.querySelector("." + formId + "-loading");
 						var responsesWrap = document.querySelector(
 							"." + formId + "-responses"
@@ -398,6 +650,8 @@ export function setupForm() {
 		} catch (e) {
 			if (e !== BreakException) throw e;
 		}
+
+
 		function validateFormFields(formId, formData, fieldInfo) {
 			var errorData = {};
 			Object.entries(fieldInfo).map((field) => {
@@ -438,10 +692,7 @@ export function setupForm() {
 			var onprocessargsObj = JSON.parse(onprocessargs);
 			var aftersubmitargs = formByID.getAttribute("data-aftersubmitargs");
 			var aftersubmitargsObj = JSON.parse(aftersubmitargs);
-			//var postGridId = aftersubmitargsObj[1].postGridId;
-			// var queryArgs = post_grid_vars[blockId].queryArgs;
-			// var rawData = post_grid_vars[blockId].layout.rawData;
-			// var nonce = post_grid_vars[blockId]._wpnonce;
+
 			var formargs = formByID.getAttribute("data-formargs");
 			var formargsObj = JSON.parse(formargs);
 			var formFieldNames = [];
@@ -450,9 +701,17 @@ export function setupForm() {
 				var inputValue = pair[1];
 				formFieldNames.push(inputName);
 			}
+
+
+
+
 			formData.append("formFieldNames", formFieldNames);
+
+
+
+
 			fetch(
-				post_grid_vars["siteUrl"] + "/wp-json/post-grid/v2/process_form_data",
+				post_grid_blocks_vars["siteUrl"] + "/wp-json/post-grid/v2/process_form_data",
 				{
 					method: "POST",
 					body: formData,
@@ -532,7 +791,7 @@ export function setupForm() {
 								}
 								if (actionId == "loggedOut") {
 									fetch(
-										post_grid_vars["siteUrl"] +
+										post_grid_blocks_vars["siteUrl"] +
 										"/wp-json/post-grid/v2/loggedout_current_user",
 										{
 											method: "POST",

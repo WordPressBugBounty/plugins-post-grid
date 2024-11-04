@@ -6,6 +6,8 @@
   "textdomain": "post-grid",
   "category": "post-grid-tools",
   "usesContext": [
+    "userData",
+    "userId",
     "postId",
     "loopIndex",
     "postType",
@@ -78,6 +80,8 @@
           "avg_rating": 4.25,
           "typeCustom": "",
           "linkTo": "reviews",
+          "source": "",
+          "customFieldKey": "",
           "class": ""
         },
         "styles": {}

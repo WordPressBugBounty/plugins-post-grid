@@ -34,24 +34,29 @@ export function setupNumberCounter() {
 			PGBlockNumberCount.forEach((item) => {
 				var numberCountArgs = item.getAttribute("data-number-counter");
 				var numberCountArgsObj = JSON.parse(numberCountArgs);
+
+
 				var blockId = numberCountArgsObj.blockId;
 				var start = numberCountArgsObj.start;
-				var endX = numberCountArgsObj.end;
+				var end = numberCountArgsObj.end;
 				var duration = numberCountArgsObj.duration;
 				var onScroll = numberCountArgsObj.onScroll;
-				var source = numberCountArgsObj.source;
-				var saleCount = numberCountArgsObj.saleCount;
-				var metaValue = numberCountArgsObj.metaValue;
-				var end = "";
-				if (source.length > 0) {
-					if (source == "post_meta") {
-						end = metaValue;
-					} else {
-						end = saleCount;
-					}
-				} else {
-					end = endX;
-				}
+
+
+
+				// var source = numberCountArgsObj.source;
+				// var saleCount = numberCountArgsObj.saleCount;
+				// var metaValue = numberCountArgsObj.metaValue;
+				// var end = "";
+				// if (source.length > 0) {
+				// 	if (source == "post_meta") {
+				// 		end = metaValue;
+				// 	} else {
+				// 		end = saleCount;
+				// 	}
+				// } else {
+				// 	end = endX;
+				// }
 				var wrapHandle = "." + blockId + " .number-count";
 				if (onScroll) {
 					document.addEventListener("scroll", function (e) {

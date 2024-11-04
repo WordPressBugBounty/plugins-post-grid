@@ -608,6 +608,78 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
         }
         curl_close($ch);
       }
+      if ($id == 'acumbamailAddContact') {
+        $lists = isset($arg->lists) ? $arg->lists : '';
+        // $lists = explode(',', $lists);
+        //$lists = array_map('intval', $lists);
+        //$tags = isset($arg->tags) ? $arg->tags : [];
+        $showOnResponse = isset($arg->showOnResponse) ? $arg->showOnResponse : false;
+        $successMessage = isset($arg->successMessage) ? $arg->successMessage :        "";
+        $errorMessage = isset($arg->errorMessage) ? $arg->errorMessage : "";
+        $existMessage = isset($arg->existMessage) ? $arg->existMessage : "";
+        $acumbamailApiKeys = isset($apiKeys['acumbamail']['args']['apikey']) ? $apiKeys['acumbamail']['args']['apikey'] : "";
+
+
+        $apiKey = 'YOUR_API_KEY';
+
+        // Prepare the data
+        $data = array(
+          'list_id' => $lists,
+          'email' => $email,
+          'custom_fields' => array(
+            'name' => $first_name
+          ),
+          'status' => 'subscribed'
+        );
+
+        // Initialize cURL
+        $ch = curl_init();
+
+        // Set the cURL options
+        curl_setopt($ch, CURLOPT_URL, "https://acumbamail.com/api/1/subscribers/");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+          'Authorization: Bearer ' . $acumbamailApiKeys,
+          'Content-Type: application/json'
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        // Execute the request
+        $curl_response = curl_exec($ch);
+
+
+
+
+
+
+        if (curl_errno($ch)) {
+          $response['errors']['acumbamailAddContactErrorCurl'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+        } else {
+          $curl_response = json_decode($curl_response);
+
+
+          if (isset($curl_response->code) && $curl_response->code == 'duplicate_parameter') {
+            $response['errors']['acumbamailAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
+          }
+          if (isset($curl_response->code) && $curl_response->code == 'unauthorized') {
+            $response['errors']['acumbamailAddContactError'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+          }
+          if (isset($curl_response->code) && $curl_response->code == 'invalid_parameter') {
+            $response['errors']['acumbamailAddContactExist'] = empty($errorMessage) ? $curl_response['message'] : $errorMessage;
+          }
+          if (isset($curl_response->id)) {
+            $response['success']['acumbamailAddContactSuccess'] = $successMessage;
+          }
+        }
+        curl_close($ch);
+      }
+
+
+
+
+
+
       if ($id == 'omnisendAddContact') {
         $tags = isset($arg->tags) ? $arg->tags : '';
         $tags = explode(',', $tags);
@@ -618,7 +690,6 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
         $existMessage = isset($arg->existMessage) ? $arg->existMessage : "";
         $omnisendApiKeys = isset($apiKeys['omnisend']['args']['apikey']) ? $apiKeys['omnisend']['args']['apikey'] : "";
 
-        error_log($omnisendApiKeys);
 
         $ch = curl_init();
 
@@ -676,7 +747,6 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
 
         $curl_response = curl_exec($ch);
 
-        error_log($curl_response);
 
 
         if ($curl_response === false) {
@@ -722,20 +792,20 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $curl_response = curl_exec($ch);
         if ($curl_response === false) {
-          $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
+          $response['errors']['mailjetAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
         } else {
           $curl_response = json_decode($curl_response);
           // if (isset($curl_response->code) && $curl_response->code == 'duplicate_parameter') {
-          //   $response['errors']['brevoAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
+          //   $response['errors']['mailjetAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
           // }
           // if (isset($curl_response->code) && $curl_response->code == 'unauthorized') {
-          //   $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
+          //   $response['errors']['mailjetAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
           // }
           if (isset($curl_response->ErrorInfo)) {
-            $response['errors']['brevoAddContactExist'] = empty($errorMessage) ? $curl_response->ErrorMessage : $errorMessage;
+            $response['errors']['mailjetAddContactExist'] = empty($errorMessage) ? $curl_response->ErrorMessage : $errorMessage;
           }
           if (isset($curl_response->Data)) {
-            $response['success']['brevoAddContactSuccess'] = $successMessage;
+            $response['success']['mailjetAddContactSuccess'] = $successMessage;
           }
         }
         curl_close($ch);
@@ -774,23 +844,23 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $curl_response = curl_exec($ch);
         if ($curl_response === false) {
-          $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
+          $response['errors']['mailchimpAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
         } else {
           $curl_response = json_decode($curl_response);
           // if (isset($curl_response->code) && $curl_response->code == 'duplicate_parameter') {
-          //   $response['errors']['brevoAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
+          //   $response['errors']['mailchimpAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
           // }
           // if (isset($curl_response->code) && $curl_response->code == 'unauthorized') {
-          //   $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
+          //   $response['errors']['mailchimpAddContactError'] = empty($errorMessage) ? $errorMessage : curl_error($ch);
           // }
           if (isset($curl_response->status) && $curl_response->status == '404') {
-            $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $curl_response->detail : $errorMessage;
+            $response['errors']['mailchimpAddContactError'] = empty($errorMessage) ? $curl_response->detail : $errorMessage;
           }
           if (isset($curl_response->status) && $curl_response->status == '400') {
-            $response['errors']['brevoAddContactExist'] = empty($errorMessage) ? $curl_response->detail : $existMessage;
+            $response['errors']['mailchimpAddContactExist'] = empty($errorMessage) ? $curl_response->detail : $existMessage;
           }
           if (isset($curl_response->id)) {
-            $response['success']['brevoAddContactSuccess'] = $successMessage;
+            $response['success']['mailchimpAddContactSuccess'] = $successMessage;
           }
         }
         curl_close($ch);
@@ -827,22 +897,22 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
         $curl_response = curl_exec($ch);
         if ($curl_response === false) {
           $error = curl_error($ch);
-          $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $errorMessage : $error;
+          $response['errors']['mailmodoAddContactError'] = empty($errorMessage) ? $errorMessage : $error;
           curl_close($ch);
           die('Curl error: ' . $error);
         } else {
           $curl_response = json_decode($curl_response);
           // if (isset($curl_response->code) && $curl_response->code == 'duplicate_parameter') {
-          //   $response['errors']['brevoAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
+          //   $response['errors']['mailmodoAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
           // }
           if (isset($curl_response->error) && $curl_response->error == 'ValidationError') {
-            $response['errors']['brevoAddContactError'] = empty($errorMessage) ? $errorMessage : $curl_response->message;
+            $response['errors']['mailmodoAddContactError'] = empty($errorMessage) ? $errorMessage : $curl_response->message;
           }
           // if (isset($curl_response->ErrorInfo)) {
-          //   $response['errors']['brevoAddContactExist'] = empty($errorMessage) ? $curl_response->ErrorMessage : $errorMessage;
+          //   $response['errors']['mailmodoAddContactExist'] = empty($errorMessage) ? $curl_response->ErrorMessage : $errorMessage;
           // }
           if (isset($curl_response->success)) {
-            $response['success']['brevoAddContactSuccess'] = empty($errorMessage) ? $curl_response->message : $successMessage;
+            $response['success']['mailmodoAddContactSuccess'] = empty($errorMessage) ? $curl_response->message : $successMessage;
           }
         }
         curl_close($ch);
@@ -1864,7 +1934,7 @@ function form_wrap_process_userProfileUpdate($formFields, $onprocessargs, $reque
   $currentUser = wp_get_current_user();
   $currentUserId = ($currentUser->ID) ? $currentUser->ID : 0;
   if (!$currentUserId) {
-    $response['errors']['registerUserConfirm'] = __('Please login first', 'post-grid');
+    $response['errors']['userProfileUpdateConfirm'] = __('Please login first', 'post-grid');
     return $response;
   }
   $email_data = [];
@@ -2020,11 +2090,18 @@ function form_wrap_process_userProfileUpdate($formFields, $onprocessargs, $reque
 add_filter('form_wrap_process_registerForm', 'form_wrap_process_registerForm', 99, 3);
 function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
 {
+
+
+
   $response = [];
   $username = isset($formFields['username']) ? sanitize_text_field($formFields['username']) : '';
   $email = isset($formFields['email']) ? sanitize_text_field($formFields['email']) : '';
   $password = isset($formFields['password']) ? sanitize_text_field($formFields['password']) : '';
   $password_confirm = isset($formFields['password_confirm']) ? sanitize_text_field($formFields['password_confirm']) : '';
+  $allowedUserMeta = isset($formFields['allowedUserMeta']) ? sanitize_text_field($formFields['allowedUserMeta']) : [];
+
+
+
   if ($password !== $password_confirm) {
     //$response['registerUserConfirm'] = 'Password Missmatch';
     $response['errors']['registerUserConfirm'] = __('Password Missmatch', 'post-grid');
@@ -2042,99 +2119,171 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
   }
   $username = form_wrap_process_regenerate_username($username);
   $email_data = [];
-  foreach ($onprocessargs as $arg) {
-    $id = $arg->id;
-    if ($id == 'registerUser') {
-      $credentials = [];
-      $credentials['email'] = $email;
-      $credentials['password'] = $password;
-      $credentials['username'] = $username;
-      $new_user_id = form_wrap_process_register_user($credentials);
-      $user_meta = $request->get_param('user_meta');
 
-      unset($user_meta['wp_capabilities']);
+  if (!empty($onprocessargs)) {
+    foreach ($onprocessargs as $arg) {
+      $id = $arg->id;
+      if ($id == 'registerUser') {
+        $credentials = [];
+        $credentials['email'] = $email;
+        $credentials['password'] = $password;
+        $credentials['username'] = $username;
+        $new_user_id = form_wrap_process_register_user($credentials);
+        $user_meta = $request->get_param('user_meta');
 
-
-      if (!empty($user_meta)) {
-        foreach ($user_meta as $metaKey => $metavalue) {
-          update_user_meta($new_user_id, $metaKey, $metavalue);
-        }
-      }
-      $user_meta_files = $request->get_file_params()['user_meta'];
+        unset($user_meta['wp_capabilities']);
 
 
-      $files = [];
-      if (!empty($user_meta_files)) {
-        $i = 0;
-        foreach ($user_meta_files as $index => $data) {
-          foreach ($data as $metaKey => $fileInfo) {
-            $files[$metaKey][$index] = $fileInfo;
+        if (!empty($user_meta)) {
+          foreach ($user_meta as $metaKey => $metavalue) {
+            if (in_array($metaKey, $allowedUserMeta)) {
+              update_user_meta($new_user_id, $metaKey, $metavalue);
+            }
           }
         }
-      }
-      if (!empty($files)) {
-        foreach ($files as $metaKey => $metavalue) {
-          $file_response = post_grid_upload_file($metavalue);
-          if ($file_response['id']) {
-            update_user_meta($new_user_id, $metaKey, $file_response['id']);
+
+        //update Tutor Meta Data
+
+        $user = get_user_by('ID', $new_user_id);
+        $user->add_role('tutor_instructor');
+
+        update_user_meta($new_user_id, "_is_tutor_instructor", 1);
+        update_user_meta($new_user_id, '_tutor_instructor_status', apply_filters('tutor_initial_instructor_status', 'approved'));
+
+
+        $user_meta_files = $request->get_file_params()['user_meta'];
+
+
+        $files = [];
+        if (!empty($user_meta_files)) {
+          $i = 0;
+          foreach ($user_meta_files as $index => $data) {
+
+
+
+
+            foreach ($data as $metaKey => $fileInfo) {
+              $files[$metaKey][$index] = $fileInfo;
+            }
           }
         }
+        if (!empty($files)) {
+          foreach ($files as $metaKey => $metavalue) {
+            $file_response = post_grid_upload_file($metavalue);
+            if ($file_response['id']) {
+              update_user_meta($new_user_id, $metaKey, $file_response['id']);
+            }
+          }
+        }
+        if ($new_user_id) {
+          $response['success']['registerUserExist'] = __('User register Success', 'post-grid');
+        } else {
+          $response['errors']['registerUserExist'] = __('User register Failed', 'post-grid');
+        }
       }
-      if ($new_user_id) {
-        $response['success']['registerUserExist'] = __('User register Success', 'post-grid');
-      } else {
-        $response['errors']['registerUserExist'] = __('User register Failed', 'post-grid');
+      if ($id == 'tutorRegisterInstructor') {
+        $credentials = [];
+        $credentials['email'] = $email;
+        $credentials['password'] = $password;
+        $credentials['username'] = $username;
+        $new_user_id = form_wrap_process_register_user($credentials);
+        $user_meta = $request->get_param('user_meta');
+
+        unset($user_meta['wp_capabilities']);
+
+
+        if (!empty($user_meta)) {
+          foreach ($user_meta as $metaKey => $metavalue) {
+            update_user_meta($new_user_id, $metaKey, $metavalue);
+          }
+        }
+        $user_meta_files = $request->get_file_params()['user_meta'];
+
+
+        $files = [];
+        if (!empty($user_meta_files)) {
+          $i = 0;
+          foreach ($user_meta_files as $index => $data) {
+            foreach ($data as $metaKey => $fileInfo) {
+              $files[$metaKey][$index] = $fileInfo;
+            }
+          }
+        }
+        if (!empty($files)) {
+          foreach ($files as $metaKey => $metavalue) {
+            $file_response = post_grid_upload_file($metavalue);
+            if ($file_response['id']) {
+              update_user_meta($new_user_id, $metaKey, $file_response['id']);
+            }
+          }
+        }
+        if ($new_user_id) {
+          $response['success']['registerUserExist'] = __('User register Success', 'post-grid');
+        } else {
+          $response['errors']['registerUserExist'] = __('User register Failed', 'post-grid');
+        }
       }
-    }
-    if ($id == 'doAction') {
-      $actionName = isset($arg->actionName) ? $arg->actionName : '';
-      do_action($actionName, $request);
-    }
-    if ($id == 'webhookRequest') {
-      $url = isset($arg->url) ? $arg->url : '';
-      $requestHeader = isset($arg->requestHeader) ? $arg->requestHeader : true;
-      $method = isset($arg->method) ? $arg->method : 'POST';
-      $format = isset($arg->format) ? $arg->format : '';
-      $fields = isset($arg->fields) ? $arg->fields : [];
-      $requestPrams =  $request->get_params();
-      unset($requestPrams['onprocessargs']);
-      unset($requestPrams['formFieldNames']);
-      // Encode the data as JSON
-      $payload = json_encode($requestPrams);
-      // Prepare headers
-      $headers = [
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($payload)
-      ];
-      // Initialize curl session
-      $ch = curl_init($url);
-      // Set curl options
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-      // Execute curl session
-      $response = curl_exec($ch);
-      // Check for errors
-      if (curl_errno($ch)) {
-        echo 'Webhook delivery failed: ' . curl_error($ch);
-      } else {
-        echo 'Webhook sent successfully. Response: ' . $response;
+
+
+
+
+
+
+
+
+
+      if ($id == 'doAction') {
+        $actionName = isset($arg->actionName) ? $arg->actionName : '';
+        do_action($actionName, $request);
       }
-      // Close curl session
-      curl_close($ch);
-    }
-    if ($id == 'createEntry') {
-      $status = form_wrap_process_create_entry($email_data);
-      if ($status) {
-        //$response['createEntry'] = 'createEntry Success';
-        $response['success']['createEntry'] = __('Create entry success', 'post-grid');
-      } else {
-        //$response['createEntry'] = 'createEntry Failed';
-        $response['errors']['createEntry'] = __('Create entry failed', 'post-grid');
+      if ($id == 'webhookRequest') {
+        $url = isset($arg->url) ? $arg->url : '';
+        $requestHeader = isset($arg->requestHeader) ? $arg->requestHeader : true;
+        $method = isset($arg->method) ? $arg->method : 'POST';
+        $format = isset($arg->format) ? $arg->format : '';
+        $fields = isset($arg->fields) ? $arg->fields : [];
+        $requestPrams =  $request->get_params();
+        unset($requestPrams['onprocessargs']);
+        unset($requestPrams['formFieldNames']);
+        // Encode the data as JSON
+        $payload = json_encode($requestPrams);
+        // Prepare headers
+        $headers = [
+          'Content-Type: application/json',
+          'Content-Length: ' . strlen($payload)
+        ];
+        // Initialize curl session
+        $ch = curl_init($url);
+        // Set curl options
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        // Execute curl session
+        $response = curl_exec($ch);
+        // Check for errors
+        if (curl_errno($ch)) {
+          echo 'Webhook delivery failed: ' . curl_error($ch);
+        } else {
+          echo 'Webhook sent successfully. Response: ' . $response;
+        }
+        // Close curl session
+        curl_close($ch);
+      }
+      if ($id == 'createEntry') {
+        $status = form_wrap_process_create_entry($email_data);
+        if ($status) {
+          //$response['createEntry'] = 'createEntry Success';
+          $response['success']['createEntry'] = __('Create entry success', 'post-grid');
+        } else {
+          //$response['createEntry'] = 'createEntry Failed';
+          $response['errors']['createEntry'] = __('Create entry failed', 'post-grid');
+        }
       }
     }
   }
+
+
   return $response;
 }
 function form_wrap_process_register_user($credentials)
@@ -2522,7 +2671,6 @@ function form_wrap_process_customForm($formFields, $onprocessargs, $request)
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           $curl_response = curl_exec($ch);
           $curl_response_obj = json_decode($curl_response);
-          error_log(serialize($curl_response_obj));
           if (!isset($curl_response_obj->id)) {
             $file_response['errors'][$fileIndex] = __("File Upload failed", 'post-grid');
           }
@@ -2541,8 +2689,6 @@ function form_wrap_process_customForm($formFields, $onprocessargs, $request)
         $return = false;
         $filter = apply_filters($filterName, $return, $request);
 
-        // error_log("apply_filters");
-        // error_log($filter);
 
         if ($filter) {
           $response['success']['createEntry'] = $successMessage;
@@ -2561,11 +2707,7 @@ function form_wrap_process_customForm($formFields, $onprocessargs, $request)
         unset($requestPrams['formFieldNames']);
         // Encode the data as JSON
         $payload = json_encode($requestPrams);
-        error_log($url);
-        error_log($method);
-        error_log($format);
-        error_log($payload);
-        error_log(serialize($fields));
+
         // Prepare headers
         $headers = [
           'Content-Type: application/json',
@@ -2617,7 +2759,6 @@ function form_wrap_process_customForm($formFields, $onprocessargs, $request)
         }
       }
     }
-  error_log(serialize($response));
   return $response;
 }
 add_filter('form_wrap_process_contactForm', 'form_wrap_process_contactForm', 99, 3);
@@ -2926,6 +3067,185 @@ function form_wrap_process_contactForm($formFields, $onprocessargs, $request)
         }
       }
     }
+
+
+    if ($id == 'createZendeskTicket') {
+      $post_grid_block_editor = get_option("post_grid_block_editor");
+      $apiKeys = isset($post_grid_block_editor['apiKeys']) ? $post_grid_block_editor['apiKeys'] : [];
+
+      $priority = isset($formFields['priority']) ? wp_kses_post($formFields['priority']) : '';
+
+      //$tags = isset($arg->tags) ? $arg->tags : [];
+      $showOnResponse = isset($arg->showOnResponse) ? $arg->showOnResponse : false;
+      $successMessage = isset($arg->successMessage) ? $arg->successMessage :        "";
+      $errorMessage = isset($arg->errorMessage) ? $arg->errorMessage : "";
+      $zendeskapiToken = isset($apiKeys['zendesk']['args']['apiToken']) ? $apiKeys['zendesk']['args']['apiToken'] : "";
+      $zendeskSubdomain = isset($apiKeys['zendesk']['args']['subdomain']) ? $apiKeys['zendesk']['args']['subdomain'] : "";
+      $zendeskSmail = isset($apiKeys['zendesk']['args']['email']) ? $apiKeys['zendesk']['args']['email'] : "";
+
+
+      $subdomain = $zendeskSubdomain; // Replace with your subdomain
+      $email_token = $zendeskSmail . '/token'; // Use your email and append '/token'
+      $api_token = $zendeskapiToken; // Replace with your API token
+
+      // Ticket data
+      $data = [
+        'ticket' => [
+          'subject' => $subject,
+          'description' => $mail_message,
+          'priority' => $priority, // Options: low, normal, high, urgent
+          'requester' => [
+            'name' => $full_name,
+            'email' => $email // Email of the requester
+          ]
+        ]
+      ];
+
+      // Initialize cURL
+      $ch = curl_init('https://' . $subdomain . '.zendesk.com/api/v2/tickets.json');
+
+      // Set cURL options
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+      curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Authorization: Basic ' . base64_encode($email_token . ':' . $api_token)
+      ]);
+
+      // Execute cURL and get the response
+      $curl_response = curl_exec($ch);
+
+
+
+      if ($curl_response === false) {
+        $response['errors']['zendeskErrorCurl'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+      } else {
+        $curl_response = json_decode($curl_response);
+
+        if (!isset($curl_response->ticket)) {
+          $response['errors']['zendeskError'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+        }
+
+        if (isset($curl_response->ticket)) {
+          $response['success']['zendeskSuccess'] = $successMessage;
+        }
+      }
+      curl_close($ch);
+    }
+
+    if ($id == 'sendSlackWebhook') {
+
+
+      $text = isset($arg->text) ? $arg->text : "";
+      $webhookUrl = isset($arg->webhookUrl) ? $arg->webhookUrl : "";
+      $channel = isset($arg->channel) ? $arg->channel : "";
+      $username = isset($arg->username) ? $arg->username : "";
+      $iconEmoji = isset($arg->iconEmoji) ? $arg->iconEmoji : "";
+
+
+
+      $showOnResponse = isset($arg->showOnResponse) ? $arg->showOnResponse : false;
+      $successMessage = isset($arg->successMessage) ? $arg->successMessage :        "";
+      $errorMessage = isset($arg->errorMessage) ? $arg->errorMessage : "";
+
+      $webhook_url = $webhookUrl;
+      $text = !empty($mail_message) ? $mail_message : $text;
+
+      // The message payload
+      $data = [
+        'text' =>  $text,
+        'channel' => $channel,  // Channel where the message will be sent
+        'username' => $username, // Name of the bot
+        'icon_emoji' => $iconEmoji  // Emoji icon for the bot
+      ];
+
+      // Initialize curl
+      $ch = curl_init($webhook_url);
+
+      // Set curl options
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));  // Send JSON payload
+      curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);  // Set content type to JSON
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+      // Execute cURL and get the response
+      $curl_response = curl_exec($ch);
+
+
+
+      if ($curl_response == "ok") {
+        $response['success']['slackSuccess'] = $successMessage;
+      } else {
+        $response['errors']['slackErrorCurl'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+      }
+      curl_close($ch);
+    }
+    if ($id == 'twilioSendMessage') {
+      $post_grid_block_editor = get_option("post_grid_block_editor");
+      $apiKeys = isset($post_grid_block_editor['apiKeys']) ? $post_grid_block_editor['apiKeys'] : [];
+
+      $phone_number = isset($formFields['phone_number']) ? wp_kses_post($formFields['phone_number']) : '';
+
+      $phoneNumber = isset($arg->phoneNumber) ? $arg->phoneNumber : "";
+      $text = isset($arg->text) ? $arg->text : "";
+
+      $twilioAuthToken = isset($apiKeys['twilio']['args']['authToken']) ? $apiKeys['twilio']['args']['authToken'] : "";
+      $twilioAccountSid = isset($apiKeys['twilio']['args']['accountSid']) ? $apiKeys['twilio']['args']['accountSid'] : "";
+      $twilioPhoneNumber = !empty($phoneNumber) ?  $phoneNumber : $apiKeys['twilio']['args']['phoneNumber'];
+
+
+
+
+
+      $showOnResponse = isset($arg->showOnResponse) ? $arg->showOnResponse : false;
+      $successMessage = isset($arg->successMessage) ? $arg->successMessage :        "";
+      $errorMessage = isset($arg->errorMessage) ? $arg->errorMessage : "";
+
+
+      $account_sid = $twilioAccountSid;
+      $auth_token = $twilioAuthToken;
+
+      // Twilio API URL for sending messages
+      $url = 'https://api.twilio.com/2010-04-01/Accounts/' . $twilioAccountSid . '/Messages.json';
+      $text = !empty($mail_message) ? $mail_message : $text;
+
+      // The data to be sent in the POST request
+      $data = [
+        'Body' => $text,
+        'From' => $twilioPhoneNumber,   // Your Twilio phone number
+        'To' => $phone_number  // Recipient's phone number
+      ];
+
+      // Initialize curl
+      $ch = curl_init($url);
+
+      // Set curl options
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));  // URL-encode the data
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // Return response instead of printing
+      curl_setopt($ch, CURLOPT_USERPWD, "$account_sid:$auth_token");  // Twilio authentication
+
+      // Execute curl and get the response
+
+      // Execute cURL and get the response
+      $curl_response = curl_exec($ch);
+
+
+      if ($curl_response === false) {
+        $curl_response = json_decode($curl_response);
+
+        $response['errors']['twilioError'] = !empty($errorMessage) ? $errorMessage : $curl_response->message;
+      } else {
+        $curl_response = json_decode($curl_response);
+        $response['success']['twilioSuccess'] = !empty($successMessage) ? $successMessage : $curl_response->message;
+      }
+      curl_close($ch);
+    }
+
+
+
+
     if ($id == 'doAction') {
       $actionName = isset($arg->actionName) ? $arg->actionName : '';
       do_action($actionName, $request);
@@ -3052,6 +3372,10 @@ function form_wrap_process_create_wc_order($arg, $request)
   $order_id = $order->get_id();
   return $order_id;
 }
+
+
+
+
 function form_wrap_process_send_email($email_data)
 {
   $email_to = isset($email_data['email_to']) ? $email_data['email_to'] : '';
@@ -3099,6 +3423,9 @@ function form_wrap_input_name($inputOptions, $args)
 }
 function form_wrap_input_default_value($inputOptions, $args)
 {
+
+
+
   $post_ID = isset($args['post_ID']) ? $args['post_ID'] : '';
   $blockId = isset($args['blockId']) ? $args['blockId'] : '';
   $currentUser = wp_get_current_user();
@@ -3106,7 +3433,16 @@ function form_wrap_input_default_value($inputOptions, $args)
   $inputType = !empty($inputOptions['type']) ? $inputOptions['type'] : "";
   $inputName = !empty($inputOptions['name']) ? $inputOptions['name'] : $blockId;
   $inputValueSource = isset($inputOptions['valueSource']) ? $inputOptions['valueSource'] : '';
+
+  $GETValue = isset($_GET[$inputName]) ? sanitize_text_field($_GET[$inputName]) : "";
+
+
+
   $inputValue = isset($inputOptions['value']) ? $inputOptions['value'] : '';
+
+  $inputValue = !empty($GETValue) ? $GETValue : $inputValue;
+
+
   if (!empty($inputValueSource)) {
     if ($inputValueSource == 'postID') {
       $inputValue = $post_ID;
@@ -3149,7 +3485,7 @@ function form_wrap_input_default_value($inputOptions, $args)
     } else if ($inputValueSource == 'userNicename') {
       $inputValue = isset($currentUser->user_nicename) ? $currentUser->user_nicename : '';
     } else if ($inputValueSource == 'GET') {
-      $inputValue = isset($_GET[$inputName]) ? sanitize_text_field($_GET[$inputName]) : "";
+      $inputValue = (isset($_GET[$inputName]) && !empty($_GET[$inputName])) ? sanitize_text_field($_GET[$inputName]) : $inputValue;
     } else if ($inputValueSource == 'postMeta') {
       $inputValue = get_post_meta($post_ID, $inputName, true);
     } else if ($inputValueSource == 'termMeta') {
@@ -3159,6 +3495,8 @@ function form_wrap_input_default_value($inputOptions, $args)
     } else if ($inputValueSource == 'userMeta') {
       $currentUserId = isset($currentUser->ID) ? $currentUser->ID : 0;
       $inputValue = get_user_meta($currentUserId, $inputName, true);
+    } else {
+      $inputValue = $inputValue;
     }
   }
   return $inputValue;

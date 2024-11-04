@@ -62,6 +62,8 @@ class PGBlockUserQuery
     $postGridScriptData[$postGridId]['layout']['rawData'] = serialize_blocks($innerBlocks);
     $query_args = post_grid_parse_query_users(isset($queryArgs['items']) ? $queryArgs['items'] : []);
     // $query_args = apply_filters("pgb_post_query_prams", $query_args, ["blockId" => $blockId]);
+
+
     $posts = [];
     $responses = [];
     $PGUserQuery = new WP_Query($query_args);

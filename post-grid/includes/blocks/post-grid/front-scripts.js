@@ -34,6 +34,9 @@ export function setupPostGrid() {
 			);
 		}
 		var loader = document.querySelector(".infinite-loader");
+
+
+
 		if (loader != null) {
 			document.addEventListener(
 				"scroll",
@@ -57,21 +60,30 @@ export function setupPostGrid() {
 		}
 		function loadPostsOnScroll() {
 			loader.setAttribute("loading", "true");
-			var loaderParent = loader.closest("div[data-blockargs]");
-			var blockargs = loaderParent.getAttribute("data-blockargs");
+
+
+
+			var loaderParent = loader.closest("div[data-postqueryargs]");
+			var blockargs = loaderParent.getAttribute("data-postqueryargs");
 			var blockargsObj = blockargs != null ? JSON.parse(blockargs) : {};
-			var blockId =
-				blockargsObj.blockId != undefined ? blockargsObj.blockId : null;
+			var blockId = blockargsObj.blockId != undefined ? blockargsObj.blockId : null;
+
+
 			if (blockId == null) return;
+			var post_grid_prams = window['post_grid_prams'][blockId]
+
 			var noPosts = blockargsObj.noPosts;
 			if (noPosts == true) return;
 
 
-			var post_grid_prams = window['post_grid_prams']
+
+
 
 			var queryArgs = post_grid_prams.queryArgs;
 			var rawData = post_grid_prams.layout.rawData;
-			var pagination = blockargsObj.pagination;
+			var pagination = post_grid_prams.pagination;
+			var nonce = post_grid_prams._wpnonce;
+
 			var loadMoreText = pagination.loadMoreText;
 			var noMorePosts = pagination.noMorePosts;
 			var loadingText = pagination.loadingText;
@@ -83,21 +95,26 @@ export function setupPostGrid() {
 				var queryArgsX = queryArgs.map((x) => {
 					if (x.id == "paged") {
 						x.val = page + 1;
-						blockargsObj.pagination.page = page + 1;
+						//blockargsObj.pagination.page = page + 1;
+						window['post_grid_prams'][blockId].pagination.page = page + 1
+
 					}
 					return x;
 				});
 				loaderParent.setAttribute("data-blockargs", JSON.stringify(blockargsObj));
 				let data = {
 					queryArgs: queryArgsX,
-					rawData: rawData,
 					returnObj: 'html',
+					rawData: rawData,
+					_wpnonce: nonce,
 				};
 				fetch(post_grid_prams["siteUrl"] + "/wp-json/post-grid/v2/get_posts", {
 					method: "POST",
 					body: JSON.stringify(data),
 					headers: {
 						"Content-Type": "application/json;charset=utf-8",
+						"X-WP-Nonce": nonce
+
 					},
 				})
 					.then((response) => {
@@ -136,6 +153,7 @@ export function setupPostGrid() {
 		const loadMorewrap = document.querySelector(".loadmore .page-numbers");
 
 
+
 		const itemsLoopWrap = document.querySelector(".items-loop");
 		const loopLoadingWrap = document.querySelector(".loop-loading");
 		var paginationAjax = document.querySelector(".pagination.ajax");
@@ -167,13 +185,13 @@ export function setupPostGrid() {
 						if (blockId == null) return;
 
 
-						var post_grid_prams = window['post_grid_prams']
+						var post_grid_prams = window['post_grid_prams'][blockId]
 
 
 						var queryArgs = post_grid_prams.queryArgs;
 						var rawData = post_grid_prams.layout.rawData;
 						var nonce = post_grid_prams._wpnonce;
-						var pagination = blockargsObj.pagination;
+						var pagination = post_grid_prams.pagination;
 						var loadMoreText = pagination.loadMoreText;
 						var prevText = pagination.prevText;
 						var nextText = pagination.nextText;
@@ -260,18 +278,17 @@ export function setupPostGrid() {
 				if (blockId == null) return;
 
 
-
-
-
-
-
-				var post_grid_prams = window['post_grid_prams']
+				var post_grid_prams = window['post_grid_prams'][blockId];
 
 
 				var queryArgs = post_grid_prams.queryArgs;
 				var rawData = post_grid_prams.layout.rawData;
 				var nonce = post_grid_prams._wpnonce;
-				var pagination = blockargsObj.pagination;
+
+				var pagination = post_grid_prams.pagination;
+
+
+
 				var loadMoreText = pagination.loadMoreText;
 				var noMorePosts = pagination.noMorePosts;
 				var loadingText = pagination.loadingText;
@@ -281,6 +298,9 @@ export function setupPostGrid() {
 				var loadingPosition = pagination.loadingPosition;
 				var page = pagination.page;
 				var noPosts = blockargsObj.noPosts;
+
+
+
 				if (loadingPosition == "beforeText") {
 					loadMorewrap.innerHTML = loadingIcon + " " + loadingText;
 				}
@@ -292,7 +312,9 @@ export function setupPostGrid() {
 					var queryArgsX = queryArgs.map((x) => {
 						if (x.id == "paged") {
 							x.val = page + 1;
-							blockargsObj.pagination.page = page + 1;
+							window['post_grid_prams'][blockId].pagination.page = page + 1
+
+							//blockargsObj.pagination.page = page + 1;
 						}
 						return x;
 					});
@@ -306,7 +328,7 @@ export function setupPostGrid() {
 						rawData: rawData,
 						_wpnonce: nonce,
 					};
-					fetch(post_grid_pramsX["siteUrl"] + "/wp-json/post-grid/v2/get_posts", {
+					fetch(post_grid_prams["siteUrl"] + "/wp-json/post-grid/v2/get_posts", {
 						method: "POST",
 						body: JSON.stringify(data),
 						headers: {

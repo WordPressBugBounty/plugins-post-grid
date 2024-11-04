@@ -6,6 +6,7 @@
   "textdomain": "post-grid",
   "category": "post-grid-woo",
   "usesContext": [
+    "post-grid/liveMode",
     "postId",
     "loopIndex",
     "postType",

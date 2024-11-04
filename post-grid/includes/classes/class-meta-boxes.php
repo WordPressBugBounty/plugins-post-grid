@@ -62,7 +62,7 @@ class post_grid_meta_boxs
     wp_enqueue_style('font-awesome-5');
     wp_enqueue_style('settings-tabs');
     wp_enqueue_script('settings-tabs');
-    wp_enqueue_style('post-grid-output', post_grid_plugin_url . '/dist/output.css', [], time(), 'all');
+    wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [], time(), 'all');
 ?>
     <div class="settings-tabs vertical">
       <ul class="tab-navs">
@@ -236,7 +236,7 @@ class post_grid_meta_boxs
     $tabs_sorted = array();
     foreach ($settings_tabs as $page_key => $tab) $tabs_sorted[$page_key] = isset($tab['priority']) ? $tab['priority'] : 0;
     array_multisort($tabs_sorted, SORT_ASC, $settings_tabs);
-    wp_enqueue_style('post-grid-output', post_grid_plugin_url . '/dist/output.css', [], time(), 'all');
+    wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [], time(), 'all');
   ?>
     <div id="post-grid-editor">
       <?php

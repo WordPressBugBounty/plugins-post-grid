@@ -118,8 +118,7 @@ class PGBlockGalleryImagesField
     //
     $postGridCssY[] = isset($blockCssY['items']) ? $blockCssY['items'] : [];
 
-    // var_dump($fieldLinkTo);
-    // var_dump($fieldLinkText);
+    
 
     $fieldLink = '';
     if ($fieldLinkTo == 'postUrl') {
@@ -171,73 +170,72 @@ class PGBlockGalleryImagesField
     // //* Visible condition
     ob_start();
 ?>
-    <<?php echo pg_tag_escape($wrapperTag); ?> class="
+<<?php echo pg_tag_escape($wrapperTag); ?> class="
           <?php echo esc_attr($blockId); ?>
           <?php echo esc_attr($wrapperClass); ?>">
-      <?php if (!empty($prefixText) && $prefixPosition == 'beforeFrontText') : ?>
-        <span class="<?php echo esc_attr($prefixClass); ?>">
-          <?php echo wp_kses_post($prefixText); ?>
-        </span>
-      <?php endif; ?>
-      <?php if ($iconPosition == 'beforeFronttext') : ?>
-        <?php echo wp_kses_post($fontIconHtml); ?>
-      <?php endif; ?>
-      <?php if (!empty($frontTextText)) : ?>
-        <span class='frontText'>
-          <?php echo wp_kses_post($frontTextText); ?>
-        </span>
-      <?php endif; ?>
-      <?php if ($iconPosition == 'afterFronttext') : ?>
-        <?php echo wp_kses_post($fontIconHtml); ?>
-      <?php endif; ?>
-      <?php if (!empty($prefixText) && $prefixPosition == 'afterFrontText') : ?>
-        <span class="<?php echo esc_attr($prefixClass); ?>">
-          <?php echo wp_kses_post($prefixText); ?>
-        </span>
-      <?php endif; ?>
-      <?php if ($iconPosition == 'beforeField') : ?>
-        <?php echo wp_kses_post($fontIconHtml); ?>
-      <?php endif; ?>
-      <?php if (!empty($fieldLink)) : ?>
-        <a <?php if ($fieldLinkTo == 'authorMail') : ?> href="<?php echo esc_url('mailto:' . $fieldLink); ?>" <?php else : ?>
-          href="<?php echo esc_url($fieldLink); ?>" <?php endif; ?> target="<?php echo esc_attr($fieldLinkTarget); ?>"
-          <?php //echo ($linkAttrStr); 
+  <?php if (!empty($prefixText) && $prefixPosition == 'beforeFrontText') : ?>
+  <span class="<?php echo esc_attr($prefixClass); ?>">
+    <?php echo wp_kses_post($prefixText); ?>
+  </span>
+  <?php endif; ?>
+  <?php if ($iconPosition == 'beforeFronttext') : ?>
+  <?php echo wp_kses_post($fontIconHtml); ?>
+  <?php endif; ?>
+  <?php if (!empty($frontTextText)) : ?>
+  <span class='frontText'>
+    <?php echo wp_kses_post($frontTextText); ?>
+  </span>
+  <?php endif; ?>
+  <?php if ($iconPosition == 'afterFronttext') : ?>
+  <?php echo wp_kses_post($fontIconHtml); ?>
+  <?php endif; ?>
+  <?php if (!empty($prefixText) && $prefixPosition == 'afterFrontText') : ?>
+  <span class="<?php echo esc_attr($prefixClass); ?>">
+    <?php echo wp_kses_post($prefixText); ?>
+  </span>
+  <?php endif; ?>
+  <?php if ($iconPosition == 'beforeField') : ?>
+  <?php echo wp_kses_post($fontIconHtml); ?>
+  <?php endif; ?>
+  <?php if (!empty($fieldLink)) : ?>
+  <a <?php if ($fieldLinkTo == 'authorMail') : ?> href="<?php echo esc_url('mailto:' . $fieldLink); ?>" <?php else : ?>
+    href="<?php echo esc_url($fieldLink); ?>" <?php endif; ?> target="<?php echo esc_attr($fieldLinkTarget); ?>" <?php //echo ($linkAttrStr); 
           ?>>
-        <?php endif; ?>
-        <?php if (!empty($prefixText) && $prefixPosition == 'beforeField') : ?>
-          <span class="<?php echo esc_attr($prefixClass); ?>">
-            <?php echo wp_kses_post($prefixText); ?>
-          </span>
-        <?php endif; ?>
-        <?php
+    <?php endif; ?>
+    <?php if (!empty($prefixText) && $prefixPosition == 'beforeField') : ?>
+    <span class="<?php echo esc_attr($prefixClass); ?>">
+      <?php echo wp_kses_post($prefixText); ?>
+    </span>
+    <?php endif; ?>
+    <?php
         if ($metaKey == 'id' || $metaKey == 'title' || $metaKey == 'name' || $metaKey == 'description' || $metaKey == 'caption'  || $metaKey == 'url' || $metaKey == 'width' || $metaKey == 'height' || $metaKey == 'filesize' || $metaKey == 'file' || $metaKey == 'filename' || $metaKey == 'aperture' || $metaKey == 'credit' || $metaKey == 'camera' || $metaKey == 'copyright' || $metaKey == 'iso' || $metaKey == 'shutter_speed' || $metaKey == 'orientation' || $metaKey == 'aperture') :
         ?>
-          <span class="fieldVal">
-            <?php echo wp_kses_post($imageDataById[$metaKey]) ?>
-          </span>
-        <?php
+    <span class="fieldVal">
+      <?php echo wp_kses_post($imageDataById[$metaKey]) ?>
+    </span>
+    <?php
 
 
         elseif ($metaKey == 'link') :
         ?>
-          <span class="fieldVal">
-            <?php echo wp_kses_post($fieldLinkText) ?>
-          </span>
-        <?php
+    <span class="fieldVal">
+      <?php echo wp_kses_post($fieldLinkText) ?>
+    </span>
+    <?php
 
 
         elseif ($metaKey == 'image') :
         ?>
-          <?php if ($lightboxEnable == true) : ?>
-            <a data-fslightbox="<?php echo esc_attr($galleryId); ?>" href="<?php echo esc_url($imageDataById['url']) ?>">
-              <img class="fieldVal" src="<?php echo esc_url($imageDataById['url']) ?>"
-                alt=" <?php echo esc_attr($imageDataById['caption']) ?> " />
-            </a>
-          <?php else : ?>
-            <img class="fieldVal" src="<?php echo esc_url($imageDataById['url']) ?>"
-              alt=" <?php echo esc_attr($imageDataById['caption']) ?> " />
-          <?php endif; ?>
-          <?php
+    <?php if ($lightboxEnable == true) : ?>
+    <a data-fslightbox="<?php echo esc_attr($galleryId); ?>" href="<?php echo esc_url($imageDataById['url']) ?>">
+      <img class="fieldVal" src="<?php echo esc_url($imageDataById['url']) ?>"
+        alt=" <?php echo esc_attr($imageDataById['caption']) ?> " />
+    </a>
+    <?php else : ?>
+    <img class="fieldVal" src="<?php echo esc_url($imageDataById['url']) ?>"
+      alt=" <?php echo esc_attr($imageDataById['caption']) ?> " />
+    <?php endif; ?>
+    <?php
         elseif ($metaKey == 'custom') :
           if ($customFieldType == 'imageId') {
             $thumb_id = get_user_meta($imageId, $customField, true);
@@ -246,35 +244,35 @@ class PGBlockGalleryImagesField
             $height = isset($attachment_metadata['height']) ? $attachment_metadata['height'] : '';
             $attachment_url = wp_get_attachment_image_url($thumb_id, $customFieldSize);
           ?>
-            <img class="fieldVal" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>"
-              src="<?php echo esc_url($attachment_url) ?>" alt="<?php echo esc_attr($imageDataById['caption']) ?> " />
-          <?php
+    <img class="fieldVal" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>"
+      src="<?php echo esc_url($attachment_url) ?>" alt="<?php echo esc_attr($imageDataById['caption']) ?> " />
+    <?php
           } else {
           ?>
-            <span class="fieldVal">
-              <?php echo wp_kses_post(get_post_meta($imageId, $customField, true)) ?>
-            </span>
-        <?php
+    <span class="fieldVal">
+      <?php echo wp_kses_post(get_post_meta($imageId, $customField, true)) ?>
+    </span>
+    <?php
           }
         endif;
         ?>
-        <?php if (!empty($postfixText) && $postfixPosition == 'afterField') : ?>
-          <span class="<?php echo esc_attr($postfixClass); ?>">
-            <?php echo wp_kses_post($postfixText); ?>
-          </span>
-        <?php endif; ?>
-        <?php if (!empty($fieldLink)) : ?>
-        </a>
-      <?php endif; ?>
-      <?php if ($iconPosition == 'afterField') : ?>
-        <?php echo wp_kses_post($fontIconHtml); ?>
-      <?php endif; ?>
-      <?php if (!empty($postfixText) && $postfixPosition == 'atTheEnd') : ?>
-        <span class="<?php echo esc_attr($postfixClass); ?>">
-          <?php echo wp_kses_post($postfixText); ?>
-        </span>
-      <?php endif; ?>
-    </<?php echo pg_tag_escape($wrapperTag); ?>>
+    <?php if (!empty($postfixText) && $postfixPosition == 'afterField') : ?>
+    <span class="<?php echo esc_attr($postfixClass); ?>">
+      <?php echo wp_kses_post($postfixText); ?>
+    </span>
+    <?php endif; ?>
+    <?php if (!empty($fieldLink)) : ?>
+  </a>
+  <?php endif; ?>
+  <?php if ($iconPosition == 'afterField') : ?>
+  <?php echo wp_kses_post($fontIconHtml); ?>
+  <?php endif; ?>
+  <?php if (!empty($postfixText) && $postfixPosition == 'atTheEnd') : ?>
+  <span class="<?php echo esc_attr($postfixClass); ?>">
+    <?php echo wp_kses_post($postfixText); ?>
+  </span>
+  <?php endif; ?>
+</<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
     $html = ob_get_clean();
     $cleanedHtml = post_grid_clean_html($html);

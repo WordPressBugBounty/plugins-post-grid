@@ -43,6 +43,8 @@ class PGBlockFormFieldCheckbox
     $inputRequired = isset($inputOptions['required']) ? $inputOptions['required'] : false;
     $inputDisabled = isset($inputOptions['disabled']) ? $inputOptions['disabled'] : false;
     $inputReadonly = isset($inputOptions['readonly']) ? $inputOptions['readonly'] : false;
+    $inputlabelSrc = isset($inputOptions['labelSrc']) ? $inputOptions['labelSrc'] : "";
+
     $inputObjMap = isset($inputOptions['objMap']) ? $inputOptions['objMap'] : "";
     $inputArgs = isset($inputOptions['args']) ? $inputOptions['args'] : [];
     $inputargsSrc = isset($inputOptions['argsSrc']) ? $inputOptions['argsSrc'] : [];
@@ -91,11 +93,28 @@ class PGBlockFormFieldCheckbox
         <?php
         if (!empty($inputArgs)) :
           foreach ($inputArgs as $index => $inputArg) :
+
+            $img = isset($inputArg['img']) ? $inputArg['img'] : [];
+            $imgSrc = isset($img['src']) ? $img['src'] : "";
+            $imgAlt = isset($img['alt']) ? $img['alt'] : "";
         ?>
             <div class='item'>
-              <input id="<?php echo esc_attr($blockId . '-' . $index) ?>" type="checkbox" placeholder="<?php echo esc_attr($inputPlaceholder); ?>" value="<?php echo esc_attr($inputArg['value']); ?>" name="<?php echo esc_attr($inputName); ?>" <?php if ($inputRequired) : ?> required <?php endif; ?> <?php if ($inputDisabled) : ?> disabled <?php endif; ?> <?php if ($inputReadonly) : ?> readonly <?php endif; ?> <?php if (in_array($inputArg['value'], $inputValue)) : ?> checked <?php endif; ?> />
+              <input id="<?php echo esc_attr($blockId . '-' . $index) ?>" class="<?php echo !empty($inputlabelSrc) ? "hidden" : ""; ?>" type="checkbox" placeholder="<?php echo esc_attr($inputPlaceholder); ?>" value="<?php echo esc_attr($inputArg['value']); ?>" name="<?php echo esc_attr($inputName); ?>" <?php if ($inputRequired) : ?> required <?php endif; ?> <?php if ($inputDisabled) : ?> disabled <?php endif; ?> <?php if ($inputReadonly) : ?> readonly <?php endif; ?> <?php if (in_array($inputArg['value'], $inputValue)) : ?> checked <?php endif; ?> />
               <label for="<?php echo esc_attr($blockId . '-' . $index) ?>">
-                <?php echo isset($inputArg['label']) ? wp_kses_post($inputArg['label']) : ""; ?>
+                <?php
+                if ($inputlabelSrc == 'img'):
+
+                ?>
+                  <img src="<?php echo esc_url($imgSrc); ?>" alt="<?php echo esc_attr($imgAlt); ?>">
+                <?php
+
+                elseif ($inputlabelSrc == 'icon'):
+                else:
+                  echo isset($inputArg['label']) ? wp_kses_post($inputArg['label']) : "";
+                endif;
+
+
+                ?>
               </label>
             </div>
         <?php

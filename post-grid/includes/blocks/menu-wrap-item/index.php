@@ -28,6 +28,9 @@ class PGBlockMenuWrapItem
     $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
     $wrapperOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
     $wrapperClass = isset($wrapperOptions['class']) ? $wrapperOptions['class'] : '';
+    $isMainMenuItem = isset($wrapperOptions['isMainMenuItem']) ? $wrapperOptions['isMainMenuItem'] : 0;
+
+
     $menuWrap = isset($attributes['menuWrap']) ? $attributes['menuWrap'] : [];
     $subMenuWrap = isset($attributes['subMenuWrap']) ? $attributes['subMenuWrap'] : [];
     $subMenuWrapOptions = isset($subMenuWrap['options']) ? $subMenuWrap['options'] : [];
@@ -67,7 +70,10 @@ class PGBlockMenuWrapItem
     ob_start();
 ?>
     <li class="<?php echo esc_attr($wrapperClass);
-                ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>">
+                ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>
+<?php echo ($isMainMenuItem) ? "pg-main-menu-item" : ""; ?>
+
+">
       <?php if (!empty($linktext)) : ?>
         <?php if ($iconPosition == 'beforeLink') : ?>
           <?php echo wp_kses_post($fontIconHtml); ?>

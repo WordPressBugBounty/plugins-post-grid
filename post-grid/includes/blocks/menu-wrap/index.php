@@ -68,7 +68,7 @@ class PGBlockMenuWrap
     } else if ($mobileMenuCloseLibrary == 'bootstrap') {
       wp_enqueue_style('bootstrap-icons');
     }
-    $mobileMenuCloseIconHtml = '<span class="' .  $mobileMenuCloseClass . ' ' .  $mobileMenuCloseSrc . '"></span>';
+    $mobileMenuCloseIconHtml = '<span class=" ' .  $mobileMenuCloseSrc . '"></span>';
     $obj['id'] = $post_ID;
     $obj['type'] = 'post';
     $wrapperClass = post_grid_parse_css_class($wrapperClass, $obj);
@@ -83,7 +83,7 @@ class PGBlockMenuWrap
 ?>
     <div class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>">
       <nav>
-        <ul class="<?php echo esc_attr($menuWrapClass); ?>">
+        <ul class="<?php echo esc_attr($menuWrapClass); ?> pg-main-menu">
           <?php echo wp_kses_post($content) ?>
         </ul>
         <div class="mobile-menu-toggle">
@@ -91,11 +91,10 @@ class PGBlockMenuWrap
         </div>
       </nav>
       <div class="mobile-menu-wrap hidden">
-        <div class="mobile-menu-close">
+        <div class="mobile-menu-close <?php echo esc_attr($mobileMenuCloseClass); ?>">
           <?php echo wp_kses_post($mobileMenuCloseIconHtml); ?>
         </div>
-        <ul class="<?php echo esc_attr($menuWrapClass);
-                    ?>">
+        <ul class="<?php echo esc_attr($menuWrapClass); ?>">
           <?php echo wp_kses_post($content) ?>
         </ul>
       </div>

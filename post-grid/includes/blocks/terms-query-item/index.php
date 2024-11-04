@@ -119,6 +119,8 @@ class PGBlockTermsQueryItem
         // $fieldValue = get_term_meta($term_ID, $termFieldMetaKey);
       }
       if ($termFieldField == "meta") {
+
+
         // $fieldValue = $term->name;
         if ($termFieldMetaKeyType == 'ID') {
           $thumb_id = get_term_meta($term_ID, $termFieldMetaKey, true);

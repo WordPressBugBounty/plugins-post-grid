@@ -6,6 +6,7 @@
   "textdomain": "post-grid",
   "category": "post-grid-post",
   "usesContext": [
+    "post-grid/liveMode",
     "postId",
     "loopIndex",
     "postType",
@@ -25,7 +26,17 @@
           "tag": "div",
           "class": "pg-post-comment-count"
         },
-        "styles": {}
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "gap": {
+            "Desktop": "1em"
+          }
+        }
       }
     },
     "commentCount": {

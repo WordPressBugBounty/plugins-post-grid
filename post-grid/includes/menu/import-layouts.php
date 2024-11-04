@@ -16,7 +16,7 @@ wp_localize_script(
     'ajax_nonce' => wp_create_nonce('post_grid_ajax_nonce'),
   )
 );
-wp_enqueue_style('post-grid-output', post_grid_plugin_url . '/dist/output.css', [], false, 'all');
+wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [], false, 'all');
 ?>
 <div class="wrap">
   <h2><?php _e('Post Grid - Layouts library', 'post-grid'); ?></h2>

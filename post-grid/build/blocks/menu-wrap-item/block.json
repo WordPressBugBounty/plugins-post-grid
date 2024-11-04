@@ -27,7 +27,8 @@
         "options": {
           "tag": "li",
           "class": "pg-menu-wrap-item",
-          "isActive": false
+          "isActive": false,
+          "isMainMenuItem": false
         },
         "styles": {}
       }

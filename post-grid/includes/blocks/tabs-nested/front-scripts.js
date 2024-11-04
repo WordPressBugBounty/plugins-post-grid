@@ -20,8 +20,13 @@ export function setupTabs() {
 				var hash = window.location.hash;
 				if (hash.length == 0) return;
 				var hashWrap = document.querySelector('[href="' + hash + '"]');
-				var index = hashWrap.getAttribute("index")
-				window.pgTabs.switchNavs(index)
+
+				if (hashWrap != null) {
+					var index = hashWrap.getAttribute("index")
+					window.pgTabs.switchNavs(index)
+				}
+
+
 			},
 			switchNavs: (index) => {
 				if (window.pgTabs.id.length == 0) return;

@@ -6,6 +6,7 @@
   "textdomain": "post-grid",
   "category": "post-grid-post",
   "usesContext": [
+    "post-grid/liveMode",
     "postId",
     "loopIndex",
     "postType",
@@ -49,23 +50,11 @@
           "class": "post-title"
         },
         "styles": {
-          "color": {
-            "Desktop": "#000000"
-          },
           "fontSize": {
             "Desktop": "30px"
           },
-          "fontFamily": {
-            "Desktop": "Poppins"
-          },
-          "fontStyle": {
-            "Desktop": "normal"
-          },
-          "fontWeight": {
-            "Desktop": "700"
-          },
-          "lineHeight": {
-            "Desktop": "155%"
+          "textDecoration": {
+            "Desktop": "none #000000 solid 0px !important"
           }
         }
       }
@@ -78,26 +67,7 @@
           "class": "prefix",
           "position": "beforebegin "
         },
-        "styles": {
-          "color": {
-            "Desktop": "#000000 !important"
-          },
-          "fontSize": {
-            "Desktop": "18px"
-          },
-          "fontFamily": {
-            "Desktop": "Poppins"
-          },
-          "fontStyle": {
-            "Desktop": "normal"
-          },
-          "fontWeight": {
-            "Desktop": "400"
-          },
-          "margin": {
-            "Desktop": "0px 10px 0px 0px"
-          }
-        }
+        "styles": {}
       }
     },
     "postfix": {
@@ -108,26 +78,7 @@
           "class": "postfix",
           "position": "afterend"
         },
-        "styles": {
-          "color": {
-            "Desktop": "#000000 !important"
-          },
-          "fontSize": {
-            "Desktop": "18px"
-          },
-          "fontFamily": {
-            "Desktop": "Poppins"
-          },
-          "fontStyle": {
-            "Desktop": "normal"
-          },
-          "fontWeight": {
-            "Desktop": "400"
-          },
-          "margin": {
-            "Desktop": "0px 0px 0px 10px"
-          }
-        }
+        "styles": {}
       }
     },
     "utmTracking": {

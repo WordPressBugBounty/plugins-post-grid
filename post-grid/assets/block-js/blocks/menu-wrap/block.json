@@ -38,6 +38,43 @@
         "styles": {}
       }
     },
+    "mobileMenuWrapActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "mobile-menu-wrap-active"
+        },
+        "styles": {}
+      }
+    },
+    "mainMenuWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-main-menu"
+        },
+        "styles": {}
+      }
+    },
+    "mainMenuItemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-main-menu-item"
+        },
+        "styles": {}
+      }
+    },
+    "mainMenuItemLink": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
     "menuWrap": {
       "type": "object",
       "default": {
@@ -53,6 +90,26 @@
       "default": {
         "options": {
           "class": "pg-sub-menu",
+          "type": ""
+        },
+        "styles": {}
+      }
+    },
+    "subMenuItemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "type": ""
+        },
+        "styles": {}
+      }
+    },
+    "subMenuItemLink": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
           "type": ""
         },
         "styles": {}

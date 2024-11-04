@@ -6,6 +6,7 @@
   "textdomain": "post-grid",
   "category": "post-grid-post",
   "usesContext": [
+    "post-grid/liveMode",
     "postId",
     "loopIndex",
     "postType",
@@ -25,14 +26,7 @@
           "tag": "div",
           "class": "pg-post-featured-image"
         },
-        "styles": {
-          "width": {
-            "Desktop": "100%"
-          },
-          "overflow": {
-            "Desktop": "hidden"
-          }
-        }
+        "styles": {}
       }
     },
     "featuredImage": {
@@ -62,17 +56,7 @@
             "Mobile": "full"
           }
         },
-        "styles": {
-          "display": {
-            "Desktop": "block"
-          },
-          "maxWidth": {
-            "Desktop": "100%"
-          },
-          "height": {
-            "Desktop": "auto"
-          }
-        }
+        "styles": {}
       }
     },
     "lightbox": {

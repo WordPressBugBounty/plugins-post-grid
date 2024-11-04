@@ -91,8 +91,9 @@
 .pg-menu-wrap {}
 
 .pg-menu-wrap .pg-menu {}
-.pg-menu-wrap .pg-menu .has-child-menu{
-margin:0 10px;
+
+.pg-menu-wrap .pg-menu .has-child-menu {
+  margin: 0 10px;
 }
 
 .pg-menu-wrap .pg-menu li {
@@ -104,20 +105,20 @@ margin:0 10px;
 
 
 .pg-menu-wrap .pg-menu li .pg-sub-menu {
-
-  visibility: hidden;
+  display: none;
+  /* visibility: hidden; */
   position: absolute;
   top: 200%;
   transition: ease 1s 0s all;
-  opacity: 0.4;
+  /* opacity: 0.4; */
 }
 
 .pg-menu-wrap .pg-menu li:hover>.pg-sub-menu,
 .pg-menu-wrap .pg-menu li.active>.pg-sub-menu {
   display: block;
   top: 100%;
-  visibility: visible;
-  opacity: 1;
+  /* visibility: visible; */
+  /* opacity: 1; */
 }
 
 
@@ -133,11 +134,30 @@ margin:0 10px;
   display: none;
 }
 
-.pg-menu-wrap .mobile-menu-wrap[active] {
-  visibility: visible;
+.mobile-menu-wrap .pg-menu {
+  display: block !important;
 }
 
-@media (max-width: 1000px) {
+.pg-menu-wrap .mobile-menu-wrap {
+  /* visibility: hidden; */
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: all 1s 0s ease;
+}
+
+.pg-menu-wrap .mobile-menu-wrap[active] {
+  /* visibility: visible; */
+  display: block;
+  right: 0;
+
+  padding: 20px;
+  width: 80%;
+  z-index: 99999;
+
+}
+
+@media (max-width: 900px) {
   .pg-menu-wrap {
     position: relative;
     justify-content: end !important;
@@ -154,11 +174,12 @@ margin:0 10px;
 
   .pg-menu-wrap .pg-menu li {}
 
-  .pg-menu-wrap .pg-menu li .pg-sub-menu {
-    visibility: visible;
+  .pg-menu-wrap .mobile-menu-wrap[active] .pg-menu li .pg-sub-menu {
+    /* visibility: visible; */
     position: relative;
-    opacity: 1;
-    padding: 0 0 15px 25px;
+    /* opacity: 1; */
+    /* padding: 0 0 15px 25px; */
+    display: block;
   }
 
 }

@@ -62,9 +62,46 @@ class PGBlockNumberCounter
 		$postfixClass = isset($postfixOptions['class']) ? $postfixOptions['class'] : 'postfix';
 		$blockCssY = isset($attributes['blockCssY']) ? $attributes['blockCssY'] : [];
 		$postGridCssY[] = isset($blockCssY['items']) ? $blockCssY['items'] : [];
-		global $product;
-		$productSaleCount = ($product == null) ? '' : $product->get_total_sales();
-		$metaValue = get_post_meta($post_ID, $metaKey, true);
+
+
+		if ($source == 'wooTotalSale') {
+			global $product;
+			$end = ($product == null) ? '' : $product->get_total_sales();
+		}
+		if ($source == 'tutorTotalInstructors') {
+			$end = (int) tutor_utils()->get_total_instructors();
+		}
+		if ($source == 'tutorTotalStudents') {
+			$end =  (int)tutor_utils()->get_total_students();
+		}
+		if ($source == 'tutorTotalAssignments') {
+			$end =  (int)tutor_utils()->get_total_assignments();
+		}
+		if ($source == 'tutorTotalEnrolments') {
+			$end =  (int)tutor_utils()->get_total_enrolments("completed");
+		}
+		if ($source == 'tutorTotalCourse') {
+			$end = (int) tutor_utils()->get_total_course();
+		}
+		if ($source == 'tutorTotalEnrolledCourse') {
+			$end =  (int)tutor_utils()->get_total_enrolled_course();
+		}
+		if ($source == 'tutorTotalQuestion') {
+			$end =  (int)tutor_utils()->get_total_question();
+		}
+		if ($source == 'tutorTotalReview') {
+			$end =  (int)tutor_utils()->get_total_review();
+		}
+
+
+		if ($source == 'post_meta') {
+			$end = get_post_meta($post_ID, $metaKey, true);
+		}
+
+
+
+
+
 		if ($iconLibrary == 'fontAwesome') {
 			wp_enqueue_style('fontawesome-icons');
 		} else if ($iconLibrary == 'iconFont') {
@@ -74,14 +111,14 @@ class PGBlockNumberCounter
 		}
 		$fontIconHtml = '<span class="' . $iconClass . ' ' . $iconSrc . '"></span>';
 		$dataAtts = [
-			"start" => $start,
-			"end" => $end,
-			"duration" => $duration,
+			"start" => (int)$start,
+			"end" => (int)$end,
+			"duration" => (int)$duration,
 			"blockId" => $blockId,
 			"onScroll" => $onScroll,
-			"source" => $source,
-			"saleCount" => $productSaleCount,
-			"metaValue" => $metaValue,
+			// "source" => $source,
+			// "saleCount" => $productSaleCount,
+			// "metaValue" => $metaValue,
 		];
 		$obj['id'] = $post_ID;
 		$obj['type'] = 'post';

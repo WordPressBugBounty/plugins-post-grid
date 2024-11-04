@@ -43,7 +43,7 @@ class PGBlockContentSliderItem
     ob_start();
 ?>
     <div class="<?php echo esc_attr($wrapperClass); ?> splide__slide <?php echo esc_attr($blockId); ?> <?php echo esc_attr($blockAlign); ?>">
-      <?php echo wp_kses_post($content) ?>
+      <?php echo ($content) ?>
     </div>
 <?php
     $html = ob_get_clean();

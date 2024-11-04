@@ -1,10 +1,13 @@
 <?php
 if (!defined('ABSPATH'))
   exit();
+
+
 class PGBlockUserFields
 {
   function __construct()
   {
+
     add_action('init', array($this, 'register_scripts'));
   }
   // loading src files in the gutenberg editor screen
@@ -20,6 +23,7 @@ class PGBlockUserFields
   // front-end output from the gutenberg editor 
   function theHTML($attributes, $content, $block)
   {
+
     global $postGridCssY;
     $userId = isset($block->context['userId']) ? $block->context['userId'] : '';
     $blockId = isset($attributes['blockId']) ? $attributes['blockId'] : '';
@@ -35,6 +39,8 @@ class PGBlockUserFields
     $frontTextClass = isset($frontTextOptions['class']) ? $frontTextOptions['class'] : '';
     $field = isset($attributes['field']) ? $attributes['field'] : [];
     $fieldOptions = isset($field['options']) ? $field['options'] : [];
+    $limitBy = isset($fieldOptions['limitBy']) ? $fieldOptions['limitBy'] : 'word';
+    $limitCount = isset($fieldOptions['limitCount']) ? (int) $fieldOptions['limitCount'] : 999;
     $customField = isset($fieldOptions['customField']) ? $fieldOptions['customField'] : "";
     $customFieldType = isset($fieldOptions['customFieldType']) ? $fieldOptions['customFieldType'] : "";
     $customFieldSize = isset($fieldOptions['customFieldSize']) ? $fieldOptions['customFieldSize'] : "full";
@@ -155,11 +161,26 @@ class PGBlockUserFields
           </span>
         <?php endif; ?>
         <?php
-        if ($metaKey == 'ID' || $metaKey == 'login' || $metaKey == 'nickname' || $metaKey == 'url' || $metaKey == 'registered' || $metaKey == 'display_name' || $metaKey == 'first_name' || $metaKey == 'last_name' || $metaKey == 'description' || $metaKey == 'display_name') :
+
+
+        if ($metaKey == 'ID' || $metaKey == 'login' || $metaKey == 'nickname' || $metaKey == 'url' || $metaKey == 'registered' || $metaKey == 'display_name' || $metaKey == 'first_name' || $metaKey == 'last_name' || $metaKey == 'display_name') :
         ?>
           <span class="fieldVal">
             <?php echo wp_kses_post(get_the_author_meta($metaKey, $userId)) ?>
           </span>
+        <?php
+        elseif ($metaKey == 'description') :
+          $metaValue = get_the_author_meta($metaKey, $userId);
+          if ($limitBy == 'character') {
+            $metaValue = substr($metaValue, 0, $limitCount);
+          } else {
+            $metaValue = wp_trim_words($metaValue, $limitCount, '');
+          } ?>
+          <span class="fieldVal">
+            <?php echo wp_kses_post($metaValue) ?>
+          </span>
+
+
           <?php
         elseif ($metaKey == 'roles') :
 
@@ -172,10 +193,65 @@ class PGBlockUserFields
           <?php
           endif;
 
+        elseif ($metaKey == 'tutorInstructorCourseCount') :
+          $course_count  = 0;
+
+          ?>
+          <span class="fieldVal">
+            <?php echo wp_kses_post($course_count); ?>
+          </span>
+        <?php
+        elseif ($metaKey == 'tutorInstructorStudentCount') :
+          $student_count = 0;
+          if (function_exists("tutor_utils")) {
+            $student_count = tutor_utils()->get_total_students_by_instructor($userId);
+          }
+
+
+        ?>
+          <span class="fieldVal">
+            <?php echo wp_kses_post($student_count); ?>
+          </span>
+        <?php
+
+
+        elseif ($metaKey == 'tutorCompleteCourseCount') :
+
+          $complete_count = 0;
+          if (function_exists("tutor_utils")) {
+            $complete_count = tutor_utils()->get_completed_courses_ids_by_user($userId);
+          }
+
+          $complete_count = $complete_count ? count($complete_count) : 0;
+
+        ?>
+          <span class="fieldVal">
+            <?php echo wp_kses_post($complete_count);
+            ?>
+          </span>
+        <?php
+        elseif ($metaKey == 'tutorEnrolledCourseCount') :
+
+          $enrolled_course = 0;
+          if (function_exists("tutor_utils")) {
+            $enrolled_course = tutor_utils()->get_enrolled_courses_by_user($userId);
+          }
+
+
+          $enrol_count     = is_object($enrolled_course) ? $enrolled_course->found_posts : 0;
+
+
+        ?>
+          <span class="fieldVal">
+            <?php echo wp_kses_post($enrol_count);
+            ?>
+          </span>
+        <?php
+
 
 
         elseif ($metaKey == 'avatar') :
-          ?>
+        ?>
           <img class="fieldVal"
             src="<?php echo esc_url(get_avatar_url($userId, ['size' => $fieldAvatarSize, 'default' => $fieldDefaultAvatar, 'rating' => $fieldAvatarRating])) ?>"
             alt=" <?php echo esc_attr(get_the_author_meta('display_name', $userId)) ?> " />

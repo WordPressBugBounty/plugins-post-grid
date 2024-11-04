@@ -27,6 +27,8 @@ class PGBlockPostQueryPagination
     global $postGridCssY;
     global $postGridScriptData;
     global $PGPostQuery;
+    global $postGridPrams;
+
     $blockId = isset($attributes['blockId']) ? $attributes['blockId'] : '';
     $blockAlign = isset($attributes['align']) ? 'align' . $attributes['align'] : '';
     $postGridId = isset($block->context['post-grid/postGridId']) ? $block->context['post-grid/postGridId'] : '';
@@ -122,32 +124,24 @@ class PGBlockPostQueryPagination
     } else {
       $paged = 1;
     }
-    $postGridScriptData[$postGridId]['pagination']['type'] = $paginationType;
-    $postGridScriptData[$postGridId]['pagination']['prevText'] = $prevText;
-    $postGridScriptData[$postGridId]['pagination']['nextText'] = $nextText;
-    $postGridScriptData[$postGridId]['pagination']['maxPageNum'] = $maxPageNum;
-    $postGridScriptData[$postGridId]['pagination']['noMorePosts'] = $noMorePosts;
-    $postGridScriptData[$postGridId]['pagination']['loadMoreText'] = $loadMoreText;
-    $postGridScriptData[$postGridId]['pagination']['loadingText'] = $loadingText;
-    $postGridScriptData[$postGridId]['pagination']['page'] = $paged;
-    $postGridScriptData[$postGridId]['pagination']['loadingIcon'] = '<i class="loademore-icon ' . $loadingIconSrc . '"></i>';
+    $postGridPrams[$postGridId]['pagination']['type'] = $paginationType;
+    $postGridPrams[$postGridId]['pagination']['prevText'] = $prevText;
+    $postGridPrams[$postGridId]['pagination']['nextText'] = $nextText;
+    $postGridPrams[$postGridId]['pagination']['maxPageNum'] = $maxPageNum;
+    $postGridPrams[$postGridId]['pagination']['noMorePosts'] = $noMorePosts;
+    $postGridPrams[$postGridId]['pagination']['loadMoreText'] = $loadMoreText;
+    $postGridPrams[$postGridId]['pagination']['loadingText'] = $loadingText;
+    $postGridPrams[$postGridId]['pagination']['loadingPosition'] = $loadingPosition;
+    $postGridPrams[$postGridId]['pagination']['loadMorePosition'] = $loadMorePosition;
+
+    $postGridPrams[$postGridId]['pagination']['page'] = $paged;
+    $postGridPrams[$postGridId]['pagination']['loadingIcon'] = '<i class="loademore-icon ' . $loadingIconSrc . '"></i>';
+    $postGridPrams[$postGridId]['pagination']['loadMoreIcon'] = '<i class="loademore-icon ' . $loadMoreIconSrc . '"></i>';
+
+
     $blockArgs = [
       'blockId' => $postGridId,
-      'pagination' => [
-        'type' => $paginationType,
-        'loadMoreText' => $loadMoreText,
-        'loadingText' => $loadingText,
-        'noMorePosts' => $noMorePosts,
-        'loadingIcon' => '<i class="' . $loadingIconSrc . '"></i>',
-        'loadMoreIcon' => '<i class="' . $loadMoreIconSrc . '"></i>',
-        'loadMorePosition' => $loadMorePosition,
-        'loadingPosition' => $loadingPosition,
-        'page' => $paged,
-        'prevText' => $prevText,
-        'nextText' => $nextText,
-        'maxPageNum' => $maxPageNum,
-      ],
-      'noPosts' => false
+
     ];
     $max_num_pages = isset($PGPostQuery->max_num_pages) ? $PGPostQuery->max_num_pages : 0;;
     if ($previousPosition == "beforeText") {

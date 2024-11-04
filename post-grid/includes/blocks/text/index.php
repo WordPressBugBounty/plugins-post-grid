@@ -56,9 +56,6 @@ class PGBlockPostText
     $typingText = isset($attributes['typingText']) ? $attributes['typingText'] : [];
     $typingTextRules = isset($typingText['rules']) ? $typingText['rules'] : [];
 
-
-    //var_dump($typingText);
-
     $wrapper = isset($attributes["wrapper"]) ? $attributes["wrapper"] : [];
     $wrapperOptions = isset($wrapper["options"]) ? $wrapper["options"] : [];
     $wrapperClass = isset($wrapperOptions["class"])
@@ -142,28 +139,29 @@ class PGBlockPostText
     endif;
     if (!empty($wrapperTag)) :
 ?>
-      <<?php echo pg_tag_escape($wrapperTag); ?> class="<?php echo esc_attr($blockId); ?> <?php echo esc_attr($wrapperClass); ?>" id="<?php echo esc_attr($textId); ?>"
-        <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>"
-        <?php endif; ?> <?php if (!empty($tooltipRules)): ?> data-tooltip="<?php echo esc_attr(json_encode($tooltipRules)) ?>"
-        <?php endif; ?> <?php if (!empty($tiltRules)): ?> data-tilt="<?php echo esc_attr(json_encode($tiltRules)) ?>"
-        <?php endif; ?> <?php if (!empty($typingTextRules)): ?>
-        data-typed="<?php echo esc_attr(json_encode($typingTextRules)) ?>" <?php endif; ?> <?php if ($otherCopyObj) : ?>
-        clickToCopy="<?php echo esc_attr($otherCopyObj); ?>" data-copyContent="<?php echo esc_attr($otherCopyContent); ?>"
-        <?php endif; ?>>
-        <?php if (!empty($prefixText)) : ?>
-          <span class="<?php echo esc_attr($prefixClass); ?>">
-            <?php echo wp_kses_post($prefixText); ?>
-          </span>
-        <?php endif; ?>
-        <<?php echo pg_tag_escape($textTag) ?> class="<?php echo esc_attr($textClass); ?>">
-          <?php echo wp_kses_post($content); ?>
-        </<?php echo pg_tag_escape($textTag); ?>>
-        <?php if (!empty($postfixText)) : ?>
-          <span class="<?php echo esc_attr($postfixClass); ?>">
-            <?php echo wp_kses_post($postfixText); ?>
-          </span>
-        <?php endif; ?>
-      </<?php echo pg_tag_escape($wrapperTag); ?>>
+<<?php echo pg_tag_escape($wrapperTag); ?>
+  class="<?php echo esc_attr($blockId); ?> <?php echo esc_attr($wrapperClass); ?>" id="<?php echo esc_attr($textId); ?>"
+  <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>"
+  <?php endif; ?> <?php if (!empty($tooltipRules)): ?> data-tooltip="<?php echo esc_attr(json_encode($tooltipRules)) ?>"
+  <?php endif; ?> <?php if (!empty($tiltRules)): ?> data-tilt="<?php echo esc_attr(json_encode($tiltRules)) ?>"
+  <?php endif; ?> <?php if (!empty($typingTextRules)): ?>
+  data-typed="<?php echo esc_attr(json_encode($typingTextRules)) ?>" <?php endif; ?> <?php if ($otherCopyObj) : ?>
+  clickToCopy="<?php echo esc_attr($otherCopyObj); ?>" data-copyContent="<?php echo esc_attr($otherCopyContent); ?>"
+  <?php endif; ?>>
+  <?php if (!empty($prefixText)) : ?>
+  <span class="<?php echo esc_attr($prefixClass); ?>">
+    <?php echo wp_kses_post($prefixText); ?>
+  </span>
+  <?php endif; ?>
+  <<?php echo pg_tag_escape($textTag) ?> class="<?php echo esc_attr($textClass); ?>">
+    <?php echo wp_kses_post($content); ?>
+  </<?php echo pg_tag_escape($textTag); ?>>
+  <?php if (!empty($postfixText)) : ?>
+  <span class="<?php echo esc_attr($postfixClass); ?>">
+    <?php echo wp_kses_post($postfixText); ?>
+  </span>
+  <?php endif; ?>
+</<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
     endif;
     $html = ob_get_clean();

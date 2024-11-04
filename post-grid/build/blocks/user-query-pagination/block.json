@@ -6,7 +6,8 @@
   "textdomain": "post-grid",
   "category": "post-grid-tools",
   "parent": [
-    "post-grid/layers"
+    "post-grid/layers",
+    "post-grid/user-showcase"
   ],
   "usesContext": [
     "post-grid/postGridId",

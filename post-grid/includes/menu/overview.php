@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) exit;  // if direct access
-wp_enqueue_style('post-grid-output', post_grid_plugin_url . '/dist/output.css', [], time(), 'all');
+wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [], time(), 'all');
 wp_enqueue_style('font-awesome-5');
 $admin_email = get_option('admin_email');
 $post_grid_license = get_option('post_grid_license');

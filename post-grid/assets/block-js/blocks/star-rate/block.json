@@ -6,6 +6,8 @@
   "textdomain": "post-grid",
   "category": "post-grid-tools",
   "usesContext": [
+    "userData",
+    "userId",
     "postId",
     "loopIndex",
     "postType",
@@ -26,17 +28,7 @@
           "class": "pg-star-rate",
           "attr": []
         },
-        "styles": {
-          "display": {
-            "Desktop": "flex"
-          },
-          "alignItems": {
-            "Desktop": "center"
-          },
-          "gap": {
-            "Desktop": "8px"
-          }
-        }
+        "styles": {}
       }
     },
     "icon": {
@@ -56,17 +48,7 @@
           "customUrl": "",
           "linkAttr": []
         },
-        "styles": {
-          "display": {
-            "Desktop": "inline-block"
-          },
-          "fontSize": {
-            "Desktop": "30px"
-          },
-          "fontWeight": {
-            "Desktop": "700"
-          }
-        }
+        "styles": {}
       }
     },
     "iconsIdle": {
@@ -76,17 +58,7 @@
           "tag": "div",
           "class": ""
         },
-        "styles": {
-          "color": {
-            "Desktop": "#fde68a"
-          },
-          "position": {
-            "Desktop": "relative"
-          },
-          "display": {
-            "Desktop": "flex"
-          }
-        }
+        "styles": {}
       }
     },
     "iconsFilled": {
@@ -96,29 +68,7 @@
           "tag": "div",
           "class": ""
         },
-        "styles": {
-          "color": {
-            "Desktop": "#f59e0b"
-          },
-          "display": {
-            "Desktop": "flex"
-          },
-          "position": {
-            "Desktop": "absolute"
-          },
-          "overflow": {
-            "Desktop": "hidden"
-          },
-          "top": {
-            "Desktop": "0px"
-          },
-          "left": {
-            "Desktop": "0px"
-          },
-          "width": {
-            "Desktop": "85%"
-          }
-        }
+        "styles": {}
       }
     },
     "summary": {
@@ -130,6 +80,8 @@
           "avg_rating": 4.25,
           "typeCustom": "",
           "linkTo": "reviews",
+          "source": "",
+          "customFieldKey": "",
           "class": ""
         },
         "styles": {}

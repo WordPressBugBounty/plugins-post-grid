@@ -86,16 +86,25 @@
           "multiple": false,
           "autofocus": null,
           "readonly": false,
+          "labelSrc": "",
           "objMap": "",
           "args": [
             {
               "label": "Option 1",
               "value": "option1",
+              "img": {
+                "src": "",
+                "alt": ""
+              },
               "readonly": false
             },
             {
               "label": "Option 2",
               "value": "option2",
+              "img": {
+                "src": "",
+                "alt": ""
+              },
               "readonly": false
             }
           ],
@@ -119,6 +128,16 @@
           "class": ""
         },
         "styles": {}
+      }
+    },
+    "inputItemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        }
       }
     },
     "icon": {
@@ -157,6 +176,12 @@
           "class": ""
         },
         "styles": {}
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
       }
     },
     "blockId": {

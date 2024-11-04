@@ -21,7 +21,11 @@ class PGBlockStarRate
   function theHTML($attributes, $content, $block)
   {
     global $postGridCssY;
-    $post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';
+    $post_ID = isset($block->context['postId']) ? $block->context['postId'] : get_the_id();
+    $userId = isset($block->context['userId']) ? $block->context['userId'] : '';
+    $userData = isset($block->context['userData']) ? $block->context['userData'] : [];
+
+
     $post_url = get_the_permalink($post_ID);
     $the_post = get_post($post_ID);
     $post_author_id = isset($the_post->post_author) ? $the_post->post_author : '';
@@ -65,9 +69,38 @@ class PGBlockStarRate
     $summary = isset($attributes['summary']) ? $attributes['summary'] : '';
     $summaryOptions = isset($summary['options']) ? $summary['options'] : '';
     $summaryType = isset($summaryOptions['type']) ? $summaryOptions['type'] : '';
+    $summarySource = isset($summaryOptions['source']) ? $summaryOptions['source'] : '';
+    $customFieldKey = isset($summaryOptions['customFieldKey']) ? $summaryOptions['customFieldKey'] : '';
+
+
+
+
     $summarytypeCustom = isset($summaryOptions['typeCustom']) ? $summaryOptions['typeCustom'] : '';
     $summaryRatingCount = isset($summaryOptions['rating_count']) ? $summaryOptions['rating_count'] : '';
     $summaryAvgRating = isset($summaryOptions['avg_rating']) ? (float)$summaryOptions['avg_rating'] : '';
+
+    if ($summarySource == "wooProductRate") {
+      $product_id = get_the_id();
+      $product = wc_get_product($product_id);
+      $summaryAvgRating  = $product->get_average_rating();
+      $summaryRatingCount   = $product->get_rating_count();
+    }
+    if ($summarySource == "tutorInstructorRate") {
+
+      if (function_exists("tutor_utils")) {
+        $instructor_rating = tutor_utils()->get_instructor_ratings($userId);
+
+        $summaryAvgRating  = number_format($instructor_rating->rating_avg, 2);
+        $summaryRatingCount   = number_format($instructor_rating->rating_count, 2);
+      }
+    }
+    if ($summarySource == "customFields") {
+      $post_id = get_the_id();
+      $metaValue = get_post_meta($post_id, $customFieldKey, true);
+      $summaryAvgRating  = $metaValue;
+    }
+
+
     $summaryVars = array(
       '{rating_count}' => $summaryRatingCount,
       '{average_rating}' => $summaryAvgRating,
@@ -150,8 +183,7 @@ class PGBlockStarRate
           </span>
         <?php endif; ?>
         <?php if ($textIsLink) : ?>
-          <a class='text-icon' <?php
-                                ?> target="<?php echo esc_attr($textLinkTarget); ?>"
+          <a class='text-icon' target="<?php echo esc_attr($textLinkTarget); ?>"
             rel="<?php echo esc_attr($textRel); ?>"
             href="<?php echo (!empty($textCustomUrl)) ? esc_url($textCustomUrl) : esc_url($post_url); ?>">
             <div class="icons-idle">

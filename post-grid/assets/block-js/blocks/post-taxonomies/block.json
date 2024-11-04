@@ -6,6 +6,7 @@
   "textdomain": "post-grid",
   "category": "post-grid-post",
   "usesContext": [
+    "post-grid/liveMode",
     "postId",
     "loopIndex",
     "postType",
@@ -52,7 +53,11 @@
           "linkTarget": "",
           "linkAttr": []
         },
-        "styles": {}
+        "styles": {
+          "textDecoration": {
+            "Desktop": "none #000000 solid 0px !important"
+          }
+        }
       }
     },
     "icon": {
@@ -65,14 +70,7 @@
           "position": "beforeFronttext",
           "class": "icon"
         },
-        "styles": {
-          "color": {
-            "Desktop": "#000000"
-          },
-          "fontSize": {
-            "Desktop": "18px"
-          }
-        }
+        "styles": {}
       }
     },
     "separator": {

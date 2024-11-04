@@ -5,6 +5,9 @@
   "title": "Form Maker",
   "textdomain": "post-grid",
   "category": "post-grid-tools",
+  "providesContext": {
+    "post-grid/formId": "blockId"
+  },
   "usesContext": [
     "post-grid/popupId"
   ],
@@ -13,9 +16,6 @@
       "wide",
       "full"
     ]
-  },
-  "providesContext": {
-    "post-grid/formId": "blockId"
   },
   "attributes": {
     "wrapper": {
@@ -31,6 +31,7 @@
     "form": {
       "type": "object",
       "default": {
+        "type": "contactForm",
         "options": {
           "class": "",
           "type": "contactForm"
@@ -83,6 +84,10 @@
       "default": {}
     },
     "afterSubmit": {
+      "type": "object",
+      "default": {}
+    },
+    "submitTriggers": {
       "type": "object",
       "default": {}
     },

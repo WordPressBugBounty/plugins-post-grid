@@ -37,7 +37,7 @@ class PGBlockListNestedItem
     $iconSrc = isset($iconOptions['iconSrc']) ? $iconOptions['iconSrc'] : '';
     $iconPosition = isset($iconOptions['position']) ? $iconOptions['position'] : '';
     $iconClass = isset($iconOptions['class']) ? $iconOptions['class'] : '';
-    $fontIconHtml = '<span class="' . $iconClass . ' ' . $iconSrc . '"></span>';
+    $fontIconHtml = '<span class="' . $iconSrc . '"></span>';
     $textOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
     $wrapperTag = isset($textOptions['tag']) ? $textOptions['tag'] : 'li';
     //$content = isset($textOptions['content']) ? $textOptions['content'] : '';
@@ -55,11 +55,14 @@ class PGBlockListNestedItem
     <<?php echo pg_tag_escape($wrapperTag); ?> class="<?php echo esc_attr($blockId); ?>     <?php echo esc_attr($wrapperClass); ?>" <?php //echo esc_attr($wrapperAttrText); 
                                                                                                                                     ?>>
       <?php if ($iconPosition == 'before') : ?>
-        <?php echo wp_kses_post($fontIconHtml); ?>
+        <span class="<?php echo esc_attr($iconClass); ?>"><?php echo wp_kses_post($fontIconHtml); ?></span>
+
       <?php endif; ?>
       <?php echo wp_kses_post($content); ?>
       <?php if ($iconPosition == 'after') : ?>
-        <?php echo wp_kses_post($fontIconHtml); ?>
+        <span class="<?php echo esc_attr($iconClass); ?>"><?php echo wp_kses_post($fontIconHtml); ?></span>
+
+
       <?php endif; ?>
     </<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php

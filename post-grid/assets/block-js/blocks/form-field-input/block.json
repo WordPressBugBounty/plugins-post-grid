@@ -16,6 +16,7 @@
     "post-grid/accordion-nested-item"
   ],
   "usesContext": [
+    "post-grid/formId",
     "postId",
     "loopIndex",
     "postType",
@@ -133,6 +134,18 @@
           "enable": true,
           "class": ""
         }
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
+      }
+    },
+    "calculations": {
+      "type": "object",
+      "default": {
+        "rules": ""
       }
     },
     "blockId": {

@@ -32,8 +32,9 @@
         "options": {
           "class": "pg-testimonial",
           "type": "link",
-          "queryPrams": [],
-          "source": ""
+          "source": "",
+          "sourcePrams": {},
+          "queryPrams": []
         },
         "styles": {}
       }

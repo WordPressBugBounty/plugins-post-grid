@@ -51,6 +51,10 @@ class PGBlockGalleryImages
     $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
     $wrapperOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
     $wrapperClass = isset($wrapperOptions['class']) ? $wrapperOptions['class'] : '';
+    $wrapperSource = isset($wrapperOptions['source']) ? $wrapperOptions['source'] : '';
+    $wrapperSourcePrams = isset($wrapperOptions['sourcePrams']) ? $wrapperOptions['sourcePrams'] : [];
+
+
     $itemsWrap = isset($attributes['itemsWrap']) ? $attributes['itemsWrap'] : [];
     $itemsWrapOptions = isset($itemsWrap['options']) ? $itemsWrap['options'] : [];
     $itemsWrapExcluded = isset($itemsWrapOptions['excludedWrapper']) ? $itemsWrapOptions['excludedWrapper'] : false;
@@ -89,6 +93,98 @@ class PGBlockGalleryImages
       $isVisible = post_grid_visible_parse($visible);
       if (!$isVisible) return;
     }
+
+
+    if ($wrapperSource == 'acfGallery') {
+      $galleryItems = [];
+
+      $SourceMetaKey = isset($wrapperSourcePrams['metaKey']) ? $wrapperSourcePrams['metaKey'] : "";
+      $SourceMax = isset($wrapperSourcePrams['max']) ? $wrapperSourcePrams['max'] : "";
+      $SourceReturnFormat = isset($wrapperSourcePrams['returnFormat']) ? $wrapperSourcePrams['returnFormat'] : "";
+      $images = get_field($SourceMetaKey, get_the_id());
+
+      if (is_array($images)) {
+        foreach ($images as $image) {
+          $attachment_post = get_post($image);
+
+          $Id = isset($attachment_post->ID) ? $attachment_post->ID : '';
+          $galleryItems[$Id] = [
+            "id" => isset($attachment_post->ID) ? $attachment_post->ID : '',
+            "title" => isset($attachment_post->post_title) ? $attachment_post->post_title : '',
+            "description" => isset($attachment_post->post_excerpt) ? $attachment_post->post_excerpt : '',
+            "url" => isset($attachment_post->guid) ? $attachment_post->guid : '',
+            "name" => isset($attachment_post->post_name) ? $attachment_post->post_name : '',
+          ];
+        }
+      }
+    }
+    if ($wrapperSource == 'imgUrls') {
+      $galleryItems = [];
+
+      $SourceContent = isset($wrapperSourcePrams['content']) ? $wrapperSourcePrams['content'] : "";
+      $SourceMax = isset($wrapperSourcePrams['max']) ? $wrapperSourcePrams['max'] : "";
+
+      $images = explode("\n", $SourceContent);
+
+      if (is_array($images)) {
+        foreach ($images as $image) {
+
+          $imageData = explode("|", $image);
+
+          $imageUrl = isset($imageData[0]) ? $imageData[0] : '';
+          $imageTitle = isset($imageData[1]) ? $imageData[1] : '';
+          $imageDescription = isset($imageData[2]) ? $imageData[2] : '';
+
+
+          $galleryItems[$Id] = [
+            "id" => "",
+            "title" => $imageTitle,
+            "description" => $imageDescription,
+            "url" => $imageUrl,
+          ];
+        }
+      }
+    }
+
+
+
+
+    if ($wrapperSource == 'customField') {
+      $galleryItems = [];
+
+      $SourceMetaKey = isset($wrapperSourcePrams['metaKey']) ? $wrapperSourcePrams['metaKey'] : "";
+      $SourceMax = isset($wrapperSourcePrams['max']) ? $wrapperSourcePrams['max'] : "";
+      $SourceType = isset($wrapperSourcePrams['type']) ? $wrapperSourcePrams['type'] : "";
+
+      if ($SourceType == "arrayIds") {
+        $images = get_post_meta(get_the_id(), $SourceMetaKey, true);
+      }
+      if ($SourceType == "commaSeparate") {
+        $images = get_post_meta(get_the_id(), $SourceMetaKey, true);
+        $images = explode(",", $images);
+      }
+
+
+      if (is_array($images)) {
+        foreach ($images as $image) {
+          $attachment_post = get_post($image);
+
+          $Id = isset($attachment_post->ID) ? $attachment_post->ID : '';
+          $galleryItems[$Id] = [
+            "id" => isset($attachment_post->ID) ? $attachment_post->ID : '',
+            "title" => isset($attachment_post->post_title) ? $attachment_post->post_title : '',
+            "description" => isset($attachment_post->post_excerpt) ? $attachment_post->post_excerpt : '',
+            "url" => isset($attachment_post->guid) ? $attachment_post->guid : '',
+            "name" => isset($attachment_post->post_name) ? $attachment_post->post_name : '',
+          ];
+        }
+      }
+    }
+
+
+
+
+
     // //* Visible condition
     if (!empty($galleryItems)) {
       //return;

@@ -45,6 +45,8 @@
           "avatarSize": "",
           "dateFormat": "",
           "customUrl": "",
+          "limitBy": "word",
+          "limitCount": 25,
           "prefix": "",
           "postfix": "",
           "linkAttr": []
