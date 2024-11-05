@@ -24,6 +24,8 @@ class PGBlockReactions
 			wp_enqueue_script('pg_block_scripts');
 		}
 		global $postGridCssY;
+		global $postGridBlocksVars;
+
 		$post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';
 		$post_data = get_post($post_ID);
 		$post_url = get_the_permalink($post_ID);
@@ -63,8 +65,15 @@ class PGBlockReactions
 		$blockCssY = isset($attributes['blockCssY']) ? $attributes['blockCssY'] : [];
 		//
 		$postGridCssY[] = isset($blockCssY['items']) ? $blockCssY['items'] : [];
+		$meta_key = "pg_reactions";
+
+		$pg_reactions = get_post_meta($post_ID, $meta_key, true);
+
+
 		$obj['id'] = $post_ID;
 		$obj['type'] = 'post';
+		$obj['reactions'] = $pg_reactions;
+		$obj['blockId'] = $blockId;
 		$wrapperClass = post_grid_parse_css_class($wrapperClass, $obj);
 		// //* Visible condition
 		$visible = isset($attributes['visible']) ? $attributes['visible'] : [];
@@ -72,19 +81,44 @@ class PGBlockReactions
 			$isVisible = post_grid_visible_parse($visible);
 			if (!$isVisible) return;
 		}
+
+
+		$postGridBlocksVars[$blockId]['_wpnonce'] = wp_create_nonce('wp_rest');
+
+		$currentReaction = "";
+
+		if (has_block('post-grid/reactions')) {
+			wp_enqueue_script('pg_block_scripts');
+			//wp_localize_script('pg_block_scripts', 'post_grid_vars_' . $blockId, $postGridScriptData);
+			wp_localize_script('pg_block_scripts', 'post_grid_blocks_vars', $postGridBlocksVars);
+		}
+
+
+
+
+
+		//var_dump($pg_reactions);
+
+
 		// //* Visible condition
 		ob_start();
 		if (!empty($wrapperTag)) :
 ?>
 			<<?php echo pg_tag_escape($wrapperTag); ?> class="
                             <?php echo esc_attr($blockId); ?>
-                            <?php echo esc_attr($wrapperClass); ?>" data-reactions="<?php echo esc_attr(json_encode($obj)); ?>">
+                            <?php echo esc_attr($wrapperClass); ?>" data-current-reaction="<?php echo esc_attr($currentReaction); ?>" data-object="<?php echo esc_attr(json_encode($obj)); ?>"
+				data-reactions="<?php echo esc_attr(json_encode($pg_reactions)); ?>">
 				<?php
 				if (!empty($elementsItems))
 					foreach ($elementsItems as $index => $item) {
 						$label = isset($item['label']) ? $item['label'] : '';
+
+
+
 						$id = isset($item['id']) ? $item['id'] : '';
-						$count = isset($item['count']) ? $item['count'] : '';
+						$count = isset($pg_reactions[$id]) ? $pg_reactions[$id] : $item['count'];
+						$label = $label . ": " . $count;
+
 						$url = isset($item['url']) ? $item['url'] : '';
 						$siteIcon = isset($item['siteIcon']) ? $item['siteIcon'] : '';
 						$iconLibrary = isset($siteIcon['library']) ? $siteIcon['library'] : '';
@@ -105,7 +139,7 @@ class PGBlockReactions
 							$url = isset($item['profileLink']) ? $item['profileLink'] : '';
 						}
 				?>
-					<span class="<?php echo esc_attr('media-item item-' . $index); ?>" data-name="<?php echo esc_attr($id); ?>">
+					<span class="<?php echo esc_attr('media-item pg-reaction item-' . $index); ?>" title="<?php echo esc_attr($label); ?>" data-name="<?php echo esc_attr($id); ?>">
 						<?php if ($showIcon && $iconPosition == "beforeLabel") : ?>
 							<?php echo wp_kses_post($fontIconHtml); ?>
 						<?php endif; ?>

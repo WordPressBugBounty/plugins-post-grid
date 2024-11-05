@@ -35,6 +35,19 @@ class BlockPostGridRest
 		);
 		register_rest_route(
 			'post-grid/v2',
+			'/update_reactions',
+			array(
+				'methods' => 'POST',
+				'callback' => array($this, 'update_reactions'),
+				'permission_callback' => '__return_true',
+
+			)
+		);
+
+
+
+		register_rest_route(
+			'post-grid/v2',
 			'/update_options',
 			array(
 				'methods' => 'POST',
@@ -738,6 +751,16 @@ class BlockPostGridRest
 		}
 		die(wp_json_encode($response));
 	}
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * Return pmpro_membership_levels
 	 *
@@ -805,25 +828,56 @@ class BlockPostGridRest
 	{
 		$response = [];
 		$license_key = isset($request['license_key']) ? sanitize_text_field($request['license_key']) : '';
-		$domain = site_url();
+		if (is_multisite()) {
+			$domain = site_url();
+		} else {
+			$domain = $_SERVER['SERVER_NAME'];
+		}
 		//$license_key = "3410E9CF-6362-4A36-AF6E-1D01BB2AEE02";
 		// API query parameters
 		$api_params = array(
+			'license_manager_action' => "license_data",
+			'registered_domain' => $domain,
 			'license_key' => $license_key,
-			'instance_name' => $domain,
 		);
 		// Send query to the license manager server
-		$response = wp_remote_post(add_query_arg($api_params, "https://api.lemonsqueezy.com/v1/licenses/activate"), array('timeout' => 20, 'sslverify' => false));
+		$response = wp_remote_post(add_query_arg($api_params, "https://www.pickplugins.com"), array('timeout' => 20, 'sslverify' => false));
 		// Check for error in the response
 		if (is_wp_error($response)) {
 			echo __("Unexpected Error! The query returned with an error.", 'post-grid');
 		} else {
 			// License data.
 			$license_data = json_decode(wp_remote_retrieve_body($response));
+
+			error_log(serialize($license_data));
+
+			$date_created = isset($license_data->date_created) ? sanitize_text_field($license_data->date_created) : '';
+			$date_expiry = isset($license_data->date_expiry) ? sanitize_text_field($license_data->date_expiry) : '';
+			$date_renewed = isset($license_data->date_renewed) ? sanitize_text_field($license_data->date_renewed) : '';
+
+			$license_status = isset($license_data->license_status) ? sanitize_text_field($license_data->license_status) : '';
+			$license_found = isset($license_data->license_found) ? sanitize_text_field($license_data->license_found) : '';
+			$mgs = isset($license_data->mgs) ? sanitize_text_field($license_data->mgs) : '';
+			$days_remaining = isset($license_data->days_remaining) ? sanitize_text_field($license_data->days_remaining) : '';
+
+			$post_grid_license = array(
+				'license_key' => $license_key,
+				'date_created' => $date_created,
+				'date_expiry' => $date_expiry,
+				'date_renewed' => $date_renewed,
+
+				'license_status' => $license_status,
+				'license_found' => $license_found,
+				'mgs' => $mgs,
+				'days_remaining' => $days_remaining,
+			);
+
+			update_option('post_grid_license', $post_grid_license);
+
 			//$date_created = isset($license_data->date_created) ? sanitize_text_field($license_data->date_created) : '';
 			//$response['status'] = $status;
 		}
-		die(wp_json_encode($response));
+		die(wp_json_encode($post_grid_license));
 	}
 	/**
 	 * Return activate_license
@@ -836,15 +890,20 @@ class BlockPostGridRest
 		$response = [];
 		$license_key = isset($request['license_key']) ? sanitize_text_field($request['license_key']) : '';
 		$instance_id = isset($request['instance_id']) ? sanitize_text_field($request['instance_id']) : '';
-		$domain = site_url();
+		if (is_multisite()) {
+			$domain = site_url();
+		} else {
+			$domain = $_SERVER['SERVER_NAME'];
+		}
 		//$license_key = "3410E9CF-6362-4A36-AF6E-1D01BB2AEE02";
 		// API query parameters
 		$api_params = array(
+			'license_manager_action' => "license_data",
+			'registered_domain' => $domain,
 			'license_key' => $license_key,
-			'instance_id' => $instance_id,
 		);
 		// Send query to the license manager server
-		$response = wp_remote_post(add_query_arg($api_params, "https://api.lemonsqueezy.com/v1/licenses/deactivate"), array('timeout' => 20, 'sslverify' => false));
+		$response = wp_remote_post(add_query_arg($api_params, "https://www.pickplugins.com"), array('timeout' => 20, 'sslverify' => false));
 		// Check for error in the response
 		if (is_wp_error($response)) {
 			echo __("Unexpected Error! The query returned with an error.", 'post-grid');
@@ -866,25 +925,32 @@ class BlockPostGridRest
 	{
 		$response = [];
 		$license_key = isset($request['license_key']) ? sanitize_text_field($request['license_key']) : '';
-		$domain = site_url();
+		if (is_multisite()) {
+			$domain = site_url();
+		} else {
+			$domain = $_SERVER['SERVER_NAME'];
+		}
 		//$license_key = "3410E9CF-6362-4A36-AF6E-1D01BB2AEE02";
 		// API query parameters
 		$api_params = array(
+			'license_manager_action' => "license_data",
+			'registered_domain' => $domain,
 			'license_key' => $license_key,
-			//'instance_id' => $domain,
 		);
 		// Send query to the license manager server
-		$response = wp_remote_post(add_query_arg($api_params, "https://api.lemonsqueezy.com/v1/licenses/validate"), array('timeout' => 20, 'sslverify' => false));
+		$response = wp_remote_post(add_query_arg($api_params, "https://www.pickplugins.com"), array('timeout' => 20, 'sslverify' => false));
 		// Check for error in the response
 		if (is_wp_error($response)) {
 			echo __("Unexpected Error! The query returned with an error.", 'post-grid');
 		} else {
 			// License data.
 			$license_data = json_decode(wp_remote_retrieve_body($response));
+			error_log(serialize($license_data));
+
 			//$date_created = isset($license_data->date_created) ? sanitize_text_field($license_data->date_created) : '';
 			//$response['status'] = $status;
 		}
-		die(wp_json_encode($response));
+		die(wp_json_encode($license_data));
 	}
 	/**
 	 * Return get_options
@@ -1025,6 +1091,93 @@ class BlockPostGridRest
 		}
 		die(wp_json_encode($response));
 	}
+	/**
+	 * Return update_reactions
+	 *
+	 * @since 1.0.0
+	 * @param WP_REST_Request $request Post data.
+	 */
+	public function update_reactions($request)
+	{
+		$response = [];
+		$_wpnonce = $request->get_param('_wpnonce');
+		$objId = (int)$request->get_param('objId');
+		$objType = $request->get_param('objType');
+		$reaction = $request->get_param('reaction');
+		$objAction = $request->get_param('action');
+
+		error_log($_wpnonce);
+		error_log($objId);
+		error_log($objType);
+		error_log($objAction);
+
+		$meta_key = "pg_reactions";
+
+		$_wp_http_referer = $request->get_param('_wp_http_referer');
+		if (!wp_verify_nonce($_wpnonce, 'wp_rest')) {
+			$response['errors']['nonce_check_failed'] = __('Security Check Failed', 'post-grid');
+			return $response;
+		}
+		$pg_reactions = [];
+
+		if ($objAction == 'add') {
+
+
+			if ($objType == 'post') {
+				$pg_reactions = get_post_meta($objId, $meta_key, true);
+
+
+				$pg_reactions = empty($pg_reactions) ?  [] : $pg_reactions;
+
+				if (!isset($pg_reactions[$reaction])) {
+					$pg_reactions[$reaction] = 0;
+				}
+
+				$pg_reactions[$reaction] += 1;
+				error_log(serialize($pg_reactions));
+
+
+				update_post_meta($objId, $meta_key, $pg_reactions);
+			}
+		}
+		if ($objAction == 'update') {
+
+
+			if ($objType == 'post') {
+				$pg_reactions = get_post_meta($objId, $meta_key, true);
+
+
+				$pg_reactions = empty($pg_reactions) ?  [] : $pg_reactions;
+
+				if (!isset($pg_reactions[$reaction])) {
+					$pg_reactions[$reaction] = 0;
+				}
+
+				$pg_reactions[$reaction] += 1;
+				error_log(serialize($pg_reactions));
+
+
+				update_post_meta($objId, $meta_key, $pg_reactions);
+			}
+		}
+
+
+
+
+		if (empty($errors)) {
+		}
+		die(wp_json_encode($pg_reactions));
+	}
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * Return user_roles_list
 	 *
@@ -1447,9 +1600,10 @@ class BlockPostGridRest
 		$response->date_expiry = $date_expiry;
 		$response->freeUrl = 'https://wordpress.org/plugins/post-grid/';
 		$response->proUrl = 'https://comboblocks.com/pricing/';
-		$response->websiteUrl = 'https://pickplugins.com/';
+		$response->websiteUrl = 'http://comboblocks.com/';
 		$response->demoUrl = 'http://comboblocks.com/';
 		$response->siteAdminurl = $siteAdminurl;
+		$response->wpVersion = get_bloginfo('version');
 		$response->renewLicense = 'https://pickplugins.com/renew-license/?licenseKey=';
 		$response->utm = ['utm_source' => '', 'utm_medium' => '', 'utm_campaign' => '', 'utm_content' => '', 'utm_term' => '', 'utm_id' => ''];
 		die(wp_json_encode($response));

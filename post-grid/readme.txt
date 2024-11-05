@@ -4,7 +4,7 @@ Donate link: https://comboblocks.com/
 Tags: popup Blocks, form block, post meta block
 Requires at least: 5.0.0
 Tested up to: 6.7
-Stable tag: 2.2.98
+Stable tag: 2.2.99
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -249,9 +249,12 @@ https://comboblocks.com manage by PickPlugins Team, we use this domain solely fo
 
 == Changelog ==
 
+= 2.2.99 =
+- 2024-11-05 - fix - Form Maker block - Frontend js error issue fixed.
+
 = 2.2.98 =
-- 2024-11-22 - fix - Form Maker block - Register user form security issue improved.
-- 2024-10-22 - update - Post Query block update
+- 2024-11-03 - fix - Form Maker block - Register user security issue improved.
+- 2024-10-03 - update - Post Query block update
 - 2024-10-18 - update - Dashboard page update.
 - 2024-10-18 - update - Terms Query block update
 - 2024-10-17 - update - Terms Showcase block update

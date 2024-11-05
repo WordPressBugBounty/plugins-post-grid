@@ -558,10 +558,13 @@ export function setupForm() {
 						formData.append("formType", formargsObj.type);
 						formData.append("onprocessargs", JSON.stringify(onprocessargsObj));
 
-						var allowed_user_meta = post_grid_blocks_vars[formId].allowed_user_meta
+						if (formargsObj.type == "registerForm") {
+							var form_blocks_vars = (post_grid_blocks_vars[formId] != undefined) ? post_grid_blocks_vars[formId] : {};
+							var allowed_user_meta = (form_blocks_vars.allowed_user_meta != undefined) ? form_blocks_vars.allowed_user_meta : "";
+							formData.append("allowedUserMeta", JSON.stringify(allowed_user_meta));
+						}
 
 
-						formData.append("allowedUserMeta", JSON.stringify(allowed_user_meta));
 
 
 						var loadingWrap = document.querySelector("." + formId + "-loading");

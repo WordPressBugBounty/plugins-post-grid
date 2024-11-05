@@ -18,10 +18,14 @@ class PGBlockPostQuery
       )
     );
   }
+
+
+
+
   // front-end output from the gutenberg editor 
   function theHTML($attributes, $content, $block)
   {
-    wp_enqueue_style('font-awesome-5');
+
     global $postGridCssY;
     global $postGridScriptData;
     global $postGridPrams;
