@@ -655,8 +655,8 @@ function post_grid_parse_query_prams($queryArgs)
         $query_args['p'] = $val;
       } elseif ($id == 's') {
 
-        if (!empty($val))
-          $query_args['s'] = $val;
+        //if (!empty($val))
+        $query_args['s'] = $val;
       } elseif ($id == 'name') {
         $query_args['name'] = $val;
       } elseif ($id == 'pageId') {

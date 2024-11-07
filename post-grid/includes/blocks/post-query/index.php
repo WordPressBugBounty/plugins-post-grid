@@ -69,7 +69,11 @@ class PGBlockPostQuery
     $postGridPrams[$postGridId]['layout']['rawData'] = serialize_blocks($innerBlocks);
 
 
+
     $query_args = post_grid_parse_query_prams(isset($queryArgs['items']) ? $queryArgs['items'] : []);
+
+
+
     if ($overideGET) {
       if (!empty($query_args)) {
         foreach ($query_args as $query_key => $query_arg) {
@@ -85,7 +89,6 @@ class PGBlockPostQuery
         }
       }
     }
-
 
 
 
