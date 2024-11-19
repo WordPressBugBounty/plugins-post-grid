@@ -46,6 +46,8 @@ class PGBlockIcon
     $textLinkToCustomMeta = isset($textOptions['linkToCustomMeta']) ? $textOptions['linkToCustomMeta'] : '';
     $textCustomUrl = isset($textOptions['customUrl']) ? $textOptions['customUrl'] : '';
     $textLinkAttr = isset($textOptions['linkAttr']) ? $textOptions['linkAttr'] : [];
+    $textLinkAppend = isset($textOptions['linkAppend']) ? $textOptions['linkAppend'] : [];
+    $textAppendURLPrams = isset($textOptions['appendURLPrams']) ? $textOptions['appendURLPrams'] : false;
     $textRel = isset($textOptions['rel']) ? $textOptions['rel'] : '';
     $triggerName = isset($textOptions['triggerName']) ? $textOptions['triggerName'] : '';
     $triggerType = isset($textOptions['triggerType']) ? $textOptions['triggerType'] : '';
@@ -162,9 +164,41 @@ class PGBlockIcon
       "triggerType" => $triggerType,
       "blockId" => $blockId,
     ];
+
+    if ($textAppendURLPrams) {
+      $url_prams = $_SERVER['QUERY_STRING'];
+      parse_str($url_prams, $params_array);
+
+      $textCustomUrl = add_query_arg($params_array, $textCustomUrl);
+    }
+
+    if (!empty($textLinkAppend)) {
+
+      $textLinkAppendArgs = [];
+      foreach ($textLinkAppend as $append) {
+
+        $appendId = isset($append['id']) ? $append['id'] : '';
+        //$appendValGET = isset($_GET[$appendId]) ? sanitize_text_field($_GET[$appendId]) : '';
+        $appendVal = !empty($append['val']) ? $append['val'] : "";
+        $textLinkAppendArgs[$appendId] = $appendVal;
+      }
+
+
+      $textCustomUrl = add_query_arg($textLinkAppendArgs, $textCustomUrl);
+    }
+
+
+
+
+
+
+
+
     ob_start();
     if (!empty($wrapperTag)) :
 ?>
+
+
       <<?php echo pg_tag_escape($wrapperTag); ?> class="<?php echo esc_attr($blockId); ?> <?php echo esc_attr($wrapperClass); ?>"
         <?php if (!empty($triggerName)): ?>
         data-trigger="<?php echo esc_attr(json_encode($dataTrigger)) ?>"

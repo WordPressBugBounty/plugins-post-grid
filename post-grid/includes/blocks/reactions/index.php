@@ -97,7 +97,6 @@ class PGBlockReactions
 
 
 
-		//var_dump($pg_reactions);
 
 
 		// //* Visible condition

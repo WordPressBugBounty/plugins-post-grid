@@ -4,7 +4,7 @@ Donate link: https://comboblocks.com/
 Tags: popup Blocks, form block, post meta block
 Requires at least: 5.0.0
 Tested up to: 6.7
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -248,6 +248,12 @@ https://comboblocks.com manage by PickPlugins Team, we use this domain solely fo
 15. Accordion Block
 
 == Changelog ==
+https://pickplugins.lemonsqueezy.com/checkout/buy/78b79f17-1fc4-4e07-9138-1036ee56e269?enabled=248236&checkout%5Bcustom%5D%5Bproduct_id%5D=3815&aff&checkout%5Bdiscount_code%5D
+
+= 2.3.1 =
+- 2024-11-17 - update - Style component updated.
+- 2024-11-17 - update - Templates picker updated
+- 2024-11-17 - add - Taxonomy Builder added
 
 = 2.3.0 =
 - 2024-11-05 - fix - unnecessary CSS output issue fixed.

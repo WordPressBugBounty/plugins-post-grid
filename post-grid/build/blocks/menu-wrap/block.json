@@ -17,6 +17,197 @@
       "full"
     ]
   },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-menu-wrap"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "justifyContent": {
+            "Desktop": "space-between"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          }
+        }
+      },
+      "menuWrap": {
+        "options": {
+          "tag": "ul",
+          "class": "pg-menu"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex",
+            "Tablet": "block"
+          },
+          "gap": {
+            "Desktop": "2em"
+          },
+          "listStyle": {
+            "Desktop": "none inside url(u0022u0022)"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          }
+        }
+      },
+      "subMenuWrap": {
+        "options": {
+          "class": "pg-sub-menu",
+          "type": ""
+        },
+        "styles": {
+          "width": {
+            "Desktop": "250px"
+          },
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          }
+        }
+      },
+      "link": {
+        "options": {
+          "class": "pg-menu-link"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          },
+          "flexWrap": {
+            "Desktop": "nowrap"
+          },
+          "width": {
+            "Desktop": "100%"
+          },
+          "gap": {
+            "Desktop": "0em"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px !important"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "class": "pg-menu-icon",
+          "srcType": "class",
+          "library": "fontAwesome",
+          "iconSrc": "fas fa-align-justify"
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 0px"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "post-grid/menu-wrap-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": "flex-item-wrap",
+              "isActive": false
+            },
+            "styles": {
+              "flexBasis": {
+                "Desktop": "0"
+              },
+              "flexGrow": {
+                "Desktop": "1"
+              }
+            }
+          },
+          "link": {
+            "options": {
+              "class": "pg-menu-link",
+              "text": "Home",
+              "url": ""
+            },
+            "styles": {
+              "backgroundColor": {
+                "Desktop": ""
+              }
+            }
+          },
+          "icon": {
+            "options": {
+              "enable": true,
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-home",
+              "position": "beforeLabel",
+              "class": "pg-menu-icon"
+            },
+            "styles": []
+          }
+        }
+      },
+      {
+        "name": "post-grid/menu-wrap-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": "flex-item-wrap",
+              "isActive": false
+            },
+            "styles": {
+              "flexBasis": {
+                "Desktop": "0"
+              },
+              "flexGrow": {
+                "Desktop": "1"
+              }
+            }
+          },
+          "link": {
+            "options": {
+              "class": "pg-menu-link",
+              "text": "Contact",
+              "url": ""
+            },
+            "styles": {
+              "backgroundColor": {
+                "Desktop": ""
+              }
+            }
+          },
+          "icon": {
+            "options": {
+              "enable": true,
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-comment-alt",
+              "position": "beforeLabel",
+              "class": "pg-menu-icon"
+            },
+            "styles": []
+          }
+        }
+      }
+    ]
+  },
   "attributes": {
     "wrapper": {
       "type": "object",

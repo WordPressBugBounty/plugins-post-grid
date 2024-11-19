@@ -17,6 +17,72 @@
       "full"
     ]
   },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-back-to-top",
+          "showAfter": "300",
+          "offsetTop": "0",
+          "attr": []
+        },
+        "styles": {
+          "position": {
+            "Desktop": "fixed !important"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffe4c9"
+          },
+          "bottom": {
+            "Desktop": "50px"
+          },
+          "width": {
+            "Desktop": "70px !important"
+          },
+          "height": {
+            "Desktop": "70px"
+          },
+          "borderRadius": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "right": {
+            "Desktop": "50px"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-caret-up",
+          "position": "beforeText",
+          "class": "back-to-top-icon"
+        },
+        "styles": {
+          "transform": {
+            "Desktop": "translateY(-50%) translateX(-50%) "
+          },
+          "left": {
+            "Desktop": "50%"
+          },
+          "top": {
+            "Desktop": "50%"
+          },
+          "position": {
+            "Desktop": "absolute"
+          },
+          "fontSize": {
+            "Desktop": "40px"
+          },
+          "color": {
+            "Desktop": "#ff8500"
+          }
+        }
+      }
+    }
+  },
   "attributes": {
     "wrapper": {
       "type": "object",

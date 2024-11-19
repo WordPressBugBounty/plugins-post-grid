@@ -183,7 +183,10 @@ function post_grid_parse_css_class($classStr, $obj)
       } elseif (strpos($item, 'tutorLmsCourseDuration') !== false) {
         $course_duration = 0;
         if (function_exists("get_tutor_course_duration_context")) {
-          $course_duration = get_tutor_course_duration_context();
+          $course_duration = "";
+          if (function_exists("get_tutor_course_duration_context")) {
+            $course_duration = get_tutor_course_duration_context();
+          }
         }
         $newArr[$index] = str_replace('tutorLmsCourseDuration', $course_duration, $item);
       } elseif (strpos($item, 'tutorLmsLastUpdated') !== false) {
@@ -191,22 +194,38 @@ function post_grid_parse_css_class($classStr, $obj)
 
         $newArr[$index] = str_replace('tutorLmsLastUpdated', $modified_date, $item);
       } elseif (strpos($item, 'tutorLmsCourseLevel') !== false) {
-        $course_level = get_tutor_course_level(get_the_ID());
+        $course_level = "";
+        if (function_exists("get_tutor_course_level")) {
+          $course_level = get_tutor_course_level(get_the_ID());
+        }
+
 
         $newArr[$index] = str_replace('tutorLmsCourseLevel', $course_level, $item);
       } elseif (strpos($item, 'tutorLmsCourseProgressTotal') !== false) {
         $course_id           = get_the_ID();
-        $course_progress     = tutor_utils()->get_course_completed_percent($course_id, 0, true);
+        $course_progress = [];
+        if (function_exists("tutor_utils")) {
+          $course_progress     = tutor_utils()->get_course_completed_percent($course_id, 0, true);
+        }
+
         $total_count = isset($course_progress['total_count']) ? $course_progress['total_count'] : '';
         $newArr[$index] = str_replace('tutorLmsCourseProgressTotal', $total_count, $item);
       } elseif (strpos($item, 'tutorLmsCourseProgressCompleted') !== false) {
-        $course_progress     = tutor_utils()->get_course_completed_percent($course_id, 0, true);
+        $course_id           = get_the_ID();
+
+        $course_progress = [];
+        if (function_exists("tutor_utils")) {
+          $course_progress     = tutor_utils()->get_course_completed_percent($course_id, 0, true);
+        }
+
         $completed_count = isset($course_progress['completed_count']) ? $course_progress['completed_count'] : '';
         $newArr[$index] = str_replace('tutorLmsCourseProgressCompleted', $completed_count, $item);
       } elseif (strpos($item, 'tutorLmsCourseLessonCount') !== false) {
         $course_id           = get_the_ID();
-
-        $lesson_count     = tutor_utils()->get_lesson_count_by_course($course_id);
+        $lesson_count = 0;
+        if (function_exists("tutor_utils")) {
+          $lesson_count     = tutor_utils()->get_lesson_count_by_course($course_id);
+        }
         $newArr[$index] = str_replace('tutorLmsCourseLessonCount', $lesson_count, $item);
       } elseif (strpos($item, 'authorId') !== false) {
         $postauthor = get_the_author_meta($field = 'ID');
@@ -926,7 +945,6 @@ function post_grid_preloads()
   $post_grid_block_editor = get_option("post_grid_block_editor");
   $preloads = isset($post_grid_block_editor['preloads']) ? $post_grid_block_editor['preloads'] : [];
 
-  //echo "<pre>" . var_export($preloads, true) . "</pre>";
 
   if (!empty($preloads)) {
     foreach ($preloads as $preload) {
@@ -1863,6 +1881,7 @@ function post_grid_generate_input_prams($inputargsSrc)
   $argsSrc = isset($inputargsSrc['src']) ? $inputargsSrc['src'] : "";
   $srcPrams = isset($inputargsSrc['srcPrams']) ? $inputargsSrc['srcPrams'] : "";
   $argsSrcTaxonomy = isset($srcPrams['taxonomy']) ? $srcPrams['taxonomy'] : "";
+
   $argsSrcField = isset($srcPrams['field']) ? $srcPrams['field'] : "";
   $argsSrcPostType = isset($srcPrams['postType']) ? $srcPrams['postType'] : "";
   $argsSrcUserRole = isset($srcPrams['role']) ? $srcPrams['role'] : "";
@@ -1873,8 +1892,14 @@ function post_grid_generate_input_prams($inputargsSrc)
       'hide_empty' => false,
     ));
     if (!empty($terms) && !is_wp_error($terms)) {
+
+      $inputArgs[] = [
+        'label' => __("All", "post-grid"),
+        'value' => "",
+      ];
+
       foreach ($terms as $term) {
-        $value = ($argsSrcField == 'ID') ? $term->term_id : $term->slug;
+        $value = ($argsSrcField == 'id') ? $term->term_id : $term->slug;
         $inputArgs[] = [
           'label' => $term->name,
           'value' => $value,
@@ -3172,6 +3197,27 @@ function post_grid_visible_parse($visible)
             $conditions[$i]['args'][$j] = $isAccess;
           }
         }
+        if ($compare == 'empty') {
+          if (empty($metaValue)) {
+            $isAccess = true;
+            $conditions[$i]['args'][$j] = $isAccess;
+          } else {
+            $conditions[$i]['args'][$j] = $isAccess;
+          }
+        }
+        if ($compare == 'notEmpty') {
+          if (!empty($metaValue)) {
+            $isAccess = true;
+            $conditions[$i]['args'][$j] = $isAccess;
+          } else {
+            $conditions[$i]['args'][$j] = $isAccess;
+          }
+        }
+
+
+
+
+
         if ($compare == '>') {
           if ($metaValue > $value) {
             $isAccess = true;

@@ -39,6 +39,9 @@ class class_post_grid_post_types
 	{
 		$post_grid_block_editor = get_option('post_grid_block_editor');
 		$post_types = isset($post_grid_block_editor['postTypes']) ? $post_grid_block_editor['postTypes'] : [];
+		$taxonomies = isset($post_grid_block_editor['taxonomies']) ? $post_grid_block_editor['taxonomies'] : [];
+
+
 		if (empty($post_types)) return;
 		foreach ($post_types as $post_type) {
 			$slug = isset($post_type['slug']) ? $post_type['slug'] : '';
@@ -128,6 +131,102 @@ class class_post_grid_post_types
 			register_post_type(
 				$slug,
 				apply_filters("post_grid_posttype_{$slug}", $post_type_args)
+			);
+		}
+		foreach ($taxonomies as $taxonomy) {
+			$slug = isset($taxonomy['slug']) ? $taxonomy['slug'] : '';
+			if (empty($slug)) continue;
+			if (post_type_exists($slug)) continue;
+			$plural = isset($taxonomy['labels']['name']) ? $taxonomy['labels']['name'] : '';
+			$singular_name = isset($taxonomy['labels']['singular_name']) ? $taxonomy['labels']['singular_name'] : $plural;
+			$menu_name = isset($taxonomy['labels']['menu_name']) ? $taxonomy['labels']['menu_name'] : $plural;
+			$add_new = isset($taxonomy['labels']['add_new']) ? $taxonomy['labels']['add_new'] : "Add New";
+			$all_items = isset($taxonomy['labels']['all_items']) ? $taxonomy['labels']['all_items'] : "All %s";
+			$add_new_item = isset($taxonomy['labels']['add_new_item']) ? $taxonomy['labels']['add_new_item'] : "Add %s";
+			$edit = isset($taxonomy['labels']['edit']) ? $taxonomy['labels']['edit'] : "Edit";
+			$edit_item = isset($taxonomy['labels']['edit_item']) ? $taxonomy['labels']['edit_item'] : "Edit %s";
+			$new_item = isset($taxonomy['labels']['new_item']) ? $taxonomy['labels']['new_item'] : "New %s";
+			$view = isset($taxonomy['labels']['view']) ? $taxonomy['labels']['view'] : "View %s";
+			$view_item = isset($taxonomy['labels']['view_item']) ? $taxonomy['labels']['view_item'] : "View %s";
+			$search_items = isset($taxonomy['labels']['search_items']) ? $taxonomy['labels']['search_items'] : "Search %s";
+			$not_found = isset($taxonomy['labels']['not_found']) ? $taxonomy['labels']['not_found'] : "No %s found";
+			$not_found_in_trash = isset($taxonomy['labels']['not_found_in_trash']) ? $taxonomy['labels']['not_found_in_trash'] : "No %s found in trash";
+			$parent = isset($taxonomy['labels']['parent']) ? $taxonomy['labels']['parent'] : "Parent %s";
+			$description = isset($taxonomy['description']) ? $taxonomy['description'] : "This is where you can create and manage %s.";
+			$object_types = isset($taxonomy['object_types']) ? $taxonomy['object_types'] : "";
+
+			$object_types = explode(",", $object_types);
+
+			$public = isset($taxonomy['public']) ? $taxonomy['public'] : true;
+			$show_ui = isset($taxonomy['show_ui']) ? $taxonomy['show_ui'] : true;
+			$show_in_rest = isset($taxonomy['show_in_rest']) ? $taxonomy['show_in_rest'] : false;
+			$capability_type = isset($taxonomy['capability_type']) ? $taxonomy['capability_type'] : "post";
+			// $publish_posts = isset($taxonomy['capabilities']['publish_posts']) ? $taxonomy['labels']['publish_posts'] : "publish_" . $slug . "s";
+			// $edit_posts = isset($taxonomy['capabilities']['edit_posts']) ? $taxonomy['labels']['edit_posts'] : "edit_" . $slug . "s";
+			// $edit_others_posts = isset($taxonomy['capabilities']['edit_others_posts']) ? $taxonomy['labels']['edit_others_posts'] : "edit_others_" . $slug . "s";
+			// $read_private_posts = isset($taxonomy['capabilities']['read_private_posts']) ? $taxonomy['labels']['read_private_posts'] : "read_private_" . $plural;
+			// $edit_post = isset($taxonomy['capabilities']['edit_post']) ? $taxonomy['labels']['edit_post'] : "edit_" . $slug;
+			// $delete_post = isset($taxonomy['capabilities']['delete_post']) ? $taxonomy['labels']['delete_post'] : "delete_" . $slug;
+			// $read_post = isset($taxonomy['capabilities']['read_post']) ? $taxonomy['labels']['read_post'] : "read_" . $slug;
+			$map_meta_cap = isset($taxonomy['map_meta_cap']) ? $taxonomy['map_meta_cap'] : true;
+			$publicly_queryable = isset($taxonomy['publicly_queryable']) ? $taxonomy['publicly_queryable'] : true;
+			$show_admin_column = isset($taxonomy['show_admin_column']) ? $taxonomy['show_admin_column'] : true;
+			$rewrite = isset($taxonomy['rewrite']) ? $taxonomy['rewrite'] : true;
+			$exclude_from_search = isset($taxonomy['exclude_from_search']) ? $taxonomy['exclude_from_search'] : false;
+			$hierarchical = isset($taxonomy['hierarchical']) ? $taxonomy['hierarchical'] : false;
+			$query_var = isset($taxonomy['query_var']) ? $taxonomy['query_var'] : true;
+			$show_in_nav_menus = isset($taxonomy['show_in_nav_menus']) ? $taxonomy['show_in_nav_menus'] : true;
+			$menu_icon = isset($taxonomy['menu_icon']) ? $taxonomy['menu_icon'] : 'dashicons-grid-view';
+			$show_in_menu = isset($taxonomy['show_in_menu']) ? $taxonomy['show_in_menu'] : $slug;
+			$supports = isset($taxonomy['supports']) ? $taxonomy['supports'] : array("title");
+			// $map_meta_cap =  true;
+			// $publicly_queryable =  true;
+			// $exclude_from_search =  false;
+			// $hierarchical =  false;
+			// $query_var = true;
+			// $show_in_nav_menus = true;
+			// $rewrite = true;
+			// $menu_icon =  'dashicons-grid-view';
+			// $supports =  array('title', 'author', 'comments', 'custom-fields');
+			$taxonomy_args = [];
+			$taxonomy_args['labels']['name'] = $plural;
+			$taxonomy_args['labels']['singular_name'] = $singular_name;
+			$taxonomy_args['labels']['menu_name'] = $menu_name;
+			$taxonomy_args['labels']['all_items'] = $all_items;
+			$taxonomy_args['labels']['add_new'] = $add_new;
+			$taxonomy_args['labels']['add_new_item'] = $add_new_item;
+			$taxonomy_args['labels']['edit'] = $edit;
+			$taxonomy_args['labels']['edit_item'] = $edit_item;
+			$taxonomy_args['labels']['new_item'] = $new_item;
+			$taxonomy_args['labels']['view'] = $view;
+			$taxonomy_args['labels']['view_item'] = $view_item;
+			$taxonomy_args['labels']['search_items'] = $search_items;
+			$taxonomy_args['labels']['not_found'] = $not_found;
+			$taxonomy_args['labels']['not_found_in_trash'] = $not_found_in_trash;
+			$taxonomy_args['labels']['parent'] = $parent;
+			//$taxonomy_args['capabilities']['publish_posts'] = $publish_posts;
+			//($public);
+			$taxonomy_args['description'] = $description;
+			$taxonomy_args['public'] = (bool) $public;
+			$taxonomy_args['show_ui'] = (bool) $show_ui;
+			$taxonomy_args['show_in_rest'] = (bool) $show_in_rest;
+			$taxonomy_args['map_meta_cap'] = (bool) $map_meta_cap;
+			$taxonomy_args['publicly_queryable'] = (bool) $publicly_queryable;
+			$taxonomy_args['show_admin_column'] = (bool) $show_admin_column;
+			$taxonomy_args['exclude_from_search'] = (bool) $exclude_from_search;
+			$taxonomy_args['hierarchical'] = (bool) $hierarchical;
+			$taxonomy_args['query_var'] = (bool)$query_var;
+			$taxonomy_args['supports'] = $supports;
+			$taxonomy_args['show_in_nav_menus'] = (bool)$show_in_nav_menus;
+			$taxonomy_args['menu_icon'] = $menu_icon;
+			$taxonomy_args['rewrite'] = $rewrite;
+			if (!empty($show_in_menu)) {
+				//$taxonomy_args['show_in_menu'] = $show_in_menu;
+			}
+			register_taxonomy(
+				$slug,
+				$object_types,
+				apply_filters("post_grid_taxonomy_{$slug}", $taxonomy_args)
 			);
 		}
 	}

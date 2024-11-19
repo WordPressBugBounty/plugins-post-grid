@@ -44,9 +44,15 @@ function form_wrap_process_postSubmitForm($formFields, $onprocessargs, $request)
         $menuOrder = isset($arg->menuOrder) ? $arg->menuOrder : '';
         $postPassword = isset($arg->postPassword) ? $arg->postPassword : '';
         $authorByEmail = isset($arg->authorByEmail) ? $arg->authorByEmail : false;
-        $post_thumbnail = $request->get_file_params()['post_thumbnail'];
+
+
+
+        $post_thumbnail = isset($request->get_file_params()['post_thumbnail']) ? $request->get_file_params()['post_thumbnail'] : '';
         $post_term = $request->get_param('post_term');
         $post_meta = $request->get_param('post_meta');
+
+        error_log(json_encode($post_term));
+
         //$metaFields = isset($arg->metaFields) ? $arg->metaFields :  ['email'];
         $postParent = (!empty($post_parent)) ? $post_parent : $postParent;
         $menuOrder = (!empty($menu_order)) ? $menu_order : $menuOrder;
@@ -83,7 +89,7 @@ function form_wrap_process_postSubmitForm($formFields, $onprocessargs, $request)
             }
           }
           ////////################///////////////
-          $post_meta_files = $request->get_file_params()['post_meta'];
+          $post_meta_files = isset($request->get_file_params()['post_meta']) ? $request->get_file_params()['post_meta'] : [];
           $files = [];
           if (!empty($post_meta_files)) {
             $i = 0;
@@ -104,11 +110,16 @@ function form_wrap_process_postSubmitForm($formFields, $onprocessargs, $request)
           ///////////##################//////////
           if (!empty($post_term)) {
             foreach ($post_term as $taxonomy => $taxIds) {
+
+              error_log($taxIds);
+              error_log($taxonomy);
+              error_log($new_post_id);
+
               wp_set_post_terms($new_post_id, $taxIds, $taxonomy, true);
             }
           }
           $file_response = post_grid_upload_file($post_thumbnail);
-          if ($file_response['id']) {
+          if (isset($file_response['id'])) {
             set_post_thumbnail($new_post_id, $file_response['id']);
           }
         }
@@ -152,12 +163,12 @@ function form_wrap_process_postSubmitForm($formFields, $onprocessargs, $request)
         curl_close($ch);
       }
       if ($id == 'createEntry') {
-        $status = form_wrap_process_create_entry($entryData);
-        if ($status) {
-          $response['success']['createEntry'] = __('Create entry success', 'post-grid');
-        } else {
-          $response['errors']['createEntry'] = __('Create entry failed', 'post-grid');
-        }
+        // $status = form_wrap_process_create_entry($entryData);
+        // if ($status) {
+        //   $response['success']['createEntry'] = __('Create entry success', 'post-grid');
+        // } else {
+        //   $response['errors']['createEntry'] = __('Create entry failed', 'post-grid');
+        // }
       }
     }
   return $response;
@@ -2751,12 +2762,12 @@ function form_wrap_process_customForm($formFields, $onprocessargs, $request)
         }
       }
       if ($id == 'createEntry') {
-        $status = form_wrap_process_create_entry($entryData);
-        if ($status) {
-          $response['success']['createEntry'] = __('Create entry success', 'post-grid');
-        } else {
-          $response['errors']['createEntry'] = __('Create entry failed', 'post-grid');
-        }
+        // $status = form_wrap_process_create_entry($entryData);
+        // if ($status) {
+        //   $response['success']['createEntry'] = __('Create entry success', 'post-grid');
+        // } else {
+        //   $response['errors']['createEntry'] = __('Create entry failed', 'post-grid');
+        // }
       }
     }
   return $response;
@@ -3285,7 +3296,12 @@ function form_wrap_process_contactForm($formFields, $onprocessargs, $request)
       curl_close($ch);
     }
     if ($id == 'createEntry') {
-      $status = form_wrap_process_create_entry($email_data);
+
+      $saveTo = isset($arg->saveTo) ? $arg->saveTo : "post";
+      $saveToPrams = isset($arg->saveToPrams) ? $arg->saveToPrams : [];
+
+
+      $status = form_wrap_process_create_entry($email_data, $saveTo, $saveToPrams);
       $showOnResponse = isset($arg->showOnResponse) ? $arg->showOnResponse : false;
       $successMessage = isset($arg->successMessage) ? $arg->successMessage :
         __('Create entry success', 'post-grid');
@@ -3317,8 +3333,165 @@ function form_wrap_process_contactForm($formFields, $onprocessargs, $request)
   }
   return $response;
 }
-function form_wrap_process_create_entry($email_data)
+function form_wrap_process_create_entry($entryData, $saveTo, $saveToPrams)
 {
+
+  error_log(serialize($saveTo));
+  error_log(json_encode($entryData));
+
+  //return;
+  //$entryData = json_encode($entryData);
+
+  if ($saveTo == "post") {
+
+    $postType = isset($saveToPrams->postType) ? $saveToPrams->postType : "";
+
+
+    $entry_ID = wp_insert_post(
+      array(
+        'post_title'    => "",
+        'post_content'  => "",
+        'post_status'   => 'publish',
+        'post_type'       => $postType,
+      )
+    );
+
+
+    update_post_meta($entry_ID, "entry_data", $entryData);
+  }
+
+  if ($saveTo == "airtable") {
+
+    $post_grid_block_editor = get_option("post_grid_block_editor");
+    $apiKeys = isset($post_grid_block_editor['apiKeys']) ? $post_grid_block_editor['apiKeys'] : [];
+    $airtableaccessToken = isset($apiKeys['airtable']['args']['accessToken']) ? $apiKeys['airtable']['args']['accessToken'] : "";
+
+
+    $baseId = isset($saveToPrams->baseId) ? $saveToPrams->baseId : "";
+    $tableIdOrName = isset($saveToPrams->tableIdOrName) ? $saveToPrams->tableIdOrName : "";
+
+    if (empty($baseId) || empty($tableIdOrName) || empty($airtableaccessToken)) {
+      return false;
+    }
+
+
+
+    $access_token = $airtableaccessToken;
+
+    // Set up the API endpoint URL
+    $url = "https://api.airtable.com/v0/{$baseId}/{$tableIdOrName}";
+
+    // Set up headers with the access token
+    $headers = array(
+      'Authorization' => 'Bearer ' . $access_token,
+      'Content-Type'  => 'application/json'
+    );
+
+    //$data = [];
+    error_log($url);
+
+
+
+
+    // Prepare data payload in Airtable's expected format
+    $body = json_encode(array(
+      'fields' => $entryData
+    ));
+
+    // Send the request to Airtable
+    $response = wp_remote_post($url, array(
+      'headers' => $headers,
+      'body'    => $body
+    ));
+
+    // Check for errors and return response
+    if (is_wp_error($response)) {
+      //return 'Error: ' . $response->get_error_message();
+      return false;
+    } else {
+      $response_body = wp_remote_retrieve_body($response);
+      error_log(serialize($response_body));
+      return true;
+      //return json_decode($response_body);
+    }
+  }
+
+
+
+
+
+
+
+
+
+  if ($saveTo == "ninjaTable") {
+
+    $table_id = isset($saveToPrams->id) ? $saveToPrams->id : "";
+
+    error_log($table_id);
+
+    global $wpdb;
+
+    // Define the table where Ninja Tables stores its data
+    $table_name = $wpdb->prefix . 'ninja_table_items';
+
+    // Prepare the data to be inserted
+    $data = array(
+      'table_id' => $table_id,              // The ID of the Ninja Table
+      'value'    => wp_json_encode($entryData),  // JSON-encoded row data
+      'created_at' => current_time('mysql'), // Current timestamp
+      'updated_at' => current_time('mysql')
+    );
+
+    // Insert the row data into the Ninja Tables database table
+    $inserted = $wpdb->insert($table_name, $data);
+
+
+    if ($inserted) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if ($saveTo == "wpCustomTable") {
+
+    $tableName = isset($saveToPrams->tableName) ? $saveToPrams->tableName : "";
+
+    global $wpdb;
+
+    // Define table name
+    $table_name = $wpdb->prefix . $tableName;
+
+
+    $types = [];
+
+    foreach ($entryData as $entry) {
+      $types[] = "%s";
+    }
+
+
+    // Insert data
+    $inserted = $wpdb->insert(
+      $table_name,
+      $entryData,
+      $types
+    );
+
+    if ($inserted) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
+
+
+
+
+
+
   return true;
 }
 function form_wrap_process_create_wc_order($arg, $request)

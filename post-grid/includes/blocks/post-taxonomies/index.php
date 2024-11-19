@@ -122,8 +122,8 @@ class PGBlockPostTaxonomies
       $i = 1;
       if (!empty($terms))
         foreach ($terms as $term) {
-          $term_id = $term->term_id;
-          $term_post_count = $term->count;
+          $term_id = isset($term->term_id) ? $term->term_id : '';
+          $term_post_count = isset($term->count) ? $term->count : '';
           if ($itemsLinkTo == 'postUrl') {
             $linkUrl = get_permalink($post_ID);
           } else if ($itemsLinkTo == 'termUrl') {

@@ -19,6 +19,43 @@
       "full"
     ]
   },
+  "example": {
+    "attributes": {
+      "image": {
+        "options": {
+          "imgSrcType": "media",
+          "imgSrcMetaKey": "",
+          "imgSrcMetaKeyType": "ID",
+          "imgSrcImgId": "",
+          "srcUrl": "https://images.unsplash.com/photo-1728131751556-3694189db906?q=80",
+          "srcsetEnable": true,
+          "lazy": false,
+          "lazySrc": "",
+          "lazySrcId": "",
+          "lazySrcType": "media",
+          "srcId": 61,
+          "linkTo": "",
+          "linkToMetaKey": "",
+          "linkTocustomUrl": "",
+          "altTextSrc": "imgAltText",
+          "altTextCustom": "",
+          "altTextMetaKey": "",
+          "titleTextSrc": "imgTitle",
+          "titleTextCustom": "",
+          "titleTextMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "class": "",
+          "size": {
+            "Desktop": "full",
+            "Tablet": "full",
+            "Mobile": "full"
+          }
+        },
+        "styles": []
+      }
+    }
+  },
   "attributes": {
     "wrapper": {
       "type": "object",
