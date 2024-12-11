@@ -6,7 +6,14 @@
   "textdomain": "post-grid",
   "category": "post-grid-tools",
   "parent": [
-    "post-grid/form-wrap"
+    "post-grid/form-wrap",
+    "post-grid/flex-wrap",
+    "post-grid/flex-wrap-item",
+    "post-grid/grid-wrap",
+    "post-grid/grid-wrap-item",
+    "core/columns",
+    "post-grid/tabs-nested-item",
+    "post-grid/accordion-nested-item"
   ],
   "usesContext": [
     "postId",

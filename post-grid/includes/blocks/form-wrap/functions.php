@@ -51,7 +51,6 @@ function form_wrap_process_postSubmitForm($formFields, $onprocessargs, $request)
         $post_term = $request->get_param('post_term');
         $post_meta = $request->get_param('post_meta');
 
-        error_log(json_encode($post_term));
 
         //$metaFields = isset($arg->metaFields) ? $arg->metaFields :  ['email'];
         $postParent = (!empty($post_parent)) ? $post_parent : $postParent;
@@ -111,9 +110,7 @@ function form_wrap_process_postSubmitForm($formFields, $onprocessargs, $request)
           if (!empty($post_term)) {
             foreach ($post_term as $taxonomy => $taxIds) {
 
-              error_log($taxIds);
-              error_log($taxonomy);
-              error_log($new_post_id);
+
 
               wp_set_post_terms($new_post_id, $taxIds, $taxonomy, true);
             }
@@ -631,59 +628,69 @@ function form_wrap_process_optInForm($formFields, $onprocessargs, $request)
         $acumbamailApiKeys = isset($apiKeys['acumbamail']['args']['apikey']) ? $apiKeys['acumbamail']['args']['apikey'] : "";
 
 
-        $apiKey = 'YOUR_API_KEY';
 
-        // Prepare the data
-        $data = array(
-          'list_id' => $lists,
-          'email' => $email,
-          'custom_fields' => array(
-            'name' => $first_name
-          ),
-          'status' => 'subscribed'
+        $subscribers_data = array(
+          array("email" => $email),
         );
 
-        // Initialize cURL
-        $ch = curl_init();
+        $subscribers_data = json_encode($subscribers_data);
 
-        // Set the cURL options
-        curl_setopt($ch, CURLOPT_URL, "https://acumbamail.com/api/1/subscribers/");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-          'Authorization: Bearer ' . $acumbamailApiKeys,
-          'Content-Type: application/json'
-        ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        $data = array(
+          "list_id" => $lists,
+          "subscribers_data" => $subscribers_data
+        );
 
-        // Execute the request
-        $curl_response = curl_exec($ch);
+        $url = "https://acumbamail.com/api/1/batchAddSubscribers/";
 
+        $fields = array(
+          //'customer_id' => $this->customer_id,
+          'auth_token' => $acumbamailApiKeys,
+          'response_type' => 'json',
+        );
 
-
-
-
-
-        if (curl_errno($ch)) {
-          $response['errors']['acumbamailAddContactErrorCurl'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
-        } else {
-          $curl_response = json_decode($curl_response);
-
-
-          if (isset($curl_response->code) && $curl_response->code == 'duplicate_parameter') {
-            $response['errors']['acumbamailAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
-          }
-          if (isset($curl_response->code) && $curl_response->code == 'unauthorized') {
-            $response['errors']['acumbamailAddContactError'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
-          }
-          if (isset($curl_response->code) && $curl_response->code == 'invalid_parameter') {
-            $response['errors']['acumbamailAddContactExist'] = empty($errorMessage) ? $curl_response['message'] : $errorMessage;
-          }
-          if (isset($curl_response->id)) {
-            $response['success']['acumbamailAddContactSuccess'] = $successMessage;
-          }
+        if (count($data) != 0) {
+          $fields = array_merge($fields, $data);
         }
-        curl_close($ch);
+
+        $postdata = http_build_query($fields);
+
+        $opts = array('http' => array(
+          'method' => 'POST',
+          'header' => 'Content-type: application/x-www-form-urlencoded',
+          'content' => $postdata
+        ));
+
+        $response = @file_get_contents(
+          $url,
+          false,
+          stream_context_create($opts)
+        );
+
+        $json = json_decode($response, true);
+
+
+
+
+        // if (curl_errno($ch)) {
+        //   $response['errors']['acumbamailAddContactErrorCurl'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+        // } else {
+        //   $curl_response = json_decode($curl_response);
+
+
+        //   if (isset($curl_response->code) && $curl_response->code == 'duplicate_parameter') {
+        //     $response['errors']['acumbamailAddContactExist'] = empty($existMessage) ? $curl_response['message'] : $existMessage;
+        //   }
+        //   if (isset($curl_response->code) && $curl_response->code == 'unauthorized') {
+        //     $response['errors']['acumbamailAddContactError'] = !empty($errorMessage) ? $errorMessage : curl_error($ch);
+        //   }
+        //   if (isset($curl_response->code) && $curl_response->code == 'invalid_parameter') {
+        //     $response['errors']['acumbamailAddContactExist'] = empty($errorMessage) ? $curl_response['message'] : $errorMessage;
+        //   }
+        //   if (isset($curl_response->id)) {
+        //     $response['success']['acumbamailAddContactSuccess'] = $successMessage;
+        //   }
+        // }
+        // curl_close($ch);
       }
 
 
@@ -2142,7 +2149,12 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
         $new_user_id = form_wrap_process_register_user($credentials);
         $user_meta = $request->get_param('user_meta');
 
-        unset($user_meta['wp_capabilities']);
+        global $wpdb;
+        $table_prefix = $wpdb->prefix;
+
+        unset($user_meta[$table_prefix . 'capabilities']);
+
+
 
 
         if (!empty($user_meta)) {
@@ -2153,16 +2165,9 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
           }
         }
 
-        //update Tutor Meta Data
-
-        $user = get_user_by('ID', $new_user_id);
-        $user->add_role('tutor_instructor');
-
-        update_user_meta($new_user_id, "_is_tutor_instructor", 1);
-        update_user_meta($new_user_id, '_tutor_instructor_status', apply_filters('tutor_initial_instructor_status', 'approved'));
 
 
-        $user_meta_files = $request->get_file_params()['user_meta'];
+        $user_meta_files = isset($request->get_file_params()['user_meta']) ? $request->get_file_params()['user_meta'] : [];
 
 
         $files = [];
@@ -2200,7 +2205,19 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
         $new_user_id = form_wrap_process_register_user($credentials);
         $user_meta = $request->get_param('user_meta');
 
-        unset($user_meta['wp_capabilities']);
+        global $wpdb;
+        $table_prefix = $wpdb->prefix;
+
+        unset($user_meta[$table_prefix . 'capabilities']);
+
+
+        //update Tutor Meta Data
+
+        $user = get_user_by('ID', $new_user_id);
+        $user->add_role('tutor_instructor');
+
+        update_user_meta($new_user_id, "_is_tutor_instructor", 1);
+        update_user_meta($new_user_id, '_tutor_instructor_status', apply_filters('tutor_initial_instructor_status', 'approved'));
 
 
         if (!empty($user_meta)) {
@@ -3336,8 +3353,6 @@ function form_wrap_process_contactForm($formFields, $onprocessargs, $request)
 function form_wrap_process_create_entry($entryData, $saveTo, $saveToPrams)
 {
 
-  error_log(serialize($saveTo));
-  error_log(json_encode($entryData));
 
   //return;
   //$entryData = json_encode($entryData);
@@ -3388,7 +3403,6 @@ function form_wrap_process_create_entry($entryData, $saveTo, $saveToPrams)
     );
 
     //$data = [];
-    error_log($url);
 
 
 
@@ -3410,7 +3424,6 @@ function form_wrap_process_create_entry($entryData, $saveTo, $saveToPrams)
       return false;
     } else {
       $response_body = wp_remote_retrieve_body($response);
-      error_log(serialize($response_body));
       return true;
       //return json_decode($response_body);
     }
@@ -3427,8 +3440,6 @@ function form_wrap_process_create_entry($entryData, $saveTo, $saveToPrams)
   if ($saveTo == "ninjaTable") {
 
     $table_id = isset($saveToPrams->id) ? $saveToPrams->id : "";
-
-    error_log($table_id);
 
     global $wpdb;
 

@@ -17,6 +17,68 @@
       "full"
     ]
   },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "ul",
+          "class": "pg-list"
+        },
+        "styles": {
+          "display": [],
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "padding": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "listStyle": [],
+          "backgroundColor": [],
+          "border": []
+        }
+      },
+      "itemsX": {
+        "items": [
+          {
+            "text": "HTML",
+            "icon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-chevron-right"
+            },
+            "styles": []
+          },
+          {
+            "text": "CSS",
+            "icon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-chevron-right"
+            },
+            "styles": []
+          },
+          {
+            "text": "Photoshop",
+            "icon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-chevron-right"
+            },
+            "styles": []
+          },
+          {
+            "text": "JavaScript",
+            "icon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-chevron-right"
+            },
+            "styles": []
+          }
+        ]
+      }
+    }
+  },
   "attributes": {
     "wrapper": {
       "type": "object",

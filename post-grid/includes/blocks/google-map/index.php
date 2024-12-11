@@ -30,7 +30,8 @@ class PGBlockGoogleMap
     $wrapperID = isset($wrapperOptions['id']) ? $wrapperOptions['id'] : '';
     $blockId = isset($attributes['blockId']) ? $attributes['blockId'] : '';
     $blockAlign = isset($attributes['align']) ? 'align' . $attributes['align'] : '';
-    $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
+    $layers = isset($attributes['layers']) ? $attributes['layers'] : [];
+    $mapSettings = isset($attributes['mapSettings']) ? $attributes['mapSettings'] : [];
     $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
     $textOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
     $wrapperTag = isset($textOptions['tag']) ? $textOptions['tag'] : 'div';
@@ -43,15 +44,37 @@ class PGBlockGoogleMap
       $isVisible = post_grid_visible_parse($visible);
       if (!$isVisible) return;
     }
+
+
+    if (has_block('post-grid/google-map')) {
+      wp_enqueue_script('pg_block_scripts');
+
+      wp_register_script('pg_google_map',  'https://maps.googleapis.com/maps/api/js?key=AIzaSyBsboSnlb7yu3mhMy8KEVqM7HupBN8DstE', [], '', ['in_footer' => false, 'strategy' => 'defer']);
+
+
+      wp_enqueue_script('pg_google_map');
+    }
+
+
+
     // //* Visible condition
     ob_start();
 ?>
-    <div id="<?php echo esc_attr($wrapperID); ?>" data-g-map="" class="
+    <div id="<?php echo esc_attr($wrapperID);
+              ?> " data-map-layers="<?php echo esc_attr(json_encode($layers)) ?>" data-map-settings="<?php echo esc_attr(json_encode($mapSettings)) ?>" data-g-map="" class="
                     <?php echo esc_attr($wrapperClass); ?>
                     <?php echo esc_attr($blockId); ?>
                     <?php echo esc_attr($blockAlign); ?>">
-      <?php echo ($content) ?>
+      <div id="map"></div>
+
     </div>
+    <style>
+      #map {
+        height: 400px;
+        /* Set map height to fill the container */
+        width: 900px
+      }
+    </style>
 <?php
 
     $html = ob_get_clean();

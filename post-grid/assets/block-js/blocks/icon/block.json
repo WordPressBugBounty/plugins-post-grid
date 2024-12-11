@@ -19,6 +19,78 @@
       "full"
     ]
   },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-icon",
+          "attr": []
+        },
+        "styles": {
+          "border": [],
+          "margin": [],
+          "width": [],
+          "padding": [],
+          "textAlign": [],
+          "display": []
+        }
+      },
+      "text": {
+        "options": {
+          "enable": true,
+          "text": "BUTTON",
+          "src": "",
+          "linkTo": "customUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": "",
+          "linkAttr": [],
+          "linkAppend": [],
+          "appendURLPrams": false,
+          "class": ""
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontWeight": {
+            "Desktop": "500"
+          },
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "padding": {
+            "Desktop": "8px 20px 8px 20px"
+          },
+          "display": {
+            "Desktop": "inline-block"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          },
+          "backgroundColor": {
+            "Desktop": "#367bf5"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px !important"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check-circle",
+          "position": "",
+          "class": "text-icon"
+        },
+        "styles": []
+      }
+    }
+  },
   "attributes": {
     "wrapper": {
       "type": "object",

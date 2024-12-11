@@ -3,7 +3,7 @@
 Plugin Name: Post Grid Gutenberg Blocks - ComboBlocks
 Plugin URI: https://comboblocks.com/
 Description: Post Grid is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 2.3.1
+Version: 2.3.2
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -27,7 +27,7 @@ if (!class_exists('PostGrid')) {
       define('post_grid_plugin_dir', plugin_dir_path(__FILE__));
       define('post_grid_plugin_basename', plugin_basename(__FILE__));
       define('post_grid_plugin_name', 'Combo Blocks');
-      define('post_grid_version', '2.3.1');
+      define('post_grid_version', '2.3.2');
       define('post_grid_server_url', 'https://pickplugins.com/demo/post-grid/');
 
 
@@ -644,17 +644,17 @@ if (!class_exists('PostGrid')) {
 
 
 
-      if (is_singular()) {
-        //$upload_dir = wp_upload_dir();
+      // if (is_singular()) {
+      //   $upload_dir = wp_upload_dir();
 
 
-        // $post_id = get_the_ID();
-        // $combo_blocks_css_file_id = get_post_meta($post_id, 'combo_blocks_css_file_id', true);
+      //   $post_id = get_the_ID();
+      //   $combo_blocks_css_file_id = get_post_meta($post_id, 'combo_blocks_css_file_id', true);
 
-        //if (!empty($combo_blocks_css_file_id)) {
-        //wp_enqueue_style('block-styles-' . $post_id, $upload_dir['baseurl'] . '/combo-blocks/block-styles-' . $post_id . '.css');
-        // }
-      }
+      //   if (!empty($combo_blocks_css_file_id)) {
+      //     wp_enqueue_style('block-styles-' . $post_id, $upload_dir['baseurl'] . '/combo-blocks/block-styles-' . $post_id . '.css');
+      //   }
+      // }
     }
 
 

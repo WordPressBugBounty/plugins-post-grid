@@ -12,6 +12,7 @@
     "postType",
     "queryId"
   ],
+  "example": {},
   "supports": {
     "align": [
       "wide",

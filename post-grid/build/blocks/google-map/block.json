@@ -31,7 +31,11 @@
           "linkTarget": "_blank",
           "customUrl": ""
         },
-        "styles": {}
+        "styles": {
+          "height": {
+            "Desktop": "300px"
+          }
+        }
       }
     },
     "layers": {
@@ -46,7 +50,7 @@
       "type": "object",
       "default": {
         "mapId": "",
-        "zoom": 6,
+        "zoom": 3,
         "zoomControl": true,
         "minZoom": 1,
         "maxZoom": 16,
@@ -59,10 +63,15 @@
         "alt": "",
         "mapTypeId": "roadmap",
         "streetViewControl": true,
-        "colorScheme": "DARK",
+        "colorScheme": "LIGHT",
         "infoWindow": {
           "titleTag": "h2",
           "descriptionTag": "p"
+        },
+        "layers": {
+          "trafficLayer": false,
+          "bikeLayer": false,
+          "transitLayer ": false
         },
         "markerType": "default",
         "marker": {

@@ -16,6 +16,8 @@ import { setupTabs } from "./tabs-nested/front-scripts";
 import { setupText } from "./text/front-scripts";
 import { setupReactions } from "./reactions/front-scripts";
 import { setupWooAddToCart } from "./woo-add-to-cart/front-scripts";
+import { setupGoogleMap } from "./google-map/front-scripts";
+
 // import { setupGlobal } from "./global-js";
 setupAccordion();
 setupBackToTop();
@@ -34,6 +36,7 @@ setupText();
 setupReactions();
 setupWooAddToCart();
 setupPostGridFilterableNav();
+setupGoogleMap();
 
 // setupGlobal();
 // setupPostGridFilterable();

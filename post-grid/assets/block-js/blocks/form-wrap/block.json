@@ -17,6 +17,159 @@
       "full"
     ]
   },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-form-wrap"
+        },
+        "styles": {
+          "gridTemplateColumns": [],
+          "gap": [],
+          "display": [],
+          "width": []
+        }
+      },
+      "form": {
+        "type": "optInForm",
+        "styles": {
+          "gridTemplateColumns": {
+            "Desktop": "1fr "
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "display": {
+            "Desktop": "grid"
+          }
+        },
+        "options": {
+          "type": "optInForm"
+        }
+      },
+      "errorWrap": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": "error-wrap"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "none"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "post-grid/form-field-input",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": ""
+            }
+          },
+          "labelWrap": {
+            "options": {
+              "tag": "div",
+              "enable": true,
+              "class": ""
+            },
+            "styles": {
+              "marginBottom": {
+                "Desktop": "15px"
+              }
+            }
+          },
+          "label": {
+            "options": {
+              "tag": "label",
+              "for": "label",
+              "enable": true,
+              "text": "Your Email",
+              "class": "pg-form-field-label"
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#627cf5"
+              },
+              "fontSize": {
+                "Desktop": "14px"
+              }
+            }
+          },
+          "input": {
+            "options": {
+              "type": "text",
+              "placeholder": "",
+              "value": "",
+              "name": "email",
+              "required": false,
+              "disabled": false,
+              "size": false,
+              "minLength": null,
+              "maxLength": null,
+              "readonly": false,
+              "step": null,
+              "pattern": null,
+              "patternCustom": "",
+              "max": null,
+              "min": null,
+              "checked": false,
+              "autocomplete": false,
+              "id": "",
+              "class": "pg-form-field-input",
+              "position": "afterLabel"
+            },
+            "styles": {
+              "border": {
+                "Desktop": "1px solid #627df569"
+              },
+              "borderRadius": {
+                "Desktop": "0px 0px 0px 0px"
+              },
+              "padding": {
+                "Desktop": "5px 10px 5px 10px"
+              },
+              "backgroundColor": {
+                "Desktop": "#ffffff"
+              },
+              "width": {
+                "Desktop": "100%"
+              },
+              "maxWidth": {
+                "Desktop": "100%"
+              },
+              "borderBottom": {
+                "Desktop": "2px solid #627cf5"
+              }
+            }
+          },
+          "errorWrap": {
+            "options": {
+              "tag": "div",
+              "enable": true,
+              "text": "Email should not empty",
+              "position": "afterInput",
+              "class": ""
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#c02121"
+              },
+              "marginTop": {
+                "Desktop": "10px"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
   "attributes": {
     "wrapper": {
       "type": "object",

@@ -731,19 +731,47 @@ class BlockPostGridRest
 			fwrite($file_handle, $custom_data); // Write the custom data to the file
 			fclose($file_handle); // Close the file after writing
 			// Optionally, add the file to the WordPress media library
+
+			$file_path = $upload_dir['baseurl'] . '/combo-blocks/' . $file_name;
+
 			$attachment = array(
-				'guid'           => $upload_dir['baseurl'] . '/combo-blocks/' . $file_name,
+				'guid'           => $file_path,
 				'post_mime_type' => 'text/css', // Adjust the MIME type based on the file type
 				'post_title'     => sanitize_file_name($file_name),
 				'post_content'   => '',
 				'post_status'    => 'inherit'
 			);
-			$attach_id = wp_insert_attachment($attachment, $file_path);
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata($attach_id, $file_path);
-			wp_update_attachment_metadata($attach_id, $attach_data);
+
+
+			error_log(serialize($file_path));
+
+
 			if ($viewType == 'post') {
-				update_post_meta($viewId, 'combo_blocks_css_file_id', $attach_id);
+
+
+				$combo_blocks_css_file_id = get_post_meta($viewId, "combo_blocks_css_file_id", true);
+				error_log(serialize($combo_blocks_css_file_id));
+
+				if (empty($combo_blocks_css_file_id)) {
+					$attach_id = wp_insert_attachment($attachment, $file_path);
+					require_once(ABSPATH . 'wp-admin/includes/image.php');
+					$attach_data = wp_generate_attachment_metadata($attach_id, $file_path);
+					wp_update_attachment_metadata($attach_id, $attach_data);
+					update_post_meta($viewId, 'combo_blocks_css_file_id', $attach_id);
+				}
+
+				if (!empty($combo_blocks_css_file_id)) {
+					// Get the current file path
+					$old_file_path = get_attached_file($combo_blocks_css_file_id);
+					error_log(serialize($old_file_path));
+
+					// Delete the old file if necessary
+					if (file_exists($old_file_path)) {
+						unlink($old_file_path); // Deletes the old file
+					}
+
+					update_attached_file($combo_blocks_css_file_id, $file_path);
+				}
 			}
 			//return $attach_id; // Return attachment ID
 		} else {

@@ -4,7 +4,7 @@
   "name": "post-grid/custom-fields",
   "title": "Custom Fields",
   "textdomain": "post-grid",
-  "category": "post-grid-tools",
+  "category": "post-grid-post",
   "usesContext": [
     "post-grid/liveMode",
     "postId",
@@ -23,8 +23,8 @@
       "type": "object",
       "default": {
         "options": {
-          "tag": "div",
-          "class": "pg-custom-fields"
+          "class": "pg-custom-fields",
+          "tag": "div"
         },
         "styles": {}
       }
@@ -41,10 +41,6 @@
         },
         "styles": {}
       }
-    },
-    "outputPrams": {
-      "type": "array",
-      "default": []
     },
     "prefix": {
       "type": "object",

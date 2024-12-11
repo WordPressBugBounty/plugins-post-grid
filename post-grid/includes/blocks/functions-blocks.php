@@ -1565,7 +1565,7 @@ function post_grid_google_fonts()
   if (!empty($fonts)) {
   ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=<?php echo esc_html($fonts); ?>&display=swap" />
-<?php
+    <?php
   }
 }
 add_action('wp_footer', 'post_grid_google_fonts', 999);
@@ -4806,3 +4806,225 @@ function post_grid_clean_html($html)
 
   return $cleanedHtml;
 }
+
+
+function post_grid_output_format($formatPrams, $metaValue)
+{
+
+  $response = "";
+
+  foreach ($formatPrams as $formatPram) {
+
+    $id = isset($formatPram["id"]) ? $formatPram["id"] : "";
+
+
+    if ($id == "commaSeparateToList") {
+
+      $response = explode(",", $metaValue);
+    }
+    if ($id == "newLineToList") {
+      if (!empty($metaValue)) {
+        $response = explode("\n", $metaValue);
+      }
+    }
+    if ($id == "postFieldById") {
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $field = isset($args["field"]) ? $args["field"] : "";
+
+
+      if (!empty($field)) {
+
+        $response = get_post_field($field, $metaValue);
+      }
+    }
+    if ($id == "userFieldById") {
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $field = isset($args["field"]) ? $args["field"] : "";
+
+
+      if (!empty($field)) {
+        $user_obj = get_user_by('id', $metaValue);
+
+        if (! isset($user_obj->$field)) {
+          $response = '';
+        }
+
+        $response = $user_obj->$field;
+      }
+    }
+    if ($id == "termFieldById") {
+
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $field = isset($args["field"]) ? $args["field"] : "";
+
+
+      if (!empty($field)) {
+
+        $termField = get_term_field($field, $metaValue);
+
+        if (!is_wp_error($termField)) {
+          $response = $termField;
+        }
+      }
+    }
+    if ($id == "commentFieldById") {
+
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $field = isset($args["field"]) ? $args["field"] : "";
+
+
+      if (!empty($field)) {
+        $comment_obj = get_comment($metaValue, OBJECT);
+
+        if (! isset($comment_obj->$field)) {
+          $response = '';
+        }
+
+        $response = $comment_obj->$field;
+      }
+    }
+    if ($id == "timeDifference") {
+
+      $response = explode("\n", $metaValue);
+    }
+    if ($id == "arrayElement") {
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $index = isset($args["index"]) ? (int) $args["index"] : 0;
+
+
+
+      if (maybe_serialize($metaValue)) {
+        $data = unserialize($metaValue);
+
+
+        $array_element = isset($data[$index]) ? $data[$index] : "";
+
+        $response = $array_element;
+      } else {
+        if (is_array($metaValue)) {
+          $array_element = isset($metaValue[$index]) ? $metaValue[$index] : "";
+
+          $response = $array_element;
+        }
+      }
+    }
+    if ($id == "arrayMap") {
+
+      $response = explode("\n", $metaValue);
+    }
+    if ($id == "applyWpautop") {
+
+      $response = wpautop($metaValue);
+    }
+    if ($id == "acfToWPGallery") {
+
+      $response = wpautop($metaValue);
+    }
+
+
+
+    if ($id == "applyFilters") {
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $hookName = isset($args["hookName"]) ? (int) $args["hookName"] : "";
+      apply_filters($hookName, $metaValue);
+    }
+    if ($id == "doAction") {
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $hookName = isset($args["hookName"]) ? (int) $args["hookName"] : "";
+      do_action($hookName, $metaValue);
+    }
+
+
+    if ($id == "doShortcode") {
+
+      $response = do_shortcode($metaValue);
+    }
+
+    if ($id == "arrayItemCount") {
+
+      if (maybe_serialize($metaValue)) {
+        $data = unserialize($metaValue);
+
+
+        $response = count($data);
+      } else {
+        if (is_array($metaValue)) {
+          $response = count($metaValue);
+        }
+      }
+    }
+    if ($id == "formatNumber") {
+
+
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $decimals = isset($args["decimals"]) ? $args["decimals"] : 2;
+      $decimalpoint = isset($args["decimalpoint"]) ? $args["decimalpoint"] : ".";
+      $separator = isset($args["separator"]) ? $args["separator"] : "";
+
+      $formattedNumber = number_format($metaValue, $decimals, $decimalpoint, $separator);
+
+      $response = $formattedNumber;
+    }
+
+
+    if ($id == "iframeUrl") {
+
+      $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+      $title = isset($args["title"]) ? (int) $args["title"] : "";
+      $name = isset($args["name"]) ? (int) $args["name"] : "";
+      $height = isset($args["height"]) ? (int) $args["height"] : "";
+      $width = isset($args["width"]) ? (int) $args["width"] : "";
+
+      if (!empty($metaValue)) {
+        ob_start();
+
+    ?><iframe src="<?php echo esc_url($metaValue); ?>" height="<?php echo esc_attr($height); ?>" width="<?php echo esc_attr($width); ?>" title="<?php echo esc_attr($title); ?>" name="<?php echo esc_attr($name); ?>"></iframe><?php
+                                                                                                                                                                                                                                $response = ob_get_clean();
+                                                                                                                                                                                                                              }
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                            if ($id == "addToUrl") {
+
+                                                                                                                                                                                                                              $args = isset($formatPram["args"]) ? $formatPram["args"] : [];
+                                                                                                                                                                                                                              $title = isset($args["title"]) ?  $args["title"] : "";
+                                                                                                                                                                                                                              $name = isset($args["name"]) ?  $args["name"] : "";
+                                                                                                                                                                                                                              $scheme = isset($args["scheme"]) ?  $args["scheme"] : "";
+                                                                                                                                                                                                                              $target = isset($args["target"]) ?  $args["target"] : "";
+                                                                                                                                                                                                                              $linkText = isset($args["linkText"]) ?  $args["linkText"] : "";
+                                                                                                                                                                                                                              $linkTextSrc = isset($args["linkTextSrc"]) ? $args["linkTextSrc"] : "";
+
+                                                                                                                                                                                                                              if (!empty($metaValue)) {
+                                                                                                                                                                                                                                ob_start();                                                                                                        ?><a href="<?php echo esc_attr($scheme); ?><?php echo esc_url($metaValue); ?>" height="<?php echo esc_attr($height); ?>" target="<?php echo esc_attr($target); ?>" title="<?php echo esc_attr($title); ?>" name="<?php echo esc_attr($name); ?>"></a>
+        <?php echo wp_kses_post($linkText); ?>
+<?php
+
+                                                                                                                                                                                                                                $response = ob_get_clean();
+                                                                                                                                                                                                                              }
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                          return $response;
+                                                                                                                                                                                                                        }
+
+
+                                                                                                                                                                                                                        add_action("init", "post_grid_add_role");
+
+
+
+                                                                                                                                                                                                                        function post_grid_add_role()
+                                                                                                                                                                                                                        {
+
+                                                                                                                                                                                                                          $post_grid_block_editor = get_option('post_grid_block_editor');
+
+                                                                                                                                                                                                                          $roles = isset($post_grid_block_editor["roles"]) ? $post_grid_block_editor["roles"] : [];
+
+                                                                                                                                                                                                                          if (!empty($roles))                                                                                                    foreach ($roles as $roleData) {
+
+                                                                                                                                                                                                                            $role = isset($roleData["role"]) ? $roleData["role"] : "";
+                                                                                                                                                                                                                            $display_name = isset($roleData["display_name"]) ? $roleData["display_name"] : $role;
+
+                                                                                                                                                                                                                            $args = isset($roleData["args"]) ? $roleData["args"] : [];
+                                                                                                                                                                                                                            if (!empty($role)) {
+                                                                                                                                                                                                                              add_role($role, $display_name, $args);
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                        }

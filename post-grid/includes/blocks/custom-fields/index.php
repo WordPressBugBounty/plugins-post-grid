@@ -18,6 +18,8 @@ class PGBlockCustomFields
 		);
 	}
 
+
+
 	// front-end output from the gutenberg editor 
 	function theHTML($attributes, $content, $block)
 	{
@@ -31,14 +33,15 @@ class PGBlockCustomFields
 		$post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';
 		$post_url = get_the_permalink($post_ID);
 		$template = isset($attributes['template']) ? $attributes['template'] : '';
-		$templateLoop = isset($attributes['templateLoop']) ? $attributes['templateLoop'] : '<div>{title}</div><div>{details}</div>';
+		$templateLoop = isset($attributes['templateLoop']) ? $attributes['templateLoop'] : '<div></div>';
+		$outputPrams = isset($attributes['outputPrams']) ? $attributes['outputPrams'] : [];
 		$wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
 		$wrapperOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
 		$wrapperTag = isset($wrapperOptions['tag']) ? $wrapperOptions['tag'] : 'div';
 		$wrapperClass = isset($wrapperOptions['class']) ? $wrapperOptions['class'] : '';
 		$meta = isset($attributes['meta']) ? $attributes['meta'] : [];
 		$metaOptions = isset($meta['options']) ? $meta['options'] : [];
-		$metaKey = isset($metaOptions['key']) ? $metaOptions['key'] : '';
+		$metaKey = isset($metaOptions['meta_key']) ? $metaOptions['meta_key'] : '';
 		$metaKeyType = isset($metaOptions['type']) ? $metaOptions['type'] : '';
 		$blockCssY = isset($attributes["blockCssY"])			? $attributes["blockCssY"]			: [];
 		$postGridCssY[] = isset($blockCssY["items"]) ? $blockCssY["items"] : [];
@@ -55,14 +58,31 @@ class PGBlockCustomFields
 		}
 		// //* Visible condition
 		ob_start();
+
+		// var_dump($metaKey);
+		var_dump($metaValue);
+		// var_dump($outputPrams);
+
+		$formatedValue = post_grid_output_format($outputPrams, $metaValue);
+
 		//echo strtr($templateFront, $vars);
 		if (!empty($wrapperTag)) :
 ?>
+
+			<pre>
+				<?php
+				echo var_export($formatedValue, true);
+
+				//array_map("post_grid_output_format", $outputPrams)
+				?>
+			</pre>
+
+
 			<<?php echo pg_tag_escape($wrapperTag); ?> class="
                 <?php echo esc_attr($blockId); ?>
                 <?php echo esc_attr($wrapperClass); ?>">
 				<?php
-				echo $metaValue;
+				//echo $metaValue;
 				?>
 			</<?php echo pg_tag_escape($wrapperTag); ?>>
 <?php
