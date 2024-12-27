@@ -2116,8 +2116,12 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
   $email = isset($formFields['email']) ? sanitize_text_field($formFields['email']) : '';
   $password = isset($formFields['password']) ? sanitize_text_field($formFields['password']) : '';
   $password_confirm = isset($formFields['password_confirm']) ? sanitize_text_field($formFields['password_confirm']) : '';
-  $allowedUserMeta = isset($formFields['allowedUserMeta']) ? sanitize_text_field($formFields['allowedUserMeta']) : [];
+  //$allowedUserMeta = isset($formFields['allowedUserMeta']) ? sanitize_text_field($formFields['allowedUserMeta']) : [];
 
+  $post_grid_block_editor = get_option("post_grid_block_editor");
+  $blockSettings = isset($post_grid_block_editor['blockSettings']) ? $post_grid_block_editor['blockSettings'] : [];
+  $formWrap = isset($blockSettings['formWrap']) ? $blockSettings['formWrap'] : [];
+  $allowedUserMetaKeys = isset($formWrap['allowedUserMetaKeys']) ? $formWrap['allowedUserMetaKeys'] : [];
 
 
   if ($password !== $password_confirm) {
@@ -2149,18 +2153,25 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
         $new_user_id = form_wrap_process_register_user($credentials);
         $user_meta = $request->get_param('user_meta');
 
-        global $wpdb;
-        $table_prefix = $wpdb->prefix;
-
-        unset($user_meta[$table_prefix . 'capabilities']);
+        // global $wpdb;
+        // $table_prefix = $wpdb->prefix;
+        // unset($user_meta[$table_prefix . 'capabilities']);
 
 
 
 
         if (!empty($user_meta)) {
           foreach ($user_meta as $metaKey => $metavalue) {
-            if (in_array($metaKey, $allowedUserMeta)) {
+            // if (in_array($metaKey, $allowedUserMeta)) {
+            //   update_user_meta($new_user_id, $metaKey, $metavalue);
+            // }
+
+            if (in_array($metaKey, $allowedUserMetaKeys)) {
+
+              error_log($metaKey);
               update_user_meta($new_user_id, $metaKey, $metavalue);
+            } else {
+              $response['errors']['profileUpdateFailed'] = __("You dont\'t have access to update this field({$metaKey})", 'post-grid');
             }
           }
         }

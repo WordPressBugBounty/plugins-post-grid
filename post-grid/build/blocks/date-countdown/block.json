@@ -801,7 +801,7 @@
     }
   },
   "style": "front_style",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "countdown",
     "countdown block",

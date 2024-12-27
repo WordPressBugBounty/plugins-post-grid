@@ -55,7 +55,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "advanced do-actions",
     "custom do-actions",

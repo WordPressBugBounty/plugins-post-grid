@@ -3,6 +3,28 @@ if (!defined('ABSPATH'))
   exit; // if direct access
 
 
+
+add_action('wp_print_footer_scripts', function () {
+
+  global $postGridBlocksVars;
+?>
+  <script>
+    <?php
+
+    $post_grid_blocks_vars =  wp_json_encode($postGridBlocksVars);
+    echo "var post_grid_blocks_vars=" . $post_grid_blocks_vars;
+    ?>
+  </script>
+  <?php
+});
+
+
+
+
+
+
+
+
 register_meta('post', 'pgc_meta', [
   'type' => 'string',
   'single' => true,
@@ -925,14 +947,15 @@ function post_grid_parse_query_users($queryArgs)
 function post_grid_global_vars()
 {
   global $postGridScriptData;
+  global $postGridBlocksVars;
 
-  //wp_enqueue_script('pg_block_scripts');
+  //////wp_enqueue_script('pg_block_scripts');
 
-  // wp_register_script('post-grid-global-vars', '', array(), '', true);
-  // wp_enqueue_script('post-grid-global-vars');
-  // wp_add_inline_script('post-grid-global-vars', 'var post_grid_vars =' . wp_json_encode($postGridScriptData));
+  wp_register_script('post-grid-global-vars', '', array(), '', true);
+  wp_enqueue_script('post-grid-global-vars');
+  wp_add_inline_script('post-grid-global-vars', 'var post_grid_blocks_vars =' . wp_json_encode($postGridBlocksVars));
 
-  //wp_localize_script('pg_block_scripts', 'post_grid_vars', $postGridScriptData);
+  wp_localize_script('pg_block_scripts', 'post_grid_vars', $postGridBlocksVars);
 }
 //add_action('wp_enqueue_scripts', 'post_grid_global_vars', 999);
 
@@ -956,7 +979,7 @@ function post_grid_preloads()
       $media = isset($preload['media']) ? $preload['media'] : '';
 
 
-?>
+  ?>
       <link rel="preload" as="<?php echo esc_attr($as); ?>" href="<?php echo esc_url($href); ?>" <?php if ($crossorigin): ?>
         crossorigin <?php endif; ?> <?php if ($media): ?> as="<?php echo esc_attr($media); ?>" <?php endif; ?>
         <?php if ($type): ?> type="<?php echo esc_attr($type); ?>" <?php endif; ?>>

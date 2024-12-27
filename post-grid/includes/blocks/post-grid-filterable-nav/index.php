@@ -22,7 +22,7 @@ class PGBlockPostGridFilterableNav
   function theHTML($attributes, $content, $block)
   {
     if (has_block('post-grid/post-grid-filterable-nav')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
       wp_enqueue_style('font-awesome-5');
       wp_enqueue_style('pg_block_styles');
     }

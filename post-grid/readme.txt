@@ -4,7 +4,7 @@ Donate link: https://comboblocks.com/
 Tags: popup Blocks, form block, post meta block
 Requires at least: 5.0.0
 Tested up to: 6.7
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -248,7 +248,14 @@ https://comboblocks.com manage by PickPlugins Team, we use this domain solely fo
 15. Accordion Block
 
 == Changelog ==
-https://pickplugins.lemonsqueezy.com/checkout/buy/78b79f17-1fc4-4e07-9138-1036ee56e269?enabled=248236&checkout%5Bcustom%5D%5Bproduct_id%5D=3815&aff&checkout%5Bdiscount_code%5D
+
+
+= 2.3.3 =
+
+- 2024-12-27 - fix - Form Maker block - registration form security issue fixed.
+- 2024-12-27 - fix - Block settings tab added under dashboard
+- 2024-12-27 - fix - php 7.4 compatibility issue fixed.
+
 
 = 2.3.2 =
 

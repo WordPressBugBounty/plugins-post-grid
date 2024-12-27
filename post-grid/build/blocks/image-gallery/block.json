@@ -319,7 +319,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "image gallery",
     "image gallery block",

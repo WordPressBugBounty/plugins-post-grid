@@ -3,7 +3,7 @@
 Plugin Name: Post Grid Gutenberg Blocks - ComboBlocks
 Plugin URI: https://comboblocks.com/
 Description: Post Grid is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 2.3.2
+Version: 2.3.3
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -27,7 +27,7 @@ if (!class_exists('PostGrid')) {
       define('post_grid_plugin_dir', plugin_dir_path(__FILE__));
       define('post_grid_plugin_basename', plugin_basename(__FILE__));
       define('post_grid_plugin_name', 'Combo Blocks');
-      define('post_grid_version', '2.3.2');
+      define('post_grid_version', '2.3.3');
       define('post_grid_server_url', 'https://pickplugins.com/demo/post-grid/');
 
 
@@ -589,6 +589,7 @@ if (!class_exists('PostGrid')) {
     {
 
 
+
       wp_enqueue_script('jquery');
 
       // Register Scripts & JS
@@ -639,8 +640,6 @@ if (!class_exists('PostGrid')) {
       wp_register_script('typed.umd', post_grid_plugin_url . 'assets/js/typed.umd.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
 
       wp_register_script('hcaptcha-script', 'https://hcaptcha.com/1/api.js');
-
-
 
 
 
@@ -765,6 +764,8 @@ if (!class_exists('PostGrid')) {
 
     public function register_block_editor_assets()
     {
+
+      error_log("Hello");
 
       wp_enqueue_style(
         'pgcontent_slider_splide_core',

@@ -108,6 +108,9 @@ class PGBlockAccordionNestedItem
 		} else if ($labelIconLibrary == 'bootstrap') {
 			wp_enqueue_style('bootstrap-icons');
 		}
+
+
+
 		// //* Visible condition
 		$visible = isset($attributes['visible']) ? $attributes['visible'] : [];
 		if (!empty($visible['rules'])) {

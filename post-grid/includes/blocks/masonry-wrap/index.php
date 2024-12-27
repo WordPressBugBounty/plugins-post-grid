@@ -25,7 +25,7 @@ class PGBlockMasonryWrap
 			wp_enqueue_script('imagesloaded');
 			wp_enqueue_script('masonry');
 			wp_enqueue_script('masonry.min');
-			wp_enqueue_script('pg_block_scripts');
+			////wp_enqueue_script('pg_block_scripts');
 		}
 		global $postGridCssY;
 		$post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';

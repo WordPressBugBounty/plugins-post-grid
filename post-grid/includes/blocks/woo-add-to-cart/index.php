@@ -21,7 +21,7 @@ class PGBlockWooAddToCart
   function theHTML($attributes, $content, $block)
   {
     if (has_block('post-grid/woo-add-to-cart')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
     }
     global $postGridCssY;
     $post_ID = get_the_id();

@@ -21,7 +21,7 @@ class PGBlockReactions
 	function theHTML($attributes, $content, $block)
 	{
 		if (has_block('post-grid/reactions')) {
-			wp_enqueue_script('pg_block_scripts');
+			////wp_enqueue_script('pg_block_scripts');
 		}
 		global $postGridCssY;
 		global $postGridBlocksVars;
@@ -88,7 +88,7 @@ class PGBlockReactions
 		$currentReaction = "";
 
 		if (has_block('post-grid/reactions')) {
-			wp_enqueue_script('pg_block_scripts');
+			////wp_enqueue_script('pg_block_scripts');
 			//wp_localize_script('pg_block_scripts', 'post_grid_vars_' . $blockId, $postGridScriptData);
 			wp_localize_script('pg_block_scripts', 'post_grid_blocks_vars', $postGridBlocksVars);
 		}

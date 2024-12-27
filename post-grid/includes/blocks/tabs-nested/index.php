@@ -22,7 +22,7 @@ class PGBlockTabs
   {
     //wp_register_script('pg_block_scripts_tabs', post_grid_plugin_url . 'includes/blocks/tabs-nested/front-scripts.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
     if (has_block('post-grid/tabs-nested')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
       wp_enqueue_style('pg_block_styles');
     }
     global $postGridCssY;

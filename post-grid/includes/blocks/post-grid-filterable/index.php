@@ -22,7 +22,7 @@ class PGBlockPostGridFilterable
   function theHTML($attributes, $content, $block)
   {
     if (has_block('post-grid/post-grid-filterable')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
       wp_enqueue_style('font-awesome-5');
       wp_enqueue_script('pgpostgrid_mixitup');
       wp_enqueue_script('pgpostgrid_mixitup_multifilter');

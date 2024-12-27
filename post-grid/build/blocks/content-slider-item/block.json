@@ -51,7 +51,7 @@
     }
   },
   "editorStyle": "pgcontent-slider-splide-core",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "Content slider",
     "Image slider",

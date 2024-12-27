@@ -221,7 +221,12 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
   $include_post_id = isset($post_grid_meta_options['include_post_id']) ? $post_grid_meta_options['include_post_id'] : '';
   $keyword = !empty($post_grid_meta_options['keyword']) ? $post_grid_meta_options['keyword'] : '';
   $no_post_text = !empty($post_grid_meta_options['no_post_text']) ? $post_grid_meta_options['no_post_text'] : '';
-  $post_taxonomies_arr = post_grid_get_taxonomies($post_types)
+  $post_taxonomies_arr = post_grid_get_taxonomies($post_types);
+
+  error_log(serialize($post_grid_meta_options));
+  error_log(serialize($post_types));
+
+
 ?>
   <div class="section">
     <div class="section-title">Query Post</div>

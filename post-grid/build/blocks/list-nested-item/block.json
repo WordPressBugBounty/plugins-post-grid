@@ -59,7 +59,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "advanced nested list item",
     "nested list item block",

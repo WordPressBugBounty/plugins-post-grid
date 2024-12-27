@@ -24,7 +24,7 @@ class PGBlockContentSlider
 		if (has_block('post-grid/content-slider')) {
 			wp_enqueue_style('pgcontent_slider_splide_core');
 			wp_enqueue_script('splide.min');
-			wp_enqueue_script('pg_block_scripts');
+			////wp_enqueue_script('pg_block_scripts');
 		}
 		global $postGridCssY;
 		$post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';

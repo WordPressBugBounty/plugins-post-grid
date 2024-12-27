@@ -86,7 +86,7 @@
       "default": ""
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "social share",
     "social share button",

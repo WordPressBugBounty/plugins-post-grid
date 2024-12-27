@@ -47,7 +47,7 @@ class PGBlockGoogleMap
 
 
     if (has_block('post-grid/google-map')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
 
       wp_register_script('pg_google_map',  'https://maps.googleapis.com/maps/api/js?key=AIzaSyBsboSnlb7yu3mhMy8KEVqM7HupBN8DstE', [], '', ['in_footer' => false, 'strategy' => 'defer']);
 

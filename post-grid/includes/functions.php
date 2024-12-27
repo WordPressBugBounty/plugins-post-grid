@@ -69,7 +69,7 @@ function post_grid_recursive_sanitize_arr($array)
             $value = post_grid_recursive_sanitize_arr($value);
         } else {
             if ($key == 'url') {
-                $value = esc_url_raw($value);
+                $value = wp_kses_post($value);
             } else {
                 $value = wp_kses_post($value);
             }

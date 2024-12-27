@@ -22,7 +22,7 @@ class PGBlockAccordionNested
   function theHTML($attributes, $content, $block)
   {
     if (has_block('post-grid/accordion-nested')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
     }
 
 

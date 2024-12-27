@@ -90,7 +90,7 @@
     }
   },
   "style": "front_style",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "on sale",
     "on sale badge",

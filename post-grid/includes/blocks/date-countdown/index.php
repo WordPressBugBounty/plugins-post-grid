@@ -21,7 +21,7 @@ class PGBlockDateCountdown
   function theHTML($attributes, $content, $block)
   {
     if (has_block('post-grid/date-countdown')) {
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
     }
     global $postGridCssY;
     $post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';

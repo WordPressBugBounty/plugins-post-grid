@@ -69,7 +69,8 @@ class PGBlockFormWrap
 
 
 
-
+    $postGridBlocksVars[$blockId] = "sdfsd";
+    $postGridBlocksVars['sdfsd'] = "sdfsdsdfs fd";
 
 
 
@@ -104,9 +105,12 @@ class PGBlockFormWrap
     if (has_block('post-grid/form-wrap')) {
 
       wp_enqueue_style('pg_block_styles');
-      wp_enqueue_script('pg_block_scripts');
-      wp_localize_script('pg_block_scripts', 'post_grid_blocks_vars', $postGridBlocksVars);
+      //wp_enqueue_script('pg_block_scripts');
+      // wp_localize_script('pg_block_scripts', 'post_grid_blocks_vars', $postGridBlocksVars);
     }
+
+
+
 
     $html = ob_get_clean();
     $cleanedHtml = post_grid_clean_html($html);

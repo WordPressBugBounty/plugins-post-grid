@@ -743,14 +743,12 @@ class BlockPostGridRest
 			);
 
 
-			error_log(serialize($file_path));
 
 
 			if ($viewType == 'post') {
 
 
 				$combo_blocks_css_file_id = get_post_meta($viewId, "combo_blocks_css_file_id", true);
-				error_log(serialize($combo_blocks_css_file_id));
 
 				if (empty($combo_blocks_css_file_id)) {
 					$attach_id = wp_insert_attachment($attachment, $file_path);
@@ -763,7 +761,6 @@ class BlockPostGridRest
 				if (!empty($combo_blocks_css_file_id)) {
 					// Get the current file path
 					$old_file_path = get_attached_file($combo_blocks_css_file_id);
-					error_log(serialize($old_file_path));
 
 					// Delete the old file if necessary
 					if (file_exists($old_file_path)) {
@@ -877,7 +874,6 @@ class BlockPostGridRest
 			// License data.
 			$license_data = json_decode(wp_remote_retrieve_body($response));
 
-			error_log(serialize($license_data));
 
 			$date_created = isset($license_data->date_created) ? sanitize_text_field($license_data->date_created) : '';
 			$date_expiry = isset($license_data->date_expiry) ? sanitize_text_field($license_data->date_expiry) : '';
@@ -973,7 +969,6 @@ class BlockPostGridRest
 		} else {
 			// License data.
 			$license_data = json_decode(wp_remote_retrieve_body($response));
-			error_log(serialize($license_data));
 
 			//$date_created = isset($license_data->date_created) ? sanitize_text_field($license_data->date_created) : '';
 			//$response['status'] = $status;
@@ -1134,10 +1129,6 @@ class BlockPostGridRest
 		$reaction = $request->get_param('reaction');
 		$objAction = $request->get_param('action');
 
-		error_log($_wpnonce);
-		error_log($objId);
-		error_log($objType);
-		error_log($objAction);
 
 		$meta_key = "pg_reactions";
 
@@ -1162,7 +1153,6 @@ class BlockPostGridRest
 				}
 
 				$pg_reactions[$reaction] += 1;
-				error_log(serialize($pg_reactions));
 
 
 				update_post_meta($objId, $meta_key, $pg_reactions);
@@ -1182,7 +1172,6 @@ class BlockPostGridRest
 				}
 
 				$pg_reactions[$reaction] += 1;
-				error_log(serialize($pg_reactions));
 
 
 				update_post_meta($objId, $meta_key, $pg_reactions);

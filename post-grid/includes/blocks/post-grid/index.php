@@ -179,7 +179,7 @@ class PGBlockPostGrid
 
     if (has_block('post-grid/post-grid')) {
       wp_enqueue_style('pg_block_styles');
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
       //wp_localize_script('pg_block_scripts', 'post_grid_vars_' . $blockId, $postGridScriptData);
       wp_localize_script('pg_block_scripts', 'post_grid_prams', $postGridPrams);
 

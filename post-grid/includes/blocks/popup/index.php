@@ -22,7 +22,7 @@ class PGBlockPopup
   {
     if (has_block('post-grid/popup')) {
       wp_enqueue_style('pgpopup_animate');
-      wp_enqueue_script('pg_block_scripts');
+      ////wp_enqueue_script('pg_block_scripts');
     }
     global $postGridCssY;
     $blockId = isset($attributes['blockId']) ? $attributes['blockId'] : '';
