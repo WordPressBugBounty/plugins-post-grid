@@ -63,7 +63,7 @@
         "alt": "",
         "mapTypeId": "roadmap",
         "streetViewControl": true,
-        "colorScheme": "DARK",
+        "colorScheme": "LIGHT",
         "infoWindow": {
           "titleTag": "h2",
           "descriptionTag": "p"
@@ -104,7 +104,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "layer",
     "html element",

@@ -181,7 +181,7 @@
     }
   },
   "style": "front_style",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "product info",
     "product additional info",

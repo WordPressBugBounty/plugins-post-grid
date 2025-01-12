@@ -317,7 +317,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "form block for wordpress",
     "form block",

@@ -4,7 +4,7 @@ Donate link: https://comboblocks.com/
 Tags: popup Blocks, form block, post meta block
 Requires at least: 5.0.0
 Tested up to: 6.7
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -249,6 +249,10 @@ https://comboblocks.com manage by PickPlugins Team, we use this domain solely fo
 
 == Changelog ==
 
+
+= 2.3.4 =
+
+- 2024-01-12 - fix - Form Maker block - registration form remove tutor LMS registration feature
 
 = 2.3.3 =
 

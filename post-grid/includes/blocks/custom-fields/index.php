@@ -59,9 +59,6 @@ class PGBlockCustomFields
 		// //* Visible condition
 		ob_start();
 
-		// var_dump($metaKey);
-		var_dump($metaValue);
-		// var_dump($outputPrams);
 
 		$formatedValue = post_grid_output_format($outputPrams, $metaValue);
 
@@ -71,7 +68,6 @@ class PGBlockCustomFields
 
 			<pre>
 				<?php
-				echo var_export($formatedValue, true);
 
 				//array_map("post_grid_output_format", $outputPrams)
 				?>

@@ -132,7 +132,7 @@
       "default": ""
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "tag",
     "tags",

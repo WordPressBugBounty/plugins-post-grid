@@ -683,7 +683,9 @@ function post_grid_parse_query_prams($queryArgs)
       } elseif ($id == 'tagAnd') {
         $query_args['tag__and'] = !empty($val) ? explode(',', $val) : [];
       } elseif ($id == 'tagIn') {
-        $query_args['tag__in'] = !empty($val) ? explode(',', $val) : [];
+        $post_id = get_the_id();
+        $tag_ids = wp_get_post_tags($post_id, array('fields' => 'ids'));
+        $query_args['tag__in'] = !empty($val) ? explode(',', $val) : $tag_ids;
       } elseif ($id == 'tagNotIn') {
         $query_args['tag__not_in'] = !empty($val) ? explode(',', $val) : [];
       } elseif ($id == 'tagSlugAnd') {
@@ -713,7 +715,8 @@ function post_grid_parse_query_prams($queryArgs)
       } elseif ($id == 'postIn') {
         $query_args['post__in'] = !empty($val) ? explode(',', $val) : [];
       } elseif ($id == 'postNotIn') {
-        $query_args['post__not_in'] = !empty($val) ? explode(',', $val) : [];
+        $post_id = get_the_id();
+        $query_args['post__not_in'] = !empty($val) ? explode(',', $val) : [$post_id];
       } elseif ($id == 'postNameIn') {
         $query_args['post_name__in'] = !empty($val) ? explode(',', $val) : [];
       } elseif ($id == 'hasPassword') {

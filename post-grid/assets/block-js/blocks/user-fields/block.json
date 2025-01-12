@@ -118,7 +118,7 @@
       "default": ""
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "post author fields",
     "post author fields block",

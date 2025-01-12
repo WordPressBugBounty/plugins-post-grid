@@ -26,6 +26,8 @@ class PGBlockPostQuery
   function theHTML($attributes, $content, $block)
   {
 
+    error_log("Hello");
+
     global $postGridCssY;
     global $postGridScriptData;
     global $postGridPrams;
@@ -72,7 +74,6 @@ class PGBlockPostQuery
 
     $query_args = post_grid_parse_query_prams(isset($queryArgs['items']) ? $queryArgs['items'] : []);
 
-    // echo "<pre>" . var_export($query_args, true) . "</pre>";
 
     if ($overideGET) {
       if (!empty($query_args)) {

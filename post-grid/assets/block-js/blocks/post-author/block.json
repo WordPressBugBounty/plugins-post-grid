@@ -434,7 +434,7 @@
       "default": ""
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "post author",
     "author profile",

@@ -133,7 +133,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "accordion",
     "accordion faq",

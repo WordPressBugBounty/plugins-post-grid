@@ -113,7 +113,7 @@
     }
   },
   "style": "front_style",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "read more",
     "read more link",

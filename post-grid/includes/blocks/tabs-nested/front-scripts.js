@@ -121,8 +121,14 @@ export function setupTabs() {
 						var tabIdX = item.getAttribute("data-tab-id");
 						if (activeTab == tabIdX) {
 							item.classList.add("nav-item-active");
-							tabPanels[index].classList.add("pg-tabs-panel-active");
-							tabPanels[index].setAttribute('hidden', false)
+
+							console.log(tabPanels[index]);
+
+							if (tabPanels[index] != undefined) {
+								tabPanels[index].classList.add("pg-tabs-panel-active");
+								tabPanels[index].setAttribute('hidden', false)
+							}
+
 							if (iconToggle[index] != undefined) {
 								iconToggle[index].style.display = "inline-block";
 							}

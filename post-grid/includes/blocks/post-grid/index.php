@@ -105,65 +105,6 @@ class PGBlockPostGrid
     $postGridPrams[$blockId]['siteUrl'] = get_bloginfo('url');
 
 
-
-    $layout_id = isset($layout['id']) ? $layout['id'] : '';
-    $layout_id = apply_filters('pgb_post_grid_post_layout_id', $layout_id);
-    $rawData = '<!-- wp:post-featured-image /--><!-- wp:post-title /--><!-- wp:post-excerpt /-->';
-    $rawData = !empty($layout['rawData']) ? $layout['rawData'] : $rawData;
-    $srcServer = !empty($layout['srcServer']) ? $layout['srcServer'] : 'library';
-    if ($srcServer == 'saved') {
-      $postData = get_post($layout_id);
-      $rawDatabyId = isset($postData->post_content) ? $postData->post_content : '';
-      $rawData = !empty($rawDatabyId) ? $rawDatabyId : $rawData;
-    }
-    $query_args = post_grid_parse_query_prams(isset($queryArgs['items']) ? $queryArgs['items'] : []);
-    if (get_query_var('paged')) {
-      $paged = get_query_var('paged');
-    } elseif (get_query_var('page')) {
-      $paged = get_query_var('page');
-    } else {
-      $paged = 1;
-    }
-    $posts = [];
-    $responses = [];
-    $post_grid_wp_query = new WP_Query($query_args);
-    if ($post_grid_wp_query->have_posts()) :
-      while ($post_grid_wp_query->have_posts()) :
-        $post_grid_wp_query->the_post();
-        $post_id = get_the_id();
-        $blocks = parse_blocks($rawData);
-        $html = '';
-        foreach ($blocks as $block) {
-          //look to see if your block is in the post content -> if yes continue past it if no then render block as normal
-          $html .= render_block($block);
-        }
-        $posts[$post_id] = $html;
-      endwhile;
-      $responses['posts'] = $posts;
-      $responses['max_num_pages'] = isset($post_grid_wp_query->max_num_pages) ? $post_grid_wp_query->max_num_pages : 0;;
-      wp_reset_query();
-      wp_reset_postdata();
-    endif;
-    $blockArgs = [
-      'blockId' => $blockId,
-      'lazyLoad' => ['enable' => $lazyLoadEnable],
-      'pagination' => [
-        'type' => $paginationType,
-        'loadMoreText' => $loadMoreText,
-        'loadingText' => $loadingText,
-        'noMorePosts' => $noMorePosts,
-        'loadingIcon' => '<i class="loademore-icon ' . $loadingIconSrc . '"></i>',
-        'page' => $paged,
-        'prevText' => $prevText,
-        'nextText' => $nextText,
-        'maxPageNum' => $maxPageNum,
-      ],
-      'noPosts' => false
-    ];
-    $postGridArgs = [
-      'blockId' => $blockId,
-      'lazyLoad' => ['enable' => $lazyLoadEnable],
-    ];
     $obj['id'] = $post_ID;
     $obj['type'] = 'post';
     $containerClass = post_grid_parse_css_class($containerClass, $obj);

@@ -190,7 +190,7 @@
   },
   "editorStyle": "font-awesome-5",
   "style": "front_style",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "icon",
     "icons",

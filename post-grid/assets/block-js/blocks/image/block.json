@@ -148,7 +148,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "image",
     "custom image block",

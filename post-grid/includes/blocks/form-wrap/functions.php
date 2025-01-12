@@ -2208,60 +2208,6 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
           $response['errors']['registerUserExist'] = __('User register Failed', 'post-grid');
         }
       }
-      if ($id == 'tutorRegisterInstructor') {
-        $credentials = [];
-        $credentials['email'] = $email;
-        $credentials['password'] = $password;
-        $credentials['username'] = $username;
-        $new_user_id = form_wrap_process_register_user($credentials);
-        $user_meta = $request->get_param('user_meta');
-
-        global $wpdb;
-        $table_prefix = $wpdb->prefix;
-
-        unset($user_meta[$table_prefix . 'capabilities']);
-
-
-        //update Tutor Meta Data
-
-        $user = get_user_by('ID', $new_user_id);
-        $user->add_role('tutor_instructor');
-
-        update_user_meta($new_user_id, "_is_tutor_instructor", 1);
-        update_user_meta($new_user_id, '_tutor_instructor_status', apply_filters('tutor_initial_instructor_status', 'approved'));
-
-
-        if (!empty($user_meta)) {
-          foreach ($user_meta as $metaKey => $metavalue) {
-            update_user_meta($new_user_id, $metaKey, $metavalue);
-          }
-        }
-        $user_meta_files = $request->get_file_params()['user_meta'];
-
-
-        $files = [];
-        if (!empty($user_meta_files)) {
-          $i = 0;
-          foreach ($user_meta_files as $index => $data) {
-            foreach ($data as $metaKey => $fileInfo) {
-              $files[$metaKey][$index] = $fileInfo;
-            }
-          }
-        }
-        if (!empty($files)) {
-          foreach ($files as $metaKey => $metavalue) {
-            $file_response = post_grid_upload_file($metavalue);
-            if ($file_response['id']) {
-              update_user_meta($new_user_id, $metaKey, $file_response['id']);
-            }
-          }
-        }
-        if ($new_user_id) {
-          $response['success']['registerUserExist'] = __('User register Success', 'post-grid');
-        } else {
-          $response['errors']['registerUserExist'] = __('User register Failed', 'post-grid');
-        }
-      }
 
 
 

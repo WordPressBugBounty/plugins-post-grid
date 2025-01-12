@@ -2304,10 +2304,19 @@ class BlockPostGridRest
 	 */
 	public function get_post_types($request)
 	{
+
+		$args = array(
+			'public'   => false,
+		);
+
 		global $wp_post_types;
 		$post_types = [];
-		$post_types_all = get_post_types('', 'names');
+		$post_types_all = get_post_types($args, 'names');
+
+
 		foreach ($post_types_all as $post_type) {
+
+
 			$obj = $wp_post_types[$post_type];
 			$post_types[$post_type] = $obj->labels->singular_name;
 		}

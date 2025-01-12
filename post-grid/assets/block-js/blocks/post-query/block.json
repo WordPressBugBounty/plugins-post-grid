@@ -130,7 +130,7 @@
     }
   },
   "style": "front_style",
-  "script": "front_script",
+  "script": "pg_block_scripts",
   "keywords": [
     "post grid",
     "content grid",
