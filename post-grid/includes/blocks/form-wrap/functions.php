@@ -3457,8 +3457,10 @@ function form_wrap_process_create_entry($entryData, $saveTo, $saveToPrams)
 }
 function form_wrap_process_create_wc_order($arg, $request)
 {
-  $orderStatus = isset($arg->orderStatus) ? $arg->orderStatus : '';
-  $orderStatus = !empty($orderStatus) ? $orderStatus : 'completed';
+  // $orderStatus = isset($arg->orderStatus) ? $arg->orderStatus : '';
+  // $orderStatus = !empty($orderStatus) ? $orderStatus : 'pending';
+  $orderStatus = 'pending';
+
   $orderNote = isset($arg->orderNote) ? $arg->orderNote : '';
   $paymentMethod = isset($arg->paymentMethod) ? $arg->paymentMethod : 'ComboBlockForm';
   $paymentMethodTitle = isset($arg->paymentMethodTitle) ? $arg->paymentMethodTitle : 'ComboBlockForm';

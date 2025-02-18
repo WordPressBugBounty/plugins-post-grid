@@ -4,7 +4,7 @@ Donate link: https://comboblocks.com/
 Tags: popup Blocks, form block, post meta block
 Requires at least: 5.0.0
 Tested up to: 6.7
-Stable tag: 2.3.5
+Stable tag: 2.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -308,6 +308,11 @@ https://comboblocks.com manage by PickPlugins Team, we use this domain solely fo
 
 == Changelog ==
 
+
+
+= 2.3.6 =
+- 2024-02-18 - fix - Form Maker Block - creating WC order marked as pending instaed on completed.
+- 
 = 2.3.5 =
 - 2024-02-18 - fix - User query block - Remove roles, capabilities from REST response.
 - 2024-02-18 - fix - Update style component to adding predefined properties.
