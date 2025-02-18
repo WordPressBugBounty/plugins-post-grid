@@ -223,8 +223,6 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
   $no_post_text = !empty($post_grid_meta_options['no_post_text']) ? $post_grid_meta_options['no_post_text'] : '';
   $post_taxonomies_arr = post_grid_get_taxonomies($post_types);
 
-  error_log(serialize($post_grid_meta_options));
-  error_log(serialize($post_types));
 
 
 ?>

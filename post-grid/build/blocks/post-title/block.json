@@ -41,7 +41,6 @@
           "tag": "span",
           "limitBy": "",
           "limitCount": 99,
-          "isLink": true,
           "linkTo": "postUrl",
           "linkToAuthorMeta": "",
           "linkToCustomMeta": "",

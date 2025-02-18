@@ -2153,12 +2153,6 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
         $new_user_id = form_wrap_process_register_user($credentials);
         $user_meta = $request->get_param('user_meta');
 
-        // global $wpdb;
-        // $table_prefix = $wpdb->prefix;
-        // unset($user_meta[$table_prefix . 'capabilities']);
-
-
-
 
         if (!empty($user_meta)) {
           foreach ($user_meta as $metaKey => $metavalue) {
@@ -2168,7 +2162,6 @@ function form_wrap_process_registerForm($formFields, $onprocessargs, $request)
 
             if (in_array($metaKey, $allowedUserMetaKeys)) {
 
-              error_log($metaKey);
               update_user_meta($new_user_id, $metaKey, $metavalue);
             } else {
               $response['errors']['profileUpdateFailed'] = __("You dont\'t have access to update this field({$metaKey})", 'post-grid');

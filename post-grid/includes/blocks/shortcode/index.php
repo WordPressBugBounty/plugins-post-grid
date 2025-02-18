@@ -55,6 +55,10 @@ class BlockPostShortcode
 			if (!$isVisible) return;
 		}
 		// //* Visible condition
+
+
+		//var_dump($post_ID);
+
 		ob_start();
 		$shortcodeAtts = '';
 		if (!empty($shortcodePrams))

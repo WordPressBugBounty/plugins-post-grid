@@ -1325,8 +1325,14 @@ function post_grid_global_styles()
 function post_grid_blocks_styles()
 {
   $post_id = get_the_ID();
-  $combo_blocks_css_file_id = get_post_meta($post_id, 'combo_blocks_css_file_id', true);
+  // $combo_blocks_css_file_id = get_post_meta($post_id, 'combo_blocks_css_file_id', true);
+  //$combo_blocks_generate_css = get_post_meta($post_id, 'combo_blocks_generate_css', true);
+
   //if (!empty($combo_blocks_css_file_id)) return;
+  //if ($combo_blocks_generate_css) return;
+
+
+
   global $postGridCssY;
   global $postGridFonts;
   $reponsiveCssGroups = [];
@@ -1404,7 +1410,12 @@ function post_grid_blocks_styles()
     $reponsiveCss .= '}';
   }
 
+  // $file_name = 'block-styles-' . $post_id . '.css';
 
+  // $css_file = create_custom_css_file($reponsiveCss, $file_name);
+  // if ($css_file) {
+  //   update_post_meta($post_id, 'combo_blocks_generate_css', 1);
+  // }
 
   wp_enqueue_style(
     'post-grid-blocks-styles',
@@ -1425,6 +1436,42 @@ if (is_fse_enabled()) {
 
 
 add_action('elementor/editor/init', 'post_grid_blocks_styles');
+
+
+
+
+
+function create_custom_css_file($css_string, $filename = 'custom-style.css')
+{
+
+  // Define the directory path
+  // $upload_dir = wp_upload_dir(); // Get WordPress uploads directory
+  // $custom_dir = WP_CONTENT_DIR . '/custom/'; // Define custom directory path
+
+
+  $upload_dir = wp_upload_dir();
+  $custom_dir = $upload_dir['basedir'] . '/combo-blocks';
+
+
+
+  // Ensure the directory exists, if not create it
+  if (!file_exists($custom_dir)) {
+    wp_mkdir_p($custom_dir);
+  }
+
+  // Define full file path
+  $file_path = $custom_dir . '/' . $filename;
+
+  // Write CSS string to the file
+  if (file_put_contents($file_path, $css_string) !== false) {
+
+    return $file_path; // Return the file path on success
+  } else {
+    return false; // Return false on failure
+  }
+}
+
+
 
 function is_fse_enabled()
 {

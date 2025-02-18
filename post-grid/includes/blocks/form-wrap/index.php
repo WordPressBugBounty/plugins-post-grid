@@ -69,8 +69,8 @@ class PGBlockFormWrap
 
 
 
-    $postGridBlocksVars[$blockId] = "sdfsd";
-    $postGridBlocksVars['sdfsd'] = "sdfsdsdfs fd";
+    $postGridBlocksVars[$blockId] = $blockId;
+    //$postGridBlocksVars['sdfsd'] = "sdfsdsdfs fd";
 
 
 
@@ -83,7 +83,7 @@ class PGBlockFormWrap
       <form class="<?php echo esc_attr($formClass); ?> " id="<?php echo esc_attr($blockId); ?>"
         data-formId="<?php echo esc_attr($blockId); ?>" method="GET"
         data-onsubmitprams='<?php echo esc_attr(json_encode($onSubmit)); ?>'
-        data-formArgs='<?php echo esc_attr(json_encode($formArgs)); ?>' <?php if (!empty($onProcess)) : ?>
+        data-formargs='<?php echo esc_attr(json_encode($formArgs)); ?>' <?php if (!empty($onProcess)) : ?>
         data-onProcessArgs='<?php echo esc_attr(json_encode($onProcess)); ?>' <?php endif; ?>
         <?php if (!empty($afterSubmit)) : ?> data-afterSubmitArgs='<?php echo esc_attr(json_encode($afterSubmit)); ?>'
         <?php endif; ?>

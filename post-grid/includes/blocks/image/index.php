@@ -41,8 +41,7 @@ class PGBlockImage
     $wrapper = isset($attributes['wrapper']) ? $attributes['wrapper'] : [];
     $wrapperOptions = isset($wrapper['options']) ? $wrapper['options'] : [];
     $wrapperClass = isset($wrapperOptions['class']) ? $wrapperOptions['class'] : '';
-    $wrapperTag = isset($wrapperOptions['tag']) ? $wrapperOptions['tag'] : 'h2';
-    $useAsBackground = isset($wrapperOptions['useAsBackground']) ? $wrapperOptions['useAsBackground'] : 'no';
+    $wrapperTag = isset($wrapperOptions['tag']) ? $wrapperOptions['tag'] : 'div';
     $featuredImage = isset($attributes['image']) ? $attributes['image'] : [];
     $featuredImageOptions = isset($featuredImage['options']) ? $featuredImage['options'] : [];
     $featuredImageSrcType = isset($featuredImageOptions['imgSrcType']) ? $featuredImageOptions['imgSrcType'] : '';
@@ -97,12 +96,7 @@ class PGBlockImage
 
     $blockCssY = isset($attributes['blockCssY']) ? $attributes['blockCssY'] : [];
     $postGridCssY[] = $blockCssY['items'];
-    $linkAttrStr = '';
-    if (!empty($linkAttr))
-      foreach ($linkAttr as $attr) {
-        if (!empty($attr['val']))
-          $linkAttrStr .= esc_attr($attr['id']) . '=' . esc_attr($attr['val']) . ' ';
-      }
+
     $post_title = get_the_title($post_ID);
     //$thumb_id = get_post_thumbnail_id($post_ID);
     $thumb_id = $featuredImagesrcId;
@@ -121,6 +115,10 @@ class PGBlockImage
         $attachment_metadata = wp_get_attachment_metadata($thumb_id);
         $width = isset($attachment_metadata['width']) ? $attachment_metadata['width'] : '';
         $height = isset($attachment_metadata['height']) ? $attachment_metadata['height'] : '';
+
+        $linkAttr['width'] = $width;
+        $linkAttr['height'] = $height;
+
         $attachment_url = wp_get_attachment_image_url($thumb_id, $size);
         $attachment_post = get_post($thumb_id);
         $image_srcset = wp_get_attachment_image_srcset($thumb_id);
@@ -138,12 +136,16 @@ class PGBlockImage
       $height =  '';
       // $width =  '';
       // $height =  '';
+
+
       $attachment_url = $featuredImagesrcUrl;
     } elseif ($featuredImageSrcType == 'imgId') {
       $attachment_metadata = wp_get_attachment_metadata($featuredImagesrcId);
       $width = isset($attachment_metadata['width']) ? $attachment_metadata['width'] : '';
       $height = isset($attachment_metadata['height']) ? $attachment_metadata['height'] : '';
       $attachment_url = wp_get_attachment_image_url($featuredImagesrcId, $size);
+      $linkAttr['width'] = $width;
+      $linkAttr['height'] = $height;
     }
     $linkUrl = "";
     if ($featuredImageLinkTo == 'postUrl') {
@@ -253,68 +255,103 @@ class PGBlockImage
       $isVisible = post_grid_visible_parse($visible);
       if (!$isVisible) return;
     }
+
+
+
+    $linkAttrStr = '';
+    if (!empty($linkAttr))
+      foreach ($linkAttr as $attr) {
+        if (!empty($attr['val'])) {
+          if ($attr["id"] == "width" || $attr["id"] == "height") {
+            $linkAttrStr .= esc_attr("data-" . $attr['id']) . '="' . esc_attr($attr['val']) . '" ';
+          }
+        }
+      }
+
+
+
+    //echo "<pre>" . var_export($linkAttr, true) . "</pre>";
+    //echo "<pre>" . var_export($linkAttrStr, true) . "</pre>";
+
+
     // //* Visible condition
     ob_start();
-    if (!empty($wrapperTag) && $useAsBackground == 'no') :
+    if (!empty($wrapperTag)) :
 ?>
       <<?php echo pg_tag_escape($wrapperTag); ?> class="
                     <?php echo esc_attr($blockId); ?>
                     <?php echo esc_attr($wrapperClass); ?>">
         <?php if (!empty($featuredImageLinkTo)) : ?>
-          <a <?php if ($lightboxEnable == true) : ?> data-fslightbox="<?php echo esc_attr($galleryId); ?>" <?php endif; ?> href=" <?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>" rel="<?php echo esc_attr($rel); ?>" target="<?php echo esc_attr($linkTarget); ?>" <?php //echo ($linkAttrStr); 
-                                                                                                                                                                                                                                                                                                ?>>
-            <img <?php //echo ($linkAttrStr); 
-                  ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?> data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?> <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?> srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?> alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" />
+          <a <?php if ($lightboxEnable == true) : ?> data-fslightbox="<?php echo esc_attr($galleryId); ?>" <?php endif; ?>
+            href=" <?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>"
+            rel="<?php echo esc_attr($rel); ?>" target="<?php echo esc_attr($linkTarget); ?>"
+            <?php echo ($linkAttrStr);
+            ?>>
+            <img <?php echo ($linkAttrStr);
+                  ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?>
+              data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?>
+              <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?>
+              srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?>
+              alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" />
           </a>
         <?php else : ?>
           <?php if ($lightboxEnable == true) : ?>
-            <a href="<?php if ($lazyLoadEnable == true) : ?><?php echo esc_url($dataSrc); ?><?php endif; ?><?php if ($lazyLoadEnable == false) : ?><?php echo esc_url($attachment_url); ?><?php endif; ?>" data-fslightbox="<?php echo esc_attr($galleryId); ?>">
-              <img <?php //echo ($linkAttrStr); 
-                    ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?> data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?> <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?> srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?> alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" />
+            <a href="<?php if ($lazyLoadEnable == true) : ?><?php echo esc_url($dataSrc); ?><?php endif; ?><?php if ($lazyLoadEnable == false) : ?><?php echo esc_url($attachment_url); ?><?php endif; ?>"
+              data-fslightbox="<?php echo esc_attr($galleryId); ?>">
+              <img <?php echo ($linkAttrStr);
+                    ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?>
+                data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?>
+                <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?>
+                srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?>
+                alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" />
             </a>
           <?php else : ?>
-            <img <?php //echo ($linkAttrStr); 
-                  ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?> data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?> <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?> srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?> alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" />
+            <img <?php echo ($linkAttrStr);
+                  ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?>
+              data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?>
+              <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?>
+              srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?>
+              alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" />
           <?php endif; ?>
         <?php endif; ?>
       </<?php echo pg_tag_escape($wrapperTag); ?>>
     <?php
     endif;
-    if (empty($wrapperTag) && $useAsBackground == 'no') :
+    if (empty($wrapperTag)) :
     ?>
       <?php if (!empty($featuredImageLinkTo)) : ?>
-        <a class=" <?php echo esc_attr($blockId); ?>" href="<?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>" rel=" <?php echo esc_attr($rel); ?>" target="<?php echo esc_attr($linkTarget); ?>" <?php if ($lightboxEnable == true) : ?> data-fslightbox="<?php echo esc_attr($galleryId); ?>" <?php endif; ?>>
-          <img <?php //echo ($linkAttrStr); 
-                ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?> data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?> <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?> srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?> alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" />
+        <a class=" <?php echo esc_attr($blockId); ?>"
+          href="<?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>" rel=" <?php echo esc_attr($rel); ?>"
+          target="<?php echo esc_attr($linkTarget); ?>" <?php if ($lightboxEnable == true) : ?>
+          data-fslightbox="<?php echo esc_attr($galleryId); ?>" <?php endif; ?>>
+          <img <?php echo ($linkAttrStr);
+                ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?>
+            data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?>
+            <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?>
+            srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?>
+            alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" />
         </a>
       <?php else : ?>
         <?php if ($lightboxEnable == true) : ?>
-          <a class=" <?php echo esc_attr($blockId); ?>" href="<?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>" data-fslightbox=" <?php echo esc_attr($galleryId); ?>"> <img <?php //echo ($linkAttrStr); 
-                                                                                                                                                                                                        ?> src="<?php echo esc_url($attachment_url); ?>" srcset="<?php echo esc_attr($image_srcset); ?>" alt="<?php echo esc_attr($altText); ?>" title=" <?php echo esc_attr($titleText); ?>" /> </a>
+          <a class=" <?php echo esc_attr($blockId); ?>"
+            href="<?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>"
+            data-fslightbox=" <?php echo esc_attr($galleryId); ?>"> <img
+              <?php echo ($linkAttrStr);
+              ?>
+              src="<?php echo esc_url($attachment_url); ?>" srcset="<?php echo esc_attr($image_srcset); ?>"
+              alt="<?php echo esc_attr($altText); ?>" title=" <?php echo esc_attr($titleText); ?>" /> </a>
         <?php else : ?>
-          <img <?php //echo ($linkAttrStr); 
-                ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?> data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?> <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?> srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?> alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" />
+          <img <?php echo ($linkAttrStr);
+                ?> src="<?php echo esc_url($attachment_url); ?>" <?php if ($lazyLoadEnable == true) : ?>
+            data-src="<?php echo esc_url($dataSrc); ?>" loading="<?php echo esc_attr($lazy) ?>" <?php endif; ?>
+            <?php if ($lazyLoadEnable == false) : ?> <?php if ($srcsetEnable == true) : ?>
+            srcset=" <?php echo esc_attr($image_srcset); ?>" <?php endif; ?> <?php endif; ?>
+            alt="<?php echo esc_attr($altText); ?>" title="<?php echo esc_attr($titleText); ?>" />
         <?php endif; ?>
       <?php endif; ?>
     <?php
     endif;
-    if (!empty($wrapperTag) && $useAsBackground == 'yes') :
-    ?>
-      <?php if (!empty($featuredImageLinkTo)) : ?>
-        <a href=" <?php echo (!empty($linkUrl)) ? esc_url($linkUrl) : esc_url($post_url); ?>" rel="<?php echo esc_attr($rel); ?>" target="<?php echo esc_attr($linkTarget); ?>" <?php //echo ($linkAttrStr); 
-                                                                                                                                                                                ?>>
-          <<?php echo pg_tag_escape($wrapperTag); ?> class="
-                            <?php echo esc_attr($blockId); ?>">
-          </<?php echo pg_tag_escape($wrapperTag); ?>>
-        </a>
-      <?php else : ?>
-        <<?php echo pg_tag_escape($wrapperTag); ?> class="
-                          <?php echo esc_attr($blockId); ?>" <?php //echo ($linkAttrStr); 
-                                                              ?>>
-        </<?php echo pg_tag_escape($wrapperTag); ?>>
-      <?php endif; ?>
-    <?php
-    endif;
+
     ?>
 <?php
     $html = ob_get_clean();

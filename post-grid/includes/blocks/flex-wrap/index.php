@@ -44,9 +44,11 @@ class PGBlockFlexWrap
 		// //* Visible condition
 		ob_start();
 ?>
+
 		<div class="<?php echo esc_attr($wrapperClass); ?> <?php echo esc_attr($blockId); ?>	<?php echo esc_attr($blockAlign); ?>">
 			<?php echo ($content) ?>
 		</div>
+
 <?php
 		$html = ob_get_clean();
 		$cleanedHtml = post_grid_clean_html($html);

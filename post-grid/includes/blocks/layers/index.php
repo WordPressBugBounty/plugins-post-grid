@@ -21,6 +21,9 @@ class PGBlockLayers
   function theHTML($attributes, $content, $block)
   {
     global $postGridCssY;
+
+    //var_dump("Hello");
+
     $post_ID = isset($block->context['postId']) ? $block->context['postId'] : '';
     $post_url = get_the_permalink($post_ID);
     $the_post = get_post($post_ID);

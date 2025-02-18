@@ -699,6 +699,8 @@ class BlockPostGridRest
 		$response['message'] = $message;
 		die(wp_json_encode($response));
 	}
+
+
 	/**
 	 * Return generate_css_file
 	 *
@@ -714,6 +716,12 @@ class BlockPostGridRest
 		$viewType = isset($view['type']) ? sanitize_text_field($view['type']) : 'post';
 		$viewId = isset($view['id']) ? sanitize_text_field($view['id']) : '';
 		if ($viewType != 'post') return;
+
+		update_post_meta($viewId, 'combo_blocks_generate_css', 0);
+
+		die();
+
+
 		$response['status'] = '';
 		$file_name = $name . '-' . $viewId . '.css';
 		$custom_data = $css;
@@ -727,7 +735,8 @@ class BlockPostGridRest
 		// Step 2: Define the file path
 		$file_path = $custom_dir . '/' . sanitize_file_name($file_name);
 		// Step 3: Create the file and write the custom data
-		if ($file_handle = fopen($file_path, 'w')) { // Open the file for writing (w)
+		if ($file_handle = fopen($file_path, 'w')) {
+			// Open the file for writing (w)
 			fwrite($file_handle, $custom_data); // Write the custom data to the file
 			fclose($file_handle); // Close the file after writing
 			// Optionally, add the file to the WordPress media library
@@ -739,7 +748,7 @@ class BlockPostGridRest
 				'post_mime_type' => 'text/css', // Adjust the MIME type based on the file type
 				'post_title'     => sanitize_file_name($file_name),
 				'post_content'   => '',
-				'post_status'    => 'inherit'
+				'post_status'    => 'hidden'
 			);
 
 
@@ -750,25 +759,21 @@ class BlockPostGridRest
 
 				$combo_blocks_css_file_id = get_post_meta($viewId, "combo_blocks_css_file_id", true);
 
-				if (empty($combo_blocks_css_file_id)) {
-					$attach_id = wp_insert_attachment($attachment, $file_path);
-					require_once(ABSPATH . 'wp-admin/includes/image.php');
-					$attach_data = wp_generate_attachment_metadata($attach_id, $file_path);
-					wp_update_attachment_metadata($attach_id, $attach_data);
-					update_post_meta($viewId, 'combo_blocks_css_file_id', $attach_id);
+				//if (empty($combo_blocks_css_file_id)) {
+				error_log("combo_blocks_css_file_id" . $combo_blocks_css_file_id);
+
+				wp_delete_attachment($combo_blocks_css_file_id);
+
+				if (file_exists($file_path)) {
+					unlink($file_path); // Deletes the old file
 				}
 
-				if (!empty($combo_blocks_css_file_id)) {
-					// Get the current file path
-					$old_file_path = get_attached_file($combo_blocks_css_file_id);
-
-					// Delete the old file if necessary
-					if (file_exists($old_file_path)) {
-						unlink($old_file_path); // Deletes the old file
-					}
-
-					update_attached_file($combo_blocks_css_file_id, $file_path);
-				}
+				$attach_id = wp_insert_attachment($attachment, $file_path);
+				require_once(ABSPATH . 'wp-admin/includes/image.php');
+				$attach_data = wp_generate_attachment_metadata($attach_id, $file_path);
+				wp_update_attachment_metadata($attach_id, $attach_data);
+				update_post_meta($viewId, 'combo_blocks_css_file_id', $attach_id);
+				//}
 			}
 			//return $attach_id; // Return attachment ID
 		} else {
@@ -2056,14 +2061,14 @@ class BlockPostGridRest
 				$user_data->user_login = $term->user_login;
 				$user_data->user_nicename = $term->user_nicename;
 				//$user_data->user_email = $term->user_email;
-				$user_data->registered = $term->user_registered;
-				$user_data->user_status = $term->user_status;
+				//$user_data->registered = $term->user_registered;
+				//$user_data->user_status = $term->user_status;
 				$user_data->description = $term->description;
 				$user_data->display_name = $term->display_name;
 				$user_data->first_name = $term->first_name;
 				$user_data->last_name = $term->last_name;
-				$user_data->roles = $term->roles;
-				$user_data->caps = $term->caps;
+				//$user_data->roles = $term->roles;
+				//$user_data->caps = $term->caps;
 				$user_data->url = $term->user_url;
 				$user_data->avatar = get_avatar_url($term->ID);
 				//$user_data->ID = $term->ID;

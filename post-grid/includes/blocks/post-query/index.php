@@ -26,7 +26,6 @@ class PGBlockPostQuery
   function theHTML($attributes, $content, $block)
   {
 
-    error_log("Hello");
 
     global $postGridCssY;
     global $postGridScriptData;
