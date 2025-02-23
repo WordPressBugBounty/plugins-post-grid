@@ -405,7 +405,9 @@ class BlockPostGridRest
 			array(
 				'methods' => 'POST',
 				'callback' => array($this, 'get_users'),
-				'permission_callback' => '__return_true',
+				'permission_callback' => function () {
+					return current_user_can('manage_options');
+				},
 			)
 		);
 		register_rest_route(
