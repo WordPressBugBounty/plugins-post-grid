@@ -39,7 +39,7 @@ $post_grid_settings = get_option('post_grid_settings');
             </svg>
           </div>
           <div>
-            Combo Blocks - <?php echo post_grid_version; ?>
+            PostGrid - <?php echo post_grid_version; ?>
           </div>
         </div>
       </div>

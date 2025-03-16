@@ -1,212 +1,136 @@
-=== Post Grid and Gutenberg Blocks - ComboBlocks ===
-Contributors: PickPlugins, NafisMahmudAyon
-Donate link: https://comboblocks.com/
+=== Post Grid By PickPlugins ===
+Contributors: PickPlugins
+Donate link: https://pickplugins.com/
 Tags: popup Blocks, form block, post meta block
 Requires at least: 5.0.0
 Tested up to: 6.7
-Stable tag: 2.3.7
+Stable tag: 2.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-ComboBlocks is the ultimate Gutenberg extension for building stunning landing pages, blogs, eCommerce stores, niche websites, news portals, and more.
+Post Grid is a powerful WordPress plugin for creating customizable post grid layouts with advanced query options, allowing users to display posts dynamically with filters, pagination, and multiple design variations.
+
 
 == Description ==
 
-Post Grid has evolved into ComboBlocks! Our team has taken a deep dive into the limitations of existing Gutenberg blocks and page builders, addressing key pain points such as styling, functionality, and usability. Most competing plugins come with excessive, redundant blocks, static elements, and limited customization options.
+**Post Grid for WordPress – The Ultimate Grid Layout Plugin**
 
-Through extensive research, we found that our seven specialized blocks can effectively replace 22 blocks from other plugins—meaning you can eliminate unnecessary clutter and achieve a streamlined, performance-optimized experience. With ComboBlocks, less is more.
+Post Grid is a powerful WordPress plugin designed to display posts, pages, or custom post types in a visually stunning grid layout. Whether you’re running a blog, eCommerce store, portfolio site, or business website, Post Grid allows you to showcase content in an organized and engaging way.
 
-### Post Grid by [PickPlugins](http://pickplugins.com)
+🚀 **Start creating beautiful post grids today!**
 
-- 👉 [Live Demo](https://comboblocks.com/)
-- 👉 [Buy Premium](https://comboblocks.com/pricing/)
-- 👉 [Documentation](https://comboblocks.com/documentations/)
-- 👉 [Support](https://www.pickplugins.com/support/)
-- 👉 [Video Tutorials](https://www.youtube.com/@ComboBlocks/playlists)
-
-## Key Features of ComboBlocks
-
-### 🚀 1000+ Block Variations
-For users who prefer a no-code approach, we offer an extensive library of over 1000 pre-designed block variations. Our team continuously expands this collection to ensure fresh and innovative designs for every need.
-
-[youtube https://www.youtube.com/watch?v=eWLcEXBS0GY]
-
-### 📝 Advanced Form Maker
-Easily create and customize:
-- Contact Forms
-- Opt-in Forms (with integrations for 10+ email marketing services)
-- Post Submission Forms
-- Login & Registration Forms
-- Term Submission Forms
-- Post Comment Forms
-- Integration with FluentCRM
-
-Supports post meta, term meta, taxonomy, user meta, and comment meta for maximum flexibility.
-
-### 📧 Opt-in Form Service Integrations
-Seamlessly connect your opt-in forms with top email marketing services:
-- Mailjet
-- MailerLite
-- Moosend
-- Mailmodo
-- Sender.net
-- Brevo
-- Mailchimp
-- EmailOctopus
-- Klaviyo
-
-### 🛠️ Advanced Post Meta Block
-Go beyond basic post meta with support for complex data types like arrays and objects. Seamlessly integrates with:
-- Advanced Custom Fields (ACF)
-- Pods
-- Custom Field Suite
-- CMB2
-- Meta Box
-
-[youtube https://www.youtube.com/watch?v=5H5ZIoket8g]
-
-### 🔥 Popup Maker
-With ComboBlocks' Popup Maker, you get:
-- 90+ visibility conditions
-- 20+ trigger options
-- 40+ popup block variations
-- 15+ close triggers
-- 70+ entry and exit animations
-
-[youtube https://www.youtube.com/watch?v=qeEWfjwX4B8]
-
-### 🎡 Content Slider Block
-Create dynamic and engaging sliders for various content types:
-- Post sliders
-- Product sliders
-- Custom post type sliders
-- Logo sliders
-- Testimonial sliders
-- Team member sliders
-- Service sliders
-- Video sliders
-- Vertical sliders
-
-### 🏷️ Advanced Taxonomy & Terms Query Block
-- Query any taxonomy terms dynamically
-- Customize queries with advanced filters
-
-### 🎨 Style Component
-If your current page builder restricts your creativity, ComboBlocks sets you free. We provide full control over CSS styling, including:
-- Advanced customization options
-- Support for pseudo-selectors
-- A robust, next-level CSS processor
-
-### 🏗️ Masonry Layouts
-Create stunning grid-based layouts with:
-- Masonry post grids
-- Masonry image galleries
-- Masonry layouts for any content type
-
-[youtube https://www.youtube.com/watch?v=Njd7jNf1qnk]
-
-### 🔄 Accordion Block
-- Post accordion
-- Category accordion
-- Nested accordion
-- Label counter
-- Icon positioning
-- 20+ pre-designed templates
-
-### 📑 Tabs Block
-- Supports nested tabs
-- Comes with 20+ ready-made styles
-
-### 🔘 Icon, Button, and Link Block
-- 100+ ready-made buttons
-- UTM tracking support
-- Custom icon selection
-- Prefix/postfix customization
-- Dynamic text and link sources
-
-### 📝 Advanced Post Query Block
-Filtering posts has never been easier! Without any coding, you can:
-- Query any post type
-- Filter by custom meta fields, authors, taxonomies, terms, and dates
-- Utilize all WP_Query-supported arguments
-
-### 🏆 Advanced Post Grid Builder
-Craft highly customizable grid layouts:
-- Post grids
-- Product grids
-- Post archives
-- Search archives
-- Dynamic archive layouts
-- Custom listing grid item layouts
-
-### 📚 Full Page Library
-Instantly create professional pages with our one-click templates. Our library includes:
-- Landing pages
-- Portfolio pages
-- CV templates
-- Blog layouts
-- eCommerce templates
-
-We continuously add new templates every week!
-
-### 🎨 Icon Library
-Our icon block includes:
-- Font Awesome
-- Font Icons
-- Bootstrap Icons
-
-### 🔌 Third-Party Plugin Support
-ComboBlocks integrates seamlessly with:
-- WooCommerce
-- Advanced Custom Fields (ACF)
-- CMB2
-- Custom Field Suite
-- Rank Math
-- Yoast SEO
-- AIO SEO
-- SEOPress
-- WP Meta SEO
-- The SEO Framework
-- SEO SIMPLE PACK
-- FluentCRM
-
-### 🔒 Advanced Visibility Conditions
-With 90+ visibility conditions, you gain full control over who can access your content. Includes integration with:
-- MemberPress
-- Paid Memberships Pro
-
-### 🔠 Google Fonts & Custom Fonts
-Customize typography effortlessly with:
-- Full Google Fonts library
-- Custom font uploads
-
-### 📌 Custom Post Type Creator
-Stop relying on extra plugins or custom coding! Our intuitive visual post type maker allows you to:
-- Create custom post types in minutes
-- Define custom conditions
-- Instantly generate functional post types
-
-## 🔗 Third-Party Integrations
-We’ve expanded our plugin’s functionality by integrating with industry-leading solutions:
-
-- 🔥 WooCommerce
-- 🔥 Advanced Custom Fields (ACF)
-- 🔥 Easy Digital Downloads (EDD)
-- 🔥 CMB2
-- 🔥 Custom Field Suite
-- 🔥 Rank Math
-- 🔥 Yoast SEO
-- 🔥 AIO SEO
-- 🔥 SEOPress
-- 🔥 WP Meta SEO
-- 🔥 The SEO Framework
-- 🔥 SEO SIMPLE PACK
-
-ComboBlocks is the only WordPress block plugin you need to build stunning websites with ease. Whether you're a designer, developer, or business owner, you'll find everything you need for fast, flexible, and beautiful web development!
+🔗 **[Live Demo](https://pickplugins.com/demo/post-grid/)**  
+🔗 **[Premium Features](https://pickplugins.com/post-grid/)**  
+🔗 **[Documentation](https://pickplugins.com/documentation/post-grid/)**  
+🔗 **[Support](https://www.pickplugins.com/support/)**  
+🔗 **[Video Tutorials](https://www.youtube.com/watch?v=YVtsIbEb9zs&list=PL0QP7T2SN94Yut5Y0MSVg1wqmqWz0UYpt)**
 
 
 
-## 🏆 Users Feedback For Combo Blocks
+### **Key Features:**
+
+✅ **Fully Responsive Grid Layout**
+   - Works seamlessly on any device.
+   - Customizable column settings for desktop, tablet, and mobile.
+
+✅ **Supports Any Custom Post Type**
+   - Display content from posts, pages, WooCommerce products, portfolios, or any other custom post type.
+   - Select multiple post types for a unified grid display.
+
+✅ **Advanced Query Options**
+   - Filter posts by categories, tags, taxonomies, and terms.
+   - Customize post order, publish status, and metadata.
+   - Exclude or include specific posts by ID.
+   - Display posts based on keyword search.
+
+✅ **Skin & Layout Customization**
+   - Pre-designed templates and layouts.
+   - Drag-and-drop builder for easy grid customization.
+   - Apply custom CSS styles for a unique design.
+
+✅ **Pagination & Load More Options**
+   - Classic pagination, AJAX-based pagination, and “Load More” buttons.
+   - Customizable navigation text and icons.
+
+✅ **Search Input Field**
+   - Enable a search box within the grid to help users find content quickly.
+
+✅ **Masonry & Custom Grid Options**
+   - Grid item width and height adjustments.
+   - Masonry-style layout support.
+   - Background color, padding, and margin controls.
+
+### **Premium Features:**
+
+🚀 **Advanced View Types**
+   - Filterable grids.
+   - Glossary-style view.
+   - Carousel slider.
+   - Collapsible grid view.
+
+📌 **Post Grid for Archives**
+   - Supports category, tag, search, author, and custom taxonomy pages.
+
+🔄 **Advanced Pagination Types**
+   - AJAX pagination.
+   - Next-Previous navigation.
+   - Filterable pagination.
+   - AJAX Load More button.
+
+🎥 **Multiple Media Sources**
+   - Featured images.
+   - Embedded YouTube, Vimeo, Dailymotion, and SoundCloud media.
+   - Custom thumbnails and Font Awesome icons.
+
+🛠 **Advanced Filtering & Sorting**
+   - Filter posts by taxonomies, terms, or custom filters.
+   - Customizable navigation styles, including inline, dropdown, radio, and checkbox views.
+   - Custom default active filter and sorting options.
+
+📊 **Meta & Custom Query Support**
+   - Meta query for filtering by custom fields.
+   - Custom query parameters for advanced data fetching.
+   - Sticky post inclusion/exclusion.
+   - Date-based filtering and author-based queries.
+   - Display password-protected posts.
+
+### **Why Choose Post Grid?**
+- **User-friendly** – No coding required, fully customizable.
+- **Lightweight & Fast** – Optimized for performance and SEO.
+- **Versatile & Feature-rich** – Ideal for blogs, portfolios, WooCommerce stores, and more.
+
+
+## 3rd Party Plugins Support
+
+### WooCommerce
+WooCommerce is the #1 eCommerce plugin for WordPress, and our post grid plugin provides full support for displaying various product elements within the grid. Users can showcase essential product details such as Add to Cart buttons, Full Price, Sale Price, Regular Price, Star Rating, Text Rating, Product Categories, Product Tags, Product Gallery, and Product SKU. This integration ensures that WooCommerce products are visually appealing and easy to navigate.
+
+### Easy Digital Downloads
+Easy Digital Downloads is a leading eCommerce solution for selling digital products. Our post grid plugin fully supports displaying crucial elements for downloads, including Price, Variable Prices, Sales Stats, Earnings Stats, Add to Cart buttons, Text Ratings, Download Categories, and Download Tags. This feature allows digital product sellers to effectively present their products in an organized and user-friendly grid layout.
+
+### Advanced Custom Fields
+Advanced Custom Fields is the #1 custom fields plugin for WordPress, and we have integrated full support for displaying various meta fields for any post type. Users can showcase data fields such as Text, Textarea, Number, Range, Email, URL, Password, Link, Post Object, Page Link, Taxonomy, User, Relationship, Image, File, WYSIWYG Editor, oEmbed, Select, Checkbox, Radio, Button Group, True/False, Date Picker, Time Picker, Datetime Picker, and Google Map. This integration allows users to customize post grid content dynamically.
+
+### CMB2
+CMB2 is another powerful custom fields plugin for WordPress, and our post grid plugin supports displaying multiple meta fields for any post type. Supported fields include Text, Email, URL, Money, Textarea, Select, Checkbox, Radio, Link, File, WYSIWYG Editor, and oEmbed. This ensures flexibility in structuring and displaying custom data within post grids.
+
+### Custom Field Suite
+Custom Field Suite is an excellent custom fields plugin for WordPress, and our post grid plugin fully supports displaying various meta fields for any post type. Users can showcase Text, Textarea, Link, Taxonomy, User, Relationship, File, WYSIWYG Editor, Select, True/False, and Date Picker fields, making it easy to manage and present custom content.
+
+### The Events Calendar
+The Events Calendar is the #1 event management plugin for WordPress, and our post grid plugin provides full support for displaying event-related elements. Users can showcase Event Categories, Event Tags, Event Start Date, Event End Date, Event URL, Event Cost, Venue Address, Venue City, Venue Country, Venue Province, Venue Zip Code, Venue Phone, Venue URL, Venue Map, Organizer Phone, Organizer Website, and Organizer Email. This integration ensures that events are well-organized and easily accessible within the grid layout.
+
+### Events Manager
+Events Manager is another powerful event management plugin for WordPress, and our post grid plugin supports displaying essential elements for event post types. Users can showcase Event Categories, Event Tags, Event Start Date, Event End Date, Event Start Time, Event End Time, Event Spaces, Maximum Spaces, Cut-Off Date, and Cut-Off Time. This feature helps users create engaging and informative event listings within a post grid.
+
+
+
+
+Video Tutorial(with premium version interface)
+
+* [All tutorials](https://www.youtube.com/watch?v=RKb-B_Q72Ak&list=PL2GPPfgLrfWxAZBQc10XCh5wzDSOfPrKB)
+
+## 🏆 Users Feedback For Post Grid
 
 [Miguelapps](https://wordpress.org/support/topic/easy-and-intuitive-plugin-to-use/):
 
@@ -228,6 +152,19 @@ ComboBlocks is the only WordPress block plugin you need to build stunning websit
 
 == Installation ==
 
+1. Install as regular WordPress plugin.
+2. Go your plugin setting via WordPress Dashboard and find "Post Grid" activate it.
+
+After activate plugin you will see "Post Grid" menu at left side on WordPress dashboard click "New Post Grid" and use the options field "Post Grid"
+
+
+How to use on page or post
+When Post Grid options setup done please publish Post Grid as like post or page
+
+and then copy shortcode from top of Post Grid Options `[post_grid  id="1234" ]`
+
+then paste this shortcode anywhere in your page to display grid
+
 = Minimum Requirements =
 
 - WordPress 5.0.0 or greater
@@ -237,7 +174,7 @@ ComboBlocks is the only WordPress block plugin you need to build stunning websit
 = Automatic installation =
 
 1. Go to your WordPress Plugin installation menu (Dashboard > Plugins > Add New)
-2. In the search field type Combo Blocks and press enter.
+2. In the search field type Post Grid and press enter.
 3. "Install Now" and then click "Active"
 
 = Manual installation =
@@ -246,7 +183,7 @@ For Manual installation, you download our product from WordPress directory uploa
 
 1. Download the plugin and unzip it, make sure its under the folder name "post-grid"
 2. Using an FTP program or CPanel upload the unzipped plugin folder to your WordPress installation’s wp-content/plugins/ directory.
-3. Activate the plugin from the Plugins menu (Dashboard > Plugins > Installed Plugins > Combo Blocks) within the WordPress admin.
+3. Activate the plugin from the Plugins menu (Dashboard > Plugins > Installed Plugins > Post Grid) within the WordPress admin.
 
 == Frequently Asked Questions ==
 
@@ -268,13 +205,9 @@ In web development, Masonry grid can be implemented using CSS grid, flexbox or J
 
 Filterable Post Grid is a WordPress plugin that allows you to display posts or custom post types in a grid layout with the ability to filter the displayed content based on categories, tags, or custom taxonomies. This plugin can be used to create a portfolio, gallery, or any other type of grid-based content display. It provides a user-friendly interface for creating and customizing the grid, and it offers a range of styling options to ensure that the grid fits seamlessly into your website design.
 
-= Is this plugin renamed? =
 
-Yes, We have recently renamed this plugin "Post Grid" to "Combo Blocks"
 
-= Is this a Gutenberg Blocks plugin? =
 
-Yes, we have added more than 50 blocks for displaying post elements, post grid, post title, post excerpt, read more, post meta, icon, button, link and etc.
 
 = Can I request new features? =
 
@@ -284,29 +217,19 @@ You can ask or request a new feature via wordpress.org forum or please go to our
 
 You can report a bug via wordpress.org forum, also we are avilable on official forum https://pickplugins.com/support/
 
-= Who manage comboblocks.com? =
 
-https://comboblocks.com manage by PickPlugins Team, we use this domain solely for ComboBlocks plugins and as its template server.
 
 == Screenshots ==
 
-1. Content Slider Block
-2. Date Countdown Block
-3. Form Maker Block
-4. Grid Maker Block
-5. Image Gallery Block
-6. layer Block
-7. List Block
-8. Masonry Grid Block
-9. Number Counter Block
-10. Popup Maker Block
-11. Post Grid Filterable Block
-12. Progressbar Block
-13. Social Share Block
-14. Star Rate Block
-15. Accordion Block
+
 
 == Changelog ==
+
+= 2.3.9 =
+- 2024-03-16 - update - Readme update
+
+= 2.3.8 =
+- 2024-03-16 - update - Blocks Removed and Move to https://wordpress.org/plugins/combo-blocks/
 
 = 2.3.7 =
 - 2024-02-23 - fix - User Query Block - REST API allow access to admin only.

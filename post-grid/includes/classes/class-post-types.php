@@ -279,7 +279,7 @@ class class_post_grid_post_types
 				'supports'                 => array('title'),
 				'show_in_nav_menus'     => true,
 				'menu_icon' => 'dashicons-grid-view',
-				'show_in_menu'     => 'post-grid',
+				//'show_in_menu'     => 'post-grid',
 			))
 		);
 	}
@@ -329,7 +329,7 @@ class class_post_grid_post_types
 				'query_var'             => true,
 				'supports'                 => array('title'), // 'editor'
 				'show_in_nav_menus'     => false,
-				'show_in_menu'     => 'post-grid',
+				'show_in_menu'     => 'edit.php?post_type=post_grid',
 				'menu_icon' => 'dashicons-businessman',
 				'show_in_rest' => true,
 			))
