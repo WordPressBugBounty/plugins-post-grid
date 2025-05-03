@@ -5,7 +5,64 @@ class class_post_grid_shortcodes
     public function __construct()
     {
         add_shortcode('post_grid', array($this, 'post_grid_new_display'));
+        add_shortcode('post_grid_builder', array($this, 'post_grid_builder'));
     }
+
+
+    public function post_grid_builder($atts, $content = null)
+    {
+
+        $atts = shortcode_atts(
+            array(
+                'id' => "",
+            ),
+            $atts
+        );
+
+
+
+        $post_id = isset($atts['id']) ? (int) $atts['id'] : '';
+        $post_id = str_replace('"', "", $post_id);
+        $post_id = str_replace("'", "", $post_id);
+        $post_id = str_replace("&#039;", "", $post_id);
+        $post_id = str_replace("&quot;", "", $post_id);
+
+        $post_data = get_post($post_id);
+        $post_content = isset($post_data->post_content) ? $post_data->post_content : "";
+
+        //var_dump($post_content);
+
+        //echo "<br>";
+
+        $post_content = ($post_content);
+        //var_dump($post_content);
+
+
+
+        $PostGridData = (is_serialized($post_content)) ? unserialize($post_content) : (array) json_decode($post_content, true);
+
+
+        $globalOptions = isset($PostGridData["globalOptions"]) ? $PostGridData["globalOptions"] : [];
+        $viewType = isset($globalOptions["viewType"]) ? $globalOptions["viewType"] : "viewGrid";
+
+        //var_dump($viewType);
+
+        ob_start();
+
+
+        do_action("post_grid_builder_" . $viewType, $post_id, $PostGridData);
+
+        if ($viewType == "viewGrid") {
+            //wp_enqueue_script('testimonial_front_scripts');
+            // wp_enqueue_style('testimonial_animate');
+        }
+
+
+        return ob_get_clean();
+    }
+
+
+
     public function post_grid_new_display($atts, $content = null)
     {
         $atts = shortcode_atts(

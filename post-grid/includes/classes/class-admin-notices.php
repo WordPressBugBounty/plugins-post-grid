@@ -4,36 +4,47 @@ class class_post_grid_notices
 {
   public function __construct()
   {
-    add_action('admin_notices', array($this, 'license_expired'));
-    add_action('admin_notices', array($this, 'rebrand'));
+    add_action('admin_notices', array($this, 'beta_test'));
+
+
+    // add_action('admin_notices', array($this, 'license_expired'));
+    //add_action('admin_notices', array($this, 'rebrand'));
     //add_action('admin_notices', array($this, 'layout_depricated'));
     //add_action('admin_notices', array( $this, 'import_layouts' ));
   }
-  public function rebrand()
+
+  public function beta_test()
   {
+    //delete_option("post_grid_notices");
+
+
     $screen = get_current_screen();
     $post_grid_notices = get_option('post_grid_notices', []);
-    $is_hidden = isset($post_grid_notices['hide_notice_rebrand']) ? $post_grid_notices['hide_notice_rebrand'] : 'no';
-    $actionurl = admin_url() . '?hide_notice_rebrand=yes';
-    $actionurl = wp_nonce_url($actionurl,  'hide_notice_rebrand');
-    $nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field($_REQUEST['_wpnonce']) : '';
-    $hide_notice_rebrand = isset($_REQUEST['hide_notice_rebrand']) ? sanitize_text_field($_REQUEST['hide_notice_rebrand']) : '';
-    if (wp_verify_nonce($nonce, 'hide_notice_rebrand') && $hide_notice_rebrand == 'yes') {
-      $post_grid_notices['hide_notice_rebrand'] = 'hidden';
+    $is_hidden = isset($post_grid_notices['hide_notice_beta_test']) ? $post_grid_notices['hide_notice_beta_test'] : 'no';
+    $actionurl = admin_url() . '?hide_notice_beta_test=yes';
+    $actionurl = wp_nonce_url($actionurl,  'hide_notice_beta_test');
+    $nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
+    $hide_notice_beta_test = isset($_REQUEST['hide_notice_beta_test']) ? sanitize_text_field(wp_unslash($_REQUEST['hide_notice_beta_test'])) : '';
+    if (wp_verify_nonce($nonce, 'hide_notice_beta_test') && $hide_notice_beta_test == 'yes') {
+      $post_grid_notices['hide_notice_beta_test'] = 'hidden';
       update_option('post_grid_notices', $post_grid_notices);
       return;
     }
     ob_start();
     if ($is_hidden == 'no') :
-?>
-      <div class="notice notice-error">
-        <p><strong>Post Grid/Post Grid Combo</strong> is now <strong><a target="_blank" class="" href="https://comboblocks.com/?utm_source=WPadminNotice&utm_campaign=comboBlocks&utm_medium=userClick">Combo
-              Blocks</a></strong> <a class="button" href="<?php echo esc_url_raw($actionurl) ?>">Hide</a></p>
+
+
+      $builder_page_url = admin_url() . 'edit.php?post_type=post_grid&page=post-grid-builder'
+
+?><div class="notice">
+        <h3>⚡ Intorducing React Based Modern Builder for Post Grid, <strong><a target="_blank" href="<?php echo esc_url($builder_page_url); ?>">Try Now</a></strong></h3>
+        <p> <a style="margin: 0 20px;" class="" href="<?php echo esc_url($actionurl) ?>">❌ Hide Notice</a></p>
       </div>
       <?php
     endif;
-    echo (ob_get_clean());
+    echo wp_kses_post(ob_get_clean());
   }
+
   public function license_expired()
   {
     $post_grid_license = get_option('post_grid_license');
@@ -64,44 +75,10 @@ class class_post_grid_notices
             <a href="<?php echo esc_url_raw($actionurl); ?>" class="bg-red-600 inline-block cursor-pointer  rounded-sm text-white hover:text-white hover:bg-red-400 px-2  py-1"><span class="align-middle dashicons dashicons-no"></span> Hide this</a>
           </p>
         </div>
-      <?php
+<?php
       endif;
     endif;
     echo ob_get_clean();
-  }
-  public function layout_depricated()
-  {
-    $screen = get_current_screen();
-    $post_grid_info = get_option('post_grid_info');
-    $import_layouts = isset($post_grid_info['import_layouts']) ? $post_grid_info['import_layouts'] : '';
-    //delete_option('post_grid_info');
-    ob_start();
-    if ($screen->id == 'edit-post_grid_layout' || $screen->id == 'post_grid_layout') :
-      ?>
-      <div class="notice notice-error is-dismissible">
-        <p>Old Layout is about to depricated but you can still use and it works fine, we will longer update, please try
-          Gutenberg Post Grid block instaed, we have added some exciting feature with gutenberg block.</p>
-      </div>
-    <?php
-    endif;
-    echo (ob_get_clean());
-  }
-  public function import_layouts()
-  {
-    $post_grid_info = get_option('post_grid_info');
-    $import_layouts = isset($post_grid_info['import_layouts']) ? $post_grid_info['import_layouts'] : '';
-    //delete_option('post_grid_info');
-    ob_start();
-    if ($import_layouts != 'done') :
-    ?>
-      <div class="update-nag">
-        <?php
-        echo esc_html(sprintf(__('Post grid require import free layouts, please <a href="%s">click here</a> to go import page', 'post-grid-pro'), esc_url(admin_url() . 'edit.php?post_type=post_grid&page=post-grid-settings&tab=help_support')))
-        ?>
-      </div>
-<?php
-    endif;
-    echo (ob_get_clean());
   }
 }
 new class_post_grid_notices();

@@ -3,7 +3,7 @@
 Plugin Name: Post Grid By PickPlugins
 Plugin URI: https://pickplugins.com/post-grid/
 Description: Post Grid is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 2.3.9
+Version: 2.3.10
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -27,28 +27,16 @@ if (!class_exists('PostGrid')) {
       define('post_grid_plugin_dir', plugin_dir_path(__FILE__));
       define('post_grid_plugin_basename', plugin_basename(__FILE__));
       define('post_grid_plugin_name', 'Post Grid');
-      define('post_grid_version', '2.3.9');
+      define('post_grid_version', '2.3.10');
       define('post_grid_server_url', 'https://pickplugins.com/demo/post-grid/');
-
-      $postGridCss = [];
-      $postGridCssY = [];
-      $postGridScriptData = [];
-      $postGridScriptData['siteUrl'] = get_bloginfo('url');
 
       $postGridFonts = [];
 
 
-      global $postGridLdJson;
-      global $postGridCss;
-      global $postGridCustomCss;
-      global $postGridCssY;
-      global $postGridScriptData;
+      global $PostGridBuilderCss;
       global $postGridFonts;
 
-      global $postGridLoaded;
-      global $postGridBlocksVars;
 
-      $postGridBlocksVars['siteUrl'] = get_bloginfo('url');
 
 
 
@@ -77,6 +65,8 @@ if (!class_exists('PostGrid')) {
       include('includes/layout-elements/3rd-party.php');
       include('includes/functions-layout-api.php');
       include('includes/functions-ajax.php');
+      include('includes/functions-rest.php');
+
 
 
       include('includes/functions-data-upgrade.php');
@@ -90,6 +80,12 @@ if (!class_exists('PostGrid')) {
       include('includes/functions.php');
       include('includes/shortcodes/shortcode-current_user_id.php');
       include('includes/duplicate-post.php');
+
+      include('includes/functions-builder.php');
+      include('templates/view-grid/index.php');
+      include('templates/view-slider/index.php');
+      include('templates/view-masonry/index.php');
+
 
 
       add_action('wp_enqueue_scripts', array($this, '_scripts_front'));
@@ -230,12 +226,13 @@ if (!class_exists('PostGrid')) {
       wp_register_script('pgpostgrid_mixitup', post_grid_plugin_url . 'assets/js/mixitup.min.js', []);
       wp_register_script('pgpostgrid_mixitup_multifilter', post_grid_plugin_url . 'assets/js/mixitup-multifilter.js', []);
       wp_register_script('pgpostgrid_mixitup_pagination', post_grid_plugin_url . 'assets/js/mixitup-pagination.js', []);
+      wp_register_script('pgpostgrid_builder-js', post_grid_plugin_url . 'assets/js/builder-js.js', []);
 
       wp_register_script('scrollto', post_grid_plugin_url . 'assets/js/jquery-scrollto.js', array('jquery'));
 
       //wp_register_style('pg_block_styles', post_grid_plugin_url . 'assets/block-css/block-styles.min.css');
       wp_register_style('pg_block_styles', post_grid_plugin_url . 'assets/block-css/block-styles.css');
-
+      wp_register_style('animate', post_grid_plugin_url . 'assets/css/animate.min.css');
 
       // if (is_singular()) {
       //   $upload_dir = wp_upload_dir();

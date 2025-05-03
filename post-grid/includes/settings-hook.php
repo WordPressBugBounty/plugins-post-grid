@@ -136,119 +136,12 @@ if (!function_exists('post_grid_settings_content_help_support')) {
             $settings_tabs_field->generate_field($args);
             ?>
         </div>
-    <?php
-    }
-}
-add_action('post_grid_settings_content_disable_blocks', 'post_grid_settings_content_disable_blocks');
-if (!function_exists('post_grid_settings_content_disable_blocks')) {
-    function post_grid_settings_content_disable_blocks($tab)
-    {
-        $settings_tabs_field = new settings_tabs_field();
-        $post_grid_settings = get_option('post_grid_settings');
-        $disable_blocks = isset($post_grid_settings['disable_blocks']) ? $post_grid_settings['disable_blocks'] : [];
-    ?>
-        <div class="section">
-            <div class="section-title"><?php echo __('Disable/Enable Blocks', 'post-grid'); ?></div>
-            <p class="description section-description text-lg">
-                <?php echo __('Choose blocks to enable or disable', 'post-grid'); ?></p>
-            <?php
-            $blocks_list = [
-                'post-grid/accordion' => 'Accordion',
-                'post-grid/accordion-nested' => 'Accordion Nested',
-                'post-grid/accordion-nested-item' => 'Accordion Nested Item',
-                'post-grid/archive-title' => 'Archive Title',
-                'post-grid/archive-description' => 'Archive Description',
-                'post-grid/breadcrumb' => 'Breadcrumb',
-                'post-grid/content-slider' => 'Content Slider',
-                'post-grid/content-slider-item' => 'Content Slider Stem',
-                'post-grid/date-countdown' => 'Date Countdown',
-                'post-grid/flex-wrap' => 'Flex Wrap',
-                'post-grid/flex-wrap-item' => 'Flex Wrap Item',
-                'post-grid/form-field-checkbox' => 'Form Field Checkbox',
-                'post-grid/form-field-file' => 'Form Field File',
-                'post-grid/form-field-file-multi' => 'Form Field File Multi',
-                'post-grid/form-field-input' => 'Form Field Input',
-                'post-grid/form-field-radio' => 'Form Field Radio',
-                'post-grid/form-field-select' => 'Form Field Select',
-                'post-grid/form-field-submit' => 'Form Field Submit',
-                'post-grid/form-field-textarea' => 'Form Field Textarea',
-                'post-grid/form-wrap' => 'Form Wrap',
-                'post-grid/grid-wrap' => 'Grid Wrap',
-                'post-grid/grid-wrap-item' => 'Grid Wrap Item',
-                'post-grid/icon' => 'Icon',
-                'post-grid/image' => 'Image',
-                'post-grid/image-gallery' => 'Image Gallery',
-                'post-grid/image-gallery-item' => 'image Gallery Item',
-                'post-grid/justified-image' => 'Justified Image',
-                'post-grid/justified-wrap' => 'Justified Maker',
-                'post-grid/justified-wrap-item' => 'Justified Wrap Item',
-                'post-grid/layer' => 'Layer',
-                'post-grid/layers' => 'Layers',
-                'post-grid/list' => 'List',
-                'post-grid/list-nested' => 'List Nested',
-                'post-grid/list-nested-item' => 'List Nested Item',
-                'post-grid/masonry-wrap' => 'masonry-wrap',
-                'post-grid/masonry-wrap-item' => 'Masonry Wrap Item',
-                'post-grid/menu-wrap' => 'Menu Wrap',
-                'post-grid/menu-wrap-item' => 'Menu Wrap Item',
-                'post-grid/number-counter' => 'Number Counter',
-                'post-grid/popup' => 'Popup',
-                'post-grid/post-author' => 'Post author',
-                'post-grid/post-author-fields' => 'Post author fields',
-                'post-grid/post-categories' => 'Post categories',
-                'post-grid/post-comment-count' => 'Post Comment Count',
-                'post-grid/post-date' => 'Post date',
-                'post-grid/post-excerpt' => 'Post excerpt',
-                'post-grid/post-featured-image' => 'Post featured image',
-                'post-grid/post-grid' => 'Post Grid',
-                'post-grid/post-grid-filterable' => 'Post grid filterable',
-                'post-grid/post-grid-filterable-nav' => 'Post Grid Filterable Nav',
-                'post-grid/post-meta' => 'Post meta',
-                'post-grid/post-query' => 'Post Query',
-                'post-grid/post-query-pagination' => 'Post Query Pagination',
-                'post-grid/post-tags' => 'Post Tags',
-                'post-grid/post-taxonomies' => 'Post Taxonomies',
-                'post-grid/post-title' => 'Post Title',
-                'post-grid/progress-bar' => 'Progress Bar',
-                'post-grid/read-more' => 'Read more',
-                'post-grid/shortcode' => 'Shortcode',
-                'post-grid/social-share' => 'Social Share',
-                'post-grid/star-rate' => 'Star Rate',
-                'post-grid/table-of-contents' => 'Table Of Contents',
-                'post-grid/tabs' => 'Tabs',
-                'post-grid/tabs-nested' => 'Tabs Nested',
-                'post-grid/tabs-nested-item' => 'Tabs Nested Item',
-                'post-grid/terms-list' => 'Terms List',
-                'post-grid/text' => 'Text',
-                'post-grid/woo-add-to-cart' => 'Woo Add To Cart',
-                'post-grid/woo-price' => 'Woo Price',
-                'post-grid/woo-product-info' => 'Woo Product Info',
-                'post-grid/woo-sale' => 'Woo Sale',
-                'post-grid/woo-sku' => 'Woo SKU',
-                'post-grid/woo-star-rate' => 'Woo Star Rate',
-                'post-grid/woo-stock' => 'Woo Stock',
-                'post-grid/woo-stock-quantity' => 'Woo Stock Quantity',
-                'post-grid/woo-total-sales' => 'Woo Total Sales',
-                'post-grid/wordpress-org' => 'Wordpress.org',
-            ];
-            $args = array(
-                'id'        => 'disable_blocks',
-                'parent'        => 'post_grid_settings',
-                'title'        => __('Disbale/Enable Blocks', 'post-grid'),
-                'details'    => __('Enable or disable blocks from here.', 'post-grid'),
-                'type'        => 'checkbox',
-                'value'        => $disable_blocks,
-                'default'        => array(),
-                'multiple'        => true,
-                'style'        => ['inline' => false],
-                'args'        => $blocks_list,
-            );
-            $settings_tabs_field->generate_field($args);
-            ?>
-        </div>
 <?php
     }
 }
+
+
+
 add_action('post_grid_settings_save', 'post_grid_settings_save');
 function post_grid_settings_save()
 {

@@ -271,6 +271,8 @@ class class_post_grid_post_types
 					'delete_post' => 'delete_post_grid',
 					'read_post' => 'read_post_grid',
 				),
+				'show_in_rest' => true,
+
 				'map_meta_cap'          => true,
 				'publicly_queryable'     => ($post_grid_preview == 'yes') ? true : false,
 				'exclude_from_search'     => false,

@@ -35,7 +35,16 @@ class class_post_grid_settings
         if ($data_update_status == 'pending') :
         //add_submenu_page('post-grid', __('Data Update', 'post-grid'), __('Data Update', 'post-grid'), 'manage_options', 'data_update', array($this, 'import_layouts'));
         endif;
+
+        add_submenu_page('edit.php?post_type=post_grid', __('Builder', 'post-grid'), __('Builder', 'post-grid'), 'manage_options', 'post-grid-builder', array($this, 'builder'));
     }
+
+    public function builder()
+    {
+        // include('menu/builder.php');
+        include(post_grid_plugin_dir . 'includes/menu/builder.php');
+    }
+
     public function overview()
     {
         include(post_grid_plugin_dir . 'includes/menu/overview.php');
