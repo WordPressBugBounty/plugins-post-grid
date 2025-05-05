@@ -46,10 +46,10 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
         $items = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
     }
     // if ($itemSource == "terms") {
-    //     $items = testimonial_terms_query_item($itemQueryArgs);
+    //     $items = post_grid_terms_query_item($itemQueryArgs);
     // }
     // if ($itemSource == "easyAccordion") {
-    //     $items = testimonial_easy_accordion_query_item($itemQueryArgs);
+    //     $items = post_grid_easy_accordion_query_item($itemQueryArgs);
     // }
 
     $blockId = "post-grid-" . $post_id;
@@ -72,9 +72,6 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
             <?php
 
             echo $items;
-
-
-
 
             ?>
         </div>

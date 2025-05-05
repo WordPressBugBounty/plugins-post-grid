@@ -1,10 +1,10 @@
-=== Post Grid By PickPlugins ===
+=== Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry  ===
 Contributors: PickPlugins
 Donate link: https://pickplugins.com/
-Tags: popup Blocks, form block, post meta block
+Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
 Tested up to: 6.8
-Stable tag: 2.3.10
+Stable tag: 2.3.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,9 +13,9 @@ Post Grid is a powerful WordPress plugin for creating customizable post grid lay
 
 == Description ==
 
-**Post Grid for WordPress – The Ultimate Grid Layout Plugin**
+**Post Grid - Custom Post Type Grid, Slider, Masonry layout**
 
-Post Grid is a powerful WordPress plugin designed to display posts, pages, or custom post types in a visually stunning grid layout. Whether you’re running a blog, eCommerce store, portfolio site, or business website, Post Grid allows you to showcase content in an organized and engaging way.
+Post Grid is a powerful WordPress plugin designed to display posts, pages, or custom post types in a visually stunning grid, slider, masonry layout. Whether you’re running a blog, eCommerce store, portfolio site, or business website, Post Grid allows you to showcase content in an organized and engaging way.
 
 🚀 **Start creating beautiful post grids today!**
 
@@ -24,6 +24,29 @@ Post Grid is a powerful WordPress plugin designed to display posts, pages, or cu
 🔗 **[Documentation](https://pickplugins.com/documentation/post-grid/)**  
 🔗 **[Support](https://www.pickplugins.com/support/)**  
 🔗 **[Video Tutorials](https://www.youtube.com/watch?v=YVtsIbEb9zs&list=PL0QP7T2SN94Yut5Y0MSVg1wqmqWz0UYpt)**
+
+### **Post Slider:**
+Additionally, Post Grid comes with a built-in Post Slider and carousel functionality, powered by Splide.js. These features are fully customizable, allowing you to fine-tune slider behavior, transitions, autoplay, navigation controls, and more—all within the builder.
+
+### **Post Masonry:**
+
+Post Grid also includes a built-in masonry layout, allowing you to create dynamic, Pinterest-style grids with varying item heights. The layout automatically adjusts and arranges content in an optimized, space-efficient format—perfect for showcasing blog posts, portfolios, galleries, and more. It's fully responsive and easy to configure, giving you flexibility without extra code.
+
+### **Filterable Post Grid:**
+
+Post Grid features a filterable grid layout that allows users to sort and display content dynamically based on categories, tags, or custom filters. With smooth animations and real-time filtering, it enhances user experience and makes it easy to organize large sets of content in an interactive, user-friendly way—ideal for portfolios, product grids, or blog archives.
+
+
+
+### **Advacned Style Generator:**
+Post Grid is a powerful, modern React-based builder that combines the flexibility of advanced styled components with the ease of no-code styling. You can customize any element visually—no need to write CSS. With full support for all standard CSS properties and pseudo-selectors like :hover, ::before, and ::after, Post Grid gives you complete design control directly within your components.
+
+### **Templates Library:**
+It also includes a Templates Library, allowing users to quickly select and apply professionally designed templates from our cloud library. This helps you build layouts faster while maintaining consistency and style across your projects.
+
+### **Archives and Dynamic post query:**
+Post Grid supports dynamic post querying through Archive integration, enabling you to automatically display posts based on categories, tags, authors, dates, or custom taxonomies. This makes it perfect for building blog archives, author pages, or any dynamic content layout that updates automatically as new content is published—no manual setup required.
+
 
 
 
@@ -43,7 +66,7 @@ Post Grid is a powerful WordPress plugin designed to display posts, pages, or cu
    - Exclude or include specific posts by ID.
    - Display posts based on keyword search.
 
-✅ **Skin & Layout Customization**
+✅ **Layout Based Loop**
    - Pre-designed templates and layouts.
    - Drag-and-drop builder for easy grid customization.
    - Apply custom CSS styles for a unique design.
@@ -55,21 +78,6 @@ Post Grid is a powerful WordPress plugin designed to display posts, pages, or cu
 ✅ **Search Input Field**
    - Enable a search box within the grid to help users find content quickly.
 
-✅ **Masonry & Custom Grid Options**
-   - Grid item width and height adjustments.
-   - Masonry-style layout support.
-   - Background color, padding, and margin controls.
-
-### **Premium Features:**
-
-🚀 **Advanced View Types**
-   - Filterable grids.
-   - Glossary-style view.
-   - Carousel slider.
-   - Collapsible grid view.
-
-📌 **Post Grid for Archives**
-   - Supports category, tag, search, author, and custom taxonomy pages.
 
 🔄 **Advanced Pagination Types**
    - AJAX pagination.
@@ -81,11 +89,6 @@ Post Grid is a powerful WordPress plugin designed to display posts, pages, or cu
    - Featured images.
    - Embedded YouTube, Vimeo, Dailymotion, and SoundCloud media.
    - Custom thumbnails and Font Awesome icons.
-
-🛠 **Advanced Filtering & Sorting**
-   - Filter posts by taxonomies, terms, or custom filters.
-   - Customizable navigation styles, including inline, dropdown, radio, and checkbox views.
-   - Custom default active filter and sorting options.
 
 📊 **Meta & Custom Query Support**
    - Meta query for filtering by custom fields.
@@ -102,26 +105,14 @@ Post Grid is a powerful WordPress plugin designed to display posts, pages, or cu
 
 ## 3rd Party Plugins Support
 
-### WooCommerce
-WooCommerce is the #1 eCommerce plugin for WordPress, and our post grid plugin provides full support for displaying various product elements within the grid. Users can showcase essential product details such as Add to Cart buttons, Full Price, Sale Price, Regular Price, Star Rating, Text Rating, Product Categories, Product Tags, Product Gallery, and Product SKU. This integration ensures that WooCommerce products are visually appealing and easy to navigate.
+* WooCommerce
+* Easy Digital Downloads
+* Advanced Custom Fields
+* CMB2
+* Custom Field Suite
+* The Events Calendar
+* Events Manager
 
-### Easy Digital Downloads
-Easy Digital Downloads is a leading eCommerce solution for selling digital products. Our post grid plugin fully supports displaying crucial elements for downloads, including Price, Variable Prices, Sales Stats, Earnings Stats, Add to Cart buttons, Text Ratings, Download Categories, and Download Tags. This feature allows digital product sellers to effectively present their products in an organized and user-friendly grid layout.
-
-### Advanced Custom Fields
-Advanced Custom Fields is the #1 custom fields plugin for WordPress, and we have integrated full support for displaying various meta fields for any post type. Users can showcase data fields such as Text, Textarea, Number, Range, Email, URL, Password, Link, Post Object, Page Link, Taxonomy, User, Relationship, Image, File, WYSIWYG Editor, oEmbed, Select, Checkbox, Radio, Button Group, True/False, Date Picker, Time Picker, Datetime Picker, and Google Map. This integration allows users to customize post grid content dynamically.
-
-### CMB2
-CMB2 is another powerful custom fields plugin for WordPress, and our post grid plugin supports displaying multiple meta fields for any post type. Supported fields include Text, Email, URL, Money, Textarea, Select, Checkbox, Radio, Link, File, WYSIWYG Editor, and oEmbed. This ensures flexibility in structuring and displaying custom data within post grids.
-
-### Custom Field Suite
-Custom Field Suite is an excellent custom fields plugin for WordPress, and our post grid plugin fully supports displaying various meta fields for any post type. Users can showcase Text, Textarea, Link, Taxonomy, User, Relationship, File, WYSIWYG Editor, Select, True/False, and Date Picker fields, making it easy to manage and present custom content.
-
-### The Events Calendar
-The Events Calendar is the #1 event management plugin for WordPress, and our post grid plugin provides full support for displaying event-related elements. Users can showcase Event Categories, Event Tags, Event Start Date, Event End Date, Event URL, Event Cost, Venue Address, Venue City, Venue Country, Venue Province, Venue Zip Code, Venue Phone, Venue URL, Venue Map, Organizer Phone, Organizer Website, and Organizer Email. This integration ensures that events are well-organized and easily accessible within the grid layout.
-
-### Events Manager
-Events Manager is another powerful event management plugin for WordPress, and our post grid plugin supports displaying essential elements for event post types. Users can showcase Event Categories, Event Tags, Event Start Date, Event End Date, Event Start Time, Event End Time, Event Spaces, Maximum Spaces, Cut-Off Date, and Cut-Off Time. This feature helps users create engaging and informative event listings within a post grid.
 
 
 
@@ -132,23 +123,17 @@ Video Tutorial(with premium version interface)
 
 ## 🏆 Users Feedback For Post Grid
 
-[Miguelapps](https://wordpress.org/support/topic/easy-and-intuitive-plugin-to-use/):
+[Miguelapps](https://wordpress.org/support/topic/easy-and-intuitive-plugin-to-use/): ⭐⭐⭐⭐⭐
 
-> Easy and intuitive plugin to use
+> Easy and intuitive plugin to use, It meets my expectations and it is what I was looking for to avoid SPA users on my website
 
-> It meets my expectations and it is what I was looking for to avoid SPA users on my website
+[Andrewh](https://wordpress.org/support/topic/great-customisable-plugin-well-supported/): ⭐⭐⭐⭐⭐
 
-[Andrewh2016](https://wordpress.org/support/topic/great-customisable-plugin-well-supported/):
+> Great customisable plugin & well supported, I use this on several sites to achieve a grid layout of posts. It’s really customisable and the support is excellent. Highly recommended.
 
-> Great customisable plugin & well supported
+[Systembit](https://wordpress.org/support/topic/flexible-plugin-excellent-support-2/): ⭐⭐⭐⭐⭐
 
-> I use this on several sites to achieve a grid layout of posts. It’s really customisable and the support is excellent. Highly recommended.
-
-[Systembit](https://wordpress.org/support/topic/flexible-plugin-excellent-support-2/):
-
-> Flexible plugin, excellent support
-
-> We’ve been happily using it for nearly 5 years now. The plugin is flexible, we were able to customise to suit our needs. It is also simple to use despite all the flexibility. But best of all, the support, even for free users, is fast and good. I can’t recommend this enough. Thanks to everyone at PickPlugins for a great product!
+> Flexible plugin, excellent support,  We’ve been happily using it for nearly 5 years now. The plugin is flexible, we were able to customise to suit our needs. It is also simple to use despite all the flexibility. But best of all, the support, even for free users, is fast and good. I can’t recommend this enough. Thanks to everyone at PickPlugins for a great product!
 
 == Installation ==
 
@@ -225,8 +210,12 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 == Changelog ==
 
+= 2.3.11 =
+- 2024-05-05 - add - View Type Slider added to builder
+- 2024-05-05 - add - View Type Masonry added to builder
+
 = 2.3.10 =
-- 2024-05-05 - add - New Modern React based post grid builder added
+- 2024-05-04 - add - New Modern React based post grid builder added
 
 = 2.3.9 =
 - 2024-03-16 - update - Readme update

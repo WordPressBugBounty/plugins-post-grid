@@ -30,69 +30,104 @@ document.addEventListener("DOMContentLoaded", function () {
 		);
 	}
 	const animateonElement = document.querySelectorAll('[data-animateon]');
+
+
+	console.log(animateonElement);
+
+
 	if (animateonElement != null) {
 		animateonElement.forEach((el) => {
 			var animateon = el.getAttribute("data-animateon");
 			var elementId = el.getAttribute("id");
 			var animateonObj = JSON.parse(animateon)
-			var elementHndle = document.querySelector("#" + elementId);
+			// var elementHndle = document.querySelector("#" + elementId);
+
+
 			animateonObj.forEach((animate) => {
 				var animationName = animate.animationName
 				var event = animate.event
+				var eventTarget = animate.eventTarget
 				var delay = parseInt(animate.delay)
 				var duration = parseInt(animate.duration)
-				if (event == 'load') {
-					elementHndle.classList.add("animate__animated");
-					elementHndle.classList.add("animate__" + animationName);
-					setTimeout(() => {
-						elementHndle.classList.remove("animate__animated");
-						elementHndle.classList.remove("animate__" + animationName);
-					}, 2000);
-				}
-				if (event == 'click') {
-					elementHndle.addEventListener("click", function (e) {
-						elementHndle.classList.add("animate__animated");
-						elementHndle.classList.add("animate__" + animationName);
-						setTimeout(() => {
-							elementHndle.classList.remove("animate__animated");
-							elementHndle.classList.remove("animate__" + animationName);
-						}, 2000);
-					})
-				}
-				if (event == 'scroll') {
-					document.addEventListener("scroll", function (e) {
-						const target = document.querySelector("#" + elementId);
-						var isViewport = isInViewport(target);
-						if (isViewport) {
+
+				var eventTargets = document.querySelectorAll(eventTarget.length > 0 ? eventTarget : '.item');
+				eventTargets.forEach((eventTargetHndle) => {
+
+					console.log(eventTargetHndle);
+					var elementHndle = eventTargetHndle.querySelector("#" + elementId);
+
+
+					if (event == 'mouseover') {
+						eventTargetHndle.addEventListener("mouseover", function (e) {
+
+							console.log("mouseover", eventTargetHndle);
+							console.log("mouseover", elementHndle);
+
+
 							elementHndle.classList.add("animate__animated");
 							elementHndle.classList.add("animate__" + animationName);
 							setTimeout(() => {
 								elementHndle.classList.remove("animate__animated");
 								elementHndle.classList.remove("animate__" + animationName);
 							}, 2000);
-						}
-					})
-				}
-				if (event == 'mouseover') {
-					elementHndle.addEventListener("mouseover", function (e) {
+						})
+					}
+					if (event == 'mouseout') {
+						eventTargetHndle.addEventListener("mouseout", function (e) {
+
+							console.log("mouseout", eventTargetHndle);
+
+
+
+							elementHndle.classList.add("animate__animated");
+							elementHndle.classList.add("animate__" + animationName);
+							setTimeout(() => {
+								elementHndle.classList.remove("animate__animated");
+								elementHndle.classList.remove("animate__" + animationName);
+							}, 2000);
+						})
+					}
+
+					if (event == 'load') {
 						elementHndle.classList.add("animate__animated");
 						elementHndle.classList.add("animate__" + animationName);
 						setTimeout(() => {
 							elementHndle.classList.remove("animate__animated");
 							elementHndle.classList.remove("animate__" + animationName);
 						}, 2000);
-					})
-				}
-				if (event == 'mouseout') {
-					elementHndle.addEventListener("mouseout", function (e) {
-						elementHndle.classList.add("animate__animated");
-						elementHndle.classList.add("animate__" + animationName);
-						setTimeout(() => {
-							elementHndle.classList.remove("animate__animated");
-							elementHndle.classList.remove("animate__" + animationName);
-						}, 2000);
-					})
-				}
+					}
+					if (event == 'click') {
+						elementHndle.addEventListener("click", function (e) {
+							elementHndle.classList.add("animate__animated");
+							elementHndle.classList.add("animate__" + animationName);
+							setTimeout(() => {
+								elementHndle.classList.remove("animate__animated");
+								elementHndle.classList.remove("animate__" + animationName);
+							}, 2000);
+						})
+					}
+					if (event == 'scroll') {
+						document.addEventListener("scroll", function (e) {
+							const target = document.querySelector("#" + elementId);
+							var isViewport = isInViewport(target);
+							if (isViewport) {
+								elementHndle.classList.add("animate__animated");
+								elementHndle.classList.add("animate__" + animationName);
+								setTimeout(() => {
+									elementHndle.classList.remove("animate__animated");
+									elementHndle.classList.remove("animate__" + animationName);
+								}, 2000);
+							}
+						})
+					}
+
+
+				})
+
+
+
+
+
 			})
 		})
 	}

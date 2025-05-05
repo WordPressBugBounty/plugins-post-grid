@@ -1,8 +1,8 @@
 <?php
 if (! defined('ABSPATH')) exit;  // if direct access
-add_action('wp_footer', 'testimonial_builder_global_scripts', 999);
+add_action('wp_footer', 'post_grid_builder_global_scripts', 999);
 
-function testimonial_builder_global_scripts()
+function post_grid_builder_global_scripts()
 {
 
     global $PostGridBuilderCss;
@@ -178,10 +178,10 @@ function generateLayoutsElementHtml($element, $item)
 }
 
 
-function post_grid_builder_post_query_items($queryArgs, $loopLayouts)
+function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = [])
 {
 
-
+    $item_class = isset($args['item_class']) ? $args['item_class'] : '';
 
 
 
@@ -399,13 +399,6 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts)
         $query_args['paged'] = $paged;
 
 
-    // echo '<pre>';
-    // echo var_export($query_args, true);
-    // echo '</pre>';
-
-    // echo '<pre>';
-    // echo var_export($loopLayouts, true);
-    // echo '</pre>';
 
 
     $posts = [];
@@ -419,7 +412,7 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts)
 
 
             $postData = get_post($post_id);
-            $html .= "<div class='item'>";
+            $html .= "<div class='item $item_class'>";
             $html .= renderContentRecursive($postData, $loopLayouts);
             $html .= '</div>';
 

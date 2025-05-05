@@ -1,9 +1,9 @@
 <?php
 if (!defined('ABSPATH')) exit;  // if direct access
 
-add_action('post_grid_builder_testimonialMasonry', 'post_grid_builder_testimonialMasonry', 5, 2);
+add_action('post_grid_builder_viewMasonry', 'post_grid_builder_viewMasonry', 5, 2);
 
-function post_grid_builder_testimonialMasonry($post_id, $PostGridData)
+function post_grid_builder_viewMasonry($post_id, $PostGridData)
 {
 
     global $PostGridBuilderCss;
@@ -21,15 +21,7 @@ function post_grid_builder_testimonialMasonry($post_id, $PostGridData)
     $itemQueryArgs = isset($PostGridData["itemQueryArgs"]) ? $PostGridData["itemQueryArgs"] : [];
 
 
-    // if ($itemSource == "posts") {
-    //     $items = post_grid_builder_post_query_items($itemQueryArgs);
-    // }
-    // if ($itemSource == "terms") {
-    //     $items = testimonial_terms_query_item($itemQueryArgs);
-    // }
-    // if ($itemSource == "easyAccordion") {
-    //     $items = testimonial_easy_accordion_query_item($itemQueryArgs);
-    // }
+
 
 
 
@@ -53,10 +45,20 @@ function post_grid_builder_testimonialMasonry($post_id, $PostGridData)
 
 
 
-    $blockId = "testimonial-" . $post_id;
+    $blockId = "post-grid-" . $post_id;
 
     //echo "<pre>" . var_export($masonryOptions, true) . "</pre>";
 
+    if ($itemSource == "posts") {
+        $items = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
+    }
+
+    // if ($itemSource == "terms") {
+    //     $items = post_grid_terms_query_item($itemQueryArgs);
+    // }
+    // if ($itemSource == "easyAccordion") {
+    //     $items = post_grid_easy_accordion_query_item($itemQueryArgs);
+    // }
 
     $PostGridDataAttr = [
         "id" => $blockId,
@@ -71,7 +73,7 @@ function post_grid_builder_testimonialMasonry($post_id, $PostGridData)
     wp_enqueue_script('imagesloaded');
     wp_enqueue_script('masonry');
     wp_enqueue_script('masonry.min');
-    wp_enqueue_script('testimonial-masonry-front');
+    wp_enqueue_script('post-grid-masonry-front');
 
 ?>
     <div id="<?php echo esc_attr($blockId); ?>" class="  " style="<?php echo ($lazyLoad) ? "display: none;" : ""; ?>">
@@ -79,23 +81,7 @@ function post_grid_builder_testimonialMasonry($post_id, $PostGridData)
 
         <div class="items" data-masonry="<?php echo esc_attr(json_encode($masonryOptions)) ?>" data-block-id="<?php echo esc_attr(json_encode($dataBlockId)) ?>">
             <?php
-            $count = 0;
-            foreach ($items as $index => $item) {
-
-
-            ?>
-
-                <div class="item testimonial-item">
-                    <?php
-                    echo generateLayoutsHTML($loopLayouts, $item);
-                    ?>
-                </div>
-
-
-
-            <?php
-                $count++;
-            }
+            echo $items;
             ?>
         </div>
 

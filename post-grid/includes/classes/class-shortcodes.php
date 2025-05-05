@@ -53,8 +53,8 @@ class class_post_grid_shortcodes
         do_action("post_grid_builder_" . $viewType, $post_id, $PostGridData);
 
         if ($viewType == "viewGrid") {
-            //wp_enqueue_script('testimonial_front_scripts');
-            // wp_enqueue_style('testimonial_animate');
+            //wp_enqueue_script('post_grid_front_scripts');
+            // wp_enqueue_style('post_grid_animate');
         }
 
 

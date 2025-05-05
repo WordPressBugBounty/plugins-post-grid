@@ -7,6 +7,8 @@ wp_enqueue_style('builder-output', post_grid_plugin_url . '/dist/output.css', []
 wp_enqueue_style('wp-components');
 wp_enqueue_style('animate');
 
+wp_enqueue_script('pgpostgrid_builder-js');
+
 wp_register_style('icofont-icons', post_grid_plugin_url . 'assets/css/icofont/icofont.min.css');
 wp_enqueue_style('icofont-icons');
 
