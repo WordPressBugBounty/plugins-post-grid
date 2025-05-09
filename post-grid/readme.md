@@ -4,7 +4,7 @@ Donate link: https://pickplugins.com/
 Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
 Tested up to: 6.8
-Stable tag: 2.3.11
+Stable tag: 2.3.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -209,6 +209,11 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 
 == Changelog ==
+
+= 2.3.12 =
+- 2024-05-05 - fix - Minor Security issue fixed.
+- 2024-05-05 - add - One click loop layout apply feature added.
+- 2024-05-05 - fix - pagination issue fixed.
 
 = 2.3.11 =
 - 2024-05-05 - add - View Type Slider added to builder

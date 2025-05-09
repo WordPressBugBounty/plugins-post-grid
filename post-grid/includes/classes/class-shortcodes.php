@@ -39,7 +39,7 @@ class class_post_grid_shortcodes
 
 
 
-        $PostGridData = (is_serialized($post_content)) ? unserialize($post_content) : (array) json_decode($post_content, true);
+        $PostGridData =  (array) json_decode($post_content, true);
 
 
         $globalOptions = isset($PostGridData["globalOptions"]) ? $PostGridData["globalOptions"] : [];

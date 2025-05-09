@@ -5,6 +5,7 @@ class class_post_grid_notices
   public function __construct()
   {
     add_action('admin_notices', array($this, 'beta_test'));
+    add_action('admin_notices', array($this, 'blocks_moved'));
 
 
     // add_action('admin_notices', array($this, 'license_expired'));
@@ -13,6 +14,44 @@ class class_post_grid_notices
     //add_action('admin_notices', array( $this, 'import_layouts' ));
   }
 
+  public function blocks_moved()
+  {
+    //delete_option("post_grid_notices");
+
+
+    $screen = get_current_screen();
+    $post_grid_notices = get_option('post_grid_notices', []);
+    $is_hidden = isset($post_grid_notices['hide_notice_blocks_moved']) ? $post_grid_notices['hide_notice_blocks_moved'] : 'no';
+    $actionurl = admin_url() . '?hide_notice_blocks_moved=yes';
+    $actionurl = wp_nonce_url($actionurl,  'hide_notice_blocks_moved');
+    $nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
+    $hide_notice_blocks_moved = isset($_REQUEST['hide_notice_blocks_moved']) ? sanitize_text_field(wp_unslash($_REQUEST['hide_notice_blocks_moved'])) : '';
+    if (wp_verify_nonce($nonce, 'hide_notice_blocks_moved') && $hide_notice_blocks_moved == 'yes') {
+      $post_grid_notices['hide_notice_blocks_moved'] = 'hidden';
+      update_option('post_grid_notices', $post_grid_notices);
+      return;
+    }
+    ob_start();
+    if ($is_hidden == 'no') :
+
+
+      $builder_page_url = admin_url() . 'edit.php?post_type=post_grid&page=post-grid-builder'
+
+?><div class="notice">
+        <h3> All blocks move to new plugin <a style="" class="" href="https://wordpress.org/plugins/combo-blocks/">ComboBlocks</a>? <a target="_blank" class="bg-blue-600 rounded-sm inline-block text-white hover:text-white hover:bg-blue-700 px-5 py-1" href="https://comboblocks.com/docs/how-to-migrate-post-grid-blocks-to-comboblocks/">Read the guide</a>
+
+
+        </h3>
+        <p>
+          <a style="" class="" href="https://wordpress.org/plugins/combo-blocks/">Download Plugin</a> |
+          <a style="" class="" href="https://wordpress.org/plugins/post-grid/advanced/">Download Old Version</a> |
+          <a style="margin: 0 20px;" class="" href="<?php echo esc_url($actionurl) ?>">❌ Hide Notice</a>
+        </p>
+      </div>
+    <?php
+    endif;
+    echo wp_kses_post(ob_get_clean());
+  }
   public function beta_test()
   {
     //delete_option("post_grid_notices");
@@ -36,7 +75,7 @@ class class_post_grid_notices
 
       $builder_page_url = admin_url() . 'edit.php?post_type=post_grid&page=post-grid-builder'
 
-?><div class="notice">
+    ?><div class="notice">
         <h3>⚡ Intorducing React Based Modern Builder for Post Grid, <strong><a target="_blank" href="<?php echo esc_url($builder_page_url); ?>">Try Now</a></strong></h3>
         <p> <a style="margin: 0 20px;" class="" href="<?php echo esc_url($actionurl) ?>">❌ Hide Notice</a></p>
       </div>

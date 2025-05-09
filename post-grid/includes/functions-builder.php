@@ -1179,7 +1179,7 @@ function generate_element_html_postCategories($html, $postData, $element, $child
             </div>
         <?php endif; ?>
 
-        <div class="items">
+        <div class="terms-items">
 
             <?php
             $i = 1;
@@ -1334,7 +1334,7 @@ function generate_element_html_postTags($html, $postData, $element, $children)
             </div>
         <?php endif; ?>
 
-        <div class="items">
+        <div class="terms-items">
 
             <?php
             $i = 1;
