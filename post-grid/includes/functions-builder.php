@@ -388,6 +388,7 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
             }
         }
     }
+
     if (get_query_var('paged')) {
         $paged = get_query_var('paged');
     } elseif (get_query_var('page')) {
@@ -395,13 +396,14 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
     } else {
         $paged = 1;
     }
+
     if (!empty($paged))
         $query_args['paged'] = $paged;
 
 
 
 
-    $posts = [];
+    $postsHtml = "";
     $html = '';
     $responses = [];
     $posts_query = new WP_Query($query_args);
@@ -410,14 +412,18 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
             $posts_query->the_post();
             $post_id = get_the_id();
 
+            $term_slugs = post_grid_term_slug_list($post_id);
+
+            //var_dump($term_slugs);
 
             $postData = get_post($post_id);
-            $html .= "<div class='item $item_class'>";
-            $html .= renderContentRecursive($postData, $loopLayouts);
-            $html .= '</div>';
+            $postsHtml .= "<div class='item $item_class $term_slugs'>";
+            $postsHtml .= renderContentRecursive($postData, $loopLayouts);
+            $postsHtml .= '</div>';
 
         endwhile;
-        // $responses['posts'] = $posts;
+        $responses['postsHtml'] = $postsHtml;
+        $responses['posts_query'] = $posts_query;
         // $responses['max_num_pages'] = isset($posts_query->max_num_pages) ? $posts_query->max_num_pages : 0;;
         wp_reset_query();
         wp_reset_postdata();
@@ -426,7 +432,7 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
 
 
 
-    return $html;
+    return $responses;
 }
 
 

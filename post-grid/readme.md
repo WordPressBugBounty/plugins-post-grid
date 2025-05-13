@@ -4,7 +4,7 @@ Donate link: https://pickplugins.com/
 Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
 Tested up to: 6.8
-Stable tag: 2.3.12
+Stable tag: 2.3.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -210,23 +210,27 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 == Changelog ==
 
+= 2.3.13 =
+- 2025-05-13 - add - Filterable style grid added to new builder.
+- 2025-05-13 - update - Pagiantion update
+
 = 2.3.12 =
-- 2024-05-05 - fix - Minor Security issue fixed.
-- 2024-05-05 - add - One click loop layout apply feature added.
-- 2024-05-05 - fix - pagination issue fixed.
+- 2025-05-05 - fix - Minor Security issue fixed.
+- 2025-05-05 - add - One click loop layout apply feature added.
+- 2025-05-05 - fix - pagination issue fixed.
 
 = 2.3.11 =
-- 2024-05-05 - add - View Type Slider added to builder
-- 2024-05-05 - add - View Type Masonry added to builder
+- 2025-05-05 - add - View Type Slider added to builder
+- 2025-05-05 - add - View Type Masonry added to builder
 
 = 2.3.10 =
-- 2024-05-04 - add - New Modern React based post grid builder added
+- 2025-05-04 - add - New Modern React based post grid builder added
 
 = 2.3.9 =
-- 2024-03-16 - update - Readme update
+- 2025-03-16 - update - Readme update
 
 = 2.3.8 =
-- 2024-03-16 - update - Blocks Removed and Move to https://wordpress.org/plugins/combo-blocks/
+- 2025-03-16 - update - Blocks Removed and Move to https://wordpress.org/plugins/combo-blocks/
 
 = 2.3.7 =
-- 2024-02-23 - fix - User Query Block - REST API allow access to admin only.
+- 2025-02-23 - fix - User Query Block - REST API allow access to admin only.

@@ -348,7 +348,7 @@ class PostGridRest
 
 		$post = get_post($postId);
 
-		if ($post->post_type != "post-grid") {
+		if ($post->post_type != "post_grid") {
 			$response->error = true;
 			$response->errorMessage = __("Post type is not post grid");
 			die(wp_json_encode($response));

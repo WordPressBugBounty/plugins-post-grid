@@ -3,7 +3,7 @@
 Plugin Name: Post Grid By PickPlugins
 Plugin URI: https://pickplugins.com/post-grid/
 Description: Post Grid is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 2.3.12
+Version: 2.3.13
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -27,7 +27,7 @@ if (!class_exists('PostGrid')) {
       define('post_grid_plugin_dir', plugin_dir_path(__FILE__));
       define('post_grid_plugin_basename', plugin_basename(__FILE__));
       define('post_grid_plugin_name', 'Post Grid');
-      define('post_grid_version', '2.3.12');
+      define('post_grid_version', '2.3.13');
       define('post_grid_server_url', 'https://pickplugins.com/demo/post-grid/');
 
       $postGridFonts = [];
@@ -85,6 +85,7 @@ if (!class_exists('PostGrid')) {
       include('templates/view-grid/index.php');
       include('templates/view-slider/index.php');
       include('templates/view-masonry/index.php');
+      include('templates/view-filterable/index.php');
 
 
 
@@ -229,6 +230,7 @@ if (!class_exists('PostGrid')) {
       wp_register_script('pgpostgrid_builder-js', post_grid_plugin_url . 'assets/js/builder-js.js', []);
 
       wp_register_script('post-grid-slider-front', post_grid_plugin_url . 'templates/view-slider/front-scripts.js', []);
+      wp_register_script('post-grid-filterable-front', post_grid_plugin_url . 'templates/view-filterable/front-scripts.js', []);
 
       wp_register_script('scrollto', post_grid_plugin_url . 'assets/js/jquery-scrollto.js', array('jquery'));
 
