@@ -1593,6 +1593,7 @@ function generate_element_html_wooAddToCart($html, $postData, $element, $childre
     $postfixText = isset($options['postfixText']) ? $options['postfixText'] : '';
     $post_title = isset($postData->post_title) ? $postData->post_title : '';
     $cartBtnAjax = isset($cartBtnOptions['ajax']) ? $cartBtnOptions['ajax'] : true;
+    $cartBtnText = __("View Product", 'combo-blocks');
 
     if ($iconLibrary == 'fontAwesome') {
         wp_enqueue_style('fontawesome-icons');
@@ -1618,7 +1619,6 @@ function generate_element_html_wooAddToCart($html, $postData, $element, $childre
         $cartUrl = ($cartBtnAjax) ? '?add-to-cart=' . esc_attr($post_id) : '?add-to-cart=' . $post_id . '&quantity=' . esc_attr($quantityInputQuantity);
     } else {
         $cartUrl = get_permalink($post_id);
-        $cartBtnText = __("View Product", 'combo-blocks');
     }
 
     ob_start();
@@ -1743,8 +1743,10 @@ function generate_element_html_wooSaleBadge($html, $postData, $element, $childre
     $productSku = ($product == null) ? '' : $product->get_sku();
     $product_type = ($product == null) ? '' : $product->get_type();
 
+    $onSale = ($product != null) ? $product->is_on_sale() : '';
 
 
+    if (!$onSale) return;
 
     ob_start();
 
@@ -1753,7 +1755,6 @@ function generate_element_html_wooSaleBadge($html, $postData, $element, $childre
 
 ?>
     <div class="<?php echo esc_attr($type); ?>" id="element-<?php echo esc_attr($id); ?>">
-
         <?php if (!empty($prefixText)): ?>
             <div class="prefix">
                 <?php echo wp_kses_post($prefixText); ?>
@@ -1764,7 +1765,6 @@ function generate_element_html_wooSaleBadge($html, $postData, $element, $childre
         <?php endif; ?>
         <?php
         if ($product_type != 'variable') :
-            $onSale = ($product != null) ? $product->is_on_sale() : '';
         ?>
             <span class='on-sale-badge'>
                 <?php

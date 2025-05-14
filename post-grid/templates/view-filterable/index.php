@@ -59,7 +59,12 @@ function post_grid_builder_viewFilterable($post_id, $PostGridData)
     //var_dump($filterableShowAll);
 
     if ($itemSource == "posts") {
-        $items = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
+        $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
+
+        //var_dump($itemsQueryResponse);
+
+        $postsHtml = isset($itemsQueryResponse['postsHtml']) ? $itemsQueryResponse['postsHtml'] : '';
+        $posts_query = isset($itemsQueryResponse['posts_query']) ? $itemsQueryResponse['posts_query'] : [];
     }
     // if ($itemSource == "terms") {
     //     $items = post_grid_terms_query_item($itemQueryArgs);
@@ -187,7 +192,7 @@ function post_grid_builder_viewFilterable($post_id, $PostGridData)
         <div class="items">
             <?php
 
-            echo $items;
+            echo $postsHtml;
 
             ?>
         </div>

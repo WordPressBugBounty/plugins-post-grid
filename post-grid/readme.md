@@ -4,7 +4,7 @@ Donate link: https://pickplugins.com/
 Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
 Tested up to: 6.8
-Stable tag: 2.3.13
+Stable tag: 2.3.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -209,6 +209,10 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 
 == Changelog ==
+
+= 2.3.14 =
+- 2025-05-14 - add - Pro marker issue fixed for few features.
+- 2025-05-14 - add - WooCommerce product Elements added to layouts builder.
 
 = 2.3.13 =
 - 2025-05-13 - add - Filterable style grid added to new builder.

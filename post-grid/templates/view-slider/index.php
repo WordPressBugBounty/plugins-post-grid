@@ -23,7 +23,10 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
     $itemQueryArgs = isset($PostGridData["itemQueryArgs"]) ? $PostGridData["itemQueryArgs"] : [];
 
     if ($itemSource == "posts") {
-        $items = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts, ['item_class' => 'splide__slide']);
+        $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts, ['item_class' => 'splide__slide']);
+
+        $postsHtml = isset($itemsQueryResponse['postsHtml']) ? $itemsQueryResponse['postsHtml'] : '';
+        $posts_query = isset($itemsQueryResponse['posts_query']) ? $itemsQueryResponse['posts_query'] : [];
     }
 
     // if ($itemSource == "posts") {
@@ -100,7 +103,7 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
 
     $blockId = "post-grid-" . $post_id;
 
-    //echo "<pre>" . var_export($loopLayouts, true) . "</pre>";
+    //echo "<pre>" . var_export($sliderOptions, true) . "</pre>";
 
 
     $PostGridDataAttr = [
@@ -157,7 +160,7 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
             <ul class="splide__list items">
                 <?php
 
-                echo $items;
+                echo $postsHtml;
                 ?>
             </ul>
         </div>
