@@ -10,7 +10,6 @@ function post_grid_builder_global_scripts()
     $PostGridBuilderCss = str_replace("&quot;", '"', $PostGridBuilderCss);
     $PostGridBuilderCss = str_replace("&gt;", '>', $PostGridBuilderCss);
 
-    //var_dump($PostGridBuilderCss);
 
 ?>
     <style>
@@ -81,7 +80,6 @@ function generateLayoutsElementHtml($element, $item)
     $companyName = isset($item["companyName"]) ?  $item["companyName"] : '';
     $companyWebsite = isset($item["companyWebsite"]) ?  $item["companyWebsite"] : '';
 
-    //var_dump($options);
 
     $iconLibrary = isset($options['library']) ? $options['library'] : '';
     $iconSrcType = isset($options['srcType']) ? $options['srcType'] : '';
@@ -397,8 +395,8 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
         $paged = 1;
     }
 
-    if (!empty($paged))
-        $query_args['paged'] = $paged;
+    // if (!empty($paged))
+    //     $query_args['paged'] = $paged;
 
 
 
@@ -407,20 +405,24 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
     $html = '';
     $responses = [];
     $posts_query = new WP_Query($query_args);
+
+    $max_num_pages = isset($posts_query->max_num_pages) ? $posts_query->max_num_pages : 0;
+
+
     if ($posts_query->have_posts()) :
+        $index = 0;
         while ($posts_query->have_posts()) :
             $posts_query->the_post();
             $post_id = get_the_id();
 
             $term_slugs = post_grid_term_slug_list($post_id);
 
-            //var_dump($term_slugs);
 
             $postData = get_post($post_id);
-            $postsHtml .= "<div class='item $item_class $term_slugs'>";
+            $postsHtml .= "<div class='item $item_class $term_slugs loop-item-$index'>";
             $postsHtml .= renderContentRecursive($postData, $loopLayouts);
             $postsHtml .= '</div>';
-
+            $index++;
         endwhile;
         $responses['postsHtml'] = $postsHtml;
         $responses['posts_query'] = $posts_query;
@@ -453,7 +455,6 @@ function renderContentRecursive($postData, array $elements)
         $type = isset($element['type']) ? $element['type'] : '';
         $children = isset($element['children']) ? $element['children'] : [];
 
-        //var_dump($type);
 
         // if (!empty($children)) {
         //     $html .= "<div id='element-$id' class='$type'>";
@@ -565,7 +566,6 @@ function generate_element_html_container($html, $postData, $element, $children)
         wp_enqueue_script('pgpostgrid_builder-js');
     }
 
-    //var_dump($animateRules);
 
 
     ob_start();
@@ -610,7 +610,6 @@ function generate_element_html_layer($html, $postData, $element, $children)
 
     ob_start();
 
-    //var_dump($animateRules);
 
 ?>
     <div class="<?php echo esc_attr($type); ?>" id="element-<?php echo esc_attr($id); ?>"
@@ -770,7 +769,6 @@ function generate_element_html_postThumbnail($html, $postData, $element, $childr
     }
 
 
-    //var_dump($image_src_url);
 
     if (empty($image_src_url)) return;
 
@@ -1217,7 +1215,7 @@ function generate_element_html_postCategories($html, $postData, $element, $child
 
             ?>
 
-                <div class="item">
+                <div class="term-item">
                     <?php if (!empty($linkTo)) : ?>
                         <a href="<?php echo esc_url($linkUrl); ?>" target="<?php echo esc_attr($target); ?>" class="term-link">
 
@@ -1512,7 +1510,7 @@ function generate_element_html_wooPrice($html, $postData, $element, $children)
                 <span class='regular'>
                     <span class='currency'><?php echo wp_kses_post($currency_symbol); ?></span><?php echo wp_kses_post($regular_price); ?>
                 </span>
-                <span class=' discounted'>
+                <span class=' sale-price'>
                     <span class='currency'><?php echo wp_kses_post($currency_symbol); ?></span><?php echo wp_kses_post($sale_price); ?>
                 </span>
             <?php endif; ?>
@@ -2323,6 +2321,320 @@ function generate_element_html_wooProductRatings($html, $postData, $element, $ch
                 </div>
             <?php endif; ?>
         <?php endif; ?>
+
+        <?php if (!empty($postfixText)): ?>
+            <div class="postfix">
+                <?php echo wp_kses_post($postfixText); ?>
+            </div>
+        <?php endif; ?>
+    </div>
+
+
+<?php
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+
+
+
+
+// wooCategories
+add_filter('generate_element_html_wooCategories', "generate_element_html_wooCategories", 10, 4);
+function generate_element_html_wooCategories($html, $postData, $element, $children)
+{
+
+    $type = isset($element['type']) ? $element['type'] : '';
+    $id = isset($element['id']) ? $element['id'] : '';
+    $options = isset($element['options']) ? $element['options'] : [];
+
+
+    $maxCount = isset($options['maxCount']) ? $options['maxCount'] : 1;
+    $postCount = isset($options['postCount']) ? $options['postCount'] : false;
+    $separator = isset($options['separator']) ? $options['separator'] : ', ';
+    $linkTo = isset($options['linkTo']) ? $options['linkTo'] : 'termUrl';
+    $target = isset($options['target']) ? $options['target'] : '_blank';
+    $prefixText = isset($options['prefixText']) ? $options['prefixText'] : '';
+    $postfixText = isset($options['postfixText']) ? $options['postfixText'] : '';
+    $post_id = isset($postData->ID) ? $postData->ID : '';
+    $post_title = isset($postData->post_title) ? $postData->post_title : '';
+
+    $post_url = get_permalink($post_id);
+    $the_post = get_post($post_id);
+    $post_author_id = isset($the_post->post_author) ? $the_post->post_author : '';
+
+    $itemsLinkToCustomMeta = '';
+    $itemsCustomUrl = '';
+
+    $taxonomy = 'product_cat';
+    $terms = get_the_terms($post_id, $taxonomy);
+    $termsCount = (is_array($terms)) ? count($terms) : 0;
+
+
+    ob_start();
+
+?>
+    <div class="<?php echo esc_attr($type); ?>" id="element-<?php echo esc_attr($id); ?>">
+        <?php if (!empty($prefixText)): ?>
+            <div class="prefix">
+                <?php echo wp_kses_post($prefixText); ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="terms-items">
+
+            <?php
+            $i = 1;
+            if (!empty($terms))
+                foreach ($terms as $term) {
+                    $term_id = $term->term_id;
+                    $term_post_count = $term->count;
+                    if ($linkTo == 'postUrl') {
+                        $linkUrl = get_permalink($post_id);
+                    } else if ($linkTo == 'termUrl') {
+                        $linkUrl = get_term_link($term_id);
+                    } else if ($linkTo == 'customField') {
+                        $linkUrl = get_post_meta($post_id, $itemsLinkToCustomMeta, true);
+                    } else if ($linkTo == 'authorUrl') {
+                        $author_id = get_post_field('post_author', $post_id);
+                        $user = get_user_by('ID', $author_id);
+                        $linkUrl = $user->user_url;
+                    } else if ($linkTo == 'authorLink') {
+                        $author_id = get_post_field('post_author', $post_id);
+                        $linkUrl = get_author_posts_url($author_id);
+                    } else if ($linkTo == 'homeUrl') {
+                        $linkUrl = get_bloginfo('url');
+                    } else if ($linkTo == 'customUrl') {
+                        $linkUrl = $itemsCustomUrl;
+                    }
+
+                    if ($i > $maxCount)
+                        break;
+
+            ?>
+
+                <div class="term-item">
+                    <?php if (!empty($linkTo)) : ?>
+                        <a href="<?php echo esc_url($linkUrl); ?>" target="<?php echo esc_attr($target); ?>" class="term-link">
+
+                            <?php if (!empty($itemsPrefix)) : ?>
+                                <span class='prefix'>
+                                    <?php echo wp_kses_post($itemsPrefix); ?>
+                                </span>
+                            <?php endif; ?>
+                            <span class='term-title'>
+                                <?php echo wp_kses_post($term->name); ?>
+                            </span>
+                            <?php if ($postCount) : ?>
+                                <span class='post-count'>
+                                    <?php echo wp_kses_post($term_post_count); ?>
+                                </span>
+                            <?php endif; ?>
+                            <?php if (!empty($itemsPostfix)) : ?>
+                                <span class='postfix'>
+                                    <?php echo wp_kses_post($itemsPostfix); ?>
+                                </span>
+                            <?php endif; ?>
+
+                        </a>
+                    <?php else : ?>
+
+
+                        <?php if (!empty($itemsPrefix)) : ?>
+                            <span class='prefix'>
+                                <?php echo wp_kses_post($itemsPrefix); ?>
+                            </span>
+                        <?php endif; ?>
+                        <span class='term-title'>
+                            <?php echo wp_kses_post($term->name); ?>
+                        </span>
+                        <?php if ($postCount) : ?>
+                            <span class='post-count'>
+                                <?php echo wp_kses_post($term_post_count); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (!empty($itemsPostfix)) : ?>
+                            <span class='postfix'>
+                                <?php echo wp_kses_post($itemsPostfix); ?>
+                            </span>
+                        <?php endif; ?>
+
+
+                    <?php endif; ?>
+                    <?php if ($maxCount > $i) : ?>
+                        <?php if (!empty($separatorText)) : ?>
+                            <span class='separator'>
+                                <?php echo esc_html($separatorText); ?>
+                            </span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
+                </div>
+
+            <?php
+                    $i++;
+                }
+            ?>
+
+
+        </div>
+
+
+        <?php if (!empty($postfixText)): ?>
+            <div class="postfix">
+                <?php echo wp_kses_post($postfixText); ?>
+            </div>
+        <?php endif; ?>
+    </div>
+
+
+<?php
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+// wooTags
+add_filter('generate_element_html_wooTags', "generate_element_html_wooTags", 10, 4);
+function generate_element_html_wooTags($html, $postData, $element, $children)
+{
+
+    $type = isset($element['type']) ? $element['type'] : '';
+    $id = isset($element['id']) ? $element['id'] : '';
+    $options = isset($element['options']) ? $element['options'] : [];
+
+
+    $maxCount = isset($options['maxCount']) ? $options['maxCount'] : 1;
+    $postCount = isset($options['postCount']) ? $options['postCount'] : false;
+    $separator = isset($options['separator']) ? $options['separator'] : ', ';
+    $linkTo = isset($options['linkTo']) ? $options['linkTo'] : 'termUrl';
+    $target = isset($options['target']) ? $options['target'] : '_blank';
+    $prefixText = isset($options['prefixText']) ? $options['prefixText'] : '';
+    $postfixText = isset($options['postfixText']) ? $options['postfixText'] : '';
+    $post_id = isset($postData->ID) ? $postData->ID : '';
+    $post_title = isset($postData->post_title) ? $postData->post_title : '';
+
+    $post_url = get_permalink($post_id);
+    $the_post = get_post($post_id);
+    $post_author_id = isset($the_post->post_author) ? $the_post->post_author : '';
+
+    $itemsLinkToCustomMeta = '';
+    $itemsCustomUrl = '';
+
+    $taxonomy = 'product_tag';
+    $terms = get_the_terms($post_id, $taxonomy);
+    $termsCount = (is_array($terms)) ? count($terms) : 0;
+
+
+    ob_start();
+
+?>
+    <div class="<?php echo esc_attr($type); ?>" id="element-<?php echo esc_attr($id); ?>">
+        <?php if (!empty($prefixText)): ?>
+            <div class="prefix">
+                <?php echo wp_kses_post($prefixText); ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="terms-items">
+
+            <?php
+            $i = 1;
+            if (!empty($terms))
+                foreach ($terms as $term) {
+                    $term_id = $term->term_id;
+                    $term_post_count = $term->count;
+                    if ($linkTo == 'postUrl') {
+                        $linkUrl = get_permalink($post_id);
+                    } else if ($linkTo == 'termUrl') {
+                        $linkUrl = get_term_link($term_id);
+                    } else if ($linkTo == 'customField') {
+                        $linkUrl = get_post_meta($post_id, $itemsLinkToCustomMeta, true);
+                    } else if ($linkTo == 'authorUrl') {
+                        $author_id = get_post_field('post_author', $post_id);
+                        $user = get_user_by('ID', $author_id);
+                        $linkUrl = $user->user_url;
+                    } else if ($linkTo == 'authorLink') {
+                        $author_id = get_post_field('post_author', $post_id);
+                        $linkUrl = get_author_posts_url($author_id);
+                    } else if ($linkTo == 'homeUrl') {
+                        $linkUrl = get_bloginfo('url');
+                    } else if ($linkTo == 'customUrl') {
+                        $linkUrl = $itemsCustomUrl;
+                    }
+
+                    if ($i > $maxCount)
+                        break;
+
+            ?>
+
+                <div class="term-item">
+                    <?php if (!empty($linkTo)) : ?>
+                        <a href="<?php echo esc_url($linkUrl); ?>" target="<?php echo esc_attr($target); ?>" class="term-link">
+
+                            <?php if (!empty($itemsPrefix)) : ?>
+                                <span class='prefix'>
+                                    <?php echo wp_kses_post($itemsPrefix); ?>
+                                </span>
+                            <?php endif; ?>
+                            <span class='term-title'>
+                                <?php echo wp_kses_post($term->name); ?>
+                            </span>
+                            <?php if ($postCount) : ?>
+                                <span class='post-count'>
+                                    <?php echo wp_kses_post($term_post_count); ?>
+                                </span>
+                            <?php endif; ?>
+                            <?php if (!empty($itemsPostfix)) : ?>
+                                <span class='postfix'>
+                                    <?php echo wp_kses_post($itemsPostfix); ?>
+                                </span>
+                            <?php endif; ?>
+
+                        </a>
+                    <?php else : ?>
+
+
+                        <?php if (!empty($itemsPrefix)) : ?>
+                            <span class='prefix'>
+                                <?php echo wp_kses_post($itemsPrefix); ?>
+                            </span>
+                        <?php endif; ?>
+                        <span class='term-title'>
+                            <?php echo wp_kses_post($term->name); ?>
+                        </span>
+                        <?php if ($postCount) : ?>
+                            <span class='post-count'>
+                                <?php echo wp_kses_post($term_post_count); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (!empty($itemsPostfix)) : ?>
+                            <span class='postfix'>
+                                <?php echo wp_kses_post($itemsPostfix); ?>
+                            </span>
+                        <?php endif; ?>
+
+
+                    <?php endif; ?>
+                    <?php if ($maxCount > $i) : ?>
+                        <?php if (!empty($separatorText)) : ?>
+                            <span class='separator'>
+                                <?php echo esc_html($separatorText); ?>
+                            </span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
+                </div>
+
+            <?php
+                    $i++;
+                }
+            ?>
+
+
+        </div>
+
 
         <?php if (!empty($postfixText)): ?>
             <div class="postfix">

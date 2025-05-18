@@ -8,7 +8,6 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
 
     global $PostGridBuilderCss;
 
-
     $globalOptions = isset($PostGridData["globalOptions"]) ? $PostGridData["globalOptions"] : [];
     $lazyLoad = isset($globalOptions["lazyLoad"]) ? $globalOptions["lazyLoad"] : false;
     $itemSource = isset($globalOptions["itemSource"]) ? $globalOptions["itemSource"] : "topToBottom";
@@ -114,6 +113,8 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
     } else {
         $paged = 1;
     }
+
+
 
     $max_num_pages = isset($posts_query->max_num_pages) ? $posts_query->max_num_pages : 0;;
 
