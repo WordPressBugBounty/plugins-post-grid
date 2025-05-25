@@ -7,6 +7,8 @@ function post_grid_builder_global_scripts()
 
     global $PostGridBuilderCss;
 
+    if (empty($PostGridBuilderCss)) return;
+
     $PostGridBuilderCss = str_replace("&quot;", '"', $PostGridBuilderCss);
     $PostGridBuilderCss = str_replace("&gt;", '>', $PostGridBuilderCss);
 
@@ -55,12 +57,6 @@ function generateLayoutsElementHtml($element, $item)
     $type = $element['type'];
     $options = isset($element['options']) ? $element['options'] : [];
 
-    //echo "<pre>" . var_export($element, true) . "</pre>";
-
-
-    //echo '<pre>';
-    // echo var_export($item, true);
-    //echo '</pre>';
 
     $content = isset($item["content"]) ?  $item["content"] : "";
     $date = isset($item["date"]) ?  $item["date"] : "";
@@ -415,6 +411,7 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
             $posts_query->the_post();
             $post_id = get_the_id();
 
+
             $term_slugs = post_grid_term_slug_list($post_id);
 
 
@@ -433,7 +430,6 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
 
 
 
-
     return $responses;
 }
 
@@ -448,9 +444,7 @@ function renderContentRecursive($postData, array $elements)
 
     foreach ($elements as $element) {
 
-        // echo '<pre>';
-        // echo var_export($element, true);
-        // echo '</pre>';
+
         $id = isset($element['id']) ? $element['id'] : '';
         $type = isset($element['type']) ? $element['type'] : '';
         $children = isset($element['children']) ? $element['children'] : [];
@@ -495,9 +489,7 @@ function generate_element_html($html, $postData, $element)
     $type = isset($element['type']) ? $element['type'] : '';
     $id = isset($element['id']) ? $element['id'] : '';
 
-    // echo '<pre>';
-    // echo var_export($postData, true);
-    // echo '</pre>';
+
 
     $html = $element['content'];
 
@@ -959,6 +951,15 @@ function generate_element_html_postDate($html, $postData, $element, $children)
     $post_id = isset($postData->ID) ? $postData->ID : '';
     $post_title = isset($postData->post_title) ? $postData->post_title : '';
 
+    $icon = isset($options['icon']) ? $options['icon'] : '';
+
+    $iconLibrary = isset($icon['library']) ? $icon['library'] : '';
+    $iconSrcType = isset($icon['srcType']) ? $icon['srcType'] : '';
+    $iconSrc = isset($icon['iconSrc']) ? $icon['iconSrc'] : '';
+    $iconClass = isset($icon['class']) ? $icon['class'] : '';
+
+
+
     $post_url = get_permalink($post_id);
     $the_post = get_post($post_id);
     $post_date = isset($the_post->post_date) ? $the_post->post_date : '';
@@ -966,6 +967,15 @@ function generate_element_html_postDate($html, $postData, $element, $children)
 
     $formatedPostDate = date($format, strtotime($post_date));
 
+    if ($iconLibrary == 'fontAwesome') {
+        wp_enqueue_style('fontawesome-icons');
+    } else if ($iconLibrary == 'iconFont') {
+        wp_enqueue_style('icofont-icons');
+    } else if ($iconLibrary == 'bootstrap') {
+        wp_enqueue_style('bootstrap-icons');
+    }
+
+    $fontIconHtml = '<span class="' . $iconClass . ' ' . $iconSrc . '"></span>';
 
 
     ob_start();
@@ -978,6 +988,7 @@ function generate_element_html_postDate($html, $postData, $element, $children)
             </div>
         <?php endif; ?>
 
+        <?php echo wp_kses_post($fontIconHtml); ?>
 
 
         <?php
@@ -1024,9 +1035,28 @@ function generate_element_html_postAuthor($html, $postData, $element, $children)
     $post_id = isset($postData->ID) ? $postData->ID : '';
     $post_title = isset($postData->post_title) ? $postData->post_title : '';
 
+    $icon = isset($options['icon']) ? $options['icon'] : '';
+
+    $iconLibrary = isset($icon['library']) ? $icon['library'] : '';
+    $iconSrcType = isset($icon['srcType']) ? $icon['srcType'] : '';
+    $iconSrc = isset($icon['iconSrc']) ? $icon['iconSrc'] : '';
+    $iconClass = isset($icon['class']) ? $icon['class'] : '';
+
+
     $post_url = get_permalink($post_id);
     $the_post = get_post($post_id);
     $post_author_id = isset($the_post->post_author) ? $the_post->post_author : '';
+
+    if ($iconLibrary == 'fontAwesome') {
+        wp_enqueue_style('fontawesome-icons');
+    } else if ($iconLibrary == 'iconFont') {
+        wp_enqueue_style('icofont-icons');
+    } else if ($iconLibrary == 'bootstrap') {
+        wp_enqueue_style('bootstrap-icons');
+    }
+
+    $fontIconHtml = '<span class="' . $iconClass . ' ' . $iconSrc . '"></span>';
+
 
 
     ob_start();
@@ -1039,6 +1069,7 @@ function generate_element_html_postAuthor($html, $postData, $element, $children)
             </div>
         <?php endif; ?>
 
+        <?php echo wp_kses_post($fontIconHtml); ?>
 
 
         <?php
@@ -1507,10 +1538,10 @@ function generate_element_html_wooPrice($html, $postData, $element, $children)
                 </span>
             <?php endif; ?>
             <?php if (!empty($sale_price)) : ?>
-                <span class='regular'>
+                <span class=' sale-price'>
                     <span class='currency'><?php echo wp_kses_post($currency_symbol); ?></span><?php echo wp_kses_post($regular_price); ?>
                 </span>
-                <span class=' sale-price'>
+                <span class=' regular'>
                     <span class='currency'><?php echo wp_kses_post($currency_symbol); ?></span><?php echo wp_kses_post($sale_price); ?>
                 </span>
             <?php endif; ?>
@@ -2140,7 +2171,7 @@ function generate_element_html_wooInStock($html, $postData, $element, $children)
                 </span>
             <?php endif; ?>
             <?php if ($onStock == "outofstock") : ?>
-                <span class='out-of-stock'>
+                <span class='outofstock'>
                     <?php
                     echo wp_kses_post($outOfStockText);
                     ?>
@@ -2166,7 +2197,7 @@ function generate_element_html_wooInStock($html, $postData, $element, $children)
                 </span>
             <?php endif; ?>
             <?php if ($onStock == "outofstock") : ?>
-                <span class='out-of-stock'>
+                <span class='outofstock'>
                     <?php
                     echo wp_kses_post($outOfStockText);
                     ?>

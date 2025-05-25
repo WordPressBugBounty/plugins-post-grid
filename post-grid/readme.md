@@ -4,7 +4,7 @@ Donate link: https://pickplugins.com/
 Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
 Tested up to: 6.8
-Stable tag: 2.3.15
+Stable tag: 2.3.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -210,6 +210,13 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 == Changelog ==
 
+
+= 2.3.16 =
+- 2025-05-25 - update - Improved layout editor.
+- 2025-05-25 - add - Added improved dummy posts data
+- 2025-05-25 - add - Added improved dummy products data
+- 2025-05-25 - add - Icons added for post author and post date element.
+- 2025-05-25 - update - Filterable style grid filters search issue fixed.
 
 = 2.3.15 =
 - 2025-05-17 - add - Default query parameteres added.

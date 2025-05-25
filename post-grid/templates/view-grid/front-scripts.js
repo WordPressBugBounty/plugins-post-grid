@@ -442,6 +442,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		const config = JSON.parse(tabElement.getAttribute("data-accordionBuilder"));
 
-		new AccordionBuilder(config);
+		//new AccordionBuilder(config);
 	});
 });

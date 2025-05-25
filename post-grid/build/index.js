@@ -5007,8 +5007,12 @@ function DOMContentLoadedImport() {
     demoUrl: "https://pickplugins.com/demo/post-grid/",
     reviewsUrl: "https://wordpress.org/support/plugin/post-grid/reviews/#new-post/"
   };
+  const url = new URL(window.location.href);
+  const path = url.pathname.substring(0, url.pathname.lastIndexOf('/'));
+  const baseUrl = `${url.origin}${path}/`;
   window.PostGrid = {};
   window.PostGrid = appData;
+  window.PostGrid.baseUrl = baseUrl;
   _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
     path: "/post-grid/v2/get_options",
     method: "POST",
@@ -5096,7 +5100,7 @@ const colorsPresets = [{
   color: '#9DD6DF'
 }, {
   name: '18978F',
-  color: '#18978F'
+  color: '#6923F7'
 }, {
   name: 'A084CF',
   color: '#A084CF'
@@ -5235,7 +5239,272 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const dummyPosts = [{
   "postTitle": {
-    "titleText": "How to Get the Best Deals on Email Verification Services"
+    "titleText": "Top 10 Hidden Gems to Visit in Europe"
+  },
+  "postId": {
+    "id": 201
+  },
+  "postDate": {
+    "date": "03/04/2025"
+  },
+  "postAuthor": {
+    "authorName": "Haris"
+  },
+  "commentsCount": {
+    "count": 87
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/LDxT0SD1/post-thumb-1.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Discover breathtaking but lesser-known destinations across Europe that offer unique experiences without the crowds."
+  }
+}, {
+  "postTitle": {
+    "titleText": "A Backpacker’s Guide to Southeast Asia"
+  },
+  "postId": {
+    "id": 202
+  },
+  "postDate": {
+    "date": "18/02/2025"
+  },
+  "postAuthor": {
+    "authorName": "Amina"
+  },
+  "commentsCount": {
+    "count": 104
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/XZbKK1Z6/post-thumb-6.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Explore budget-friendly tips and must-see destinations for traveling through Thailand, Vietnam, Cambodia, and beyond."
+  }
+}, {
+  "postTitle": {
+    "titleText": "The Ultimate Road Trip Across the USA"
+  },
+  "postId": {
+    "id": 203
+  },
+  "postDate": {
+    "date": "25/01/2025"
+  },
+  "postAuthor": {
+    "authorName": "Zara"
+  },
+  "commentsCount": {
+    "count": 76
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/KjFQ62ZC/post-thumb-2.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Take a journey through America's most iconic highways and national parks with this cross-country itinerary."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Exploring Morocco: A Cultural Adventure"
+  },
+  "postId": {
+    "id": 204
+  },
+  "postDate": {
+    "date": "07/03/2025"
+  },
+  "postAuthor": {
+    "authorName": "Yusuf"
+  },
+  "commentsCount": {
+    "count": 65
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/1tpXJpb8/post-thumb-3.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "From bustling souks to the majestic Sahara Desert, Morocco offers an unforgettable travel experience."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Island Hopping in the Philippines"
+  },
+  "postId": {
+    "id": 205
+  },
+  "postDate": {
+    "date": "28/02/2025"
+  },
+  "postAuthor": {
+    "authorName": "Sana"
+  },
+  "commentsCount": {
+    "count": 91
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/qYBxwSRd/post-thumb-4.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Hop across turquoise waters and explore the tropical paradise of over 7,000 islands in the Philippines."
+  }
+}, {
+  "postTitle": {
+    "titleText": "A Winter Escape to the Swiss Alps"
+  },
+  "postId": {
+    "id": 206
+  },
+  "postDate": {
+    "date": "14/01/2025"
+  },
+  "postAuthor": {
+    "authorName": "Omar"
+  },
+  "commentsCount": {
+    "count": 112
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/nNcqKzhy/post-thumb-5.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Ski resorts, cozy chalets, and snow-covered peaks — explore why Switzerland is the ultimate winter destination."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Safari Adventures in Kenya"
+  },
+  "postId": {
+    "id": 207
+  },
+  "postDate": {
+    "date": "19/03/2025"
+  },
+  "postAuthor": {
+    "authorName": "Fatima"
+  },
+  "commentsCount": {
+    "count": 130
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/7dQJMQt0/post-thumb-7.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Witness the Big Five and breathtaking savannah landscapes in this guide to Kenya's best safari experiences."
+  }
+}, {
+  "postTitle": {
+    "titleText": "A Culinary Journey Through Italy"
+  },
+  "postId": {
+    "id": 208
+  },
+  "postDate": {
+    "date": "10/02/2025"
+  },
+  "postAuthor": {
+    "authorName": "Nadia"
+  },
+  "commentsCount": {
+    "count": 88
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/RTmJfQWC/post-thumb-9.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "From pasta in Rome to gelato in Florence — indulge in Italy’s rich culinary delights city by city."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Weekend Getaways Near Dubai"
+  },
+  "postId": {
+    "id": 209
+  },
+  "postDate": {
+    "date": "04/04/2025"
+  },
+  "postAuthor": {
+    "authorName": "Ahmed"
+  },
+  "commentsCount": {
+    "count": 73
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/dsGMxFGq/post-thumb-8.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Escape the city hustle with these top short-trip destinations just hours from Dubai."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Japan in Spring: The Beauty of Cherry Blossoms"
+  },
+  "postId": {
+    "id": 210
+  },
+  "postDate": {
+    "date": "30/03/2025"
+  },
+  "postAuthor": {
+    "authorName": "Layla"
+  },
+  "commentsCount": {
+    "count": 147
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/6ccT3PxS/post-thumb-10.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Plan your spring trip to Japan to catch the magical sakura season with our tips on the best viewing spots."
+  }
+}];
+
+/***/ }),
+
+/***/ "./src/components/BuilderView/dummy-products.js":
+/*!******************************************************!*\
+  !*** ./src/components/BuilderView/dummy-products.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   dummyProducts: () => (/* binding */ dummyProducts)
+/* harmony export */ });
+const dummyProducts = [{
+  "postTitle": {
+    "titleText": "Luxury Sofa in Italian Leather"
   },
   "postId": {
     "id": 101
@@ -5250,48 +5519,223 @@ const dummyPosts = [{
     "count": 123
   },
   "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/07/pexels-lastly-772803.jpg"
+    "srcUrl": "https://i.ibb.co/PsCPp7Hd/sofa-4.png"
   },
   "postAuthorAvatar": {
     "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
   },
   "postExcerpt": {
-    "excerptText": "In todays digital landscape, email marketing remains one of the most effective ways to engage customers and drive conversions..."
+    "excerptText": "Experience unmatched comfort with this handcrafted Italian leather luxury sofa, built to impress and last..."
   }
 }, {
   "postTitle": {
-    "titleText": "10 Tips to Improve Email Deliverability Instantly"
+    "titleText": "Modern Velvet Sectional Sofa"
   },
   "postId": {
     "id": 102
   },
   "postDate": {
-    "date": "10/04/2025"
+    "date": "12/05/2025"
   },
   "postAuthor": {
     "authorName": "PickPlugins"
   },
   "commentsCount": {
-    "count": 85
+    "count": 87
   },
   "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/08/email-marketing.jpg"
+    "srcUrl": "https://i.ibb.co/xqmSrLQy/sofa-3.png"
   },
   "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar2.jpg?ver=1744938018"
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
   },
   "postExcerpt": {
-    "excerptText": "Struggling with low open rates? Your emails might not be landing in inboxes at all..."
+    "excerptText": "A chic and spacious velvet sectional designed for both elegance and everyday relaxation..."
   }
 }, {
   "postTitle": {
-    "titleText": "Top 5 Email Verification Tools in 2025 Compared"
+    "titleText": "Contemporary L-Shaped Sofa"
   },
   "postId": {
     "id": 103
   },
   "postDate": {
-    "date": "05/03/2025"
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 142
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/k2XqG8cf/sofa-1.png"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Transform your living space with this contemporary L-shaped sofa, combining comfort and sleek style..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Scandinavian Minimalist Sofa"
+  },
+  "postId": {
+    "id": 104
+  },
+  "postDate": {
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 65
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/B5CCfTt2/sofa-10.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Inspired by Nordic design, this minimalist sofa brings timeless sophistication to any room..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Vintage Tufted Chesterfield Sofa"
+  },
+  "postId": {
+    "id": 105
+  },
+  "postDate": {
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 199
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/sdWRcVFB/sofa-9.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Classic design meets modern comfort in this vintage-style Chesterfield, featuring deep button tufting and rolled arms..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Reclining Luxury Sofa with USB Ports"
+  },
+  "postId": {
+    "id": 106
+  },
+  "postDate": {
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 134
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/7NvXfYsj/sofa-8.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Stay connected and relaxed with this reclining sofa that includes built-in USB ports and plush padding..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Eco-Friendly Rattan Sofa Set"
+  },
+  "postId": {
+    "id": 107
+  },
+  "postDate": {
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 78
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/dsRcFX0D/sofa-5.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Go green with this sustainable rattan sofa, ideal for eco-conscious interiors and patios alike..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Convertible Sofa Bed for Guest Rooms"
+  },
+  "postId": {
+    "id": 108
+  },
+  "postDate": {
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 111
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/kgfhmktL/sofa-7.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Maximize space with this multifunctional sofa bed — perfect for small apartments and guest rooms..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Customizable Modular Sofa Set"
+  },
+  "postId": {
+    "id": 109
+  },
+  "postDate": {
+    "date": "12/05/2025"
+  },
+  "postAuthor": {
+    "authorName": "PickPlugins"
+  },
+  "commentsCount": {
+    "count": 90
+  },
+  "postThumbnail": {
+    "srcUrl": "https://i.ibb.co/pjYtvxwb/sofa-6.jpg"
+  },
+  "postAuthorAvatar": {
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
+  },
+  "postExcerpt": {
+    "excerptText": "Rearrange your comfort with this modular sofa system, offering endless combinations and layouts..."
+  }
+}, {
+  "postTitle": {
+    "titleText": "Compact Sofa for Small Living Spaces"
+  },
+  "postId": {
+    "id": 110
+  },
+  "postDate": {
+    "date": "12/05/2025"
   },
   "postAuthor": {
     "authorName": "PickPlugins"
@@ -5300,163 +5744,13 @@ const dummyPosts = [{
     "count": 67
   },
   "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/09/email-tools.jpg"
+    "srcUrl": "https://i.ibb.co/gbgf15Kx/sofa-4.png"
   },
   "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar3.jpg?ver=1744938018"
+    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018"
   },
   "postExcerpt": {
-    "excerptText": "Choosing the right email verification service can be overwhelming. In this post, we break down the top 5 tools..."
-  }
-}, {
-  "postTitle": {
-    "titleText": "Why Your Emails Are Going to Spam (And How to Fix It)"
-  },
-  "postId": {
-    "id": 104
-  },
-  "postDate": {
-    "date": "22/02/2025"
-  },
-  "postAuthor": {
-    "authorName": "PickPlugins"
-  },
-  "commentsCount": {
-    "count": 98
-  },
-  "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/10/spam-folder.jpg"
-  },
-  "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar4.jpg?ver=1744938018"
-  },
-  "postExcerpt": {
-    "excerptText": "If your carefully crafted emails are ending up in spam, you're not alone. Here's how to solve it..."
-  }
-}, {
-  "postTitle": {
-    "titleText": "Best Practices for Maintaining a Clean Email List"
-  },
-  "postId": {
-    "id": 105
-  },
-  "postDate": {
-    "date": "15/01/2025"
-  },
-  "postAuthor": {
-    "authorName": "PickPlugins"
-  },
-  "commentsCount": {
-    "count": 56
-  },
-  "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/11/clean-list.jpg"
-  },
-  "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar5.jpg?ver=1744938018"
-  },
-  "postExcerpt": {
-    "excerptText": "Cleaning your email list regularly improves your deliverability and engagement. Here's how to do it right..."
-  }
-}, {
-  "postTitle": {
-    "titleText": "The Role of AI in Modern Email Marketing"
-  },
-  "postId": {
-    "id": 106
-  },
-  "postDate": {
-    "date": "01/01/2025"
-  },
-  "postAuthor": {
-    "authorName": "PickPlugins"
-  },
-  "commentsCount": {
-    "count": 72
-  },
-  "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/12/ai-email.jpg"
-  },
-  "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar6.jpg?ver=1744938018"
-  },
-  "postExcerpt": {
-    "excerptText": "Artificial intelligence is revolutionizing email marketing. Discover the latest trends and tools powered by AI..."
-  }
-}, {
-  "postTitle": {
-    "titleText": "How to Reduce Email Bounce Rates Effectively"
-  },
-  "postId": {
-    "id": 107
-  },
-  "postDate": {
-    "date": "20/12/2024"
-  },
-  "postAuthor": {
-    "authorName": "PickPlugins"
-  },
-  "commentsCount": {
-    "count": 40
-  },
-  "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/12/bounce-rate.jpg"
-  },
-  "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar7.jpg?ver=1744938018"
-  },
-  "postExcerpt": {
-    "excerptText": "High bounce rates can damage your sender reputation. Learn practical ways to keep your bounce rates low..."
-  }
-}, {
-  "postTitle": {
-    "titleText": "Email List Hygiene: Why It Matters More Than Ever"
-  },
-  "postId": {
-    "id": 108
-  },
-  "postDate": {
-    "date": "05/12/2024"
-  },
-  "postAuthor": {
-    "authorName": "PickPlugins"
-  },
-  "commentsCount": {
-    "count": 66
-  },
-  "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/11/hygiene.jpg"
-  },
-  "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar8.jpg?ver=1744938018"
-  },
-  "postExcerpt": {
-    "excerptText": "A clean email list isn't just best practice—it's essential. Here's why your email hygiene matters..."
-  }
-}, {
-  "postTitle": {
-    "titleText": "Beginner’s Guide to Email Verification APIs"
-  },
-  "postId": {
-    "id": 109
-  },
-  "postDate": {
-    "date": "25/11/2024"
-  },
-  "postAuthor": {
-    "authorName": "PickPlugins"
-  },
-  "commentsCount": {
-    "count": 50
-  },
-  "postThumbnail": {
-    "srcUrl": "https://pickplugins.com/demo/post-grid/wp-content/uploads/sites/2/2024/10/api-guide.jpg"
-  },
-  "postAuthorAvatar": {
-    "srcUrl": "https://pickplugins.com/wp-content/litespeed/avatar/avatar9.jpg?ver=1744938018"
-  },
-  "postExcerpt": {
-    "excerptText": "If you're integrating email verification into your app or platform, this beginner's guide is the perfect place to start..."
+    "excerptText": "Ideal for apartments and studios, this compact sofa delivers style and comfort without taking up much room..."
   }
 }];
 
@@ -5607,12 +5901,20 @@ function PostGridElementHtmlpostDate(html, itemData, element) {
   var linkTo = options?.linkTo;
   var target = options?.target;
   var format = options?.format;
+  var icon = options.icon;
+  var iconSrc = icon?.iconSrc;
+  var iconHtml = `<span class="${iconSrc}"></span>`;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     id: `element-${element.id}`,
     className: `${element.type}`,
     children: [prefixText?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "prefix",
       children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
     }), linkTo?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
       href: "#",
       target: target,
@@ -5639,12 +5941,20 @@ function PostGridElementHtmlpostAuthor(html, itemData, element) {
   var postfixText = options?.postfixText;
   var linkTo = options?.linkTo;
   var target = options?.target;
+  var icon = options.icon;
+  var iconSrc = icon?.iconSrc;
+  var iconHtml = `<span class="${iconSrc}"></span>`;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     id: `element-${element.id}`,
     className: `${element.type}`,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "prefix",
       children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
     }), linkTo?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
       href: "#",
       target: target,
@@ -5864,11 +6174,12 @@ function PostGridElementHtmlpostContent(html, itemData, element) {
 (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlpostThumbnail', 'post-grid/element', PostGridElementHtmlpostThumbnail, 10);
 function PostGridElementHtmlpostThumbnail(html, itemData, element) {
   var elementOptions = element.options;
+  var srcUrl = itemData?.postThumbnail?.srcUrl;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     id: `element-${element.id}`,
     className: `${element.type}`,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-      src: elementOptions.defaultSrcUrl,
+      src: srcUrl.length == 0 ? elementOptions.defaultSrcUrl : srcUrl,
       alt: ""
     })
   });
@@ -6017,10 +6328,10 @@ function PostGridElementHtmlwooInStock(html, itemData, element) {
       children: inStockText
     }), previewFor == 'outOfStockText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "outofstock",
-      children: inStockText
+      children: outOfStockText
     }), previewFor == 'backOrderText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "onbackorder",
-      children: inStockText
+      children: backOrderText
     }), postfixText?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "postfix",
       children: postfixText
@@ -6302,8 +6613,10 @@ function Html(props) {
     return null;
   }
   var id = props.id;
+  var customerData = props.customerData;
   var onChangePostGrid = props.onChangePostGrid;
   var addNotifications = props.addNotifications;
+  var settoggleSettings = props.settoggleSettings;
   var setHelp = props.setHelp;
   var isLoading = props.isLoading;
   var onSavePostGrid = props.onSavePostGrid;
@@ -6311,6 +6624,7 @@ function Html(props) {
   if (props.postData.post_content == null) {
     return null;
   }
+  var [loading, setloading] = useState(false);
   var [pleaseUpdateX, setpleaseUpdateX] = useState(props.pleaseUpdate);
   var [postData, setpostData] = useState(props.postData);
   var [PostGridData, setPostGridData] = useState(postData.post_content);
@@ -6339,20 +6653,48 @@ function Html(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
     className: "ml-5",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-      className: "flex items-center justify-between align-middle bg-white p-5  mb-5",
+      className: "flex items-center justify-between align-middle bg-white py-2 px-5  mb-5",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "flex items-center gap-5",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "text-xl",
-          children: postData?.post_title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-            className: "flex items-center gap-3",
-            children: ["You are editing:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-              children: postData.post_title
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          className: "",
+          children: [postData?.post_title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "flex items-center gap-3 text-base font-bold",
+            children: ["You are editing:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+              children: [" ", postData.post_title]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
               className: "text-gray-300",
               children: [`(#${postData.ID})`, " "]
             })]
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "flex gap-4 items-center my-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: "cursor-pointer",
+              onClick: ev => {
+                settoggleSettings('overview');
+              },
+              children: "Overview"
+            }), !customerData.isPro && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                className: "cursor-pointer",
+                onClick: ev => {
+                  settoggleSettings('freeVsPro');
+                },
+                children: "Free Vs Pro"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("a", {
+                href: "https://pickplugins.com/post-grid/",
+                target: "_blank",
+                className: "cursor-pointer px-3 py-1 bg-amber-600 rounded text-white",
+                children: "Buy Now"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: "cursor-pointer",
+              onClick: ev => {
+                settoggleSettings('sendFeedback');
+              },
+              children: "Send Feedbacks"
+            })]
+          })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "flex items-center align-middle gap-3",
@@ -6424,6 +6766,8 @@ class BuilderView extends Component {
       pleaseUpdate,
       onSavePostGrid,
       addNotifications,
+      settoggleSettings,
+      customerData,
       setHelp
     } = this.props;
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(Html, {
@@ -6434,6 +6778,8 @@ class BuilderView extends Component {
       pleaseUpdate: pleaseUpdate,
       onChangePostGrid: onChangePostGrid,
       addNotifications: addNotifications,
+      settoggleSettings: settoggleSettings,
+      customerData: customerData,
       setHelp: setHelp,
       warn: this.state.showWarning
     });
@@ -6469,14 +6815,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splidejs_splide_extension_grid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @splidejs/splide-extension-grid */ "./node_modules/@splidejs/splide-extension-grid/dist/js/splide-extension-grid.esm.js");
 /* harmony import */ var _LoopItems__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./LoopItems */ "./src/components/BuilderView/LoopItems.js");
 /* harmony import */ var _dummy_posts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dummy-posts */ "./src/components/BuilderView/dummy-posts.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _dummy_products__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dummy-products */ "./src/components/BuilderView/dummy-products.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__);
 const {
   Component,
   RawHTML,
   useState,
   useEffect
 } = wp.element;
+
 
 
 
@@ -6507,6 +6855,7 @@ function Html(props) {
   var [items, setitems] = useState(PostGridData.items);
   var [navsWrap, setnavsWrap] = useState(PostGridData?.navsWrap);
   var [navItem, setnavItem] = useState(PostGridData?.navItem);
+  var [postsData, setpostsData] = useState([]);
   useEffect(() => {
     setpostData(props.postData);
   }, [props.postData]);
@@ -6553,6 +6902,17 @@ function Html(props) {
     var iconHtml = `<span class="${iconSrc}"></span>`;
     setPrevIconHtml(iconHtml);
   }, [prevIcon?.options]);
+  useEffect(() => {
+    var postType = PostGridData?.itemQueryArgs.postType.value;
+    if (postType.includes("product")) {
+      postsData = _dummy_products__WEBPACK_IMPORTED_MODULE_11__.dummyProducts;
+    } else {
+      postsData = _dummy_posts__WEBPACK_IMPORTED_MODULE_10__.dummyPosts;
+    }
+    var count = parseInt(PostGridData?.itemQueryArgs?.postsPerPage?.value);
+    var result = postsData.slice(0, count); // Returns the first 3 elements
+    setpostsData(result);
+  }, [PostGridData.itemQueryArgs]);
   const GenerateNodeHtml = ({
     node,
     itemData
@@ -6568,79 +6928,79 @@ function Html(props) {
   }) => {
     var nodeType = node.type;
     if (nodeType == "root" || nodeType == "container") {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         id: `element-${node.id}`,
         className: `${node.type}`,
-        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(TreeNode, {
+        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(TreeNode, {
             node: child,
             itemData: itemData
           }, child?.id))
         })
       });
     } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(GenerateNodeHtml, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(GenerateNodeHtml, {
         node: node,
         itemData: itemData
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-    className: "px-10 py-10",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    className: "p-5",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       id: `post-grid-${id}`,
       className: `${wrapper?.options?.class} `,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         className: `my-5 ${wrapper?.options?.class} `,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_splidejs_react_splide__WEBPACK_IMPORTED_MODULE_6__.Splide, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(_splidejs_react_splide__WEBPACK_IMPORTED_MODULE_6__.Splide, {
           hasTrack: false,
           options: sliderOptions,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_splidejs_react_splide__WEBPACK_IMPORTED_MODULE_6__.SplideTrack, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_splidejs_react_splide__WEBPACK_IMPORTED_MODULE_6__.SplideTrack, {
             className: "items",
-            children: _dummy_posts__WEBPACK_IMPORTED_MODULE_10__.dummyPosts?.map((item, loopIndex) => {
+            children: postsData?.map((item, loopIndex) => {
               var children = PostGridData.loopLayout[0]?.children ? PostGridData.loopLayout[0]?.children : [];
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                 className: `${itemWrap?.options?.class} splide__slide item`,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_9__["default"], {
                   loopLayout: children,
                   itemData: item
                 })
               }, loopIndex);
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "splide__arrows ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
               className: "prev nav-item splide__arrow splide__arrow--prev",
-              children: [prevIcon?.options.position == "before" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              children: [prevIcon?.options.position == "before" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "icon",
                 dangerouslySetInnerHTML: {
                   __html: prevIconHtml
                 }
-              }), prev?.options.text.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+              }), prev?.options.text.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
                 children: [" ", prev.options.text, " "]
-              }), prevIcon?.options.position == "after" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), prevIcon?.options.position == "after" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "icon",
                 dangerouslySetInnerHTML: {
                   __html: prevIconHtml
                 }
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
               className: "next nav-item splide__arrow splide__arrow--next",
-              children: [nextIcon?.options.position == "before" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              children: [nextIcon?.options.position == "before" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "icon",
                 dangerouslySetInnerHTML: {
                   __html: nextIconHtml
                 }
-              }), next?.options.text.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+              }), next?.options.text.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
                 children: [" ", next.options.text, " "]
-              }), nextIcon?.options.position == "after" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), nextIcon?.options.position == "after" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "icon",
                 dangerouslySetInnerHTML: {
                   __html: nextIconHtml
                 }
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("ul", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
             className: "splide__pagination "
           })]
         })
@@ -6667,7 +7027,7 @@ class PreviewCarousel extends Component {
       id,
       onChangeStyleObj
     } = this.props;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(Html, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Html, {
       postData: postData,
       id: id,
       onChangeStyleObj: onChangeStyleObj,
@@ -6694,14 +7054,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _LoopItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoopItems */ "./src/components/BuilderView/LoopItems.js");
 /* harmony import */ var _dummy_posts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dummy-posts */ "./src/components/BuilderView/dummy-posts.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _dummy_products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dummy-products */ "./src/components/BuilderView/dummy-products.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 const {
   Component,
   RawHTML,
   useState,
   useEffect
 } = wp.element;
+
 
 
 
@@ -6727,6 +7089,7 @@ function Html(props) {
   var [loopLayout, setloopLayout] = useState(PostGridData.loopLayout);
   var [activeFilter, setactiveFilter] = useState(PostGridData.activeFilter);
   var [pagination, setpagination] = useState(PostGridData.pagination);
+  var [postsData, setpostsData] = useState([]);
   const [previousIconHtml, setpreviousIconHtml] = useState("");
   const [nextIconHtml, setnextIconHtml] = useState("");
   var dummyFilters = [{
@@ -6770,6 +7133,17 @@ function Html(props) {
   useEffect(() => {
     setPostGridData(postData.post_content);
   }, [postData]);
+  useEffect(() => {
+    var postType = PostGridData?.itemQueryArgs.postType.value;
+    if (postType.includes("product")) {
+      postsData = _dummy_products__WEBPACK_IMPORTED_MODULE_3__.dummyProducts;
+    } else {
+      postsData = _dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts;
+    }
+    var count = parseInt(PostGridData?.itemQueryArgs?.postsPerPage?.value);
+    var result = postsData.slice(0, count); // Returns the first 3 elements
+    setpostsData(result);
+  }, [PostGridData.itemQueryArgs]);
   const GenerateNodeHtml = ({
     node,
     itemData
@@ -6785,172 +7159,172 @@ function Html(props) {
   }) => {
     var nodeType = node.type;
     if (nodeType == "root" || nodeType == "container") {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         id: `element-${node.id}`,
         className: `${node.type}`,
-        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TreeNode, {
+        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TreeNode, {
             node: child,
             itemData: itemData
           }, child?.id))
         })
       });
     } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(GenerateNodeHtml, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(GenerateNodeHtml, {
         node: node,
         itemData: itemData
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "px-10 py-10",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "p-5",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       id: `post-grid-${id}`,
       className: `${wrapper?.options?.class} `,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "filterable-group-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "filterable-group",
-          children: globalOptions?.showAll == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: globalOptions?.showAll == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "pg-filter mixitup-control-active    filter-34534",
               "data-filter": "all",
               children: "All"
             })
           })
         }), globalOptions.filters?.length > 0 && globalOptions.filters.map(x => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "filterable-group ",
             "data-logic": x.logic,
-            children: [globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-              children: x.groupTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: x.groupTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "filterable-group-title ",
                 children: x.groupTitle
               })
             }), x.items.map(y => {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: [activeFilter.options.slug == y.slug ? "mixitup-control-active pg-filter cursor-pointer" : "pg-filter cursor-pointer"],
                 "terms-id": y.id,
                 "data-filter": "." + y.slug,
-                children: [y.title, " ", x.showPostCount == "yes" ? "(" + y.count + ")" : ""]
+                children: [y.title, x.showPostCount == "yes" ? "(" + y.count + ")" : ""]
               });
             })]
           });
         }), globalOptions.filters?.length == 0 && dummyFilters.map(x => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "filterable-group ",
             "data-logic": x.logic,
-            children: [globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-              children: x.groupTitle && globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: x.groupTitle && globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "filterable-group-title ",
                 children: x.groupTitle
               })
             }), x.items.map(y => {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: [activeFilter.options.slug == y.slug ? "mixitup-control-active pg-filter cursor-pointer" : "pg-filter cursor-pointer"],
                 "terms-id": y.id,
                 "data-filter": "." + y.slug,
-                children: [y.title, " ", x.showPostCount == "yes" ? "(" + y.count + ")" : ""]
+                children: [y.title, x.showPostCount == "yes" ? "(" + y.count + ")" : ""]
               });
             })]
           });
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "filterable-group",
-          children: [globalOptions?.showSort == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: [globalOptions?.showSort == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "pg-filter mixitup-control-active   filter-34534",
               "data-filter": "",
               children: "ASC"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "pg-filter    filter-34534",
               "data-filter": "",
               children: "DESC"
             })]
-          }), globalOptions?.showRandom == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), globalOptions?.showRandom == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "pg-filter   filter-34534",
               "data-filter": "",
               children: "Random"
             })
-          }), globalOptions?.showClear == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), globalOptions?.showClear == "yes" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "pg-filter  filter-34534",
               "data-filter": "",
               children: "Clear"
-            }), " "]
+            })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: `${itemsWrap?.options?.class} `,
-        children: _dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts?.map((item, loopIndex) => {
+        children: postsData?.map((item, loopIndex) => {
           var children = PostGridData.loopLayout[0]?.children ? PostGridData.loopLayout[0]?.children : [];
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: `${itemWrap?.options?.class} `,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
               loopLayout: children,
               itemData: item
             })
           }, loopIndex);
         })
-      }), PostGridData.globalOptions.itemSource == "posts" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), PostGridData.globalOptions.itemSource == "posts" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         class: "pagination ",
-        children: PostGridData.globalOptions?.pagination?.type == 'filterable' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        children: PostGridData.globalOptions?.pagination?.type == 'filterable' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "prev page-numbers",
             href: "#1",
             onClick: ev => {
               ev.preventDefault();
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               class: "previous ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "",
                 dangerouslySetInnerHTML: {
                   __html: previousIconHtml
                 }
               }), pagination?.previousText]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#1",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "1"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             "aria-current": "page",
             class: "page-numbers mixitup-control-active",
             children: "2"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#3",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "3"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#4",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "4"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             class: "page-numbers dots",
             children: "\u2026"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#6",
             children: "6"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "next page-numbers",
             href: "#3",
             onClick: ev => {
               ev.preventDefault();
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               class: "next ",
-              children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "",
                 dangerouslySetInnerHTML: {
                   __html: nextIconHtml
@@ -6981,7 +7355,7 @@ class PreviewGrid extends Component {
       postData,
       id
     } = this.props;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Html, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Html, {
       postData: postData,
       id: id,
       warn: this.state.showWarning
@@ -7007,14 +7381,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _LoopItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoopItems */ "./src/components/BuilderView/LoopItems.js");
 /* harmony import */ var _dummy_posts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dummy-posts */ "./src/components/BuilderView/dummy-posts.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _dummy_products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dummy-products */ "./src/components/BuilderView/dummy-products.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 const {
   Component,
   RawHTML,
   useState,
   useEffect
 } = wp.element;
+
 
 
 
@@ -7038,7 +7414,7 @@ function Html(props) {
   var [itemWrap, setitemWrap] = useState(PostGridData.itemWrap);
   var [loopLayout, setloopLayout] = useState(PostGridData.loopLayout);
   var [pagination, setpagination] = useState(PostGridData.pagination);
-  var [dummyPostsX, setdummyPostsX] = useState(_dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts);
+  var [postsData, setpostsData] = useState([]);
   const [loadingIconHtml, setloadingIconHtml] = useState("");
   const [loadMoreIconHtml, setloadMoreIconHtml] = useState("");
   const [previousIconHtml, setpreviousIconHtml] = useState("");
@@ -7066,9 +7442,15 @@ function Html(props) {
     setPostGridData(postData.post_content);
   }, [postData]);
   useEffect(() => {
+    var postType = PostGridData?.itemQueryArgs.postType.value;
+    if (postType.includes("product")) {
+      postsData = _dummy_products__WEBPACK_IMPORTED_MODULE_3__.dummyProducts;
+    } else {
+      postsData = _dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts;
+    }
     var count = parseInt(PostGridData?.itemQueryArgs?.postsPerPage?.value);
-    var result = _dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts.slice(0, count); // Returns the first 3 elements
-    setdummyPostsX(result);
+    var result = postsData.slice(0, count); // Returns the first 3 elements
+    setpostsData(result);
   }, [PostGridData.itemQueryArgs]);
   const GenerateNodeHtml = ({
     node,
@@ -7085,133 +7467,133 @@ function Html(props) {
   }) => {
     var nodeType = node.type;
     if (nodeType == "root" || nodeType == "container") {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         id: `element-${node.id}`,
         className: `${node.type}`,
-        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TreeNode, {
+        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TreeNode, {
             node: child,
             itemData: itemData
           }, child?.id))
         })
       });
     } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(GenerateNodeHtml, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(GenerateNodeHtml, {
         node: node,
         itemData: itemData
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "px-10 py-10",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "p-5",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       id: `post-grid-${id}`,
       className: `${wrapper?.options?.class} `,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: `${itemsWrap?.options?.class} `,
-        children: dummyPostsX?.map((item, loopIndex) => {
+        children: postsData?.map((item, loopIndex) => {
           var children = PostGridData.loopLayout[0]?.children ? PostGridData.loopLayout[0]?.children : [];
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: `${itemWrap?.options?.class} loop-item-${loopIndex}`,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
               loopLayout: children,
               itemData: item
             })
           }, loopIndex);
         })
-      }), PostGridData.globalOptions.itemSource == "posts" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), PostGridData.globalOptions.itemSource == "posts" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         class: "pagination ",
-        children: [PostGridData.globalOptions?.pagination?.type == "next_previous" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        children: [PostGridData.globalOptions?.pagination?.type == "next_previous" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "page-numbers prev",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "",
               dangerouslySetInnerHTML: {
                 __html: previousIconHtml
               }
             }), pagination?.previousText]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "page-numbers next",
-            children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "",
               dangerouslySetInnerHTML: {
                 __html: nextIconHtml
               }
             })]
           })]
-        }), PostGridData.globalOptions?.pagination?.type == "loadmore" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), PostGridData.globalOptions?.pagination?.type == "loadmore" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "page-numbers",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               dangerouslySetInnerHTML: {
                 __html: loadMoreIconHtml
               }
             }), pagination?.loadMoreText]
           })
-        }), PostGridData.globalOptions?.pagination?.type == "infinite" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), PostGridData.globalOptions?.pagination?.type == "infinite" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "page-numbers",
-          children: [pagination.loadMoreText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: [pagination.loadMoreText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             dangerouslySetInnerHTML: {
               __html: loadingIconHtml
             }
           })]
-        }), (PostGridData.globalOptions?.pagination?.type == 'normal' || PostGridData.globalOptions?.pagination?.type == 'ajax') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        }), (PostGridData.globalOptions?.pagination?.type == 'normal' || PostGridData.globalOptions?.pagination?.type == 'ajax') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "prev page-numbers",
             href: "#1",
             onClick: ev => {
               ev.preventDefault();
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               class: "previous ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "",
                 dangerouslySetInnerHTML: {
                   __html: previousIconHtml
                 }
               }), pagination?.previousText]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#1",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "1"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             "aria-current": "page",
             class: "page-numbers current",
             children: "2"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#3",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "3"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#4",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "4"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             class: "page-numbers dots",
             children: "\u2026"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#6",
             children: "6"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "next page-numbers",
             href: "#3",
             onClick: ev => {
               ev.preventDefault();
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               class: "next ",
-              children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "",
                 dangerouslySetInnerHTML: {
                   __html: nextIconHtml
@@ -7242,7 +7624,7 @@ class PreviewGrid extends Component {
       postData,
       id
     } = this.props;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Html, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Html, {
       postData: postData,
       id: id,
       warn: this.state.showWarning
@@ -7268,14 +7650,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var masonry_layout__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(masonry_layout__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _LoopItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoopItems */ "./src/components/BuilderView/LoopItems.js");
 /* harmony import */ var _dummy_posts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dummy-posts */ "./src/components/BuilderView/dummy-posts.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _dummy_products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dummy-products */ "./src/components/BuilderView/dummy-products.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 const {
   Component,
   RawHTML,
   useState,
   useEffect
 } = wp.element;
+
 
 
 
@@ -7299,6 +7683,7 @@ function Html(props) {
   var [loopLayout, setloopLayout] = useState(PostGridData.loopLayout);
   var [masonryOptions, setmasonryOptions] = useState(PostGridData.masonryOptions);
   var [pagination, setpagination] = useState(PostGridData.pagination);
+  var [postsData, setpostsData] = useState([]);
   const [loadingIconHtml, setloadingIconHtml] = useState("");
   const [loadMoreIconHtml, setloadMoreIconHtml] = useState("");
   const [previousIconHtml, setpreviousIconHtml] = useState("");
@@ -7338,6 +7723,17 @@ function Html(props) {
       loadMasonry();
     }, 2000);
   }, [PostGridData]);
+  useEffect(() => {
+    var postType = PostGridData?.itemQueryArgs.postType.value;
+    if (postType.includes("product")) {
+      postsData = _dummy_products__WEBPACK_IMPORTED_MODULE_3__.dummyProducts;
+    } else {
+      postsData = _dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts;
+    }
+    var count = parseInt(PostGridData?.itemQueryArgs?.postsPerPage?.value);
+    var result = postsData.slice(0, count); // Returns the first 3 elements
+    setpostsData(result);
+  }, [PostGridData.itemQueryArgs]);
   function unescapeHTML(str) {
     const map = {
       "&amp;": "&",
@@ -7372,8 +7768,8 @@ function Html(props) {
     loopLayout,
     itemData
   }) => {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      children: loopLayout.map(node => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TreeNode, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: loopLayout.map(node => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TreeNode, {
         node: node,
         itemData: itemData
       }, node.id))
@@ -7394,133 +7790,133 @@ function Html(props) {
   }) => {
     var nodeType = node.type;
     if (nodeType == "root" || nodeType == "container") {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         id: `element-${node.id}`,
         className: `${node.type}`,
-        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TreeNode, {
+        children: node.children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: node.children.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TreeNode, {
             node: child,
             itemData: itemData
           }, child?.id))
         })
       });
     } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(GenerateNodeHtml, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(GenerateNodeHtml, {
         node: node,
         itemData: itemData
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "px-10 py-10",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "p-5",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       id: `post-grid-${id}`,
       className: `${wrapper?.options?.class} `,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: `items ${itemsWrap?.options?.class} `,
-        children: _dummy_posts__WEBPACK_IMPORTED_MODULE_2__.dummyPosts?.map((item, loopIndex) => {
+        children: postsData?.map((item, loopIndex) => {
           var children = PostGridData.loopLayout[0]?.children ? PostGridData.loopLayout[0]?.children : [];
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: `${itemWrap?.options?.class} item`,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
               loopLayout: children,
               itemData: item
             })
           }, loopIndex);
         })
-      }), PostGridData.globalOptions.itemSource == "posts" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), PostGridData.globalOptions.itemSource == "posts" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         class: "pagination ",
-        children: [PostGridData.globalOptions?.pagination?.type == "next_previous" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        children: [PostGridData.globalOptions?.pagination?.type == "next_previous" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "page-numbers prev",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "",
               dangerouslySetInnerHTML: {
                 __html: previousIconHtml
               }
             }), pagination?.previousText]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "page-numbers next",
-            children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "",
               dangerouslySetInnerHTML: {
                 __html: nextIconHtml
               }
             })]
           })]
-        }), PostGridData.globalOptions?.pagination?.type == "loadmore" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), PostGridData.globalOptions?.pagination?.type == "loadmore" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "page-numbers",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               dangerouslySetInnerHTML: {
                 __html: loadMoreIconHtml
               }
             }), pagination?.loadMoreText]
           })
-        }), PostGridData.globalOptions?.pagination?.type == "infinite" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), PostGridData.globalOptions?.pagination?.type == "infinite" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "page-numbers",
-          children: [pagination.loadMoreText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: [pagination.loadMoreText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             dangerouslySetInnerHTML: {
               __html: loadingIconHtml
             }
           })]
-        }), (PostGridData.globalOptions?.pagination?.type == 'normal' || PostGridData.globalOptions?.pagination?.type == 'ajax') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        }), (PostGridData.globalOptions?.pagination?.type == 'normal' || PostGridData.globalOptions?.pagination?.type == 'ajax') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "prev page-numbers",
             href: "#1",
             onClick: ev => {
               ev.preventDefault();
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               class: "previous ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "",
                 dangerouslySetInnerHTML: {
                   __html: previousIconHtml
                 }
               }), pagination?.previousText]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#1",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "1"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             "aria-current": "page",
             class: "page-numbers current",
             children: "2"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#3",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "3"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#4",
             onClick: ev => {
               ev.preventDefault();
             },
             children: "4"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             class: "page-numbers dots",
             children: "\u2026"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "page-numbers",
             href: "#6",
             children: "6"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             class: "next page-numbers",
             href: "#3",
             onClick: ev => {
               ev.preventDefault();
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               class: "next ",
-              children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: [pagination?.nextText, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "",
                 dangerouslySetInnerHTML: {
                   __html: nextIconHtml
@@ -7551,7 +7947,7 @@ class PreviewMasonry extends Component {
       postData,
       id
     } = this.props;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Html, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Html, {
       postData: postData,
       id: id,
       warn: this.state.showWarning
@@ -7848,7 +8244,7 @@ function Html(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
             className: "text-4xl font-extrabold",
             children: appData.name
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
             className: "text-base",
             children: "By PickPlugins"
           })]
@@ -8290,7 +8686,7 @@ function Html(props) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "text-center p-3",
-              children: ["Secure Payment by", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              children: ["Secure Payment by", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "font-bold",
                 children: "Lemon Squeezy"
               })]
@@ -8310,7 +8706,7 @@ function Html(props) {
                 alt: `${name}'s profile`,
                 className: "w-12 h-12 rounded-full border border-gray-300"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
                   href: item.profileLink,
                   target: "_blank",
                   rel: "noopener noreferrer",
@@ -8917,7 +9313,7 @@ var FilterableDefaultData = {
     },
     "postsPerPage": {
       "id": "postsPerPage",
-      "value": "5"
+      "value": "-1"
     }
   },
   items: [],
@@ -9072,7 +9468,7 @@ var FilterableDefaultData = {
   filterItem: {
     "styles": {
       "backgroundColor": {
-        "Desktop": "#18978F"
+        "Desktop": "#6923F7"
       },
       "padding": {
         "Desktop": "5px 15px 5px 15px"
@@ -9097,7 +9493,7 @@ var FilterableDefaultData = {
     },
     "styles": {
       "backgroundColor": {
-        "Desktop": "#7d7d7d"
+        "Desktop": "#6923F7"
       }
     }
   },
@@ -9172,7 +9568,7 @@ var FilterableDefaultData = {
     },
     "styles": {
       "backgroundColor": {
-        "Desktop": "#18978F"
+        "Desktop": "#6923F7"
       },
       "padding": {
         "Desktop": "5px 15px 5px 15px"
@@ -9454,7 +9850,7 @@ var GridDefaultData = {
     },
     styles: {
       "backgroundColor": {
-        "Desktop": "#18978F"
+        "Desktop": "#6923F7"
       },
       "padding": {
         "Desktop": "10px 15px 10px 15px"
@@ -9787,7 +10183,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../tab */ "./src/components/tab/index.js");
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../tabs */ "./src/components/tabs/index.js");
 /* harmony import */ var _icon_toggle__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../icon-toggle */ "./src/components/icon-toggle/index.js");
-/* harmony import */ var _LayoutGenerator__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../LayoutGenerator */ "./src/components/LayoutGenerator/index.js");
+/* harmony import */ var _layout_generator__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../layout-generator */ "./src/components/layout-generator/index.js");
 /* harmony import */ var _items__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../items */ "./src/components/items/index.js");
 /* harmony import */ var _layouts__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./layouts */ "./src/components/Builder/layouts.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
@@ -10610,7 +11006,7 @@ function Html(props) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("label", {
               htmlFor: "",
               className: "flex gap-2 items-center",
-              children: ["Lazyload", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
+              children: ["Lazyload", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
                 className: "cursor-pointer",
                 title: "Click to know more",
                 onClick: () => {
@@ -12558,7 +12954,7 @@ function Html(props) {
             position: "bottom right",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
               className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_LayoutGenerator__WEBPACK_IMPORTED_MODULE_20__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_20__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
@@ -13334,7 +13730,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../tab */ "./src/components/tab/index.js");
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../tabs */ "./src/components/tabs/index.js");
 /* harmony import */ var _layouts__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./layouts */ "./src/components/Builder/layouts.js");
-/* harmony import */ var _LayoutGenerator__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../LayoutGenerator */ "./src/components/LayoutGenerator/index.js");
+/* harmony import */ var _layout_generator__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../layout-generator */ "./src/components/layout-generator/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__);
 const {
@@ -13576,41 +13972,60 @@ function Html(props) {
   function fetchPostTypeTerms(keyword) {
     var postTypes = [];
     var terms = [];
-    //setIsBusy(true);
-    //setFilterableTerms([]);
-    itemQueryArgs.map(x => {
-      if (x.id == "postType") {
-        postTypes.push(x.val);
-      }
-    });
-    var sss = _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
-      path: "/post-grid/v2/post_type_objects",
+    setIsBusy(true);
+    setFilterableTerms([]);
+    console.log(itemQueryArgs);
+    // itemQueryArgs.map((x) => {
+    // 	if (x.id == "postType") {
+    // 		postTypes.push(x.val);
+    // 	}
+    // });
+
+    postTypes = itemQueryArgs.postType.value;
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
+      path: "/post-grid/v2/get_tax_terms",
       method: "POST",
       data: {
-        postTypes: postTypes[0],
-        search: keyword
+        search: keyword,
+        postTypes: postTypes
       }
-    }).then(result => {
-      //setFilterablTerms(result);
-      result.length > 0 && result.map(x => {
-        _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
-          path: "/post-grid/v2/get_tax_terms",
-          method: "POST",
-          data: {
-            taxonomy: x.id,
-            search: keyword
-          }
-        }).then(res => {
-          //setFilterablTerms(res);
-          res.length > 0 && res.map(y => {
-            terms.push(y);
-          });
-          //setFilterableTerms(terms);
-          //setIsBusy(false);
-        });
+    }).then(res => {
+      //setFilterablTerms(res);
+      res.length > 0 && res.map(y => {
+        terms.push(y);
       });
-      //return result;
+      console.log(terms);
+      setFilterableTerms(terms);
+      setIsBusy(false);
     });
+
+    // var sss = apiFetch({
+    // 	path: "/post-grid/v2/post_type_objects",
+    // 	method: "POST",
+    // 	data: { postTypes: postTypes[0], search: keyword },
+    // }).then((result) => {
+    // 	//setFilterablTerms(result);
+
+    // 	result.length > 0 &&
+    // 		result.map((x) => {
+    // 			apiFetch({
+    // 				path: "/post-grid/v2/get_tax_terms",
+    // 				method: "POST",
+    // 				data: { taxonomy: x.id, search: keyword, postTypes: postTypes },
+    // 			}).then((res) => {
+    // 				//setFilterablTerms(res);
+    // 				res.length > 0 &&
+    // 					res.map((y) => {
+    // 						terms.push(y);
+    // 					});
+    // 				console.log(terms)
+
+    // 				setFilterableTerms(terms);
+    // 				setIsBusy(false);
+    // 			});
+    // 		});
+    // 	//return result;
+    // });
   }
   function generateStyleObj() {
     var styleObjX = {};
@@ -13820,7 +14235,7 @@ function Html(props) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
               htmlFor: "",
               className: "flex gap-2 items-center",
-              children: ["Lazyload", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("span", {
+              children: ["Lazyload", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("span", {
                 className: "cursor-pointer",
                 title: "Click to know more",
                 onClick: () => {
@@ -13897,7 +14312,7 @@ function Html(props) {
             position: "bottom right",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
               className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_LayoutGenerator__WEBPACK_IMPORTED_MODULE_21__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_21__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
@@ -14175,7 +14590,7 @@ function Html(props) {
                 });
               }), isBusy && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
                 className: "border-b border-gray-400 my-2 pb-1 bg-gray-200 p-2",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(Spinner, {})
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, {})
               }), filterableTerms.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
                 className: "bg-gray-200 p-2 mt-2",
                 children: filterableTerms.map(x => {
@@ -14205,10 +14620,10 @@ function Html(props) {
             });
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
             htmlFor: "",
             className: "font-medium text-slate-900 ",
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Enable Multifilter", "post-grid"), " "]
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Enable Multifilter", "post-grid")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
             label: "",
             value: globalOptions.multifilter,
@@ -14236,10 +14651,10 @@ function Html(props) {
             }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
             htmlFor: "",
             className: "font-medium text-slate-900 ",
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Enable Filter Toggle", "post-grid"), " "]
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Enable Filter Toggle", "post-grid")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
             label: "",
             value: globalOptions.filterToggle,
@@ -14268,10 +14683,10 @@ function Html(props) {
           })]
         }), globalOptions.multifilter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
               htmlFor: "",
               className: "font-medium text-slate-900 ",
-              children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Logic Within Group", "post-grid"), " "]
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Logic Within Group", "post-grid")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
               label: "",
               value: globalOptions.logicWithinGroup,
@@ -14299,10 +14714,10 @@ function Html(props) {
               }
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
               htmlFor: "",
               className: "font-medium text-slate-900 ",
-              children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Logic Between Groups", "post-grid"), " "]
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Logic Between Groups", "post-grid")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
               label: "",
               value: globalOptions.logicBetweenGroups,
@@ -14331,10 +14746,10 @@ function Html(props) {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
             htmlFor: "",
             className: "font-medium text-slate-900 ",
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show Sort Filter", "post-grid"), " "]
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show Sort Filter", "post-grid")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
             label: "",
             value: globalOptions.showSort,
@@ -14362,10 +14777,10 @@ function Html(props) {
             }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
             htmlFor: "",
             className: "font-medium text-slate-900 ",
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show Random Filter", "post-grid"), " "]
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show Random Filter", "post-grid")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
             label: "",
             value: globalOptions.showRandom,
@@ -14393,10 +14808,10 @@ function Html(props) {
             }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
             htmlFor: "",
             className: "font-medium text-slate-900 ",
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show Clear Filter", "post-grid"), " "]
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show Clear Filter", "post-grid")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
             label: "",
             value: globalOptions.showClear,
@@ -14424,10 +14839,10 @@ function Html(props) {
             }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("label", {
             htmlFor: "",
             className: "font-medium text-slate-900 ",
-            children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show All Filter", "post-grid"), " "]
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show All Filter", "post-grid")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
             label: "",
             value: globalOptions.showAll,
@@ -15063,7 +15478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _input_text__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../input-text */ "./src/components/input-text/index.js");
 /* harmony import */ var _input_toggle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../input-toggle */ "./src/components/input-toggle/index.js");
 /* harmony import */ var _input_wp_editor__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../input-wp-editor */ "./src/components/input-wp-editor/index.js");
-/* harmony import */ var _LayoutGenerator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../LayoutGenerator */ "./src/components/LayoutGenerator/index.js");
+/* harmony import */ var _layout_generator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../layout-generator */ "./src/components/layout-generator/index.js");
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../styles */ "./src/components/styles/index.js");
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../tab */ "./src/components/tab/index.js");
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../tabs */ "./src/components/tabs/index.js");
@@ -15569,7 +15984,7 @@ function Html(props) {
             position: "bottom right",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
               className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_LayoutGenerator__WEBPACK_IMPORTED_MODULE_14__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_14__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
@@ -16365,7 +16780,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _input_text__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../input-text */ "./src/components/input-text/index.js");
 /* harmony import */ var _input_toggle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../input-toggle */ "./src/components/input-toggle/index.js");
 /* harmony import */ var _input_wp_editor__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../input-wp-editor */ "./src/components/input-wp-editor/index.js");
-/* harmony import */ var _LayoutGenerator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../LayoutGenerator */ "./src/components/LayoutGenerator/index.js");
+/* harmony import */ var _layout_generator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../layout-generator */ "./src/components/layout-generator/index.js");
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../styles */ "./src/components/styles/index.js");
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../tab */ "./src/components/tab/index.js");
 /* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../tabs */ "./src/components/tabs/index.js");
@@ -16923,7 +17338,7 @@ function Html(props) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("label", {
               htmlFor: "",
               className: "flex gap-2 items-center",
-              children: ["Lazyload", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("span", {
+              children: ["Lazyload", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("span", {
                 className: "cursor-pointer",
                 title: "Click to know more",
                 onClick: () => {
@@ -17002,7 +17417,7 @@ function Html(props) {
             position: "bottom right",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
               className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_LayoutGenerator__WEBPACK_IMPORTED_MODULE_14__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_14__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
@@ -18626,7 +19041,7 @@ const {
 
 var myStore = wp.data.select('PostGridStore');
 function Html(props) {
-  var _optionData$user_role, _optionData$font_aw_v, _optionData$post_grid, _optionData$openaiApi, _optionData$license_k;
+  var _optionData$user_role, _optionData$font_aw_v, _optionData$post_grid, _optionData$license_k;
   if (!props.warn) {
     return null;
   }
@@ -19043,24 +19458,6 @@ function Html(props) {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
                 className: "my-5",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("label", {
-                  className: "text-base",
-                  htmlFor: "",
-                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Open AI API Key", "post-grid")
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_input_text__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                  label: "",
-                  className: "!py-1 px-2 !border-2 !border-[#8c8f94] !border-solid w-[250px]",
-                  value: (_optionData$openaiApi = optionData?.openaiApiKey) !== null && _optionData$openaiApi !== void 0 ? _optionData$openaiApi : "",
-                  onChange: newVal => {
-                    var optionsX = {
-                      ...optionData,
-                      openaiApiKey: newVal
-                    };
-                    setoptionData(optionsX);
-                  }
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
-                className: "my-5",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
                   className: "text-base",
                   htmlFor: "",
@@ -19128,7 +19525,7 @@ function Html(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)(_components_tab__WEBPACK_IMPORTED_MODULE_9__["default"], {
               name: "edit",
               children: [postData?.ID == null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
-                className: "py-3",
+                className: "py-3 px-3",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
                   className: "my-3 bg-orange-400 p-3  text-white  text-center animate__animated animate__flash animate__repeat-2",
                   children: "Please select post from list."
@@ -19212,7 +19609,7 @@ function Html(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)(_components_tab__WEBPACK_IMPORTED_MODULE_9__["default"], {
               name: "templates",
               children: [postData?.ID == null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
-                className: "py-3",
+                className: "py-3 px-3",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
                   className: "my-3 bg-orange-400 p-3  text-white  text-center animate__animated animate__flash animate__repeat-2",
                   children: "Please select post from list."
@@ -19238,7 +19635,7 @@ function Html(props) {
               className: "text-xl",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("i", {
                 class: "fa-solid fa-triangle-exclamation"
-              }), " Please test the Post Grid Builder and", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
+              }), " Please test the Post Grid Builder and", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
                 className: "font-bold cursor-pointer underline",
                 onClick: ev => {
                   settoggleSettings(!toggleSettings);
@@ -19259,6 +19656,8 @@ function Html(props) {
             onChangePostGrid: onChangePostGrid,
             postData: postData,
             id: activePostGrid,
+            settoggleSettings: settoggleSettings,
+            customerData: customerData,
             addNotifications: addNotifications,
             setHelp: setHelp
           })]
@@ -19782,6 +20181,10 @@ function Html(props) {
     id: "",
     confirm: false
   });
+  var [addNew, setaddNew] = useState({
+    enable: false,
+    title: ''
+  });
   const copyData = data => {
     navigator.clipboard.writeText(data).then(() => {
       addNotifications({
@@ -19857,7 +20260,7 @@ function Html(props) {
       path: "/post-grid/v2/create_post",
       method: "POST",
       data: {
-        postTitle: searchPrams.search
+        postTitle: addNew.title
       }
     }).then(res => {
       if (res.error) {
@@ -19873,7 +20276,7 @@ function Html(props) {
           ID: res.id,
           post_content: "",
           post_author: 0,
-          post_title: searchPrams.search
+          post_title: addNew.title
         });
         setPosts(postsX);
         addNotifications({
@@ -19881,6 +20284,11 @@ function Html(props) {
           content: res.successMessage,
           type: "success"
         });
+        var addNewX = {
+          ...addNew
+        };
+        addNewX.enable = !addNew.enable;
+        setaddNew(addNewX);
       }
       setisLoading(false);
       if (res.status) {}
@@ -20000,7 +20408,7 @@ function Html(props) {
       className: "my-4 flex items-center gap-3",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_input_text__WEBPACK_IMPORTED_MODULE_3__["default"], {
         value: searchPrams.search,
-        placeholder: "Search.../Add New...",
+        placeholder: "Search...",
         className: "!py-1 px-2 !border-2 !border-[#8c8f94] !border-solid w-[200px]",
         onChange: newVal => {
           var searchPramsX = {
@@ -20013,17 +20421,51 @@ function Html(props) {
           }, 3000); // 300ms debounce delay
           return () => clearTimeout(timer); // Cleanup timer on value change or unmount
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex items-center  gap-2 py-2 px-3 cursor-pointer  capitalize bg-gray-700 text-white font-medium rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600",
         onClick: ev => {
-          create_post();
+          var addNewX = {
+            ...addNew
+          };
+          addNewX.enable = !addNew.enable;
+          setaddNew(addNewX);
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
           fill: "#fff",
           icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-          children: "Create"
-        })]
+        })
+      }), addNew.enable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Popover, {
+        position: "bottom right",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "p-4 ",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_input_text__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            value: addNew.title,
+            placeholder: "Give a name",
+            className: "!py-1 px-2 mb-3 !border-2 !border-[#8c8f94] !border-solid w-[200px]",
+            onChange: newVal => {
+              var addNewX = {
+                ...addNew
+              };
+              addNewX.title = newVal;
+              setaddNew(addNewX);
+              const timer = setTimeout(() => {
+                // Update the debounced value after delay
+              }, 3000); // 300ms debounce delay
+              return () => clearTimeout(timer); // Cleanup timer on value change or unmount
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex items-center  gap-2 py-2 px-3 cursor-pointer  capitalize bg-gray-700 text-white font-medium rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600",
+            onClick: ev => {
+              create_post();
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              fill: "#fff",
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: "Create"
+            })]
+          })]
+        })
       }), !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: "cursor-pointer",
         title: "Click to know more",
@@ -20070,8 +20512,10 @@ function Html(props) {
           }, index), activePostGrid == item.ID && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: " px-3 flex flex-wrap align-middle items-center text-xs gap-3 my-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
                 className: "",
+                href: `${window.PostGrid.baseUrl}post.php?post=${item.ID}&action=edit`,
+                target: "_blank",
                 children: ["#", item.ID]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "cursor-pointer flex items-center",
@@ -20161,7 +20605,7 @@ function Html(props) {
         className: "bg-slate-700 text-white px-5 py-2 rounded-sm cursor-pointer hover:bg-slate-600",
         onClick: ev => {
           if (pagination.currentPage > 1) {
-            var currentPage = pagination.currentPage - 1;
+            var currentPage = parseInt(pagination.currentPage) - 1;
             setPagination({
               currentPage: currentPage
             });
@@ -20172,10 +20616,25 @@ function Html(props) {
           }
         },
         children: "Prev"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_input_text__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        value: pagination.currentPage,
+        type: "number",
+        placeholder: "Search.../Add New...",
+        className: "!py-1 px-2 text-center !border-2 !border-[#8c8f94] !border-solid w-[70px]",
+        onChange: newVal => {
+          newVal = parseInt(newVal);
+          setPagination({
+            currentPage: newVal
+          });
+          setlistQueryPrams({
+            ...listQueryPrams,
+            page: newVal
+          });
+        }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "bg-slate-700 text-white px-5 py-2 rounded-sm cursor-pointer hover:bg-slate-600",
         onClick: ev => {
-          var currentPage = pagination.currentPage + 1;
+          var currentPage = parseInt(pagination.currentPage) + 1;
           setPagination({
             currentPage: currentPage
           });
@@ -20469,13 +20928,14 @@ function Html(props) {
               var reponsiveCss = reponsiveCss.replaceAll(presetId, postId);
               PostGridDataX.reponsiveCss = reponsiveCss;
               var nthItemStyle = [];
-              Object.entries(PostGridDataX.nthItemStyle).map(item => {
-                console.log(item[1]);
-                nthItemStyle.push(item[1]);
-              });
+              if (PostGridDataX.nthItemStyle != undefined) {
+                Object.entries(PostGridDataX.nthItemStyle).map(item => {
+                  //console.log(item[1])
 
-              // console.log(nthItemStyle)
-
+                  nthItemStyle.push(item[1]);
+                });
+              }
+              console.log(PostGridDataX);
               PostGridDataX.nthItemStyle = nthItemStyle;
               onApplyTemplate(PostGridDataX);
               addNotifications({
@@ -20538,5135 +20998,6 @@ class Templates extends Component {
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Templates);
-
-/***/ }),
-
-/***/ "./src/components/LayoutGenerator/TreeView.jsx":
-/*!*****************************************************!*\
-  !*** ./src/components/LayoutGenerator/TreeView.jsx ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pages.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-sortablejs */ "./node_modules/react-sortablejs/dist/index.js");
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/components/LayoutGenerator/elements.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-const sortableOptions = {
-  animation: 150,
-  fallbackOnBody: true,
-  swapThreshold: 0.65,
-  ghostClass: "ghost",
-  group: "shared",
-  filter: ".no-drag",
-  preventOnFilter: false
-};
-const TreeView = ({
-  blocks,
-  setBlocks,
-  selected,
-  setSelected
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "flex items-center justify-between bg-slate-400 px-3 py-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "text-[20px] font-bold",
-        children: "Tree View"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-        className: "hover:bg-red-500 bg-slate-700 text-white px-5 py-2 rounded-sm cursor-pointer ",
-        onClick: () => setBlocks([{
-          id: 1,
-          type: "root",
-          children: [],
-          parent_id: null,
-          styles: {}
-        }]),
-        children: ["Remove All ", " ", " "]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "p-2",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__.ReactSortable, {
-        list: blocks,
-        setList: setBlocks,
-        ...sortableOptions,
-        children: blocks.map((block, blockIndex) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(BlockWrapper, {
-          block: block,
-          blockIndex: [blockIndex],
-          setBlocks: setBlocks,
-          selected: selected,
-          setSelected: setSelected
-        }, block.id))
-      })
-    })]
-  });
-};
-function Container({
-  block,
-  blockIndex,
-  setBlocks,
-  selected,
-  setSelected
-}) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__.ReactSortable, {
-      list: block.children,
-      setList: currentList => {
-        setBlocks(sourceList => {
-          const tempList = [...sourceList];
-          const _blockIndex = [...blockIndex];
-          const lastIndex = _blockIndex.pop();
-          const lastArr = _blockIndex.reduce((arr, i) => arr[i]["children"], tempList);
-          lastArr[lastIndex]["children"] = currentList;
-          return tempList;
-        });
-      },
-      ...sortableOptions,
-      children: block.children && block.children.map((childBlock, index) => {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(BlockWrapper, {
-          block: childBlock,
-          blockIndex: [...blockIndex, index],
-          setBlocks: setBlocks,
-          selected: selected,
-          setSelected: setSelected
-        }, childBlock.id);
-      })
-    }, block.id)
-  });
-}
-function BlockWrapper({
-  block,
-  blockIndex,
-  setBlocks,
-  selected,
-  setSelected
-}) {
-  if (!block) return null;
-  const handleRemove = () => {
-    if (block.type == "root") {
-      return;
-    }
-    setBlocks(prev => {
-      const updatedBlocks = [...prev];
-      removeNestedBlock(updatedBlocks, blockIndex);
-      return updatedBlocks;
-    });
-  };
-  const handleDuplicate = () => {
-    setBlocks(prev => {
-      const updatedBlocks = [...prev];
-      const duplicateBlock = block => {
-        // Create a deep clone of the block with a new ID
-        const newBlock = {
-          ...block,
-          id: Math.random(),
-          // Ensure a unique ID
-          children: block.children ? block.children.map(duplicateBlock) : [] // Recursively duplicate children
-        };
-        return newBlock;
-      };
-      const parentBlock = getNestedBlock(updatedBlocks, blockIndex.slice(0, -1));
-      const newBlock = duplicateBlock(block);
-      if (blockIndex.length === 1) {
-        // If the block is at the root level
-        updatedBlocks.splice(blockIndex[0] + 1, 0, newBlock);
-      } else {
-        // If the block is nested
-        parentBlock.children.splice(blockIndex[blockIndex.length - 1] + 1, 0, newBlock);
-      }
-      return updatedBlocks;
-    });
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: `block ${block.type == "root" ? "no-drag " : ""} ${block.type == "container" || block.type == "layer" ? "border-0 border-l border-solid" : ""} relative my-2  pl-2`,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: `flex items-center  border border-solid px-2 py-1 cursor-pointer hover:bg-gray-300 ${block.id == selected ? "bg-gray-300" : ""} `,
-      onClick: () => {
-        setSelected(block.id);
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        className: "flex-1 overflow-hidden truncate text-md",
-        children: _elements__WEBPACK_IMPORTED_MODULE_2__["default"][block.type] != undefined ? _elements__WEBPACK_IMPORTED_MODULE_2__["default"][block.type]?.label : block.type
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "flex items-center gap-2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "size-6 bg-red-500 flex items-center justify-center cursor-pointer",
-          onClick: handleRemove,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
-            fill: "#fff",
-            size: 18
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "size-6 bg-blue-500 flex items-center justify-center cursor-pointer",
-          onClick: handleDuplicate,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
-            fill: "#fff",
-            size: 18
-          })
-        })]
-      })]
-    }), ["root", "container", 'layer'].includes(block.type) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Container, {
-      block: block,
-      setBlocks: setBlocks,
-      blockIndex: blockIndex,
-      selected: selected,
-      setSelected: setSelected
-    })]
-  });
-}
-function getNestedBlock(blocks, indices) {
-  return indices.reduce((block, index) => block.children[index], {
-    children: blocks
-  });
-}
-function removeNestedBlock(blocks, indices) {
-  if (indices.length === 1) {
-    blocks.splice(indices[0], 1);
-  } else {
-    const parentBlock = getNestedBlock(blocks, indices.slice(0, -1));
-    parentBlock.children.splice(indices[indices.length - 1], 1);
-  }
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TreeView);
-
-/***/ }),
-
-/***/ "./src/components/LayoutGenerator/elements-options.js":
-/*!************************************************************!*\
-  !*** ./src/components/LayoutGenerator/elements-options.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/dropdown */ "./src/components/dropdown/index.js");
-/* harmony import */ var _components_icon_picker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/icon-picker */ "./src/components/icon-picker/index.js");
-/* harmony import */ var _components_radio_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/radio-control */ "./src/components/radio-control/index.js");
-/* harmony import */ var _components_animate_on__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/animate-on */ "./src/components/animate-on/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
-const {
-  Component
-} = wp.element;
-
-
-
-
-
-
-
-
-
-
-
-const ALLOWED_MEDIA_TYPES = ["image"];
-var thumbnailSizeArgs = {
-  full: {
-    label: "Full",
-    value: "full",
-    height: "",
-    width: "",
-    crop: false
-  },
-  thumbnail: {
-    label: "thumbnail(150*150)",
-    value: "thumbnail",
-    height: 150,
-    width: 150
-  },
-  medium: {
-    label: "medium(300*300)",
-    value: "medium",
-    height: 300,
-    width: 300
-  },
-  medium_large: {
-    label: "medium large(768*0)",
-    value: "medium_large",
-    height: 0,
-    width: 768
-  },
-  large: {
-    label: "large(1024*1024)",
-    value: "large",
-    height: 1024,
-    width: 1024
-  },
-  "1536x1536": {
-    label: "1536x1536(1536*1536)",
-    value: "1536x1536",
-    height: 1536,
-    width: 1536
-  },
-  "2048x2048": {
-    label: "2048x2048(2048*2048)",
-    value: "2048x2048",
-    height: 2048,
-    width: 2048
-  },
-  woocommerce_archive_thumbnail: {
-    label: "woocommerce archive thumbnail(500*500)",
-    value: "woocommerce_archive_thumbnail",
-    height: 500,
-    width: 500
-  },
-  woocommerce_thumbnail: {
-    label: "woocommerce thumbnail(300*300)",
-    value: "woocommerce_thumbnail",
-    height: 300,
-    width: 300
-  },
-  woocommerce_single: {
-    label: "woocommerce single(600*0)",
-    value: "woocommerce_single",
-    height: 0,
-    width: 600
-  },
-  woocommerce_gallery_thumbnail: {
-    label: "woocommerce gallery thumbnail(100*100)",
-    value: "woocommerce_gallery_thumbnail",
-    height: 100,
-    width: 100
-  }
-};
-var LinkToArgs = {
-  none: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
-    value: ""
-  },
-  postUrl: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Post URL", "post-grid"),
-    value: "postUrl"
-  },
-  homeUrl: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Home URL", "post-grid"),
-    value: "homeUrl"
-  },
-  authorUrl: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author URL", "post-grid"),
-    value: "authorUrl"
-  },
-  authorLink: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author Link", "post-grid"),
-    value: "authorLink"
-  },
-  authorMail: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author Mail", "post-grid"),
-    value: "authorMail",
-    isPro: true
-  },
-  authorMeta: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author Meta", "post-grid"),
-    value: "authorMeta",
-    isPro: true
-  },
-  customField: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Field", "post-grid"),
-    value: "customField",
-    isPro: true
-  },
-  customUrl: {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom URL", "post-grid"),
-    value: "customUrl",
-    isPro: true
-  }
-};
-var linkTargetArgs = {
-  _self: {
-    label: "_self",
-    value: "_self"
-  },
-  _blank: {
-    label: "_blank",
-    value: "_blank"
-  },
-  _parent: {
-    label: "_parent",
-    value: "_parent"
-  },
-  _top: {
-    label: "_top",
-    value: "_top"
-  }
-};
-var limitByArgs = {
-  words: {
-    label: "words",
-    value: "words"
-  },
-  characters: {
-    label: "characters",
-    value: "characters"
-  }
-};
-var dateFormats = {
-  "Y-M-d": {
-    label: "2022-Feb-25",
-    value: "Y-M-d"
-  },
-  "Y-m-d": {
-    label: "2022-05-25",
-    value: "Y-m-d"
-  },
-  "d-m-y": {
-    label: "25-05-2022",
-    value: "d-m-y"
-  },
-  "d/m/y": {
-    label: "25/05/2022",
-    value: "d/m/y"
-  },
-  "y-m-d": {
-    label: "2022-05-25",
-    value: "y-m-d"
-  },
-  "y/m/d": {
-    label: "2022/05/25",
-    value: "y/m/d"
-  },
-  "D M y": {
-    label: "Sun Feb 2022",
-    value: "D M y"
-  },
-  "D M d, y": {
-    label: "Sun Feb 11, 2022",
-    value: "D M d, y"
-  },
-  "M D d, y": {
-    label: "Feb Sun 11, 2022",
-    value: "M D d, y"
-  },
-  "M d, y": {
-    label: "Feb 11, 2022",
-    value: "M d, y"
-  },
-  "F d, y": {
-    label: "February 11, 2022",
-    value: "F d, y"
-  },
-  "d M y": {
-    label: "25 Feb 2022",
-    value: "d M y"
-  }
-};
-
-/*postTitle*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostTitle', 'post-grid/element', PostGridElementOptionspostTitle, 10);
-function PostGridElementOptionspostTitle(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*postThumbnail*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostThumbnail', 'post-grid/element', PostGridElementOptionspostThumbnail, 10);
-function PostGridElementOptionspostThumbnail(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Default Thumbnail", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaUpload, {
-          className: "bg-gray-700 hover:bg-gray-600",
-          onSelect: media => {
-            // media.id
-
-            handleChange("defaultSrcId", media.id);
-            handleChange("defaultSrcUrl", media.url);
-          },
-          onClose: () => {},
-          allowedTypes: ALLOWED_MEDIA_TYPES,
-          value: selectedElement.options.defaultSrcId,
-          render: ({
-            open
-          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-            className: "flex w-full justify-center items-center bg-gray-300/30 min-h-[200px] rounded-md border border-solid border-slate-400 hover:border-black transition-all duration-300 ease-in-out cursor-pointer mt-2 ",
-            onClick: open,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-              // src={MyLazy}
-              src: selectedElement.options.defaultSrcUrl,
-              alt: "",
-              className: " "
-            })
-          })
-        })
-      })]
-    })]
-  });
-}
-
-/*postExcerpt*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostExcerpt', 'post-grid/element', PostGridElementOptionspostExcerpt, 10);
-function PostGridElementOptionspostExcerpt(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Limit By", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: limitByArgs,
-        buttonTitle: selectedElement?.options?.limitBy == undefined || selectedElement?.options?.limitBy.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : limitByArgs[selectedElement?.options?.limitBy] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : limitByArgs[selectedElement?.options?.limitBy].label,
-        onChange: option => {
-          handleChange("limitBy", option.value);
-        },
-        values: []
-      })]
-    }), selectedElement?.options?.limitBy.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Limit Count", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.limitCount,
-        onChange: newVal => {
-          handleChange("limitCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Read More Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.readMoreText,
-        onChange: newVal => {
-          handleChange("readMoreText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*readMore*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionsreadMore', 'post-grid/element', PostGridElementOptionsreadMore, 10);
-function PostGridElementOptionsreadMore(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Read More Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.readMoreText,
-        onChange: newVal => {
-          handleChange("readMoreText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*customText*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionscustomText', 'post-grid/element', PostGridElementOptionscustomText, 10);
-function PostGridElementOptionscustomText(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Wrapper Tag", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
-        label: "",
-        value: selectedElement.options.customTag,
-        options: [{
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
-          value: ""
-        }, {
-          label: "a",
-          value: "a"
-        }, {
-          label: "H1",
-          value: "h1"
-        }, {
-          label: "H2",
-          value: "h2"
-        }, {
-          label: "H3",
-          value: "h3"
-        }, {
-          label: "H4",
-          value: "h4"
-        }, {
-          label: "H5",
-          value: "h5"
-        }, {
-          label: "H6",
-          value: "h6"
-        }, {
-          label: "SPAN",
-          value: "span"
-        }, {
-          label: "DIV",
-          value: "div"
-        }, {
-          label: "P",
-          value: "p"
-        }],
-        onChange: newVal => {
-          handleChange("customTag", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.content,
-        onChange: newVal => {
-          handleChange("content", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*container*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionscontainer', 'post-grid/element', PostGridElementOptionscontainer, 10);
-function PostGridElementOptionscontainer(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Animate On", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_animate_on__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        animateOn: selectedElement.options?.animateOn,
-        onChange: prams => {
-          handleChange("animateOn", prams);
-
-          //setAttributes({ animateOn: prams });
-        }
-      })]
-    })]
-  });
-}
-
-/*layer*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionslayer', 'post-grid/element', PostGridElementOptionslayer, 10);
-function PostGridElementOptionslayer(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Animate On", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_animate_on__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        animateOn: selectedElement.options?.animateOn,
-        onChange: prams => {
-          handleChange("animateOn", prams);
-
-          //setAttributes({ animateOn: prams });
-        }
-      })]
-    })]
-  });
-}
-
-/*postDate*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostDate', 'post-grid/element', PostGridElementOptionspostDate, 10);
-function PostGridElementOptionspostDate(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      className: "mb-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Date Format", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        variant: "secondary",
-        options: dateFormats
-        // buttonTitle="Choose"
-        ,
-        buttonTitle: dateFormats[selectedElement.options.format] != undefined ? dateFormats[selectedElement.options.format].label : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
-        onChange: option => {
-          handleChange("format", option.value);
-        },
-        values: ""
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      className: "mb-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Format", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        className: "mr-2",
-        value: selectedElement.options.format,
-        onChange: newVal => {
-          handleChange("format", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*postAuthor*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostAuthor', 'post-grid/element', PostGridElementOptionspostAuthor, 10);
-function PostGridElementOptionspostAuthor(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*postAuthorAvatar*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostAuthorAvatar', 'post-grid/element', PostGridElementOptionspostAuthorAvatar, 10);
-function PostGridElementOptionspostAuthorAvatar(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*postCategories*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostCategories', 'post-grid/element', PostGridElementOptionspostCategories, 10);
-function PostGridElementOptionspostCategories(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.maxCount,
-        onChange: newVal => {
-          handleChange("maxCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.separator,
-        onChange: newVal => {
-          handleChange("separator", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "gap-2 justify-between items-center flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        className: "font-medium text-slate-900",
-        children: "Enable Post Count?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
-        className: "flex items-center gap-2 py-2",
-        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
-        checked: selectedElement?.options?.postCount ? true : false,
-        onChange: newVal => {
-          handleChange("postCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*postTags*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostTags', 'post-grid/element', PostGridElementOptionspostTags, 10);
-function PostGridElementOptionspostTags(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.maxCount,
-        onChange: newVal => {
-          handleChange("maxCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.separator,
-        onChange: newVal => {
-          handleChange("separator", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "gap-2 justify-between items-center flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        className: "font-medium text-slate-900",
-        children: "Enable Post Count?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
-        className: "flex items-center gap-2 py-2",
-        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
-        checked: selectedElement?.options?.postCount ? true : false,
-        onChange: newVal => {
-          handleChange("postCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*wooPrice*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooPrice', 'post-grid/element', PostGridElementOptionswooPrice, 10);
-function PostGridElementOptionswooPrice(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Currency Symbole", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.currencySymbole,
-        onChange: newVal => {
-          handleChange("currencySymbole", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.separatorText,
-        onChange: newVal => {
-          handleChange("separatorText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Preview for?", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
-        label: "",
-        value: selectedElement.options.previewFor,
-        options: [{
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
-          value: ""
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Simple Product", "post-grid"),
-          value: "simple"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Variable Product", "post-grid"),
-          value: "variable"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Grouped Product", "post-grid"),
-          value: "grouped"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("external Product", "post-grid"),
-          value: "external"
-        }],
-        onChange: newVal => {
-          handleChange("previewFor", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooSaleBadge*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooSaleBadge', 'post-grid/element', PostGridElementOptionswooSaleBadge, 10);
-function PostGridElementOptionswooSaleBadge(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("OnSale Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.onSaleText,
-        onChange: newVal => {
-          handleChange("onSaleText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooSKU*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooSKU', 'post-grid/element', PostGridElementOptionswooSKU, 10);
-function PostGridElementOptionswooSKU(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Dafault SKU Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.dafaultSKUText,
-        onChange: newVal => {
-          handleChange("dafaultSKUText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooStockQuantity*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooStockQuantity', 'post-grid/element', PostGridElementOptionswooStockQuantity, 10);
-function PostGridElementOptionswooStockQuantity(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Dafult Quantity", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.dafultQuantity,
-        onChange: newVal => {
-          handleChange("dafultQuantity", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooInStock*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooInStock', 'post-grid/element', PostGridElementOptionswooInStock, 10);
-function PostGridElementOptionswooInStock(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("In Stock Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.inStockText,
-        onChange: newVal => {
-          handleChange("inStockText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Out Of Stock Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.outOfStockText,
-        onChange: newVal => {
-          handleChange("outOfStockText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("BackOrder Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.backOrderText,
-        onChange: newVal => {
-          handleChange("backOrderText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Preview for?", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
-        label: "",
-        value: selectedElement.options.previewFor,
-        options: [{
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
-          value: ""
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("In Stock Text", "post-grid"),
-          value: "inStockText"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Out Of Stock Text", "post-grid"),
-          value: "outOfStockText"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Back Order Text", "post-grid"),
-          value: "backOrderText"
-        }],
-        onChange: newVal => {
-          handleChange("previewFor", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooTotalSales*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooTotalSales', 'post-grid/element', PostGridElementOptionswooTotalSales, 10);
-function PostGridElementOptionswooTotalSales(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Default Sale Count", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.defaultSaleCount,
-        onChange: newVal => {
-          handleChange("defaultSaleCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooProductRatings*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooProductRatings', 'post-grid/element', PostGridElementOptionswooProductRatings, 10);
-function PostGridElementOptionswooProductRatings(html, selectedElement, handleChange) {
-  var summaryTypeArgs = {
-    pgNone: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("None", "post-grid"),
-      value: ""
-    },
-    pg01: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("123 customer reviews", "post-grid"),
-      value: "{review_count} customer reviews"
-    },
-    pg02: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("4.50/5.00", "post-grid"),
-      value: "{average_rating}/5.00",
-      isPro: true
-    },
-    pg03: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("4.50 out of 5.00", "post-grid"),
-      value: "{average_rating} out of 5.00",
-      isPro: true
-    },
-    pg04: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("4.50(123 reviews)", "post-grid"),
-      value: "{average_rating}({review_count} reviews)",
-      isPro: true
-    },
-    pg05: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom", "post-grid"),
-      value: "custom",
-      isPro: true
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Default Rating", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.defaultRating,
-        onChange: newVal => {
-          handleChange("defaultRating", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Idle Icon", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        library: selectedElement.options.iconsIdle.library,
-        srcType: selectedElement.options.iconsIdle.srcType,
-        iconSrc: selectedElement.options.iconsIdle.iconSrc,
-        onChange: arg => {
-          handleChange("iconsIdle", {
-            srcType: arg.srcType,
-            library: arg.library,
-            iconSrc: arg.iconSrc
-          });
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Idle Icon", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        library: selectedElement.options.iconsFilled.library,
-        srcType: selectedElement.options.iconsFilled.srcType,
-        iconSrc: selectedElement.options.iconsFilled.iconSrc,
-        onChange: arg => {
-          handleChange("iconsFilled", {
-            srcType: arg.srcType,
-            library: arg.library,
-            iconSrc: arg.iconSrc
-          });
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_radio_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      selected: selectedElement.summaryType,
-      options: summaryTypeArgs,
-      label: "Summary Type",
-      name: "summaryType",
-      onChange: option => {
-        console.log(option);
-        handleChange("summaryType", option.value);
-      }
-    }), selectedElement.summaryType == "custom" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "my-3 relative",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
-          htmlFor: "",
-          className: "font-medium text-slate-900 ",
-          children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Summary", "post-grid"), " "]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-          value: selectedElement.summaryTypeCustom,
-          placeholder: "{average_rating} out of 5.00",
-          onClick: () => {
-            if (isProFeature) {
-              setIsVisible(!isVisible);
-            }
-          },
-          disabled: isProFeature ? true : false,
-          onChange: newVal => {
-            handleChange("summaryTypeCustom", newVal);
-          }
-        }), isProFeature && isVisible && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-          href: "https://comboblocks.com/pricing/",
-          target: "_blank",
-          className: "absolute bottom-2 right-0 bg-gray-700 text-white hover:text-white no-underline px-2 rounded-sm py-1 ",
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Subscribe to use", "post-grid")
-        })
-        // </div>
-        ]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Please use following tags:", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("ul", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
-            children: "{rating_count}"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
-            children: "{review_count}"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
-            children: "{average_rating}"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
-            children: "{product_title}"
-          })
-        })]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooAddToCart*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooAddToCart', 'post-grid/element', PostGridElementOptionswooAddToCart, 10);
-function PostGridElementOptionswooAddToCart(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Add To Cart Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.addToCartText,
-        onChange: newVal => {
-          handleChange("addToCartText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enable Quantity", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
-        className: "flex items-center gap-2 py-2",
-        help: selectedElement?.options?.quantityEnable ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
-        checked: selectedElement?.options?.quantityEnable ? true : false,
-        onChange: newVal => {
-          handleChange("quantityEnable", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose Icon", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        library: selectedElement.options.icon?.library,
-        srcType: selectedElement.options.icon?.srcType,
-        iconSrc: selectedElement.options.icon?.iconSrc,
-        onChange: arg => {
-          handleChange("icon", {
-            srcType: arg.srcType,
-            library: arg.library,
-            iconSrc: arg.iconSrc
-          });
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Icon position", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
-        label: "",
-        value: selectedElement.options.iconPosition,
-        options: [{
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose Position", "post-grid"),
-          value: ""
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Cart Text", "post-grid"),
-          value: "beforeCartText"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("After Cart Text", "post-grid"),
-          value: "afterCartText"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Prefix", "post-grid"),
-          value: "beforePrefix"
-        }, {
-          label: "After Prefix",
-          value: "afterPrefix"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Postfix", "post-grid"),
-          value: "beforePostfix"
-        }, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Postfix", "post-grid"),
-          value: "afterPostfix"
-        }],
-        onChange: newVal => {
-          handleChange("iconPosition", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    })]
-  });
-}
-
-/*wooCategories*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooCategories', 'post-grid/element', PostGridElementOptionswooCategories, 10);
-function PostGridElementOptionswooCategories(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.maxCount,
-        onChange: newVal => {
-          handleChange("maxCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.separator,
-        onChange: newVal => {
-          handleChange("separator", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "gap-2 justify-between items-center flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        className: "font-medium text-slate-900",
-        children: "Enable Post Count?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
-        className: "flex items-center gap-2 py-2",
-        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
-        checked: selectedElement?.options?.postCount ? true : false,
-        onChange: newVal => {
-          handleChange("postCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/*wooTags*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooTags', 'post-grid/element', PostGridElementOptionswooTags, 10);
-function PostGridElementOptionswooTags(html, selectedElement, handleChange) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.class,
-        onChange: newVal => {
-          handleChange("class", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.maxCount,
-        onChange: newVal => {
-          handleChange("maxCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.separator,
-        onChange: newVal => {
-          handleChange("separator", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "gap-2 justify-between items-center flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        className: "font-medium text-slate-900",
-        children: "Enable Post Count?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
-        className: "flex items-center gap-2 py-2",
-        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
-        checked: selectedElement?.options?.postCount ? true : false,
-        onChange: newVal => {
-          handleChange("postCount", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.prefixText,
-        onChange: newVal => {
-          handleChange("prefixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
-        value: selectedElement?.options?.postfixText,
-        onChange: newVal => {
-          handleChange("postfixText", newVal);
-        }
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: LinkToArgs,
-        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
-        onChange: option => {
-          handleChange("linkTo", option.value);
-        },
-        values: []
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        options: linkTargetArgs,
-        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
-        onChange: option => {
-          handleChange("target", option.value);
-        },
-        values: []
-      })]
-    })]
-  });
-}
-
-/***/ }),
-
-/***/ "./src/components/LayoutGenerator/elements-preview.js":
-/*!************************************************************!*\
-  !*** ./src/components/LayoutGenerator/elements-preview.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
-const {
-  Component
-} = wp.element;
-
-
-
-
-
-/*postTitle*/
-
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostTitle', 'post-grid/element', PostGridElementHtmlPreviewpostTitle, 10);
-function PostGridElementHtmlPreviewpostTitle(html, block, setCurretnElement) {
-  var options = block.options;
-  var target = options.target;
-  var linkTo = options.linkTo;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [linkTo?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "#",
-      target: target,
-      children: "How to Get the Best Deals on Email Verification Services"
-    }), linkTo?.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: "How to Get the Best Deals on Email Verification Services"
-    })]
-  });
-}
-
-/*postId*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostId', 'post-grid/element', PostGridElementHtmlPreviewpostId, 10);
-function PostGridElementHtmlPreviewpostId(html, block, setCurretnElement) {
-  var options = block.options;
-  var target = options.target;
-  var linkTo = options.linkTo;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [linkTo?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "#",
-      target: target,
-      children: block.id
-    }), linkTo?.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: block.id
-    })]
-  });
-}
-
-/*readMore*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewreadMore', 'post-grid/element', PostGridElementHtmlPreviewreadMore, 10);
-function PostGridElementHtmlPreviewreadMore(html, block, setCurretnElement) {
-  var options = block.options;
-  var target = options.target;
-  var readMoreText = options.readMoreText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-    onClick: ev => {
-      ev.preventDefault();
-    },
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    target: target,
-    href: "#",
-    children: readMoreText
-  });
-}
-/*customText*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewcustomText', 'post-grid/element', PostGridElementHtmlPreviewcustomText, 10);
-function PostGridElementHtmlPreviewcustomText(html, block, setCurretnElement) {
-  var options = block.options;
-  var tag = options.tag;
-  var content = options.content;
-  const CustomTagWrapper = `${tag}`;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(CustomTagWrapper, {
-    onClick: ev => {
-      ev.preventDefault();
-    },
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: content
-  });
-}
-
-/*postExcerpt*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostExcerpt', 'post-grid/element', PostGridElementHtmlPreviewpostExcerpt, 10);
-function PostGridElementHtmlPreviewpostExcerpt(html, block, setCurretnElement) {
-  var options = block.options;
-  var limitBy = options.limitBy;
-  var limitCount = options.limitCount;
-  var target = options.target;
-  var readMoreText = options.readMoreText;
-  var excerptText = "In todays digital landscape, email marketing remains one of the most effective ways to engage customers and drive conversions. However, sending emails to invalid or unverified addresses can lead to spam complaints, high bounce rates, and even blacklisting. This not…";
-  var count = limitCount > 0 ? limitCount : 999;
-  if (limitBy == "character") {
-    excerptText = excerptText.substring(0, count);
-  } else if (limitBy == "word") {
-    setPostExcerptEdited(excerptText = excerptText.split(" ").splice(0, count).join(" "));
-  }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-      className: "excerpt-text",
-      children: excerptText
-    }), readMoreText.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "#",
-      target: target,
-      className: "redmore",
-      children: readMoreText
-    })]
-  });
-}
-
-/*postDate*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostDate', 'post-grid/element', PostGridElementHtmlPreviewpostDate, 10);
-function PostGridElementHtmlPreviewpostDate(html, block, setCurretnElement) {
-  var options = block.options;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var linkTo = options.linkTo;
-  var target = options.target;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), linkTo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "#",
-      target: target,
-      className: "post-date-label",
-      children: "12/05/2025"
-    }), linkTo.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "post-date-label",
-      children: "12/05/2025"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*postAuthor*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostAuthor', 'post-grid/element', PostGridElementHtmlPreviewpostAuthor, 10);
-function PostGridElementHtmlPreviewpostAuthor(html, block, setCurretnElement) {
-  var options = block.options;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var linkTo = options.linkTo;
-  var target = options.target;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), linkTo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "#",
-      target: target,
-      className: "author-name",
-      children: "PickPlugins"
-    }), linkTo.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "author-name",
-      children: "PickPlugins"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*postAuthorAvatar*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostAuthorAvatar', 'post-grid/element', PostGridElementHtmlPreviewpostAuthorAvatar, 10);
-function PostGridElementHtmlPreviewpostAuthorAvatar(html, block, setCurretnElement) {
-  var options = block.options;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var linkTo = options.linkTo;
-  var target = options.target;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), linkTo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "#",
-      target: target,
-      className: "author-link",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: "avatar",
-        src: "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018",
-        alt: ""
-      })
-    }), linkTo.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-      className: "avatar",
-      src: "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018",
-      alt: ""
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*postCategories*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostCategories', 'post-grid/element', PostGridElementHtmlPreviewpostCategories, 10);
-function PostGridElementHtmlPreviewpostCategories(html, block, setCurretnElement) {
-  var options = block?.options;
-  var maxCount = options?.maxCount;
-  var prefixText = options?.prefixText;
-  var postfixText = options?.postfixText;
-  var target = options?.target;
-  var postCount = options?.postCount;
-  var separator = options?.separator;
-  var categories = [{
-    title: 'Category 1',
-    count: 123
-  }, {
-    title: 'Category 2',
-    count: 124
-  }, {
-    title: 'Category 3',
-    count: 125
-  }, {
-    title: 'Category 4',
-    count: 126
-  }, {
-    title: 'Category 5',
-    count: 127
-  }];
-  var MaxCategories = categories.slice(0, maxCount);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "terms-items",
-      children: MaxCategories.map((category, index) => {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "term-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-            onClick: ev => {
-              ev.preventDefault();
-            },
-            className: "term-link",
-            href: "#",
-            target: target,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "term-title",
-              children: category.title
-            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "post-count",
-              children: `(${category.count})`
-            })]
-          }), MaxCategories.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "separator",
-            children: separator
-          }), "          "]
-        });
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*postTags*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostTags', 'post-grid/element', PostGridElementHtmlPreviewpostTags, 10);
-function PostGridElementHtmlPreviewpostTags(html, block, setCurretnElement) {
-  var options = block?.options;
-  var maxCount = options?.maxCount;
-  var prefixText = options?.prefixText;
-  var postfixText = options?.postfixText;
-  var target = options?.target;
-  var postCount = options?.postCount;
-  var separator = options?.separator;
-  var tags = [{
-    title: 'Tag 1',
-    count: 123
-  }, {
-    title: 'Tag 2',
-    count: 124
-  }, {
-    title: 'Tag 3',
-    count: 125
-  }, {
-    title: 'Tag 4',
-    count: 126
-  }];
-  var MaxTags = tags.slice(0, maxCount);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "terms-items",
-      children: MaxTags.map((tag, index) => {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "term-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-            onClick: ev => {
-              ev.preventDefault();
-            },
-            className: "term-link",
-            href: "#",
-            target: target,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "term-title",
-              children: tag.title
-            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "post-count",
-              children: `(${tag.count})`
-            })]
-          }), MaxTags.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "separator",
-            children: separator
-          })]
-        });
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*commentsCount*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewcommentsCount', 'post-grid/element', PostGridElementHtmlPreviewcommentsCount, 10);
-function PostGridElementHtmlPreviewcommentsCount(html, block, setCurretnElement) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: "commentsCount"
-  });
-}
-/*wooProductRatings*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooProductRatings', 'post-grid/element', PostGridElementHtmlPreviewwooProductRatings, 10);
-function PostGridElementHtmlPreviewwooProductRatings(html, block, setCurretnElement) {
-  var options = block?.options;
-  var iconsIdle = options.iconsIdle;
-  var iconsFilled = options.iconsFilled;
-  var defaultRating = options.defaultRating;
-  var summaryType = options.summaryType;
-  var summaryTypeCustom = options.summaryTypeCustom;
-  var summaryLinkTo = options.summaryLinkTo;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var iconsIdleHtml = `<span class="${iconsIdle.iconSrc}"></span>`;
-  var iconsFilledHtml = `<span class="${iconsFilled.iconSrc}"></span>`;
-  function replaceAll(str, correction) {
-    Object.keys(correction).forEach(key => {
-      str = str.replaceAll(key, correction[key]);
-    });
-    return str;
-  }
-  var map = {
-    "{rating_count}": "",
-    "{review_count}": "",
-    "{average_rating}": "",
-    "{product_title}": ""
-  };
-  const [ratingMap, setratingMap] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(map);
-  var filledValue = parseFloat(defaultRating) * 20 + "%";
-  var filledStyles = {
-    width: filledValue
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [prefixText.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "icons-wrap",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "icons-idle",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: ``,
-          dangerouslySetInnerHTML: {
-            __html: iconsIdleHtml
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: ``,
-          dangerouslySetInnerHTML: {
-            __html: iconsIdleHtml
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: ``,
-          dangerouslySetInnerHTML: {
-            __html: iconsIdleHtml
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: ``,
-          dangerouslySetInnerHTML: {
-            __html: iconsIdleHtml
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: ``,
-          dangerouslySetInnerHTML: {
-            __html: iconsIdleHtml
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "icons-filled",
-          style: filledStyles,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: ``,
-            dangerouslySetInnerHTML: {
-              __html: iconsFilledHtml
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: ``,
-            dangerouslySetInnerHTML: {
-              __html: iconsFilledHtml
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: ``,
-            dangerouslySetInnerHTML: {
-              __html: iconsFilledHtml
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: ``,
-            dangerouslySetInnerHTML: {
-              __html: iconsFilledHtml
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: ``,
-            dangerouslySetInnerHTML: {
-              __html: iconsFilledHtml
-            }
-          })]
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "summary",
-      children: [summaryType !== "custom" && summaryType !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-        children: replaceAll(summaryType, ratingMap)
-      }), summaryType == "custom" && summaryTypeCustom.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-        children: replaceAll(summaryTypeCustom, ratingMap)
-      })]
-    }), postfixText.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*shareButton*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewshareButton', 'post-grid/element', PostGridElementHtmlPreviewshareButton, 10);
-function PostGridElementHtmlPreviewshareButton(html, block, setCurretnElement) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: "shareButton"
-  });
-}
-
-/*postContent*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostContent', 'post-grid/element', PostGridElementHtmlPreviewpostContent, 10);
-function PostGridElementHtmlPreviewpostContent(html, block, setCurretnElement) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: "Affiliate marketers depend heavily on email marketing to drive sales and connect with leads. However, when email lists are not verified, they can lead to higher bounce rates, spam complaints, and even blacklisting by email providers. This section will introduce\u2026"
-  });
-}
-
-/*postThumbnail*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostThumbnail', 'post-grid/element', PostGridElementHtmlPreviewpostThumbnail, 10);
-function PostGridElementHtmlPreviewpostThumbnail(html, block, setCurretnElement) {
-  var elementOptions = block.options;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-      src: elementOptions.defaultSrcUrl,
-      alt: ""
-    })
-  });
-}
-
-/*postMeta*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostMeta', 'post-grid/element', PostGridElementHtmlPreviewpostMeta, 10);
-function PostGridElementHtmlPreviewpostMeta(html, block, setCurretnElement) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: "Post Meta"
-  });
-}
-
-/*wooPrice*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooPrice', 'post-grid/element', PostGridElementHtmlPreviewwooPrice, 10);
-function PostGridElementHtmlPreviewwooPrice(html, block, setCurretnElement) {
-  var _options$previewFor;
-  var options = block.options;
-  var currencySymbole = options.currencySymbole;
-  var currencyPosition = options.currencyPosition;
-  var separatorText = options.separatorText;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var previewFor = (_options$previewFor = options.previewFor) !== null && _options$previewFor !== void 0 ? _options$previewFor : 'simple';
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), previewFor == 'simple' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "regular",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "currency",
-          children: currencySymbole
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "price-value",
-          children: "123"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "sale-price",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "currency",
-          children: currencySymbole
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "price-value",
-          children: "250"
-        })]
-      })]
-    }), previewFor == 'variable' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "regular",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "currency",
-          children: currencySymbole
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "price-value",
-          children: "123"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "separator",
-        children: separatorText
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "sale-price",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "currency",
-          children: currencySymbole
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "price-value",
-          children: "250"
-        })]
-      })]
-    }), previewFor == 'grouped' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "regular",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "currency",
-          children: currencySymbole
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "price-value",
-          children: "123"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "separator",
-        children: separatorText
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "sale-price",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "currency",
-          children: currencySymbole
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-          className: "price-value",
-          children: "250"
-        })]
-      })]
-    }), previewFor == 'external' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooSaleBadge*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooSaleBadge', 'post-grid/element', PostGridElementHtmlPreviewwooSaleBadge, 10);
-function PostGridElementHtmlPreviewwooSaleBadge(html, block, setCurretnElement) {
-  var options = block.options;
-  var onSaleText = options.onSaleText;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "on-sale-badge",
-      children: onSaleText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooSKU*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooSKU', 'post-grid/element', PostGridElementHtmlPreviewwooSKU, 10);
-function PostGridElementHtmlPreviewwooSKU(html, block, setCurretnElement) {
-  var options = block.options;
-  var dafaultSKUText = options.dafaultSKUText;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "sku",
-      children: dafaultSKUText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooStockQuantity*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooStockQuantity', 'post-grid/element', PostGridElementHtmlPreviewwooStockQuantity, 10);
-function PostGridElementHtmlPreviewwooStockQuantity(html, block, setCurretnElement) {
-  var options = block.options;
-  var dafultQuantity = options.dafultQuantity;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "stock-quantity",
-      children: dafultQuantity
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooInStock*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooInStock', 'post-grid/element', PostGridElementHtmlPreviewwooInStock, 10);
-function PostGridElementHtmlPreviewwooInStock(html, block, setCurretnElement) {
-  var _options$previewFor2;
-  var options = block.options;
-  var inStockText = options.inStockText;
-  var outOfStockText = options.outOfStockText;
-  var backOrderText = options.backOrderText;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var previewFor = (_options$previewFor2 = options.previewFor) !== null && _options$previewFor2 !== void 0 ? _options$previewFor2 : 'inStockText';
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), previewFor == 'inStockText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "instock",
-      children: inStockText
-    }), previewFor == 'outOfStockText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "outofstock",
-      children: outOfStockText
-    }), previewFor == 'backOrderText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "onbackorder",
-      children: backOrderText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooTotalSales*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooTotalSales', 'post-grid/element', PostGridElementHtmlPreviewwooTotalSales, 10);
-function PostGridElementHtmlPreviewwooTotalSales(html, block, setCurretnElement) {
-  var options = block.options;
-  var defaultSaleCount = options.defaultSaleCount;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "sale-count",
-      children: defaultSaleCount
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooAddToCart*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooAddToCart', 'post-grid/element', PostGridElementHtmlPreviewwooAddToCart, 10);
-function PostGridElementHtmlPreviewwooAddToCart(html, block, setCurretnElement) {
-  var options = block.options;
-  var addToCartText = options.addToCartText;
-  var quantityEnable = options.quantityEnable;
-  var icon = options.icon;
-  var iconPosition = options.iconPosition;
-  var prefixText = options.prefixText;
-  var postfixText = options.postfixText;
-  var iconSrc = icon?.iconSrc;
-  var iconHtml = `<span class="${iconSrc}"></span>`;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    className: `${block.type}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [iconPosition == "beforePrefix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: `icon-wrap`,
-      dangerouslySetInnerHTML: {
-        __html: iconHtml
-      }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), iconPosition == "afterPrefix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: `icon-wrap`,
-      dangerouslySetInnerHTML: {
-        __html: iconHtml
-      }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-      className: "cartBtn",
-      onClick: ev => {
-        ev.preventDefault();
-      },
-      href: "?add-to-cart=1399",
-      "data-quantity": "1",
-      "data-product_id": "1399",
-      "data-product_sku": "woo-polo",
-      "aria-label": "Add \u201CPolo\u201D to your cart",
-      "aria-describedby": "",
-      rel: "nofollow",
-      children: [iconPosition == "beforeCartText" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        className: "icon-wrap",
-        dangerouslySetInnerHTML: {
-          __html: iconHtml
-        }
-      }), addToCartText, iconPosition == "afterCartText" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        className: "icon-wrap",
-        dangerouslySetInnerHTML: {
-          __html: iconHtml
-        }
-      })]
-    }), quantityEnable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "quantityWrap",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "quantityIncrease",
-        children: "+"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        size: "3",
-        type: "text",
-        inputMode: "numeric",
-        className: "quantityInput",
-        placeholder: "1",
-        value: '3'
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "quantityDecrease",
-        children: "-"
-      })]
-    }), iconPosition == "beforePostfix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: `icon-wrap`,
-      dangerouslySetInnerHTML: {
-        __html: iconHtml
-      }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    }), iconPosition == "afterPostfix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: `icon-wrap`,
-      dangerouslySetInnerHTML: {
-        __html: iconHtml
-      }
-    })]
-  });
-}
-
-/*wooCategories*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooCategories', 'post-grid/element', PostGridElementHtmlPreviewwooCategories, 10);
-function PostGridElementHtmlPreviewwooCategories(html, block, setCurretnElement) {
-  var options = block?.options;
-  var maxCount = options?.maxCount;
-  var prefixText = options?.prefixText;
-  var postfixText = options?.postfixText;
-  var target = options?.target;
-  var postCount = options?.postCount;
-  var separator = options?.separator;
-  var categories = [{
-    title: 'Category 1',
-    count: 123
-  }, {
-    title: 'Category 2',
-    count: 124
-  }, {
-    title: 'Category 3',
-    count: 125
-  }, {
-    title: 'Category 4',
-    count: 126
-  }, {
-    title: 'Category 5',
-    count: 127
-  }];
-  var MaxCategories = categories.slice(0, maxCount);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "terms-items",
-      children: MaxCategories.map((category, index) => {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "term-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-            onClick: ev => {
-              ev.preventDefault();
-            },
-            className: "term-link",
-            href: "#",
-            target: target,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "term-title",
-              children: category.title
-            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "post-count",
-              children: `(${category.count})`
-            })]
-          }), MaxCategories.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "separator",
-            children: separator
-          }), "          "]
-        });
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/*wooTags*/
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooTags', 'post-grid/element', PostGridElementHtmlPreviewwooTags, 10);
-function PostGridElementHtmlPreviewwooTags(html, block, setCurretnElement) {
-  var options = block?.options;
-  var maxCount = options?.maxCount;
-  var prefixText = options?.prefixText;
-  var postfixText = options?.postfixText;
-  var target = options?.target;
-  var postCount = options?.postCount;
-  var separator = options?.separator;
-  var tags = [{
-    title: 'Tag 1',
-    count: 123
-  }, {
-    title: 'Tag 2',
-    count: 124
-  }, {
-    title: 'Tag 3',
-    count: 125
-  }, {
-    title: 'Tag 4',
-    count: 126
-  }];
-  var MaxTags = tags.slice(0, maxCount);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    id: `element-${block.id}`,
-    onClick: ev => {
-      setCurretnElement(block.id);
-    },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "prefix",
-      children: prefixText
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "terms-items",
-      children: MaxTags.map((tag, index) => {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "term-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-            onClick: ev => {
-              ev.preventDefault();
-            },
-            className: "term-link",
-            href: "#",
-            target: target,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "term-title",
-              children: tag.title
-            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "post-count",
-              children: `(${tag.count})`
-            })]
-          }), MaxTags.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "separator",
-            children: separator
-          })]
-        });
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "postfix",
-      children: postfixText
-    })]
-  });
-}
-
-/***/ }),
-
-/***/ "./src/components/LayoutGenerator/elements.js":
-/*!****************************************************!*\
-  !*** ./src/components/LayoutGenerator/elements.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var elements = {
-  postTitle: {
-    type: "postTitle",
-    label: "Post Title",
-    placeholder: "New Study Reveals Top 5 Marketing Tactics Fueling Brand Growth in 2025",
-    options: {
-      linkTo: '',
-      target: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Title Wrapper',
-        styles: {
-          "fontSize": {
-            "Desktop": "16px"
-          }
-        }
-      },
-      a: {
-        handle: "a",
-        label: 'Post Title Link',
-        styles: {}
-      }
-    },
-    category: ['general']
-  },
-  postExcerpt: {
-    type: "postExcerpt",
-    label: "Post Excerpt",
-    placeholder: "A recent industry report has uncovered the five most effective marketing strategies driving exponential brand growth this year. Experts say these tactics, including AI-powered personalization and micro-influencer partnerships, are reshaping how companies connect with consumers. Marketers are urged to adapt quickly or risk falling behind.",
-    options: {
-      limitBy: "",
-      limitCount: 20,
-      readMoreText: "Read More",
-      target: ""
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Excerpt Wrapper',
-        styles: {}
-      },
-      'excerpt-text': {
-        handle: ".excerpt-text",
-        label: 'Excerpt Text',
-        styles: {
-          "fontSize": {
-            "Desktop": "16px"
-          }
-        }
-      },
-      redmore: {
-        handle: ".redmore",
-        label: 'Redmore Text',
-        styles: {
-          "fontSize": {
-            "Desktop": "18px"
-          }
-        }
-      }
-    },
-    category: ['general']
-  },
-  postDate: {
-    type: "postDate",
-    label: "Post Date",
-    placeholder: "12/05/2025",
-    options: {
-      prefixText: 'Post Date: ',
-      postfixText: "",
-      format: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    category: ['general'],
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Author Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  postAuthor: {
-    type: "postAuthor",
-    label: "Post Author",
-    options: {
-      prefixText: 'Author: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    category: ['general'],
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Author Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  postAuthorAvatar: {
-    type: "postAuthorAvatar",
-    label: "Post Author Avatar",
-    options: {
-      prefixText: 'Author: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    category: ['general'],
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Author Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          },
-          "alignItems": {
-            "Desktop": "center"
-          }
-        }
-      },
-      'avatar': {
-        handle: ".avatar",
-        label: 'Prefix',
-        styles: {
-          "width": {
-            "Desktop": "50px"
-          },
-          "borderRadius": {
-            "Desktop": "4px 4px 4px 4px"
-          }
-        }
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  postCategories: {
-    type: "postCategories",
-    label: "Post Categories",
-    placeholder: "Morgan Tate",
-    category: ['general'],
-    options: {
-      maxCount: 3,
-      postCount: false,
-      separator: ', ',
-      prefixText: 'Categories: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Categories Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      items: {
-        handle: ".terms-items",
-        label: 'Items Wrap',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      item: {
-        handle: ".term-item",
-        label: 'Item Wrap',
-        styles: {}
-      },
-      'term-link': {
-        handle: ".term-link",
-        label: 'Term Link',
-        styles: {}
-      },
-      'term-title': {
-        handle: ".term-title",
-        label: 'Term Title',
-        styles: {}
-      },
-      'post-count': {
-        handle: ".post-count",
-        label: 'Post Count',
-        styles: {}
-      },
-      separator: {
-        handle: ".separator",
-        label: 'Separator',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  postTags: {
-    type: "postTags",
-    label: "Post Tags",
-    placeholder: "Morgan Tate",
-    category: ['general'],
-    options: {
-      maxCount: 3,
-      postCount: false,
-      separator: ', ',
-      prefixText: 'Tags: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Tags Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      items: {
-        handle: ".terms-items",
-        label: 'Items Wrap',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      item: {
-        handle: ".term-item",
-        label: 'Item Wrap',
-        styles: {}
-      },
-      'term-link': {
-        handle: ".term-link",
-        label: 'Term Link',
-        styles: {}
-      },
-      'term-title': {
-        handle: ".term-title",
-        label: 'Term Title',
-        styles: {}
-      },
-      'post-count': {
-        handle: ".post-count",
-        label: 'Post Count',
-        styles: {}
-      },
-      separator: {
-        handle: ".separator",
-        label: 'Separator',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  postTerms: {
-    type: "postTerms",
-    label: "Post Terms",
-    placeholder: "Morgan Tate",
-    isPro: true,
-    category: ['general'],
-    options: {
-      maxCount: 3,
-      postCount: false,
-      separator: ', ',
-      prefixText: 'Categories: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Categories Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      items: {
-        handle: ".terms-items",
-        label: 'Items Wrap',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      item: {
-        handle: ".term-item",
-        label: 'Item Wrap',
-        styles: {}
-      },
-      'term-link': {
-        handle: ".term-link",
-        label: 'Term Link',
-        styles: {}
-      },
-      'term-title': {
-        handle: ".term-title",
-        label: 'Term Title',
-        styles: {}
-      },
-      'post-count': {
-        handle: ".post-count",
-        label: 'Post Count',
-        styles: {}
-      },
-      separator: {
-        handle: ".separator",
-        label: 'Separator',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  wooPrice: {
-    type: "wooPrice",
-    label: "Product Price",
-    isPro: true,
-    options: {
-      currencySymbole: "$",
-      currencyPosition: "",
-      separatorText: '-',
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      currency: {
-        handle: ".currency",
-        label: 'Currency',
-        styles: {}
-      },
-      regular: {
-        handle: ".regular",
-        label: 'Regular Price',
-        styles: {}
-      },
-      'sale-price': {
-        handle: ".sale-price",
-        label: 'Sale Price',
-        styles: {}
-      },
-      separator: {
-        handle: ".separator",
-        label: 'Separator',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooAddToCart: {
-    type: "wooAddToCart",
-    label: "Add To Cart Button",
-    isPro: true,
-    options: {
-      addToCartText: 'Add To Cart',
-      quantityEnable: false,
-      prefixText: '',
-      postfixText: '',
-      iconPosition: '',
-      icon: {
-        library: "fontAwesome",
-        srcType: "class",
-        iconSrc: ""
-      }
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      viewCartLink: {
-        handle: ".viewCartLink",
-        label: 'viewCartLink',
-        styles: {}
-      },
-      'cart-button': {
-        handle: ".cart-button",
-        label: 'Cart Btn',
-        styles: {}
-      },
-      quantityWrap: {
-        handle: ".quantityWrap",
-        label: 'Quantity Wrap',
-        styles: {}
-      },
-      quantityInput: {
-        handle: ".quantityInput",
-        label: 'Quantity Input',
-        styles: {}
-      },
-      quantityIncrease: {
-        handle: ".quantityIncrease",
-        label: 'Quantity Increase',
-        styles: {}
-      },
-      quantityDecrease: {
-        handle: ".quantityDecrease",
-        label: 'Quantity Decrease',
-        styles: {}
-      },
-      'icon-wrap': {
-        handle: ".icon-wrap",
-        label: 'Icon wrap',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooSaleBadge: {
-    type: "wooSaleBadge",
-    label: "Product Sale Badge",
-    isPro: true,
-    options: {
-      onSaleText: 'On Sale',
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      'on-sale-badge': {
-        handle: ".on-sale-badge",
-        label: 'On Sale',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooTotalSales: {
-    type: "wooTotalSales",
-    label: "Total Sales",
-    isPro: true,
-    options: {
-      defaultSaleCount: '123',
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      'sale-count': {
-        handle: ".sale-count",
-        label: 'Sale Count',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooSKU: {
-    type: "wooSKU",
-    label: "Product SKU",
-    isPro: true,
-    options: {
-      dafaultSKUText: 'T-SHIRT-XL',
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      sku: {
-        handle: ".sku",
-        label: 'SKU Text',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooStockQuantity: {
-    type: "wooStockQuantity",
-    label: "Product Stock Quantity",
-    isPro: true,
-    options: {
-      dafultQuantity: '1',
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      'stock-quantity': {
-        handle: ".stock-quantity",
-        label: 'Stock Quantity',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooInStock: {
-    type: "wooInStock",
-    label: "Product In Stock",
-    isPro: true,
-    options: {
-      "inStockText": "In Stock",
-      "outOfStockText": "Out of Stock",
-      "backOrderText": "Backorder Enabled",
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      inStockText: {
-        handle: ".instock",
-        label: 'In Stock Text',
-        styles: {}
-      },
-      outOfStockText: {
-        handle: ".outofstock",
-        label: 'Out Of Stock Text',
-        styles: {}
-      },
-      backOrderText: {
-        handle: ".onbackorder",
-        label: 'BackOrder Text',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooProductRatings: {
-    type: "wooProductRatings",
-    label: "Product Ratings",
-    isPro: true,
-    options: {
-      iconsIdle: {
-        library: "fontAwesome",
-        srcType: "class",
-        iconSrc: ""
-      },
-      iconsFilled: {
-        library: "fontAwesome",
-        srcType: "class",
-        iconSrc: ""
-      },
-      defaultRating: '4.5',
-      summaryType: '',
-      summaryTypeCustom: '',
-      summaryLinkTo: '',
-      prefixText: '',
-      postfixText: ''
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Wrapper',
-        styles: {}
-      },
-      iconsWrap: {
-        handle: ".icons-wrap",
-        label: 'Icons Wrap',
-        styles: {}
-      },
-      iconsIdle: {
-        handle: ".icons-idle",
-        label: 'Icons Idle',
-        styles: {}
-      },
-      iconsFilled: {
-        handle: ".icons-filled",
-        label: 'Icons Filled',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'Postfix',
-        styles: {}
-      }
-    },
-    category: ['wooCommerce']
-  },
-  wooCategories: {
-    type: "wooCategories",
-    label: "Product Categories",
-    placeholder: "Morgan Tate",
-    isPro: true,
-    category: ['wooCommerce'],
-    options: {
-      maxCount: 3,
-      postCount: false,
-      separator: ', ',
-      prefixText: 'Categories: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Categories Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      items: {
-        handle: ".terms-items",
-        label: 'Items Wrap',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      item: {
-        handle: ".term-item",
-        label: 'Item Wrap',
-        styles: {}
-      },
-      'term-link': {
-        handle: ".term-link",
-        label: 'Term Link',
-        styles: {}
-      },
-      'term-title': {
-        handle: ".term-title",
-        label: 'Term Title',
-        styles: {}
-      },
-      'post-count': {
-        handle: ".post-count",
-        label: 'Post Count',
-        styles: {}
-      },
-      separator: {
-        handle: ".separator",
-        label: 'Separator',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  wooTags: {
-    type: "wooTags",
-    label: "Product Tags",
-    placeholder: "Morgan Tate",
-    isPro: true,
-    category: ['wooCommerce'],
-    options: {
-      maxCount: 3,
-      postCount: false,
-      separator: ', ',
-      prefixText: 'Tags: ',
-      postfixText: "",
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Post Tags Wrapper',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      items: {
-        handle: ".terms-items",
-        label: 'Items Wrap',
-        styles: {
-          "display": {
-            "Desktop": "flex"
-          },
-          "gap": {
-            "Desktop": "1em"
-          },
-          "justifyContent": {
-            "Desktop": "start"
-          }
-        }
-      },
-      item: {
-        handle: ".term-item",
-        label: 'Item Wrap',
-        styles: {}
-      },
-      'term-link': {
-        handle: ".term-link",
-        label: 'Term Link',
-        styles: {}
-      },
-      'term-title': {
-        handle: ".term-title",
-        label: 'Term Title',
-        styles: {}
-      },
-      'post-count': {
-        handle: ".post-count",
-        label: 'Post Count',
-        styles: {}
-      },
-      separator: {
-        handle: ".separator",
-        label: 'Separator',
-        styles: {}
-      },
-      prefix: {
-        handle: ".prefix",
-        label: 'Prefix',
-        styles: {}
-      },
-      postfix: {
-        handle: ".postfix",
-        label: 'postfix',
-        styles: {}
-      }
-    }
-  },
-  readMore: {
-    type: "readMore",
-    label: "Read More",
-    options: {
-      readMoreText: 'Read More',
-      linkTo: 'postUrl',
-      target: '_blank'
-    },
-    category: ['general'],
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'ReadMore',
-        styles: {}
-      }
-    }
-  },
-  postThumbnail: {
-    type: "postThumbnail",
-    label: "Post Thumbnail",
-    category: ['general'],
-    options: {
-      thumbnailSize: "full",
-      defaultSrcId: "",
-      defaultSrcUrl: 'http://localhost/wordpress/wp-content/uploads/2024/11/Project_img-6.jpeg',
-      linkTo: 'postUrl'
-    },
-    styles: {
-      width: {
-        Desktop: "100px"
-      },
-      height: {
-        Desktop: "auto"
-      }
-    },
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Featured Image Wrapper',
-        styles: {}
-      },
-      img: {
-        handle: "img",
-        label: 'Image',
-        styles: {
-          "width": {
-            "Desktop": "100%"
-          }
-        }
-      },
-      a: {
-        handle: "a",
-        label: 'Link',
-        styles: {}
-      }
-    }
-  },
-  // postId: {
-  //   type: "postId",
-  //   label: "Post Id",
-  //   options: { prefix: "" },
-  //   category: ['general'],
-  // },
-  // postMeta: {
-  //   type: "postMeta",
-  //   label: "postMeta",
-  //   options: { metaKey: '', format: '', callback: null },
-
-  // },
-  customText: {
-    type: "customText",
-    label: "Custom Text",
-    options: {
-      content: "",
-      customTag: "div"
-    },
-    category: ['general'],
-    cssSelectors: {
-      wrapper: {
-        handle: "",
-        label: 'Custom Text',
-        styles: {}
-      }
-    }
-  },
-  // productPrice: {
-  //   type: "productPrice",
-  //   label: "Product Price",
-  //   options: { prefix: "" },
-  //   
-  // },
-  // productSaleCount: {
-  //   type: "productSaleCount",
-  //   label: "Product Sale Count",
-  //   options: { prefix: "" },
-  //   
-  // },
-  // productSaleBadge: {
-  //   type: "productSaleBadge",
-  //   label: "Product Sale Badge",
-  //   options: { prefix: "" },
-  //   
-  // },
-  // productFeaturedBadge: {
-  //   type: "productFeaturedBadge",
-  //   label: "Product Featured Badge",
-  //   options: { prefix: "" },
-  //   
-  // },
-  // productOnsaleBadge: {
-  //   type: "productOnsaleBadge",
-  //   label: "Product On-sale Badge",
-  //   options: { prefix: "" },
-  //   
-  // },
-  // productAddToCart: {
-  //   type: "productAddToCart",
-  //   label: "Product Add To Cart",
-  //   options: {},
-  //   
-  // },
-  // productRating: {
-  //   type: "productRating",
-  //   label: "Product Price",
-  //   options: { prefix: "" },
-  //   
-  // },
-
-  // postTaxonomies: {
-  //   type: "postTaxonomies",
-  //   label: "Post Taxonomies",
-  //   options: { taxonomy: "", maxCount: "", separator: "" },
-  //   
-  // },
-
-  // termTitle: {
-  //   type: "termTitle",
-  //   label: "termTitle",
-  //   options: { linkTo: "" },
-  //   
-  // },
-  // termDescription: {
-  //   type: "termDescription",
-  //   label: "termDescription",
-  //   options: {},
-  //   
-  // },
-  // termThumbnail: {
-  //   type: "termThumbnail",
-  //   label: "termThumbnail",
-  //   options: { size: "" },
-  //   
-  // },
-  // termPostCount: {
-  //   type: "termPostCount",
-  //   label: "termPostCount",
-  //   options: { prefix: "" },
-  //   
-  // },
-  // termSlug: {
-  //   type: "termSlug",
-  //   label: "termSlug",
-  //   options: { prefix: "" },
-  //   
-  // },
-
-  container: {
-    type: "container",
-    label: "Container",
-    children: [],
-    options: {
-      animateOn: {}
-    },
-    category: ['general'],
-    cssSelectors: {
-      "wrapper": {
-        handle: "",
-        label: 'Container Wrapper',
-        styles: {}
-      }
-    }
-  },
-  layer: {
-    type: "layer",
-    label: "Layer",
-    children: [],
-    options: {
-      animateOn: {}
-    },
-    category: ['general'],
-    cssSelectors: {
-      "wrapper": {
-        handle: "",
-        label: 'Layer Wrapper',
-        styles: {}
-      }
-    }
-  },
-  root: {
-    type: "root",
-    label: "Root",
-    hidden: true,
-    children: []
-    // category: ['general']
-  }
-};
-elements = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)('PostGridBuilderElements', elements);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (elements);
-
-/***/ }),
-
-/***/ "./src/components/LayoutGenerator/index.js":
-/*!*************************************************!*\
-  !*** ./src/components/LayoutGenerator/index.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ LayoutGenerator)
-/* harmony export */ });
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/columns.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/brush.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-sortablejs */ "./node_modules/react-sortablejs/dist/index.js");
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_animate_on__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/animate-on */ "./src/components/animate-on/index.js");
-/* harmony import */ var _components_tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/tabs */ "./src/components/tabs/index.js");
-/* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/tab */ "./src/components/tab/index.js");
-/* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dropdown */ "./src/components/dropdown/index.js");
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles */ "./src/components/styles/index.js");
-/* harmony import */ var _TreeView__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TreeView */ "./src/components/LayoutGenerator/TreeView.jsx");
-/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./elements */ "./src/components/LayoutGenerator/elements.js");
-/* harmony import */ var _elements_preview__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./elements-preview */ "./src/components/LayoutGenerator/elements-preview.js");
-/* harmony import */ var _elements_options__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./elements-options */ "./src/components/LayoutGenerator/elements-options.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__);
-const {
-  Component,
-  useEffect
-} = wp.element;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const sortableOptions = {
-  animation: 150,
-  fallbackOnBody: true,
-  swapThreshold: 0.65,
-  group: "nested"
-};
-const parentSortableOptions = {
-  animation: 150,
-  fallbackOnBody: true,
-  swapThreshold: 0.65,
-  group: "parent-group" // Unique group for parent
-};
-const childSortableOptions = {
-  animation: 150,
-  // Keep desired shared options
-  fallbackOnBody: true,
-  dragoverBubble: true,
-  swapThreshold: 0.65,
-  group: "child-group" // Different group from parent
-};
-function ElementOthers({
-  block,
-  handleBlockUpdate,
-  onTemplateDrop,
-  draggedTemplate,
-  setCurretnElement,
-  setactiveTab
-}) {
-  var html = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)("PostGridElementHtmlPreview" + block.type, '', block, setCurretnElement);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-    children: [block.type != "root" && block.type != "container" && block.type != "layer" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-      children: html
-    }), block.type === "container" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementContainer, {
-      block: block,
-      handleBlockUpdate: handleBlockUpdate,
-      onTemplateDrop: onTemplateDrop,
-      draggedTemplate: draggedTemplate,
-      setCurretnElement: setCurretnElement,
-      setactiveTab: setactiveTab
-    }), block.type === "layer" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementLayer, {
-      block: block,
-      handleBlockUpdate: handleBlockUpdate,
-      onTemplateDrop: onTemplateDrop,
-      draggedTemplate: draggedTemplate,
-      setCurretnElement: setCurretnElement,
-      setactiveTab: setactiveTab
-    }), block.type === "root" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementRoot, {
-      block: block,
-      handleBlockUpdate: handleBlockUpdate,
-      onTemplateDrop: onTemplateDrop,
-      draggedTemplate: draggedTemplate,
-      setCurretnElement: setCurretnElement,
-      setactiveTab: setactiveTab
-    })]
-  });
-}
-function ElementContainer({
-  block,
-  handleBlockUpdate,
-  onTemplateDrop,
-  draggedTemplate,
-  setCurretnElement,
-  setactiveTab
-}) {
-  const [isDragging, setIsDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
-  const handleDrop = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (draggedTemplate) {
-      onTemplateDrop(draggedTemplate, block.id);
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("template", {
-    style: {
-      display: "block"
-    },
-    onDragOver: e => e.preventDefault(),
-    onDrop: handleDrop,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
-      list: block.children || [],
-      setList: newState => handleBlockUpdate(newState, block.id),
-      ...childSortableOptions,
-      // Directly map child elements to avoid extra div
-      id: `element-${block.id}`,
-      className: `container ${isDragging ? "drag-over" : ""}`,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-        children: block.children.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-          className: "text-center text-xl min-h-40 flex align-middle items-center justify-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
-            children: "+"
-          })
-        })
-      }), block.children?.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
-        block: child,
-        handleBlockUpdate: handleBlockUpdate,
-        onTemplateDrop: onTemplateDrop,
-        draggedTemplate: draggedTemplate,
-        setCurretnElement: setCurretnElement,
-        setactiveTab: setactiveTab
-      }, child.id))]
-    })
-  });
-}
-function ElementLayer({
-  block,
-  handleBlockUpdate,
-  onTemplateDrop,
-  draggedTemplate,
-  setCurretnElement,
-  setactiveTab
-}) {
-  const [isDragging, setIsDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
-  const handleDrop = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (draggedTemplate) {
-      onTemplateDrop(draggedTemplate, block.id);
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("template", {
-    style: {
-      display: "block"
-    },
-    onDragOver: e => e.preventDefault(),
-    onDrop: handleDrop,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
-      list: block.children || [],
-      setList: newState => handleBlockUpdate(newState, block.id),
-      ...childSortableOptions,
-      // Directly map child elements to avoid extra div
-      id: `element-${block.id}`,
-      className: `layer ${isDragging ? "drag-over" : ""}`,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-        children: block.children.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-          className: "text-center text-xl min-h-40 flex align-middle items-center justify-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
-            children: "+"
-          })
-        })
-      }), block.children?.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
-        block: child,
-        handleBlockUpdate: handleBlockUpdate,
-        onTemplateDrop: onTemplateDrop,
-        draggedTemplate: draggedTemplate,
-        setCurretnElement: setCurretnElement,
-        setactiveTab: setactiveTab
-      }, child.id))]
-    })
-  });
-}
-function ElementRoot({
-  block,
-  handleBlockUpdate,
-  onTemplateDrop,
-  draggedTemplate,
-  setCurretnElement,
-  setactiveTab
-}) {
-  const handleDrop = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (draggedTemplate) {
-      onTemplateDrop(draggedTemplate, block.id);
-    }
-  };
-  const [isDragging, setIsDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("template", {
-    style: {
-      display: "block"
-    },
-    className: "",
-    onDragOver: e => e.preventDefault(),
-    onDrop: handleDrop,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
-      list: block.children || [],
-      setList: newState => handleBlockUpdate(newState, block.id),
-      ...childSortableOptions,
-      onStart: () => setIsDragging(true),
-      onEnd: () => setIsDragging(false)
-      // Directly map child elements to avoid extra div
-      ,
-      className: `root border border-dashed border-gray-400 ${isDragging ? "drag-over" : ""}`,
-      id: `element-${block.id}`,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-        children: block.children.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-          className: "text-center text-xl min-h-40 flex align-middle items-center justify-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
-            children: "+"
-          })
-        })
-      }), block.children?.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
-        block: child,
-        handleBlockUpdate: handleBlockUpdate,
-        onTemplateDrop: onTemplateDrop,
-        draggedTemplate: draggedTemplate,
-        setCurretnElement: setCurretnElement,
-        setactiveTab: setactiveTab
-      }, child.id))]
-    })
-  });
-}
-function LayoutGenerator({
-  onChange,
-  customerData,
-  addNotifications,
-  layouts,
-  postData
-}) {
-  var [postId, setpostId] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(postData.ID);
-  var defaultLayoutElements = [{
-    id: 1,
-    type: "root",
-    children: [],
-    parent_id: null
-  }];
-  const [blocks, setBlocks] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(layouts.length == 0 ? defaultLayoutElements : layouts);
-  const [activeTab, setactiveTab] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)("elements");
-  useEffect(() => {
-    onChange(blocks);
-  }, [blocks]);
-  const [selectedElement, setselectedElement] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
-  const [selectedElementId, setselectedElementId] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
-  const [draggedTemplate, setDraggedTemplate] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
-  useEffect(() => {
-    const traverse = items => {
-      const result = [];
-      for (const item of items) {
-        if (item.id === selectedElementId) {
-          //removedItem = { ...selectedElement }; // Found the item, don't include it
-          result.push(selectedElement);
-        } else {
-          const newItem = {
-            ...item
-          };
-          if (newItem.children) {
-            newItem.children = traverse(newItem.children);
-          }
-          result.push(newItem);
-        }
-      }
-      return result;
-    };
-    const newBlocks = traverse(blocks);
-    onChange(newBlocks);
-    setBlocks(newBlocks);
-  }, [selectedElement]);
-  const setCurretnElement = (id = null) => {
-    setselectedElementId(id);
-    //findSelectedElement(blocks, id);
-
-    const element = findElementById(blocks, id);
-    console.log(element);
-    setselectedElement(element);
-    setactiveTab("edit");
-  };
-  const generatingUniqueId = () => {
-    const ids = [];
-    const collectIds = items => {
-      items.forEach(item => {
-        ids.push(item.id);
-        if (item.children) collectIds(item.children);
-      });
-    };
-    collectIds(blocks);
-    return ids.length > 0 ? Math.max(...ids) + 1 : 1;
-  };
-  const handleTemplateAdd = (template, parentId = null) => {
-    const newItem = {
-      id: generatingUniqueId(),
-      type: template.type,
-      parent_id: parentId,
-      options: template.options,
-      styles: template.styles,
-      children: template.children ? [] : undefined,
-      cssSelectors: template.cssSelectors ? template.cssSelectors : null
-    };
-    var isProcustomer = customerData?.isPro;
-    var isPro = template?.isPro;
-    if (!isProcustomer) {
-      if (isPro) {
-        addNotifications({
-          title: "Opps it pro!",
-          content: "Sorry this elemet is avilable in pro.",
-          type: "error"
-        });
-        return;
-      }
-    }
-    if (isPro) console.log(template);
-    setBlocks(prev => {
-      const addToParent = items => items.map(item => {
-        if (item.id === parentId) {
-          return {
-            ...item,
-            children: [...(item.children || []), newItem]
-          };
-        }
-        if (item.children) {
-          return {
-            ...item,
-            children: addToParent(item.children)
-          };
-        }
-        return item;
-      });
-      return parentId === null ? [...prev, newItem] : addToParent(prev);
-    });
-  };
-  const findAndRemoveItem = (blocks, id) => {
-    let removedItem = null;
-    const traverse = items => {
-      const result = [];
-      for (const item of items) {
-        if (item.id === id) {
-          removedItem = {
-            ...item
-          }; // Found the item, don't include it
-        } else {
-          const newItem = {
-            ...item
-          };
-          if (newItem.children) {
-            newItem.children = traverse(newItem.children);
-          }
-          result.push(newItem);
-        }
-      }
-      return result;
-    };
-    const newBlocks = traverse(blocks);
-    return {
-      newBlocks,
-      removedItem
-    };
-  };
-  function findElementById(tree, id) {
-    for (const node of tree) {
-      if (node.id === id) return node;
-      if (node.children) {
-        const result = findElementById(node.children, id);
-        if (result) return result;
-      }
-    }
-    return null;
-  }
-  const handleBlockUpdate = (updatedList, parentId = null) => {
-    setBlocks(prevBlocks => {
-      let newBlocks = [...prevBlocks];
-      updatedList = updatedList.map(item => {
-        // If the item exists elsewhere in the tree, remove it first
-        const searchResult = findAndRemoveItem(newBlocks, item.id);
-
-        // if (searchResult.removedItem) {
-        // 	newBlocks = searchResult.newBlocks;
-        // 	// Preserve the original item's properties while updating parent_id
-        // 	return {
-        // 		...searchResult.removedItem,
-        // 		parent_id: parentId,
-        // 	};
-        // }
-
-        // If the item wasn't found elsewhere, it's new to this location
-        return {
-          ...item,
-          parent_id: parentId
-        };
-      });
-
-      // If this is a top-level update, return the new list
-      if (parentId === null) {
-        return updatedList;
-      }
-
-      // Otherwise, find the parent container and update its children
-      const updateChildren = blocks => {
-        return blocks.map(block => {
-          if (block.id === parentId) {
-            return {
-              ...block,
-              children: updatedList
-            };
-          }
-          if (block.children) {
-            return {
-              ...block,
-              children: updateChildren(block.children)
-            };
-          }
-          return block;
-        });
-      };
-      return updateChildren(newBlocks);
-    });
-  };
-  var breakPointX = "Desktop";
-  var myStore = wp.data.select("PostGridStore");
-  var dateFormats = {
-    "Y-M-d": {
-      label: "2022-Feb-25",
-      value: "Y-M-d"
-    },
-    "Y-m-d": {
-      label: "2022-05-25",
-      value: "Y-m-d"
-    },
-    "d-m-y": {
-      label: "25-05-2022",
-      value: "d-m-y"
-    },
-    "d/m/y": {
-      label: "25/05/2022",
-      value: "d/m/y"
-    },
-    "y-m-d": {
-      label: "2022-05-25",
-      value: "y-m-d"
-    },
-    "y/m/d": {
-      label: "2022/05/25",
-      value: "y/m/d"
-    },
-    "D M y": {
-      label: "Sun Feb 2022",
-      value: "D M y"
-    },
-    "D M d, y": {
-      label: "Sun Feb 11, 2022",
-      value: "D M d, y"
-    },
-    "M D d, y": {
-      label: "Feb Sun 11, 2022",
-      value: "M D d, y"
-    },
-    "M d, y": {
-      label: "Feb 11, 2022",
-      value: "M d, y"
-    },
-    "F d, y": {
-      label: "February 11, 2022",
-      value: "F d, y"
-    },
-    "d M y": {
-      label: "25 Feb 2022",
-      value: "d M y"
-    }
-  };
-  var ratingType = {
-    none: {
-      label: "Choose",
-      value: ""
-    },
-    star: {
-      label: "Star",
-      value: "star"
-    }
-  };
-  var elementsCategories = {
-    general: {
-      label: "General",
-      value: "general",
-      active: true
-    },
-    wooCommerce: {
-      label: "Woo Commerce",
-      value: "wooCommerce",
-      active: false
-    }
-  };
-  const handleChange = (type, value) => {
-    setselectedElement({
-      ...selectedElement,
-      options: {
-        ...selectedElement.options,
-        [type]: value
-      }
-    });
-  };
-  var elementOptionsHtml = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)("PostGridElementOptions" + selectedElement?.type, '', selectedElement, handleChange);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-    className: "flex gap-3 bg-gray-100",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-      className: "w-[400px]",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(_components_tabs__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        activeTab: activeTab,
-        orientation: "",
-        stickyNavs: true,
-        contentClass: " bg-white w-full",
-        navItemClass: "bg-gray-200 px-5 py-3 gap-2 grow ",
-        navItemLabelClass: "flex-col ",
-        navItemSelectedClass: "!bg-white",
-        activeClass: "active-tab",
-        onSelect: tab => {
-          setactiveTab(tab.name);
-        },
-        tabs: [{
-          name: "elements",
-          title: "Elements",
-          icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_15__["default"],
-          className: "elements"
-        }, {
-          name: "edit",
-          title: "Edit",
-          icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"],
-          className: "edit"
-        }],
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_tab__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          name: "elements",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-            className: " p-4",
-            children: Object.entries(elementsCategories).map(groupArgs => {
-              var caetgoryArg = groupArgs[1];
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-                  title: caetgoryArg.label,
-                  initialOpen: caetgoryArg.active,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-                    className: "flex gap-2  py-2 flex-wrap",
-                    children: Object.entries(_elements__WEBPACK_IMPORTED_MODULE_11__["default"]).map(args => {
-                      var index = args[0];
-                      var element = args[1];
-                      var hidden = element.hidden;
-                      // var inCategory = element.category.include(caetgoryArg.value);
-                      var inCategory = element?.category?.includes(caetgoryArg.value);
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-                        children: !hidden && inCategory && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-                          className: "bg-slate-400 px-2 py-1 rounded-sm cursor-move  hover:bg-slate-500",
-                          draggable: true,
-                          onDragStart: () => setDraggedTemplate(element),
-                          onDragEnd: () => setDraggedTemplate(null),
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
-                            children: element.label
-                          })
-                        }, element.id)
-                      });
-                    })
-                  })
-                }, caetgoryArg.value)
-              });
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_tab__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          name: "edit",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-            className: "p-3",
-            children: [selectedElement != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-              className: "py-3 flex gap-2 items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-                children: "You are editing: "
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-                children: selectedElement != null ? _elements__WEBPACK_IMPORTED_MODULE_11__["default"][selectedElement.type]?.label : ""
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-              className: "my-5",
-              children: elementOptionsHtml
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-              className: "my-3 font-medium text-slate-900",
-              children: "Styles"
-            }), selectedElement?.cssSelectors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-              children: Object.entries(selectedElement?.cssSelectors).map(([elementIndex, elementData]) => {
-                function onChangeStyle(sudoScource, newVal, attr, propertyType, setProperty, elementIndex = null) {
-                  let obj = structuredClone(propertyType); // Ensure deep copy
-                  const path = [sudoScource, attr, breakPointX];
-                  const updatedObject = myStore.updatePropertyDeep(obj, path, newVal);
-                  setProperty(prev => {
-                    if (elementIndex === null) {
-                      return {
-                        ...prev,
-                        styles: updatedObject // Update styles at the root level
-                      };
-                    } else {
-                      return {
-                        ...prev,
-                        cssSelectors: {
-                          ...prev.cssSelectors,
-                          [elementIndex]: updatedObject // Update styles inside cssSelectors
-                        }
-                      };
-                    }
-                  });
-                }
-                function onAddStyle(sudoScource, key, propertyType, setProperty, elementIndex) {
-                  let obj = structuredClone(propertyType);
-                  const path = [sudoScource, key, breakPointX];
-                  const updatedObject = myStore.addPropertyDeep(obj, path, "");
-                  setProperty(prev => {
-                    if (elementIndex === null) {
-                      return {
-                        ...prev,
-                        styles: updatedObject // Update styles at the root level
-                      };
-                    } else {
-                      return {
-                        ...prev,
-                        cssSelectors: {
-                          ...prev.cssSelectors,
-                          [elementIndex]: updatedObject // Update styles inside cssSelectors
-                        }
-                      };
-                    }
-                  });
-                }
-                function onResetStyle(sudoSources, propertyType, setProperty, elementIndex = null) {
-                  let obj = structuredClone(propertyType); // Deep copy to avoid mutations
-
-                  Object.entries(sudoSources).forEach(([sudoSource]) => {
-                    if (obj[sudoSource] !== undefined) {
-                      obj[sudoSource] = {};
-                    }
-                  });
-                  if (elementIndex === null) {
-                    setProperty(obj); // Update root styles
-                  } else {
-                    setProperty(prev => ({
-                      ...prev,
-                      cssSelectors: {
-                        ...prev.cssSelectors,
-                        [elementIndex]: obj // Update styles inside a selector
-                      }
-                    }));
-                  }
-                }
-                function onRemoveStyle(sudoScource, key, propertyType, setProperty, elementIndex = null) {
-                  let obj = structuredClone(propertyType);
-                  let updatedObject = myStore.deletePropertyDeep(obj, [sudoScource, key, breakPointX]);
-                  let isEmpty = Object.entries(updatedObject[sudoScource] || {}).length === 0;
-                  let finalObject = isEmpty ? myStore.deletePropertyDeep(updatedObject, [sudoScource]) : updatedObject;
-                  if (elementIndex === null) {
-                    setProperty(finalObject);
-                  } else {
-                    setProperty(prev => ({
-                      ...prev,
-                      cssSelectors: {
-                        ...prev.cssSelectors,
-                        [elementIndex]: finalObject
-                      }
-                    }));
-                  }
-                }
-                function onBulkAddStyle(sudoSource, cssObj, propertyType, setProperty, elementIndex = null) {
-                  let obj = structuredClone(propertyType);
-                  obj[sudoSource] = {
-                    ...obj[sudoSource],
-                    ...cssObj
-                  }; // Merge styles
-
-                  if (elementIndex === null) {
-                    setProperty(obj);
-                  } else {
-                    setProperty(prev => ({
-                      ...prev,
-                      cssSelectors: {
-                        ...prev.cssSelectors,
-                        [elementIndex]: obj
-                      }
-                    }));
-                  }
-                }
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-                  title: selectedElement?.cssSelectors[elementIndex]?.label ? selectedElement?.cssSelectors[elementIndex]?.label : elementIndex,
-                  initialOpen: false,
-                  children: elementData?.styles && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_styles__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                    obj: elementData,
-                    onChange: (sudoScource, newVal, attr) => onChangeStyle(sudoScource, newVal, attr, elementData, setselectedElement, elementIndex),
-                    onAdd: (sudoScource, key) => onAddStyle(sudoScource, key, elementData, setselectedElement, elementIndex),
-                    onRemove: (sudoScource, key) => onRemoveStyle(sudoScource, key, elementData, setselectedElement, elementIndex),
-                    onReset: sudoSources => onResetStyle(sudoSources, elementData, setselectedElement, elementIndex),
-                    onBulkAdd: (sudoSource, cssObj) => onBulkAddStyle(sudoSource, cssObj, elementData, setselectedElement, elementIndex)
-                  })
-                }, elementIndex);
-              })
-            })]
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-      className: "flex-1 justify-between max-w-[450px] w-full min-h-full ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-        className: "flex items-center justify-between bg-slate-400 px-3 py-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-          className: "text-[20px] font-bold",
-          children: "Preview"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-        id: `post-grid-${postId}`,
-        className: "p-3 overflow-hidden min-h-10",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
-          list: blocks,
-          setList: handleBlockUpdate,
-          ...parentSortableOptions,
-          children: blocks.map(block => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
-            block: block,
-            handleBlockUpdate: handleBlockUpdate,
-            onTemplateDrop: handleTemplateAdd,
-            draggedTemplate: draggedTemplate,
-            setCurretnElement: setCurretnElement,
-            setactiveTab: setactiveTab
-          }, block.id))
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-      className: "w-[300px]",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-        className: "border border-solid",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_TreeView__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          blocks: blocks,
-          setBlocks: setBlocks,
-          selected: selectedElementId,
-          setSelected: setCurretnElement
-        })
-      })
-    })]
-  });
-}
 
 /***/ }),
 
@@ -26452,7 +21783,7 @@ function Html(props) {
                     }), obj[index] != null && Object.entries(obj[index]).length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                       className: "pg-text-color font-bold",
                       children: "*"
-                    }) : " ", " "]
+                    }) : " "]
                   })]
                 }), x.isPro && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   target: "_blank",
@@ -26496,7 +21827,7 @@ function Html(props) {
                       }), obj[index] != null && Object.entries(obj[index]).length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                         className: "pg-text-color font-bold",
                         children: "*"
-                      }) : " ", " "]
+                      }) : " "]
                     })]
                   }), x.isPro && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                     target: "_blank",
@@ -26539,7 +21870,7 @@ function Html(props) {
                       }), obj[index] != null && Object.entries(obj[index]).length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                         className: "pg-text-color font-bold",
                         children: "*"
-                      }) : " ", " "]
+                      }) : " "]
                     })]
                   }), x.isPro && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                     target: "_blank",
@@ -26784,10 +22115,10 @@ function Html(props) {
             }
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
             className: "block w-full text-xs pg-font ",
-            children: [" ", "Press", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("code", {
+            children: ["Press", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("code", {
               className: "inline-block p-1 px-2 bg-gray-500/60 text-white",
               children: "\u2B7E Tab"
-            }), " ", "to access by keyboard."]
+            }), "to access by keyboard."]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           children: [keyword.length == 0 && typeof options == "object" && Object.entries(options).map(args => {
@@ -31124,6 +26455,5178 @@ const postQueryArgs = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postQueryArgs);
+
+/***/ }),
+
+/***/ "./src/components/layout-generator/TreeView.jsx":
+/*!******************************************************!*\
+  !*** ./src/components/layout-generator/TreeView.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pages.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-sortablejs */ "./node_modules/react-sortablejs/dist/index.js");
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements */ "./src/components/layout-generator/elements.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+const sortableOptions = {
+  animation: 150,
+  fallbackOnBody: true,
+  swapThreshold: 0.65,
+  ghostClass: "ghost",
+  group: "shared",
+  filter: ".no-drag",
+  preventOnFilter: false
+};
+const TreeView = ({
+  blocks,
+  setBlocks,
+  selected,
+  setSelected
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "flex items-center justify-between bg-slate-400 px-3 py-2",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "text-[20px] font-bold",
+        children: "Tree View"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "hover:bg-red-500 bg-slate-700 text-white px-5 py-2 rounded-sm cursor-pointer ",
+        onClick: () => setBlocks([{
+          id: 1,
+          type: "root",
+          children: [],
+          parent_id: null,
+          styles: {}
+        }]),
+        children: "Remove All  "
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "p-2",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__.ReactSortable, {
+        list: blocks,
+        setList: setBlocks,
+        ...sortableOptions,
+        children: blocks.map((block, blockIndex) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(BlockWrapper, {
+          block: block,
+          blockIndex: [blockIndex],
+          setBlocks: setBlocks,
+          selected: selected,
+          setSelected: setSelected
+        }, block.id))
+      })
+    })]
+  });
+};
+function Container({
+  block,
+  blockIndex,
+  setBlocks,
+  selected,
+  setSelected
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__.ReactSortable, {
+      list: block.children,
+      setList: currentList => {
+        setBlocks(sourceList => {
+          const tempList = [...sourceList];
+          const _blockIndex = [...blockIndex];
+          const lastIndex = _blockIndex.pop();
+          const lastArr = _blockIndex.reduce((arr, i) => arr[i]["children"], tempList);
+          lastArr[lastIndex]["children"] = currentList;
+          return tempList;
+        });
+      },
+      ...sortableOptions,
+      children: block.children && block.children.map((childBlock, index) => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(BlockWrapper, {
+          block: childBlock,
+          blockIndex: [...blockIndex, index],
+          setBlocks: setBlocks,
+          selected: selected,
+          setSelected: setSelected
+        }, childBlock.id);
+      })
+    }, block.id)
+  });
+}
+function BlockWrapper({
+  block,
+  blockIndex,
+  setBlocks,
+  selected,
+  setSelected
+}) {
+  if (!block) return null;
+  const handleRemove = () => {
+    if (block.type == "root") {
+      return;
+    }
+    setBlocks(prev => {
+      const updatedBlocks = [...prev];
+      removeNestedBlock(updatedBlocks, blockIndex);
+      return updatedBlocks;
+    });
+  };
+  const handleDuplicate = () => {
+    setBlocks(prev => {
+      const updatedBlocks = [...prev];
+      const duplicateBlock = block => {
+        // Create a deep clone of the block with a new ID
+        const newBlock = {
+          ...block,
+          id: Math.random(),
+          // Ensure a unique ID
+          children: block.children ? block.children.map(duplicateBlock) : [] // Recursively duplicate children
+        };
+        return newBlock;
+      };
+      const parentBlock = getNestedBlock(updatedBlocks, blockIndex.slice(0, -1));
+      const newBlock = duplicateBlock(block);
+      if (blockIndex.length === 1) {
+        // If the block is at the root level
+        updatedBlocks.splice(blockIndex[0] + 1, 0, newBlock);
+      } else {
+        // If the block is nested
+        parentBlock.children.splice(blockIndex[blockIndex.length - 1] + 1, 0, newBlock);
+      }
+      return updatedBlocks;
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: `block ${block.type == "root" ? "no-drag " : ""} ${block.type == "container" || block.type == "layer" ? "border-0 border-l border-solid" : ""} relative my-2  pl-2`,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: `flex items-center  border border-solid px-2 py-1 cursor-pointer hover:bg-gray-300 ${block.id == selected ? "bg-gray-300" : ""} `,
+      onClick: () => {
+        setSelected(block.id);
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "flex-1 overflow-hidden truncate text-md",
+        children: _elements__WEBPACK_IMPORTED_MODULE_2__["default"][block.type] != undefined ? _elements__WEBPACK_IMPORTED_MODULE_2__["default"][block.type]?.label : block.type
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "flex items-center gap-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "size-6 bg-red-500 flex items-center justify-center cursor-pointer",
+          onClick: handleRemove,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
+            fill: "#fff",
+            size: 18
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "size-6 bg-blue-500 flex items-center justify-center cursor-pointer",
+          onClick: handleDuplicate,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"],
+            fill: "#fff",
+            size: 18
+          })
+        })]
+      })]
+    }), ["root", "container", 'layer'].includes(block.type) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Container, {
+      block: block,
+      setBlocks: setBlocks,
+      blockIndex: blockIndex,
+      selected: selected,
+      setSelected: setSelected
+    })]
+  });
+}
+function getNestedBlock(blocks, indices) {
+  return indices.reduce((block, index) => block.children[index], {
+    children: blocks
+  });
+}
+function removeNestedBlock(blocks, indices) {
+  if (indices.length === 1) {
+    blocks.splice(indices[0], 1);
+  } else {
+    const parentBlock = getNestedBlock(blocks, indices.slice(0, -1));
+    parentBlock.children.splice(indices[indices.length - 1], 1);
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TreeView);
+
+/***/ }),
+
+/***/ "./src/components/layout-generator/elements-options.js":
+/*!*************************************************************!*\
+  !*** ./src/components/layout-generator/elements-options.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/dropdown */ "./src/components/dropdown/index.js");
+/* harmony import */ var _components_icon_picker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/icon-picker */ "./src/components/icon-picker/index.js");
+/* harmony import */ var _components_radio_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/radio-control */ "./src/components/radio-control/index.js");
+/* harmony import */ var _components_animate_on__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/animate-on */ "./src/components/animate-on/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
+const {
+  Component
+} = wp.element;
+
+
+
+
+
+
+
+
+
+
+
+const ALLOWED_MEDIA_TYPES = ["image"];
+var thumbnailSizeArgs = {
+  full: {
+    label: "Full",
+    value: "full",
+    height: "",
+    width: "",
+    crop: false
+  },
+  thumbnail: {
+    label: "thumbnail(150*150)",
+    value: "thumbnail",
+    height: 150,
+    width: 150
+  },
+  medium: {
+    label: "medium(300*300)",
+    value: "medium",
+    height: 300,
+    width: 300
+  },
+  medium_large: {
+    label: "medium large(768*0)",
+    value: "medium_large",
+    height: 0,
+    width: 768
+  },
+  large: {
+    label: "large(1024*1024)",
+    value: "large",
+    height: 1024,
+    width: 1024
+  },
+  "1536x1536": {
+    label: "1536x1536(1536*1536)",
+    value: "1536x1536",
+    height: 1536,
+    width: 1536
+  },
+  "2048x2048": {
+    label: "2048x2048(2048*2048)",
+    value: "2048x2048",
+    height: 2048,
+    width: 2048
+  },
+  woocommerce_archive_thumbnail: {
+    label: "woocommerce archive thumbnail(500*500)",
+    value: "woocommerce_archive_thumbnail",
+    height: 500,
+    width: 500
+  },
+  woocommerce_thumbnail: {
+    label: "woocommerce thumbnail(300*300)",
+    value: "woocommerce_thumbnail",
+    height: 300,
+    width: 300
+  },
+  woocommerce_single: {
+    label: "woocommerce single(600*0)",
+    value: "woocommerce_single",
+    height: 0,
+    width: 600
+  },
+  woocommerce_gallery_thumbnail: {
+    label: "woocommerce gallery thumbnail(100*100)",
+    value: "woocommerce_gallery_thumbnail",
+    height: 100,
+    width: 100
+  }
+};
+var LinkToArgs = {
+  none: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
+    value: ""
+  },
+  postUrl: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Post URL", "post-grid"),
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Home URL", "post-grid"),
+    value: "homeUrl"
+  },
+  authorUrl: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author URL", "post-grid"),
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author Link", "post-grid"),
+    value: "authorLink"
+  },
+  authorMail: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author Mail", "post-grid"),
+    value: "authorMail",
+    isPro: true
+  },
+  authorMeta: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Author Meta", "post-grid"),
+    value: "authorMeta",
+    isPro: true
+  },
+  customField: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Field", "post-grid"),
+    value: "customField",
+    isPro: true
+  },
+  customUrl: {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom URL", "post-grid"),
+    value: "customUrl",
+    isPro: true
+  }
+};
+var linkTargetArgs = {
+  _self: {
+    label: "_self",
+    value: "_self"
+  },
+  _blank: {
+    label: "_blank",
+    value: "_blank"
+  },
+  _parent: {
+    label: "_parent",
+    value: "_parent"
+  },
+  _top: {
+    label: "_top",
+    value: "_top"
+  }
+};
+var limitByArgs = {
+  words: {
+    label: "words",
+    value: "words"
+  },
+  characters: {
+    label: "characters",
+    value: "characters"
+  }
+};
+var dateFormats = {
+  "Y-M-d": {
+    label: "2022-Feb-25",
+    value: "Y-M-d"
+  },
+  "Y-m-d": {
+    label: "2022-05-25",
+    value: "Y-m-d"
+  },
+  "d-m-y": {
+    label: "25-05-2022",
+    value: "d-m-y"
+  },
+  "d/m/y": {
+    label: "25/05/2022",
+    value: "d/m/y"
+  },
+  "y-m-d": {
+    label: "2022-05-25",
+    value: "y-m-d"
+  },
+  "y/m/d": {
+    label: "2022/05/25",
+    value: "y/m/d"
+  },
+  "D M y": {
+    label: "Sun Feb 2022",
+    value: "D M y"
+  },
+  "D M d, y": {
+    label: "Sun Feb 11, 2022",
+    value: "D M d, y"
+  },
+  "M D d, y": {
+    label: "Feb Sun 11, 2022",
+    value: "M D d, y"
+  },
+  "M d, y": {
+    label: "Feb 11, 2022",
+    value: "M d, y"
+  },
+  "F d, y": {
+    label: "February 11, 2022",
+    value: "F d, y"
+  },
+  "d M y": {
+    label: "25 Feb 2022",
+    value: "d M y"
+  }
+};
+
+/*postTitle*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostTitle', 'post-grid/element', PostGridElementOptionspostTitle, 10);
+function PostGridElementOptionspostTitle(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*postThumbnail*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostThumbnail', 'post-grid/element', PostGridElementOptionspostThumbnail, 10);
+function PostGridElementOptionspostThumbnail(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Default Thumbnail", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaUpload, {
+          className: "bg-gray-700 hover:bg-gray-600",
+          onSelect: media => {
+            // media.id
+
+            handleChange("defaultSrcId", media.id);
+            handleChange("defaultSrcUrl", media.url);
+          },
+          onClose: () => {},
+          allowedTypes: ALLOWED_MEDIA_TYPES,
+          value: selectedElement.options.defaultSrcId,
+          render: ({
+            open
+          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            className: "flex w-full justify-center items-center bg-gray-300/30 min-h-[200px] rounded-md border border-solid border-slate-400 hover:border-black transition-all duration-300 ease-in-out cursor-pointer mt-2 ",
+            onClick: open,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+              // src={MyLazy}
+              src: selectedElement.options.defaultSrcUrl,
+              alt: "",
+              className: " "
+            })
+          })
+        })
+      })]
+    })]
+  });
+}
+
+/*postExcerpt*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostExcerpt', 'post-grid/element', PostGridElementOptionspostExcerpt, 10);
+function PostGridElementOptionspostExcerpt(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Limit By", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: limitByArgs,
+        buttonTitle: selectedElement?.options?.limitBy == undefined || selectedElement?.options?.limitBy.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : limitByArgs[selectedElement?.options?.limitBy] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : limitByArgs[selectedElement?.options?.limitBy].label,
+        onChange: option => {
+          handleChange("limitBy", option.value);
+        },
+        values: []
+      })]
+    }), selectedElement?.options?.limitBy.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Limit Count", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.limitCount,
+        onChange: newVal => {
+          handleChange("limitCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Read More Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.readMoreText,
+        onChange: newVal => {
+          handleChange("readMoreText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*readMore*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionsreadMore', 'post-grid/element', PostGridElementOptionsreadMore, 10);
+function PostGridElementOptionsreadMore(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Read More Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.readMoreText,
+        onChange: newVal => {
+          handleChange("readMoreText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*customText*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionscustomText', 'post-grid/element', PostGridElementOptionscustomText, 10);
+function PostGridElementOptionscustomText(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Wrapper Tag", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
+        label: "",
+        value: selectedElement.options.customTag,
+        options: [{
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
+          value: ""
+        }, {
+          label: "a",
+          value: "a"
+        }, {
+          label: "H1",
+          value: "h1"
+        }, {
+          label: "H2",
+          value: "h2"
+        }, {
+          label: "H3",
+          value: "h3"
+        }, {
+          label: "H4",
+          value: "h4"
+        }, {
+          label: "H5",
+          value: "h5"
+        }, {
+          label: "H6",
+          value: "h6"
+        }, {
+          label: "SPAN",
+          value: "span"
+        }, {
+          label: "DIV",
+          value: "div"
+        }, {
+          label: "P",
+          value: "p"
+        }],
+        onChange: newVal => {
+          handleChange("customTag", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.content,
+        onChange: newVal => {
+          handleChange("content", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*container*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionscontainer', 'post-grid/element', PostGridElementOptionscontainer, 10);
+function PostGridElementOptionscontainer(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Animate On", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_animate_on__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        animateOn: selectedElement.options?.animateOn,
+        onChange: prams => {
+          handleChange("animateOn", prams);
+
+          //setAttributes({ animateOn: prams });
+        }
+      })]
+    })]
+  });
+}
+
+/*layer*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionslayer', 'post-grid/element', PostGridElementOptionslayer, 10);
+function PostGridElementOptionslayer(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Animate On", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_animate_on__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        animateOn: selectedElement.options?.animateOn,
+        onChange: prams => {
+          handleChange("animateOn", prams);
+
+          //setAttributes({ animateOn: prams });
+        }
+      })]
+    })]
+  });
+}
+
+/*postDate*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostDate', 'post-grid/element', PostGridElementOptionspostDate, 10);
+function PostGridElementOptionspostDate(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      className: "mb-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Date Format", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        variant: "secondary",
+        options: dateFormats
+        // buttonTitle="Choose"
+        ,
+        buttonTitle: dateFormats[selectedElement.options.format] != undefined ? dateFormats[selectedElement.options.format].label : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
+        onChange: option => {
+          handleChange("format", option.value);
+        },
+        values: ""
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      className: "mb-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Format", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        className: "mr-2",
+        value: selectedElement.options.format,
+        onChange: newVal => {
+          handleChange("format", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose Icon", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        library: selectedElement.options?.icon?.library,
+        srcType: selectedElement.options?.icon?.srcType,
+        iconSrc: selectedElement.options?.icon?.iconSrc,
+        onChange: arg => {
+          handleChange("icon", {
+            srcType: arg.srcType,
+            library: arg.library,
+            iconSrc: arg.iconSrc
+          });
+        }
+      })]
+    })]
+  });
+}
+
+/*postAuthor*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostAuthor', 'post-grid/element', PostGridElementOptionspostAuthor, 10);
+function PostGridElementOptionspostAuthor(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose Icon", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        library: selectedElement.options?.icon?.library,
+        srcType: selectedElement.options?.icon?.srcType,
+        iconSrc: selectedElement.options?.icon?.iconSrc,
+        onChange: arg => {
+          handleChange("icon", {
+            srcType: arg.srcType,
+            library: arg.library,
+            iconSrc: arg.iconSrc
+          });
+        }
+      })]
+    })]
+  });
+}
+
+/*postAuthorAvatar*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostAuthorAvatar', 'post-grid/element', PostGridElementOptionspostAuthorAvatar, 10);
+function PostGridElementOptionspostAuthorAvatar(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*postCategories*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostCategories', 'post-grid/element', PostGridElementOptionspostCategories, 10);
+function PostGridElementOptionspostCategories(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.maxCount,
+        onChange: newVal => {
+          handleChange("maxCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.separator,
+        onChange: newVal => {
+          handleChange("separator", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "gap-2 justify-between items-center flex",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "font-medium text-slate-900",
+        children: "Enable Post Count?"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
+        className: "flex items-center gap-2 py-2",
+        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
+        checked: selectedElement?.options?.postCount ? true : false,
+        onChange: newVal => {
+          handleChange("postCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*postTags*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionspostTags', 'post-grid/element', PostGridElementOptionspostTags, 10);
+function PostGridElementOptionspostTags(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.maxCount,
+        onChange: newVal => {
+          handleChange("maxCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.separator,
+        onChange: newVal => {
+          handleChange("separator", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "gap-2 justify-between items-center flex",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "font-medium text-slate-900",
+        children: "Enable Post Count?"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
+        className: "flex items-center gap-2 py-2",
+        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
+        checked: selectedElement?.options?.postCount ? true : false,
+        onChange: newVal => {
+          handleChange("postCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*wooPrice*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooPrice', 'post-grid/element', PostGridElementOptionswooPrice, 10);
+function PostGridElementOptionswooPrice(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Currency Symbole", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.currencySymbole,
+        onChange: newVal => {
+          handleChange("currencySymbole", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.separatorText,
+        onChange: newVal => {
+          handleChange("separatorText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Preview for?", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
+        label: "",
+        value: selectedElement.options.previewFor,
+        options: [{
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
+          value: ""
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Simple Product", "post-grid"),
+          value: "simple"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Variable Product", "post-grid"),
+          value: "variable"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Grouped Product", "post-grid"),
+          value: "grouped"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("external Product", "post-grid"),
+          value: "external"
+        }],
+        onChange: newVal => {
+          handleChange("previewFor", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooSaleBadge*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooSaleBadge', 'post-grid/element', PostGridElementOptionswooSaleBadge, 10);
+function PostGridElementOptionswooSaleBadge(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("OnSale Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.onSaleText,
+        onChange: newVal => {
+          handleChange("onSaleText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooSKU*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooSKU', 'post-grid/element', PostGridElementOptionswooSKU, 10);
+function PostGridElementOptionswooSKU(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Dafault SKU Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.dafaultSKUText,
+        onChange: newVal => {
+          handleChange("dafaultSKUText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooStockQuantity*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooStockQuantity', 'post-grid/element', PostGridElementOptionswooStockQuantity, 10);
+function PostGridElementOptionswooStockQuantity(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Dafult Quantity", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.dafultQuantity,
+        onChange: newVal => {
+          handleChange("dafultQuantity", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooInStock*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooInStock', 'post-grid/element', PostGridElementOptionswooInStock, 10);
+function PostGridElementOptionswooInStock(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("In Stock Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.inStockText,
+        onChange: newVal => {
+          handleChange("inStockText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Out Of Stock Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.outOfStockText,
+        onChange: newVal => {
+          handleChange("outOfStockText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("BackOrder Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.backOrderText,
+        onChange: newVal => {
+          handleChange("backOrderText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Preview for?", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
+        label: "",
+        value: selectedElement.options.previewFor,
+        options: [{
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
+          value: ""
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("In Stock Text", "post-grid"),
+          value: "inStockText"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Out Of Stock Text", "post-grid"),
+          value: "outOfStockText"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Back Order Text", "post-grid"),
+          value: "backOrderText"
+        }],
+        onChange: newVal => {
+          handleChange("previewFor", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooTotalSales*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooTotalSales', 'post-grid/element', PostGridElementOptionswooTotalSales, 10);
+function PostGridElementOptionswooTotalSales(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Default Sale Count", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.defaultSaleCount,
+        onChange: newVal => {
+          handleChange("defaultSaleCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooProductRatings*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooProductRatings', 'post-grid/element', PostGridElementOptionswooProductRatings, 10);
+function PostGridElementOptionswooProductRatings(html, selectedElement, handleChange) {
+  var summaryTypeArgs = {
+    pgNone: {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("None", "post-grid"),
+      value: ""
+    },
+    pg01: {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("123 customer reviews", "post-grid"),
+      value: "{review_count} customer reviews"
+    },
+    pg02: {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("4.50/5.00", "post-grid"),
+      value: "{average_rating}/5.00",
+      isPro: true
+    },
+    pg03: {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("4.50 out of 5.00", "post-grid"),
+      value: "{average_rating} out of 5.00",
+      isPro: true
+    },
+    pg04: {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("4.50(123 reviews)", "post-grid"),
+      value: "{average_rating}({review_count} reviews)",
+      isPro: true
+    },
+    pg05: {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom", "post-grid"),
+      value: "custom",
+      isPro: true
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Default Rating", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.defaultRating,
+        onChange: newVal => {
+          handleChange("defaultRating", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Idle Icon", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        library: selectedElement.options.iconsIdle.library,
+        srcType: selectedElement.options.iconsIdle.srcType,
+        iconSrc: selectedElement.options.iconsIdle.iconSrc,
+        onChange: arg => {
+          handleChange("iconsIdle", {
+            srcType: arg.srcType,
+            library: arg.library,
+            iconSrc: arg.iconSrc
+          });
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Idle Icon", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        library: selectedElement.options.iconsFilled.library,
+        srcType: selectedElement.options.iconsFilled.srcType,
+        iconSrc: selectedElement.options.iconsFilled.iconSrc,
+        onChange: arg => {
+          handleChange("iconsFilled", {
+            srcType: arg.srcType,
+            library: arg.library,
+            iconSrc: arg.iconSrc
+          });
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_radio_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      selected: selectedElement.summaryType,
+      options: summaryTypeArgs,
+      label: "Summary Type",
+      name: "summaryType",
+      onChange: option => {
+        console.log(option);
+        handleChange("summaryType", option.value);
+      }
+    }), selectedElement.summaryType == "custom" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        className: "my-3 relative",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+          htmlFor: "",
+          className: "font-medium text-slate-900 ",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Summary", "post-grid")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+          value: selectedElement.summaryTypeCustom,
+          placeholder: "{average_rating} out of 5.00",
+          onClick: () => {
+            if (isProFeature) {
+              setIsVisible(!isVisible);
+            }
+          },
+          disabled: isProFeature ? true : false,
+          onChange: newVal => {
+            handleChange("summaryTypeCustom", newVal);
+          }
+        }), isProFeature && isVisible && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+          href: "https://comboblocks.com/pricing/",
+          target: "_blank",
+          className: "absolute bottom-2 right-0 bg-gray-700 text-white hover:text-white no-underline px-2 rounded-sm py-1 ",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Subscribe to use", "post-grid")
+        })
+        // </div>
+        ]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Please use following tags:", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("ul", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
+            children: "{rating_count}"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
+            children: "{review_count}"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
+            children: "{average_rating}"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("code", {
+            children: "{product_title}"
+          })
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooAddToCart*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooAddToCart', 'post-grid/element', PostGridElementOptionswooAddToCart, 10);
+function PostGridElementOptionswooAddToCart(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Add To Cart Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.addToCartText,
+        onChange: newVal => {
+          handleChange("addToCartText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enable Quantity", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
+        className: "flex items-center gap-2 py-2",
+        help: selectedElement?.options?.quantityEnable ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
+        checked: selectedElement?.options?.quantityEnable ? true : false,
+        onChange: newVal => {
+          handleChange("quantityEnable", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose Icon", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_icon_picker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        library: selectedElement.options.icon?.library,
+        srcType: selectedElement.options.icon?.srcType,
+        iconSrc: selectedElement.options.icon?.iconSrc,
+        onChange: arg => {
+          handleChange("icon", {
+            srcType: arg.srcType,
+            library: arg.library,
+            iconSrc: arg.iconSrc
+          });
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Icon position", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
+        label: "",
+        value: selectedElement.options.iconPosition,
+        options: [{
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose Position", "post-grid"),
+          value: ""
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Cart Text", "post-grid"),
+          value: "beforeCartText"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("After Cart Text", "post-grid"),
+          value: "afterCartText"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Prefix", "post-grid"),
+          value: "beforePrefix"
+        }, {
+          label: "After Prefix",
+          value: "afterPrefix"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Postfix", "post-grid"),
+          value: "beforePostfix"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Before Postfix", "post-grid"),
+          value: "afterPostfix"
+        }],
+        onChange: newVal => {
+          handleChange("iconPosition", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    })]
+  });
+}
+
+/*wooCategories*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooCategories', 'post-grid/element', PostGridElementOptionswooCategories, 10);
+function PostGridElementOptionswooCategories(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.maxCount,
+        onChange: newVal => {
+          handleChange("maxCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.separator,
+        onChange: newVal => {
+          handleChange("separator", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "gap-2 justify-between items-center flex",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "font-medium text-slate-900",
+        children: "Enable Post Count?"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
+        className: "flex items-center gap-2 py-2",
+        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
+        checked: selectedElement?.options?.postCount ? true : false,
+        onChange: newVal => {
+          handleChange("postCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/*wooTags*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementOptionswooTags', 'post-grid/element', PostGridElementOptionswooTags, 10);
+function PostGridElementOptionswooTags(html, selectedElement, handleChange) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Class", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.class,
+        onChange: newVal => {
+          handleChange("class", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Max Count", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.maxCount,
+        onChange: newVal => {
+          handleChange("maxCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Separator", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.separator,
+        onChange: newVal => {
+          handleChange("separator", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "gap-2 justify-between items-center flex",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "font-medium text-slate-900",
+        children: "Enable Post Count?"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
+        className: "flex items-center gap-2 py-2",
+        help: selectedElement?.options?.postCount ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Enabled", "post-grid") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled.", "post-grid"),
+        checked: selectedElement?.options?.postCount ? true : false,
+        onChange: newVal => {
+          handleChange("postCount", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Prefix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.prefixText,
+        onChange: newVal => {
+          handleChange("prefixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Postfix Text", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.__experimentalInputControl, {
+        value: selectedElement?.options?.postfixText,
+        onChange: newVal => {
+          handleChange("postfixText", newVal);
+        }
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link To", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: LinkToArgs,
+        buttonTitle: selectedElement?.options?.linkTo == undefined || selectedElement?.options?.linkTo.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : LinkToArgs[selectedElement?.options?.linkTo].label,
+        onChange: option => {
+          handleChange("linkTo", option.value);
+        },
+        values: []
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+        htmlFor: "",
+        className: "font-medium text-slate-900 ",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Link Target", "post-grid")
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        position: "bottom right",
+        options: linkTargetArgs,
+        buttonTitle: selectedElement?.options?.target == undefined || selectedElement?.options?.target.length == 0 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target] == undefined ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid") : linkTargetArgs[selectedElement?.options?.target].label,
+        onChange: option => {
+          handleChange("target", option.value);
+        },
+        values: []
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/components/layout-generator/elements-preview.js":
+/*!*************************************************************!*\
+  !*** ./src/components/layout-generator/elements-preview.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+const {
+  Component
+} = wp.element;
+
+
+
+
+
+/*postTitle*/
+
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostTitle', 'post-grid/element', PostGridElementHtmlPreviewpostTitle, 10);
+function PostGridElementHtmlPreviewpostTitle(html, block, setCurretnElement) {
+  var options = block.options;
+  var target = options.target;
+  var linkTo = options.linkTo;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [linkTo?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "#",
+      target: target,
+      children: "How to Get the Best Deals on Email Verification Services"
+    }), linkTo?.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: "How to Get the Best Deals on Email Verification Services"
+    })]
+  });
+}
+
+/*postId*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostId', 'post-grid/element', PostGridElementHtmlPreviewpostId, 10);
+function PostGridElementHtmlPreviewpostId(html, block, setCurretnElement) {
+  var options = block.options;
+  var target = options.target;
+  var linkTo = options.linkTo;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [linkTo?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "#",
+      target: target,
+      children: block.id
+    }), linkTo?.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: block.id
+    })]
+  });
+}
+
+/*readMore*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewreadMore', 'post-grid/element', PostGridElementHtmlPreviewreadMore, 10);
+function PostGridElementHtmlPreviewreadMore(html, block, setCurretnElement) {
+  var options = block.options;
+  var target = options.target;
+  var readMoreText = options.readMoreText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+    onClick: ev => {
+      ev.preventDefault();
+    },
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    target: target,
+    href: "#",
+    children: readMoreText
+  });
+}
+/*customText*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewcustomText', 'post-grid/element', PostGridElementHtmlPreviewcustomText, 10);
+function PostGridElementHtmlPreviewcustomText(html, block, setCurretnElement) {
+  var options = block.options;
+  var tag = options.tag;
+  var content = options.content;
+  const CustomTagWrapper = `${tag}`;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(CustomTagWrapper, {
+    onClick: ev => {
+      ev.preventDefault();
+    },
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: content
+  });
+}
+
+/*postExcerpt*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostExcerpt', 'post-grid/element', PostGridElementHtmlPreviewpostExcerpt, 10);
+function PostGridElementHtmlPreviewpostExcerpt(html, block, setCurretnElement) {
+  var options = block.options;
+  var limitBy = options.limitBy;
+  var limitCount = options.limitCount;
+  var target = options.target;
+  var readMoreText = options.readMoreText;
+  var excerptText = "In todays digital landscape, email marketing remains one of the most effective ways to engage customers and drive conversions. However, sending emails to invalid or unverified addresses can lead to spam complaints, high bounce rates, and even blacklisting. This not…";
+  var count = limitCount > 0 ? limitCount : 999;
+  if (limitBy == "character") {
+    excerptText = excerptText.substring(0, count);
+  } else if (limitBy == "word") {
+    setPostExcerptEdited(excerptText = excerptText.split(" ").splice(0, count).join(" "));
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      className: "excerpt-text",
+      children: excerptText
+    }), readMoreText.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "#",
+      target: target,
+      className: "redmore",
+      children: readMoreText
+    })]
+  });
+}
+
+/*postDate*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostDate', 'post-grid/element', PostGridElementHtmlPreviewpostDate, 10);
+function PostGridElementHtmlPreviewpostDate(html, block, setCurretnElement) {
+  var options = block.options;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var linkTo = options.linkTo;
+  var target = options.target;
+  var icon = options.icon;
+  var iconSrc = icon?.iconSrc;
+  var iconHtml = `<span class="${iconSrc}"></span>`;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
+    }), linkTo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "#",
+      target: target,
+      className: "post-date-label",
+      children: "12/05/2025"
+    }), linkTo.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "post-date-label",
+      children: "12/05/2025"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*postAuthor*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostAuthor', 'post-grid/element', PostGridElementHtmlPreviewpostAuthor, 10);
+function PostGridElementHtmlPreviewpostAuthor(html, block, setCurretnElement) {
+  var options = block.options;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var linkTo = options.linkTo;
+  var target = options.target;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), linkTo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "#",
+      target: target,
+      className: "author-name",
+      children: "PickPlugins"
+    }), linkTo.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "author-name",
+      children: "PickPlugins"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*postAuthorAvatar*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostAuthorAvatar', 'post-grid/element', PostGridElementHtmlPreviewpostAuthorAvatar, 10);
+function PostGridElementHtmlPreviewpostAuthorAvatar(html, block, setCurretnElement) {
+  var options = block.options;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var linkTo = options.linkTo;
+  var target = options.target;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), linkTo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "#",
+      target: target,
+      className: "author-link",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        className: "avatar",
+        src: "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018",
+        alt: ""
+      })
+    }), linkTo.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      className: "avatar",
+      src: "https://pickplugins.com/wp-content/litespeed/avatar/60b037d2fe05ceb39acb7f02dbd29bd8.jpg?ver=1744938018",
+      alt: ""
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*postCategories*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostCategories', 'post-grid/element', PostGridElementHtmlPreviewpostCategories, 10);
+function PostGridElementHtmlPreviewpostCategories(html, block, setCurretnElement) {
+  var options = block?.options;
+  var maxCount = options?.maxCount;
+  var prefixText = options?.prefixText;
+  var postfixText = options?.postfixText;
+  var target = options?.target;
+  var postCount = options?.postCount;
+  var separator = options?.separator;
+  var categories = [{
+    title: 'Category 1',
+    count: 123
+  }, {
+    title: 'Category 2',
+    count: 124
+  }, {
+    title: 'Category 3',
+    count: 125
+  }, {
+    title: 'Category 4',
+    count: 126
+  }, {
+    title: 'Category 5',
+    count: 127
+  }];
+  var MaxCategories = categories.slice(0, maxCount);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "terms-items",
+      children: MaxCategories.map((category, index) => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "term-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+            onClick: ev => {
+              ev.preventDefault();
+            },
+            className: "term-link",
+            href: "#",
+            target: target,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "term-title",
+              children: category.title
+            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "post-count",
+              children: `(${category.count})`
+            })]
+          }), MaxCategories.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "separator",
+            children: separator
+          }), "          "]
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*postTags*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostTags', 'post-grid/element', PostGridElementHtmlPreviewpostTags, 10);
+function PostGridElementHtmlPreviewpostTags(html, block, setCurretnElement) {
+  var options = block?.options;
+  var maxCount = options?.maxCount;
+  var prefixText = options?.prefixText;
+  var postfixText = options?.postfixText;
+  var target = options?.target;
+  var postCount = options?.postCount;
+  var separator = options?.separator;
+  var tags = [{
+    title: 'Tag 1',
+    count: 123
+  }, {
+    title: 'Tag 2',
+    count: 124
+  }, {
+    title: 'Tag 3',
+    count: 125
+  }, {
+    title: 'Tag 4',
+    count: 126
+  }];
+  var MaxTags = tags.slice(0, maxCount);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "terms-items",
+      children: MaxTags.map((tag, index) => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "term-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+            onClick: ev => {
+              ev.preventDefault();
+            },
+            className: "term-link",
+            href: "#",
+            target: target,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "term-title",
+              children: tag.title
+            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "post-count",
+              children: `(${tag.count})`
+            })]
+          }), MaxTags.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "separator",
+            children: separator
+          })]
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*commentsCount*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewcommentsCount', 'post-grid/element', PostGridElementHtmlPreviewcommentsCount, 10);
+function PostGridElementHtmlPreviewcommentsCount(html, block, setCurretnElement) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: "commentsCount"
+  });
+}
+/*wooProductRatings*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooProductRatings', 'post-grid/element', PostGridElementHtmlPreviewwooProductRatings, 10);
+function PostGridElementHtmlPreviewwooProductRatings(html, block, setCurretnElement) {
+  var options = block?.options;
+  var iconsIdle = options.iconsIdle;
+  var iconsFilled = options.iconsFilled;
+  var defaultRating = options.defaultRating;
+  var summaryType = options.summaryType;
+  var summaryTypeCustom = options.summaryTypeCustom;
+  var summaryLinkTo = options.summaryLinkTo;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var iconsIdleHtml = `<span class="${iconsIdle.iconSrc}"></span>`;
+  var iconsFilledHtml = `<span class="${iconsFilled.iconSrc}"></span>`;
+  function replaceAll(str, correction) {
+    Object.keys(correction).forEach(key => {
+      str = str.replaceAll(key, correction[key]);
+    });
+    return str;
+  }
+  var map = {
+    "{rating_count}": "",
+    "{review_count}": "",
+    "{average_rating}": "",
+    "{product_title}": ""
+  };
+  const [ratingMap, setratingMap] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(map);
+  var filledValue = parseFloat(defaultRating) * 20 + "%";
+  var filledStyles = {
+    width: filledValue
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [prefixText.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "icons-wrap",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "icons-idle",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: ``,
+          dangerouslySetInnerHTML: {
+            __html: iconsIdleHtml
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: ``,
+          dangerouslySetInnerHTML: {
+            __html: iconsIdleHtml
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: ``,
+          dangerouslySetInnerHTML: {
+            __html: iconsIdleHtml
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: ``,
+          dangerouslySetInnerHTML: {
+            __html: iconsIdleHtml
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: ``,
+          dangerouslySetInnerHTML: {
+            __html: iconsIdleHtml
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "icons-filled",
+          style: filledStyles,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: ``,
+            dangerouslySetInnerHTML: {
+              __html: iconsFilledHtml
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: ``,
+            dangerouslySetInnerHTML: {
+              __html: iconsFilledHtml
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: ``,
+            dangerouslySetInnerHTML: {
+              __html: iconsFilledHtml
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: ``,
+            dangerouslySetInnerHTML: {
+              __html: iconsFilledHtml
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: ``,
+            dangerouslySetInnerHTML: {
+              __html: iconsFilledHtml
+            }
+          })]
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "summary",
+      children: [summaryType !== "custom" && summaryType !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: replaceAll(summaryType, ratingMap)
+      }), summaryType == "custom" && summaryTypeCustom.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: replaceAll(summaryTypeCustom, ratingMap)
+      })]
+    }), postfixText.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*shareButton*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewshareButton', 'post-grid/element', PostGridElementHtmlPreviewshareButton, 10);
+function PostGridElementHtmlPreviewshareButton(html, block, setCurretnElement) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: "shareButton"
+  });
+}
+
+/*postContent*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostContent', 'post-grid/element', PostGridElementHtmlPreviewpostContent, 10);
+function PostGridElementHtmlPreviewpostContent(html, block, setCurretnElement) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: "Affiliate marketers depend heavily on email marketing to drive sales and connect with leads. However, when email lists are not verified, they can lead to higher bounce rates, spam complaints, and even blacklisting by email providers. This section will introduce\u2026"
+  });
+}
+
+/*postThumbnail*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostThumbnail', 'post-grid/element', PostGridElementHtmlPreviewpostThumbnail, 10);
+function PostGridElementHtmlPreviewpostThumbnail(html, block, setCurretnElement) {
+  var elementOptions = block.options;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      src: elementOptions.defaultSrcUrl,
+      alt: ""
+    })
+  });
+}
+
+/*postMeta*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewpostMeta', 'post-grid/element', PostGridElementHtmlPreviewpostMeta, 10);
+function PostGridElementHtmlPreviewpostMeta(html, block, setCurretnElement) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: "Post Meta"
+  });
+}
+
+/*wooPrice*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooPrice', 'post-grid/element', PostGridElementHtmlPreviewwooPrice, 10);
+function PostGridElementHtmlPreviewwooPrice(html, block, setCurretnElement) {
+  var _options$previewFor;
+  var options = block.options;
+  var currencySymbole = options.currencySymbole;
+  var currencyPosition = options.currencyPosition;
+  var separatorText = options.separatorText;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var previewFor = (_options$previewFor = options.previewFor) !== null && _options$previewFor !== void 0 ? _options$previewFor : 'simple';
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), previewFor == 'simple' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "regular",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "currency",
+          children: currencySymbole
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "price-value",
+          children: "123"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "sale-price",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "currency",
+          children: currencySymbole
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "price-value",
+          children: "250"
+        })]
+      })]
+    }), previewFor == 'variable' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "regular",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "currency",
+          children: currencySymbole
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "price-value",
+          children: "123"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "separator",
+        children: separatorText
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "sale-price",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "currency",
+          children: currencySymbole
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "price-value",
+          children: "250"
+        })]
+      })]
+    }), previewFor == 'grouped' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "regular",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "currency",
+          children: currencySymbole
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "price-value",
+          children: "123"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "separator",
+        children: separatorText
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "sale-price",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "currency",
+          children: currencySymbole
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "price-value",
+          children: "250"
+        })]
+      })]
+    }), previewFor == 'external' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooSaleBadge*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooSaleBadge', 'post-grid/element', PostGridElementHtmlPreviewwooSaleBadge, 10);
+function PostGridElementHtmlPreviewwooSaleBadge(html, block, setCurretnElement) {
+  var options = block.options;
+  var onSaleText = options.onSaleText;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "on-sale-badge",
+      children: onSaleText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooSKU*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooSKU', 'post-grid/element', PostGridElementHtmlPreviewwooSKU, 10);
+function PostGridElementHtmlPreviewwooSKU(html, block, setCurretnElement) {
+  var options = block.options;
+  var dafaultSKUText = options.dafaultSKUText;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "sku",
+      children: dafaultSKUText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooStockQuantity*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooStockQuantity', 'post-grid/element', PostGridElementHtmlPreviewwooStockQuantity, 10);
+function PostGridElementHtmlPreviewwooStockQuantity(html, block, setCurretnElement) {
+  var options = block.options;
+  var dafultQuantity = options.dafultQuantity;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "stock-quantity",
+      children: dafultQuantity
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooInStock*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooInStock', 'post-grid/element', PostGridElementHtmlPreviewwooInStock, 10);
+function PostGridElementHtmlPreviewwooInStock(html, block, setCurretnElement) {
+  var _options$previewFor2;
+  var options = block.options;
+  var inStockText = options.inStockText;
+  var outOfStockText = options.outOfStockText;
+  var backOrderText = options.backOrderText;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var previewFor = (_options$previewFor2 = options.previewFor) !== null && _options$previewFor2 !== void 0 ? _options$previewFor2 : 'inStockText';
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), previewFor == 'inStockText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "instock",
+      children: inStockText
+    }), previewFor == 'outOfStockText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "outofstock",
+      children: outOfStockText
+    }), previewFor == 'backOrderText' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "onbackorder",
+      children: backOrderText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooTotalSales*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooTotalSales', 'post-grid/element', PostGridElementHtmlPreviewwooTotalSales, 10);
+function PostGridElementHtmlPreviewwooTotalSales(html, block, setCurretnElement) {
+  var options = block.options;
+  var defaultSaleCount = options.defaultSaleCount;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "sale-count",
+      children: defaultSaleCount
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooAddToCart*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooAddToCart', 'post-grid/element', PostGridElementHtmlPreviewwooAddToCart, 10);
+function PostGridElementHtmlPreviewwooAddToCart(html, block, setCurretnElement) {
+  var options = block.options;
+  var addToCartText = options.addToCartText;
+  var quantityEnable = options.quantityEnable;
+  var icon = options.icon;
+  var iconPosition = options.iconPosition;
+  var prefixText = options.prefixText;
+  var postfixText = options.postfixText;
+  var iconSrc = icon?.iconSrc;
+  var iconHtml = `<span class="${iconSrc}"></span>`;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    className: `${block.type}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [iconPosition == "beforePrefix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), iconPosition == "afterPrefix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+      className: "cartBtn",
+      onClick: ev => {
+        ev.preventDefault();
+      },
+      href: "?add-to-cart=1399",
+      "data-quantity": "1",
+      "data-product_id": "1399",
+      "data-product_sku": "woo-polo",
+      "aria-label": "Add \u201CPolo\u201D to your cart",
+      "aria-describedby": "",
+      rel: "nofollow",
+      children: [iconPosition == "beforeCartText" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "icon-wrap",
+        dangerouslySetInnerHTML: {
+          __html: iconHtml
+        }
+      }), addToCartText, iconPosition == "afterCartText" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "icon-wrap",
+        dangerouslySetInnerHTML: {
+          __html: iconHtml
+        }
+      })]
+    }), quantityEnable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "quantityWrap",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "quantityIncrease",
+        children: "+"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        size: "3",
+        type: "text",
+        inputMode: "numeric",
+        className: "quantityInput",
+        placeholder: "1",
+        value: '3'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "quantityDecrease",
+        children: "-"
+      })]
+    }), iconPosition == "beforePostfix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    }), iconPosition == "afterPostfix" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: `icon-wrap`,
+      dangerouslySetInnerHTML: {
+        __html: iconHtml
+      }
+    })]
+  });
+}
+
+/*wooCategories*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooCategories', 'post-grid/element', PostGridElementHtmlPreviewwooCategories, 10);
+function PostGridElementHtmlPreviewwooCategories(html, block, setCurretnElement) {
+  var options = block?.options;
+  var maxCount = options?.maxCount;
+  var prefixText = options?.prefixText;
+  var postfixText = options?.postfixText;
+  var target = options?.target;
+  var postCount = options?.postCount;
+  var separator = options?.separator;
+  var categories = [{
+    title: 'Category 1',
+    count: 123
+  }, {
+    title: 'Category 2',
+    count: 124
+  }, {
+    title: 'Category 3',
+    count: 125
+  }, {
+    title: 'Category 4',
+    count: 126
+  }, {
+    title: 'Category 5',
+    count: 127
+  }];
+  var MaxCategories = categories.slice(0, maxCount);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "terms-items",
+      children: MaxCategories.map((category, index) => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "term-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+            onClick: ev => {
+              ev.preventDefault();
+            },
+            className: "term-link",
+            href: "#",
+            target: target,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "term-title",
+              children: category.title
+            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "post-count",
+              children: `(${category.count})`
+            })]
+          }), MaxCategories.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "separator",
+            children: separator
+          }), "          "]
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/*wooTags*/
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.addFilter)('PostGridElementHtmlPreviewwooTags', 'post-grid/element', PostGridElementHtmlPreviewwooTags, 10);
+function PostGridElementHtmlPreviewwooTags(html, block, setCurretnElement) {
+  var options = block?.options;
+  var maxCount = options?.maxCount;
+  var prefixText = options?.prefixText;
+  var postfixText = options?.postfixText;
+  var target = options?.target;
+  var postCount = options?.postCount;
+  var separator = options?.separator;
+  var tags = [{
+    title: 'Tag 1',
+    count: 123
+  }, {
+    title: 'Tag 2',
+    count: 124
+  }, {
+    title: 'Tag 3',
+    count: 125
+  }, {
+    title: 'Tag 4',
+    count: 126
+  }];
+  var MaxTags = tags.slice(0, maxCount);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    id: `element-${block.id}`,
+    onClick: ev => {
+      setCurretnElement(block.id);
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "prefix",
+      children: prefixText
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "terms-items",
+      children: MaxTags.map((tag, index) => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "term-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+            onClick: ev => {
+              ev.preventDefault();
+            },
+            className: "term-link",
+            href: "#",
+            target: target,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "term-title",
+              children: tag.title
+            }), postCount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "post-count",
+              children: `(${tag.count})`
+            })]
+          }), MaxTags.length > index + 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "separator",
+            children: separator
+          })]
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "postfix",
+      children: postfixText
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/components/layout-generator/elements.js":
+/*!*****************************************************!*\
+  !*** ./src/components/layout-generator/elements.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var elements = {
+  postTitle: {
+    type: "postTitle",
+    label: "Post Title",
+    placeholder: "New Study Reveals Top 5 Marketing Tactics Fueling Brand Growth in 2025",
+    options: {
+      linkTo: '',
+      target: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Title Wrapper',
+        styles: {
+          "fontSize": {
+            "Desktop": "16px"
+          }
+        }
+      },
+      a: {
+        handle: "a",
+        label: 'Post Title Link',
+        styles: {}
+      }
+    },
+    category: ['general']
+  },
+  postExcerpt: {
+    type: "postExcerpt",
+    label: "Post Excerpt",
+    placeholder: "A recent industry report has uncovered the five most effective marketing strategies driving exponential brand growth this year. Experts say these tactics, including AI-powered personalization and micro-influencer partnerships, are reshaping how companies connect with consumers. Marketers are urged to adapt quickly or risk falling behind.",
+    options: {
+      limitBy: "",
+      limitCount: 20,
+      readMoreText: "Read More",
+      target: ""
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Excerpt Wrapper',
+        styles: {}
+      },
+      'excerpt-text': {
+        handle: ".excerpt-text",
+        label: 'Excerpt Text',
+        styles: {
+          "fontSize": {
+            "Desktop": "16px"
+          }
+        }
+      },
+      redmore: {
+        handle: ".redmore",
+        label: 'Redmore Text',
+        styles: {
+          "fontSize": {
+            "Desktop": "18px"
+          }
+        }
+      }
+    },
+    category: ['general']
+  },
+  postDate: {
+    type: "postDate",
+    label: "Post Date",
+    placeholder: "12/05/2025",
+    options: {
+      prefixText: 'Post Date: ',
+      postfixText: "",
+      format: "",
+      linkTo: 'postUrl',
+      target: '_blank',
+      icon: {
+        library: "fontAwesome",
+        srcType: "class",
+        iconSrc: ""
+      }
+    },
+    category: ['general'],
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Author Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  postAuthor: {
+    type: "postAuthor",
+    label: "Post Author",
+    options: {
+      prefixText: 'Author: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    category: ['general'],
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Author Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  postAuthorAvatar: {
+    type: "postAuthorAvatar",
+    label: "Post Author Avatar",
+    options: {
+      prefixText: 'Author: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    category: ['general'],
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Author Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          }
+        }
+      },
+      'avatar': {
+        handle: ".avatar",
+        label: 'Prefix',
+        styles: {
+          "width": {
+            "Desktop": "50px"
+          },
+          "borderRadius": {
+            "Desktop": "4px 4px 4px 4px"
+          }
+        }
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  postCategories: {
+    type: "postCategories",
+    label: "Post Categories",
+    placeholder: "Morgan Tate",
+    category: ['general'],
+    options: {
+      maxCount: 3,
+      postCount: false,
+      separator: ', ',
+      prefixText: 'Categories: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Categories Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      items: {
+        handle: ".terms-items",
+        label: 'Items Wrap',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      item: {
+        handle: ".term-item",
+        label: 'Item Wrap',
+        styles: {}
+      },
+      'term-link': {
+        handle: ".term-link",
+        label: 'Term Link',
+        styles: {}
+      },
+      'term-title': {
+        handle: ".term-title",
+        label: 'Term Title',
+        styles: {}
+      },
+      'post-count': {
+        handle: ".post-count",
+        label: 'Post Count',
+        styles: {}
+      },
+      separator: {
+        handle: ".separator",
+        label: 'Separator',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  postTags: {
+    type: "postTags",
+    label: "Post Tags",
+    placeholder: "Morgan Tate",
+    category: ['general'],
+    options: {
+      maxCount: 3,
+      postCount: false,
+      separator: ', ',
+      prefixText: 'Tags: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Tags Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      items: {
+        handle: ".terms-items",
+        label: 'Items Wrap',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      item: {
+        handle: ".term-item",
+        label: 'Item Wrap',
+        styles: {}
+      },
+      'term-link': {
+        handle: ".term-link",
+        label: 'Term Link',
+        styles: {}
+      },
+      'term-title': {
+        handle: ".term-title",
+        label: 'Term Title',
+        styles: {}
+      },
+      'post-count': {
+        handle: ".post-count",
+        label: 'Post Count',
+        styles: {}
+      },
+      separator: {
+        handle: ".separator",
+        label: 'Separator',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  postTerms: {
+    type: "postTerms",
+    label: "Post Terms",
+    placeholder: "Morgan Tate",
+    isPro: true,
+    category: ['general'],
+    options: {
+      maxCount: 3,
+      postCount: false,
+      separator: ', ',
+      prefixText: 'Categories: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Categories Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      items: {
+        handle: ".terms-items",
+        label: 'Items Wrap',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      item: {
+        handle: ".term-item",
+        label: 'Item Wrap',
+        styles: {}
+      },
+      'term-link': {
+        handle: ".term-link",
+        label: 'Term Link',
+        styles: {}
+      },
+      'term-title': {
+        handle: ".term-title",
+        label: 'Term Title',
+        styles: {}
+      },
+      'post-count': {
+        handle: ".post-count",
+        label: 'Post Count',
+        styles: {}
+      },
+      separator: {
+        handle: ".separator",
+        label: 'Separator',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  wooPrice: {
+    type: "wooPrice",
+    label: "Product Price",
+    isPro: true,
+    options: {
+      currencySymbole: "$",
+      currencyPosition: "",
+      separatorText: '-',
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      currency: {
+        handle: ".currency",
+        label: 'Currency',
+        styles: {}
+      },
+      regular: {
+        handle: ".regular",
+        label: 'Regular Price',
+        styles: {}
+      },
+      'sale-price': {
+        handle: ".sale-price",
+        label: 'Sale Price',
+        styles: {}
+      },
+      separator: {
+        handle: ".separator",
+        label: 'Separator',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooAddToCart: {
+    type: "wooAddToCart",
+    label: "Add To Cart Button",
+    isPro: true,
+    options: {
+      addToCartText: 'Add To Cart',
+      quantityEnable: false,
+      prefixText: '',
+      postfixText: '',
+      iconPosition: '',
+      icon: {
+        library: "fontAwesome",
+        srcType: "class",
+        iconSrc: ""
+      }
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      viewCartLink: {
+        handle: ".viewCartLink",
+        label: 'viewCartLink',
+        styles: {}
+      },
+      'cart-button': {
+        handle: ".cart-button",
+        label: 'Cart Btn',
+        styles: {}
+      },
+      quantityWrap: {
+        handle: ".quantityWrap",
+        label: 'Quantity Wrap',
+        styles: {}
+      },
+      quantityInput: {
+        handle: ".quantityInput",
+        label: 'Quantity Input',
+        styles: {}
+      },
+      quantityIncrease: {
+        handle: ".quantityIncrease",
+        label: 'Quantity Increase',
+        styles: {}
+      },
+      quantityDecrease: {
+        handle: ".quantityDecrease",
+        label: 'Quantity Decrease',
+        styles: {}
+      },
+      'icon-wrap': {
+        handle: ".icon-wrap",
+        label: 'Icon wrap',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooSaleBadge: {
+    type: "wooSaleBadge",
+    label: "Product Sale Badge",
+    isPro: true,
+    options: {
+      onSaleText: 'On Sale',
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      'on-sale-badge': {
+        handle: ".on-sale-badge",
+        label: 'On Sale',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooTotalSales: {
+    type: "wooTotalSales",
+    label: "Total Sales",
+    isPro: true,
+    options: {
+      defaultSaleCount: '123',
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      'sale-count': {
+        handle: ".sale-count",
+        label: 'Sale Count',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooSKU: {
+    type: "wooSKU",
+    label: "Product SKU",
+    isPro: true,
+    options: {
+      dafaultSKUText: 'T-SHIRT-XL',
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      sku: {
+        handle: ".sku",
+        label: 'SKU Text',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooStockQuantity: {
+    type: "wooStockQuantity",
+    label: "Product Stock Quantity",
+    isPro: true,
+    options: {
+      dafultQuantity: '1',
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      'stock-quantity': {
+        handle: ".stock-quantity",
+        label: 'Stock Quantity',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooInStock: {
+    type: "wooInStock",
+    label: "Product In Stock",
+    isPro: true,
+    options: {
+      "inStockText": "In Stock",
+      "outOfStockText": "Out of Stock",
+      "backOrderText": "Backorder Enabled",
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      inStockText: {
+        handle: ".instock",
+        label: 'In Stock Text',
+        styles: {}
+      },
+      outOfStockText: {
+        handle: ".outofstock",
+        label: 'Out Of Stock Text',
+        styles: {}
+      },
+      backOrderText: {
+        handle: ".onbackorder",
+        label: 'BackOrder Text',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooProductRatings: {
+    type: "wooProductRatings",
+    label: "Product Ratings",
+    isPro: true,
+    options: {
+      iconsIdle: {
+        library: "fontAwesome",
+        srcType: "class",
+        iconSrc: ""
+      },
+      iconsFilled: {
+        library: "fontAwesome",
+        srcType: "class",
+        iconSrc: ""
+      },
+      defaultRating: '4.5',
+      summaryType: '',
+      summaryTypeCustom: '',
+      summaryLinkTo: '',
+      prefixText: '',
+      postfixText: ''
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Wrapper',
+        styles: {}
+      },
+      iconsWrap: {
+        handle: ".icons-wrap",
+        label: 'Icons Wrap',
+        styles: {}
+      },
+      iconsIdle: {
+        handle: ".icons-idle",
+        label: 'Icons Idle',
+        styles: {}
+      },
+      iconsFilled: {
+        handle: ".icons-filled",
+        label: 'Icons Filled',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'Postfix',
+        styles: {}
+      }
+    },
+    category: ['wooCommerce']
+  },
+  wooCategories: {
+    type: "wooCategories",
+    label: "Product Categories",
+    placeholder: "Morgan Tate",
+    isPro: true,
+    category: ['wooCommerce'],
+    options: {
+      maxCount: 3,
+      postCount: false,
+      separator: ', ',
+      prefixText: 'Categories: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Categories Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      items: {
+        handle: ".terms-items",
+        label: 'Items Wrap',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      item: {
+        handle: ".term-item",
+        label: 'Item Wrap',
+        styles: {}
+      },
+      'term-link': {
+        handle: ".term-link",
+        label: 'Term Link',
+        styles: {}
+      },
+      'term-title': {
+        handle: ".term-title",
+        label: 'Term Title',
+        styles: {}
+      },
+      'post-count': {
+        handle: ".post-count",
+        label: 'Post Count',
+        styles: {}
+      },
+      separator: {
+        handle: ".separator",
+        label: 'Separator',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  wooTags: {
+    type: "wooTags",
+    label: "Product Tags",
+    placeholder: "Morgan Tate",
+    isPro: true,
+    category: ['wooCommerce'],
+    options: {
+      maxCount: 3,
+      postCount: false,
+      separator: ', ',
+      prefixText: 'Tags: ',
+      postfixText: "",
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Post Tags Wrapper',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      items: {
+        handle: ".terms-items",
+        label: 'Items Wrap',
+        styles: {
+          "display": {
+            "Desktop": "flex"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          }
+        }
+      },
+      item: {
+        handle: ".term-item",
+        label: 'Item Wrap',
+        styles: {}
+      },
+      'term-link': {
+        handle: ".term-link",
+        label: 'Term Link',
+        styles: {}
+      },
+      'term-title': {
+        handle: ".term-title",
+        label: 'Term Title',
+        styles: {}
+      },
+      'post-count': {
+        handle: ".post-count",
+        label: 'Post Count',
+        styles: {}
+      },
+      separator: {
+        handle: ".separator",
+        label: 'Separator',
+        styles: {}
+      },
+      prefix: {
+        handle: ".prefix",
+        label: 'Prefix',
+        styles: {}
+      },
+      postfix: {
+        handle: ".postfix",
+        label: 'postfix',
+        styles: {}
+      }
+    }
+  },
+  readMore: {
+    type: "readMore",
+    label: "Read More",
+    options: {
+      readMoreText: 'Read More',
+      linkTo: 'postUrl',
+      target: '_blank'
+    },
+    category: ['general'],
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'ReadMore',
+        styles: {}
+      }
+    }
+  },
+  postThumbnail: {
+    type: "postThumbnail",
+    label: "Post Thumbnail",
+    category: ['general'],
+    options: {
+      thumbnailSize: "full",
+      defaultSrcId: "",
+      defaultSrcUrl: 'http://localhost/wordpress/wp-content/uploads/2024/11/Project_img-6.jpeg',
+      linkTo: 'postUrl'
+    },
+    styles: {
+      width: {
+        Desktop: "100px"
+      },
+      height: {
+        Desktop: "auto"
+      }
+    },
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Featured Image Wrapper',
+        styles: {}
+      },
+      img: {
+        handle: "img",
+        label: 'Image',
+        styles: {
+          "width": {
+            "Desktop": "100%"
+          }
+        }
+      },
+      a: {
+        handle: "a",
+        label: 'Link',
+        styles: {}
+      }
+    }
+  },
+  // postId: {
+  //   type: "postId",
+  //   label: "Post Id",
+  //   options: { prefix: "" },
+  //   category: ['general'],
+  // },
+  // postMeta: {
+  //   type: "postMeta",
+  //   label: "postMeta",
+  //   options: { metaKey: '', format: '', callback: null },
+
+  // },
+  customText: {
+    type: "customText",
+    label: "Custom Text",
+    options: {
+      content: "",
+      customTag: "div"
+    },
+    category: ['general'],
+    cssSelectors: {
+      wrapper: {
+        handle: "",
+        label: 'Custom Text',
+        styles: {}
+      }
+    }
+  },
+  // productPrice: {
+  //   type: "productPrice",
+  //   label: "Product Price",
+  //   options: { prefix: "" },
+  //   
+  // },
+  // productSaleCount: {
+  //   type: "productSaleCount",
+  //   label: "Product Sale Count",
+  //   options: { prefix: "" },
+  //   
+  // },
+  // productSaleBadge: {
+  //   type: "productSaleBadge",
+  //   label: "Product Sale Badge",
+  //   options: { prefix: "" },
+  //   
+  // },
+  // productFeaturedBadge: {
+  //   type: "productFeaturedBadge",
+  //   label: "Product Featured Badge",
+  //   options: { prefix: "" },
+  //   
+  // },
+  // productOnsaleBadge: {
+  //   type: "productOnsaleBadge",
+  //   label: "Product On-sale Badge",
+  //   options: { prefix: "" },
+  //   
+  // },
+  // productAddToCart: {
+  //   type: "productAddToCart",
+  //   label: "Product Add To Cart",
+  //   options: {},
+  //   
+  // },
+  // productRating: {
+  //   type: "productRating",
+  //   label: "Product Price",
+  //   options: { prefix: "" },
+  //   
+  // },
+
+  // postTaxonomies: {
+  //   type: "postTaxonomies",
+  //   label: "Post Taxonomies",
+  //   options: { taxonomy: "", maxCount: "", separator: "" },
+  //   
+  // },
+
+  // termTitle: {
+  //   type: "termTitle",
+  //   label: "termTitle",
+  //   options: { linkTo: "" },
+  //   
+  // },
+  // termDescription: {
+  //   type: "termDescription",
+  //   label: "termDescription",
+  //   options: {},
+  //   
+  // },
+  // termThumbnail: {
+  //   type: "termThumbnail",
+  //   label: "termThumbnail",
+  //   options: { size: "" },
+  //   
+  // },
+  // termPostCount: {
+  //   type: "termPostCount",
+  //   label: "termPostCount",
+  //   options: { prefix: "" },
+  //   
+  // },
+  // termSlug: {
+  //   type: "termSlug",
+  //   label: "termSlug",
+  //   options: { prefix: "" },
+  //   
+  // },
+
+  container: {
+    type: "container",
+    label: "Container",
+    children: [],
+    options: {
+      animateOn: {}
+    },
+    category: ['general'],
+    cssSelectors: {
+      "wrapper": {
+        handle: "",
+        label: 'Container Wrapper',
+        styles: {}
+      }
+    }
+  },
+  layer: {
+    type: "layer",
+    label: "Layer",
+    children: [],
+    options: {
+      animateOn: {}
+    },
+    category: ['general'],
+    cssSelectors: {
+      "wrapper": {
+        handle: "",
+        label: 'Layer Wrapper',
+        styles: {}
+      }
+    }
+  },
+  root: {
+    type: "root",
+    label: "Root",
+    hidden: true,
+    children: []
+    // category: ['general']
+  }
+};
+elements = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)('PostGridBuilderElements', elements);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (elements);
+
+/***/ }),
+
+/***/ "./src/components/layout-generator/index.js":
+/*!**************************************************!*\
+  !*** ./src/components/layout-generator/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ LayoutGenerator)
+/* harmony export */ });
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/columns.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/brush.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-sortablejs */ "./node_modules/react-sortablejs/dist/index.js");
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_animate_on__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/animate-on */ "./src/components/animate-on/index.js");
+/* harmony import */ var _components_tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/tabs */ "./src/components/tabs/index.js");
+/* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/tab */ "./src/components/tab/index.js");
+/* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dropdown */ "./src/components/dropdown/index.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles */ "./src/components/styles/index.js");
+/* harmony import */ var _TreeView__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TreeView */ "./src/components/layout-generator/TreeView.jsx");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./elements */ "./src/components/layout-generator/elements.js");
+/* harmony import */ var _elements_preview__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./elements-preview */ "./src/components/layout-generator/elements-preview.js");
+/* harmony import */ var _elements_options__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./elements-options */ "./src/components/layout-generator/elements-options.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__);
+const {
+  Component,
+  useEffect
+} = wp.element;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const sortableOptions = {
+  animation: 150,
+  fallbackOnBody: true,
+  swapThreshold: 0.65,
+  group: "nested"
+};
+const parentSortableOptions = {
+  animation: 150,
+  fallbackOnBody: true,
+  swapThreshold: 0.65,
+  group: "parent-group" // Unique group for parent
+};
+const childSortableOptions = {
+  animation: 150,
+  // Keep desired shared options
+  fallbackOnBody: true,
+  dragoverBubble: true,
+  swapThreshold: 0.65,
+  group: "child-group",
+  // Different group from parent
+  ghostClass: 'sortable-ghost',
+  dragClass: "sortable-drag" // Class name for the dragging item
+};
+function ElementOthers({
+  block,
+  handleBlockUpdate,
+  onTemplateDrop,
+  draggedTemplate,
+  setCurretnElement,
+  setactiveTab
+}) {
+  var html = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)("PostGridElementHtmlPreview" + block.type, '', block, setCurretnElement);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+    children: [block.type != "root" && block.type != "container" && block.type != "layer" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+      children: html
+    }), block.type === "container" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementContainer, {
+      block: block,
+      handleBlockUpdate: handleBlockUpdate,
+      onTemplateDrop: onTemplateDrop,
+      draggedTemplate: draggedTemplate,
+      setCurretnElement: setCurretnElement,
+      setactiveTab: setactiveTab
+    }), block.type === "layer" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementLayer, {
+      block: block,
+      handleBlockUpdate: handleBlockUpdate,
+      onTemplateDrop: onTemplateDrop,
+      draggedTemplate: draggedTemplate,
+      setCurretnElement: setCurretnElement,
+      setactiveTab: setactiveTab
+    }), block.type === "root" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementRoot, {
+      block: block,
+      handleBlockUpdate: handleBlockUpdate,
+      onTemplateDrop: onTemplateDrop,
+      draggedTemplate: draggedTemplate,
+      setCurretnElement: setCurretnElement,
+      setactiveTab: setactiveTab
+    })]
+  });
+}
+function ElementContainer({
+  block,
+  handleBlockUpdate,
+  onTemplateDrop,
+  draggedTemplate,
+  setCurretnElement,
+  setactiveTab
+}) {
+  const [isDragging, setIsDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+  const handleDrop = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (draggedTemplate) {
+      onTemplateDrop(draggedTemplate, block.id);
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    style: {
+      display: "block"
+    },
+    onDragOver: e => e.preventDefault(),
+    onDrop: handleDrop,
+    id: `element-${block.id}`,
+    className: `container ${isDragging ? "drag-over" : ""}`,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
+      tag: react__WEBPACK_IMPORTED_MODULE_3__.Fragment,
+      list: block.children || [],
+      setList: newState => handleBlockUpdate(newState, block.id),
+      ...childSortableOptions,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+        children: block.children.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+          className: "text-center text-xl min-h-40 flex align-middle items-center justify-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
+            children: "+"
+          })
+        })
+      }), block.children?.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
+        block: child,
+        handleBlockUpdate: handleBlockUpdate,
+        onTemplateDrop: onTemplateDrop,
+        draggedTemplate: draggedTemplate,
+        setCurretnElement: setCurretnElement,
+        setactiveTab: setactiveTab
+      }, child.id))]
+    })
+  });
+}
+function ElementLayer({
+  block,
+  handleBlockUpdate,
+  onTemplateDrop,
+  draggedTemplate,
+  setCurretnElement,
+  setactiveTab
+}) {
+  const [isDragging, setIsDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+  const [dragging, setDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+  const handleDrop = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (draggedTemplate) {
+      onTemplateDrop(draggedTemplate, block.id);
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    id: `element-${block.id}`,
+    className: `layer ${isDragging ? "drag-over" : ""} border border-dashed border-gray-400`,
+    onDragOver: e => e.preventDefault(),
+    onDrop: handleDrop,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
+      tag: react__WEBPACK_IMPORTED_MODULE_3__.Fragment,
+      list: block.children || [],
+      setList: newState => handleBlockUpdate(newState, block.id),
+      ...childSortableOptions,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+        children: block.children.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+          className: "text-center text-xl min-h-40 flex align-middle items-center justify-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
+            children: "+"
+          })
+        })
+      }), block.children?.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
+        block: child,
+        handleBlockUpdate: handleBlockUpdate,
+        onTemplateDrop: onTemplateDrop,
+        draggedTemplate: draggedTemplate,
+        setCurretnElement: setCurretnElement,
+        setactiveTab: setactiveTab
+      }, child.id))]
+    })
+  });
+}
+function ElementRoot({
+  block,
+  handleBlockUpdate,
+  onTemplateDrop,
+  draggedTemplate,
+  setCurretnElement,
+  setactiveTab
+}) {
+  const handleDrop = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (draggedTemplate) {
+      onTemplateDrop(draggedTemplate, block.id);
+    }
+  };
+  const [isDragging, setIsDragging] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    onStart: () => setIsDragging(true),
+    onEnd: () => setIsDragging(false)
+    // Directly map child elements to avoid extra div
+    ,
+    className: `root border border-dashed border-gray-400 relative ${isDragging ? "drag-over" : ""}`,
+    id: `element-${block.id}`,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
+      tag: react__WEBPACK_IMPORTED_MODULE_3__.Fragment,
+      list: block.children || [],
+      setList: newState => handleBlockUpdate(newState, block.id),
+      ...childSortableOptions,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+        children: block.children.length == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+          className: "text-center text-xl min-h-40 flex align-middle items-center justify-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
+            children: "+"
+          })
+        })
+      }), block.children?.map(child => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
+        block: child,
+        handleBlockUpdate: handleBlockUpdate,
+        onTemplateDrop: onTemplateDrop,
+        draggedTemplate: draggedTemplate,
+        setCurretnElement: setCurretnElement,
+        setactiveTab: setactiveTab
+      }, child.id))]
+    })
+  });
+}
+function LayoutGenerator({
+  onChange,
+  customerData,
+  addNotifications,
+  layouts,
+  postData
+}) {
+  var [postId, setpostId] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(postData.ID);
+  var defaultLayoutElements = [{
+    id: 1,
+    type: "root",
+    children: [],
+    parent_id: null
+  }];
+  const [blocks, setBlocks] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(layouts.length == 0 ? defaultLayoutElements : layouts);
+  const [activeTab, setactiveTab] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)("elements");
+  useEffect(() => {
+    onChange(blocks);
+  }, [blocks]);
+  const [selectedElement, setselectedElement] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
+  const [selectedElementId, setselectedElementId] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
+  const [draggedTemplate, setDraggedTemplate] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null);
+  useEffect(() => {
+    const traverse = items => {
+      const result = [];
+      for (const item of items) {
+        if (item.id === selectedElementId) {
+          //removedItem = { ...selectedElement }; // Found the item, don't include it
+          result.push(selectedElement);
+        } else {
+          const newItem = {
+            ...item
+          };
+          if (newItem.children) {
+            newItem.children = traverse(newItem.children);
+          }
+          result.push(newItem);
+        }
+      }
+      return result;
+    };
+    const newBlocks = traverse(blocks);
+    onChange(newBlocks);
+    setBlocks(newBlocks);
+  }, [selectedElement]);
+  const setCurretnElement = (id = null) => {
+    setselectedElementId(id);
+    //findSelectedElement(blocks, id);
+
+    const element = findElementById(blocks, id);
+    console.log(element);
+    setselectedElement(element);
+    setactiveTab("edit");
+  };
+  const generatingUniqueId = () => {
+    const ids = [];
+    const collectIds = items => {
+      items.forEach(item => {
+        ids.push(item.id);
+        if (item.children) collectIds(item.children);
+      });
+    };
+    collectIds(blocks);
+    return ids.length > 0 ? Math.max(...ids) + 1 : 1;
+  };
+  const handleTemplateAdd = (template, parentId = null) => {
+    const newItem = {
+      id: generatingUniqueId(),
+      type: template.type,
+      parent_id: parentId,
+      options: template.options,
+      styles: template.styles,
+      children: template.children ? [] : undefined,
+      cssSelectors: template.cssSelectors ? template.cssSelectors : null
+    };
+    var isProcustomer = customerData?.isPro;
+    var isPro = template?.isPro;
+    if (!isProcustomer) {
+      if (isPro) {
+        addNotifications({
+          title: "Opps it pro!",
+          content: "Sorry this elemet is avilable in pro.",
+          type: "error"
+        });
+        return;
+      }
+    }
+    if (isPro) console.log(template);
+    setBlocks(prev => {
+      const addToParent = items => items.map(item => {
+        if (item.id === parentId) {
+          return {
+            ...item,
+            children: [...(item.children || []), newItem]
+          };
+        }
+        if (item.children) {
+          return {
+            ...item,
+            children: addToParent(item.children)
+          };
+        }
+        return item;
+      });
+      return parentId === null ? [...prev, newItem] : addToParent(prev);
+    });
+  };
+  const findAndRemoveItem = (blocks, id) => {
+    let removedItem = null;
+    const traverse = items => {
+      const result = [];
+      for (const item of items) {
+        if (item.id === id) {
+          removedItem = {
+            ...item
+          }; // Found the item, don't include it
+        } else {
+          const newItem = {
+            ...item
+          };
+          if (newItem.children) {
+            newItem.children = traverse(newItem.children);
+          }
+          result.push(newItem);
+        }
+      }
+      return result;
+    };
+    const newBlocks = traverse(blocks);
+    return {
+      newBlocks,
+      removedItem
+    };
+  };
+  function findElementById(tree, id) {
+    for (const node of tree) {
+      if (node.id === id) return node;
+      if (node.children) {
+        const result = findElementById(node.children, id);
+        if (result) return result;
+      }
+    }
+    return null;
+  }
+  const handleBlockUpdate = (updatedList, parentId = null) => {
+    setBlocks(prevBlocks => {
+      let newBlocks = [...prevBlocks];
+      updatedList = updatedList.map(item => {
+        // If the item exists elsewhere in the tree, remove it first
+        const searchResult = findAndRemoveItem(newBlocks, item.id);
+
+        // if (searchResult.removedItem) {
+        // 	newBlocks = searchResult.newBlocks;
+        // 	// Preserve the original item's properties while updating parent_id
+        // 	return {
+        // 		...searchResult.removedItem,
+        // 		parent_id: parentId,
+        // 	};
+        // }
+
+        // If the item wasn't found elsewhere, it's new to this location
+        return {
+          ...item,
+          parent_id: parentId
+        };
+      });
+
+      // If this is a top-level update, return the new list
+      if (parentId === null) {
+        return updatedList;
+      }
+
+      // Otherwise, find the parent container and update its children
+      const updateChildren = blocks => {
+        return blocks.map(block => {
+          if (block.id === parentId) {
+            return {
+              ...block,
+              children: updatedList
+            };
+          }
+          if (block.children) {
+            return {
+              ...block,
+              children: updateChildren(block.children)
+            };
+          }
+          return block;
+        });
+      };
+      return updateChildren(newBlocks);
+    });
+  };
+  var breakPointX = "Desktop";
+  var myStore = wp.data.select("PostGridStore");
+  var dateFormats = {
+    "Y-M-d": {
+      label: "2022-Feb-25",
+      value: "Y-M-d"
+    },
+    "Y-m-d": {
+      label: "2022-05-25",
+      value: "Y-m-d"
+    },
+    "d-m-y": {
+      label: "25-05-2022",
+      value: "d-m-y"
+    },
+    "d/m/y": {
+      label: "25/05/2022",
+      value: "d/m/y"
+    },
+    "y-m-d": {
+      label: "2022-05-25",
+      value: "y-m-d"
+    },
+    "y/m/d": {
+      label: "2022/05/25",
+      value: "y/m/d"
+    },
+    "D M y": {
+      label: "Sun Feb 2022",
+      value: "D M y"
+    },
+    "D M d, y": {
+      label: "Sun Feb 11, 2022",
+      value: "D M d, y"
+    },
+    "M D d, y": {
+      label: "Feb Sun 11, 2022",
+      value: "M D d, y"
+    },
+    "M d, y": {
+      label: "Feb 11, 2022",
+      value: "M d, y"
+    },
+    "F d, y": {
+      label: "February 11, 2022",
+      value: "F d, y"
+    },
+    "d M y": {
+      label: "25 Feb 2022",
+      value: "d M y"
+    }
+  };
+  var ratingType = {
+    none: {
+      label: "Choose",
+      value: ""
+    },
+    star: {
+      label: "Star",
+      value: "star"
+    }
+  };
+  var elementsCategories = {
+    general: {
+      label: "General",
+      value: "general",
+      active: true
+    },
+    wooCommerce: {
+      label: "Woo Commerce",
+      value: "wooCommerce",
+      active: false
+    }
+  };
+  const handleChange = (type, value) => {
+    setselectedElement({
+      ...selectedElement,
+      options: {
+        ...selectedElement.options,
+        [type]: value
+      }
+    });
+  };
+  var elementOptionsHtml = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)("PostGridElementOptions" + selectedElement?.type, '', selectedElement, handleChange);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+    className: "flex gap-3 bg-gray-100",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+      className: "w-[400px]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(_components_tabs__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        activeTab: activeTab,
+        orientation: "",
+        stickyNavs: true,
+        contentClass: " bg-white w-full",
+        navItemClass: "bg-gray-200 px-5 py-3 gap-2 grow ",
+        navItemLabelClass: "flex-col ",
+        navItemSelectedClass: "!bg-white",
+        activeClass: "active-tab",
+        onSelect: tab => {
+          setactiveTab(tab.name);
+        },
+        tabs: [{
+          name: "elements",
+          title: "Elements",
+          icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_15__["default"],
+          className: "elements"
+        }, {
+          name: "edit",
+          title: "Edit",
+          icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_16__["default"],
+          className: "edit"
+        }],
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_tab__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          name: "elements",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+            className: " p-4",
+            children: Object.entries(elementsCategories).map(groupArgs => {
+              var caetgoryArg = groupArgs[1];
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+                  title: caetgoryArg.label,
+                  initialOpen: caetgoryArg.active,
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                    className: "flex gap-2  py-2 flex-wrap",
+                    children: Object.entries(_elements__WEBPACK_IMPORTED_MODULE_11__["default"]).map(args => {
+                      var index = args[0];
+                      var element = args[1];
+                      var hidden = element.hidden;
+                      // var inCategory = element.category.include(caetgoryArg.value);
+                      var inCategory = element?.category?.includes(caetgoryArg.value);
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+                        children: !hidden && inCategory && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                          className: "bg-slate-400 px-2 py-1 rounded-sm cursor-move  hover:bg-slate-500",
+                          draggable: true,
+                          onDragStart: () => setDraggedTemplate(element),
+                          onDragEnd: () => setDraggedTemplate(null),
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
+                            children: element.label
+                          })
+                        }, element.id)
+                      });
+                    })
+                  })
+                }, caetgoryArg.value)
+              });
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_tab__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          name: "edit",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+            className: "p-3",
+            children: [selectedElement != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+              className: "py-3 flex gap-2 items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                children: "You are editing: "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+                children: selectedElement != null ? _elements__WEBPACK_IMPORTED_MODULE_11__["default"][selectedElement.type]?.label : ""
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+              className: "my-5",
+              children: elementOptionsHtml
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+              className: "my-3 font-medium text-slate-900",
+              children: "Styles"
+            }), selectedElement?.cssSelectors && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+              children: Object.entries(selectedElement?.cssSelectors).map(([elementIndex, elementData]) => {
+                function onChangeStyle(sudoScource, newVal, attr, propertyType, setProperty, elementIndex = null) {
+                  let obj = structuredClone(propertyType); // Ensure deep copy
+                  const path = [sudoScource, attr, breakPointX];
+                  const updatedObject = myStore.updatePropertyDeep(obj, path, newVal);
+                  setProperty(prev => {
+                    if (elementIndex === null) {
+                      return {
+                        ...prev,
+                        styles: updatedObject // Update styles at the root level
+                      };
+                    } else {
+                      return {
+                        ...prev,
+                        cssSelectors: {
+                          ...prev.cssSelectors,
+                          [elementIndex]: updatedObject // Update styles inside cssSelectors
+                        }
+                      };
+                    }
+                  });
+                }
+                function onAddStyle(sudoScource, key, propertyType, setProperty, elementIndex) {
+                  let obj = structuredClone(propertyType);
+                  const path = [sudoScource, key, breakPointX];
+                  const updatedObject = myStore.addPropertyDeep(obj, path, "");
+                  setProperty(prev => {
+                    if (elementIndex === null) {
+                      return {
+                        ...prev,
+                        styles: updatedObject // Update styles at the root level
+                      };
+                    } else {
+                      return {
+                        ...prev,
+                        cssSelectors: {
+                          ...prev.cssSelectors,
+                          [elementIndex]: updatedObject // Update styles inside cssSelectors
+                        }
+                      };
+                    }
+                  });
+                }
+                function onResetStyle(sudoSources, propertyType, setProperty, elementIndex = null) {
+                  let obj = structuredClone(propertyType); // Deep copy to avoid mutations
+
+                  Object.entries(sudoSources).forEach(([sudoSource]) => {
+                    if (obj[sudoSource] !== undefined) {
+                      obj[sudoSource] = {};
+                    }
+                  });
+                  if (elementIndex === null) {
+                    setProperty(obj); // Update root styles
+                  } else {
+                    setProperty(prev => ({
+                      ...prev,
+                      cssSelectors: {
+                        ...prev.cssSelectors,
+                        [elementIndex]: obj // Update styles inside a selector
+                      }
+                    }));
+                  }
+                }
+                function onRemoveStyle(sudoScource, key, propertyType, setProperty, elementIndex = null) {
+                  let obj = structuredClone(propertyType);
+                  let updatedObject = myStore.deletePropertyDeep(obj, [sudoScource, key, breakPointX]);
+                  let isEmpty = Object.entries(updatedObject[sudoScource] || {}).length === 0;
+                  let finalObject = isEmpty ? myStore.deletePropertyDeep(updatedObject, [sudoScource]) : updatedObject;
+                  if (elementIndex === null) {
+                    setProperty(finalObject);
+                  } else {
+                    setProperty(prev => ({
+                      ...prev,
+                      cssSelectors: {
+                        ...prev.cssSelectors,
+                        [elementIndex]: finalObject
+                      }
+                    }));
+                  }
+                }
+                function onBulkAddStyle(sudoSource, cssObj, propertyType, setProperty, elementIndex = null) {
+                  let obj = structuredClone(propertyType);
+                  obj[sudoSource] = {
+                    ...obj[sudoSource],
+                    ...cssObj
+                  }; // Merge styles
+
+                  if (elementIndex === null) {
+                    setProperty(obj);
+                  } else {
+                    setProperty(prev => ({
+                      ...prev,
+                      cssSelectors: {
+                        ...prev.cssSelectors,
+                        [elementIndex]: obj
+                      }
+                    }));
+                  }
+                }
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+                  title: selectedElement?.cssSelectors[elementIndex]?.label ? selectedElement?.cssSelectors[elementIndex]?.label : elementIndex,
+                  initialOpen: false,
+                  children: elementData?.styles && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_styles__WEBPACK_IMPORTED_MODULE_9__["default"], {
+                    obj: elementData,
+                    onChange: (sudoScource, newVal, attr) => onChangeStyle(sudoScource, newVal, attr, elementData, setselectedElement, elementIndex),
+                    onAdd: (sudoScource, key) => onAddStyle(sudoScource, key, elementData, setselectedElement, elementIndex),
+                    onRemove: (sudoScource, key) => onRemoveStyle(sudoScource, key, elementData, setselectedElement, elementIndex),
+                    onReset: sudoSources => onResetStyle(sudoSources, elementData, setselectedElement, elementIndex),
+                    onBulkAdd: (sudoSource, cssObj) => onBulkAddStyle(sudoSource, cssObj, elementData, setselectedElement, elementIndex)
+                  })
+                }, elementIndex);
+              })
+            })]
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
+      className: "flex-1 justify-between max-w-[450px] w-full min-h-full ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+        className: "flex items-center justify-between bg-slate-400 px-3 py-3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+          className: "text-[20px] font-bold",
+          children: "Preview"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+        id: `post-grid-${postId}`,
+        className: "p-3 overflow-hidden min-h-10",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_sortablejs__WEBPACK_IMPORTED_MODULE_4__.ReactSortable, {
+          list: blocks,
+          setList: handleBlockUpdate,
+          ...parentSortableOptions,
+          children: blocks.map(block => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(ElementOthers, {
+            block: block,
+            handleBlockUpdate: handleBlockUpdate,
+            onTemplateDrop: handleTemplateAdd,
+            draggedTemplate: draggedTemplate,
+            setCurretnElement: setCurretnElement,
+            setactiveTab: setactiveTab
+          }, block.id))
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+      className: "w-[300px]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+        className: "border border-solid",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_TreeView__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          blocks: blocks,
+          setBlocks: setBlocks,
+          selected: selectedElementId,
+          setSelected: setCurretnElement
+        })
+      })
+    })]
+  });
+}
 
 /***/ }),
 
@@ -40142,18 +40645,18 @@ function Html(props) {
     }), valArgs.map((x, i) => {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "flex items-center my-1 border hover:bg-gray-400 cursor-pointer",
-        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           className: "bg-red-500 mr-2 p-1",
           onClick: ev => {
             valArgs.splice(i, 1);
             setValArgs(valArgs);
             props.onChange(valArgs.join(" "), "flexFlow");
           },
-          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
             fill: "#fff",
             icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"]
-          }), " "]
-        }), " ", x]
+          })
+        }), x]
       });
     })]
   });

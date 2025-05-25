@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
   var ComboBlocksPostGrid = document.querySelectorAll(
-    ".ComboBlocksFilterableGridNav"
+    ".PGFilterableGridNav"
   );
 
 
@@ -47,15 +47,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         templates: {
           pagerPrev:
-            '<span class="item prev pg-filter-' +
+            '<span class="page-numbers prev pg-filter-' +
             blockId +
             ' ${classNames}" data-page="prev">Prev</span>',
           pagerNext:
-            '<span class="item next pg-filter-' +
+            '<span class="page-numbers next pg-filter-' +
             blockId +
             ' ${classNames}" data-page="next">Next</span>',
           pager:
-            '<span class="item pg-filter-' +
+            '<span class="page-numbers pg-filter-' +
             blockId +
             ' ${classNames}" data-page="${pageNumber}">${pageNumber}</span>',
         },

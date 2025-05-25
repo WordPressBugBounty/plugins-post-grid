@@ -50,7 +50,6 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
     $loadMoreIconHtml = '<span class="' . $loadMoreIconSrc . '"></span>';
 
 
-    //var_dump($paginationType);
 
 
 
@@ -69,7 +68,6 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
 
     $PostGridBuilderCss .= $reponsiveCss;
 
-    // var_dump($reponsiveCss);
 
     $loopLayout = isset($PostGridData["loopLayout"]) ? $PostGridData["loopLayout"] : [];
 
@@ -83,7 +81,6 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
     if ($itemSource == "posts") {
         $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
 
-        //var_dump($itemsQueryResponse);
 
         $postsHtml = isset($itemsQueryResponse['postsHtml']) ? $itemsQueryResponse['postsHtml'] : '';
         $posts_query = isset($itemsQueryResponse['posts_query']) ? $itemsQueryResponse['posts_query'] : [];
@@ -97,7 +94,6 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
 
     $blockId = "post-grid-" . $post_id;
 
-    //echo "<pre>" . var_export($loopLayouts, true) . "</pre>";
 
 
     $PostGridDataAttr = [
@@ -121,7 +117,7 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
     $blockArgs = '';
 
 ?>
-    <div id="<?php echo esc_attr($blockId); ?>" class="pg-accordion-nested  " data-accordionBuilder=<?php echo esc_attr(json_encode($PostGridDataAttr)) ?> role="tablist" style="<?php echo ($lazyLoad) ? "display: none;" : ""; ?>">
+    <div id="<?php echo esc_attr($blockId); ?>" class="" data-accordionBuilder=<?php echo esc_attr(json_encode($PostGridDataAttr)) ?> role="tablist" style="<?php echo ($lazyLoad) ? "display: none;" : ""; ?>">
 
 
         <div class="items">

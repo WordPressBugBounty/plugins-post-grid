@@ -51,7 +51,6 @@ function post_grid_builder_viewMasonry($post_id, $PostGridData)
 
     $loadMoreIconHtml = '<span class="' . $loadMoreIconSrc . '"></span>';
 
-    //var_dump($globalOptions);
 
 
 
@@ -65,7 +64,6 @@ function post_grid_builder_viewMasonry($post_id, $PostGridData)
 
     $reponsiveCss = isset($PostGridData["reponsiveCss"]) ? $PostGridData["reponsiveCss"] : "";
 
-    //var_dump($reponsiveCss);
 
     $PostGridBuilderCss .= $reponsiveCss;
 
@@ -85,12 +83,10 @@ function post_grid_builder_viewMasonry($post_id, $PostGridData)
 
     $blockId = "post-grid-" . $post_id;
 
-    //echo "<pre>" . var_export($masonryOptions, true) . "</pre>";
 
     if ($itemSource == "posts") {
         $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
 
-        //var_dump($itemsQueryResponse);
 
         $postsHtml = isset($itemsQueryResponse['postsHtml']) ? $itemsQueryResponse['postsHtml'] : '';
         $posts_query = isset($itemsQueryResponse['posts_query']) ? $itemsQueryResponse['posts_query'] : [];

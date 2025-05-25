@@ -35,7 +35,6 @@ class class_post_grid_shortcodes
         //echo "<br>";
 
         $post_content = ($post_content);
-        //var_dump($post_content);
 
 
 
@@ -45,7 +44,6 @@ class class_post_grid_shortcodes
         $globalOptions = isset($PostGridData["globalOptions"]) ? $PostGridData["globalOptions"] : [];
         $viewType = isset($globalOptions["viewType"]) ? $globalOptions["viewType"] : "viewGrid";
 
-        //var_dump($viewType);
 
         ob_start();
 

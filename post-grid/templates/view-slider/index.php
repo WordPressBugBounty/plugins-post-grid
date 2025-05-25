@@ -13,7 +13,6 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
     $lazyLoad = isset($globalOptions["lazyLoad"]) ? $globalOptions["lazyLoad"] : false;
     $itemSource = isset($globalOptions["itemSource"]) ? $globalOptions["itemSource"] : "topToBottom";
 
-    //var_dump($globalOptions);
 
     $loopLayout = isset($PostGridData["loopLayout"]) ? $PostGridData["loopLayout"] : [];
 
@@ -45,7 +44,6 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
     $sliderOptions = isset($PostGridData['sliderOptions']) ? $PostGridData['sliderOptions'] : [];
     $sliderOptionsRes = isset($PostGridData['sliderOptionsRes']) ? $PostGridData['sliderOptionsRes'] : [];
 
-    //var_dump($reponsiveCss);
 
     $PostGridBuilderCss .= $reponsiveCss;
 
@@ -103,7 +101,6 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
 
     $blockId = "post-grid-" . $post_id;
 
-    //echo "<pre>" . var_export($sliderOptions, true) . "</pre>";
 
 
     $PostGridDataAttr = [

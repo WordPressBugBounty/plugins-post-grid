@@ -53,6 +53,18 @@ class PostGridRest
 
 		register_rest_route(
 			'post-grid/v2',
+			'/get_tax_terms',
+			array(
+				'methods' => 'POST',
+				'callback' => array($this, 'get_tax_terms'),
+				'permission_callback' => function () {
+					return current_user_can('edit_posts');
+				},
+			)
+		);
+
+		register_rest_route(
+			'post-grid/v2',
 			'/get_site_details',
 			array(
 				'methods' => 'POST',
@@ -218,7 +230,61 @@ class PostGridRest
 	}
 
 
+	/**
+	 * Return terms for taxonomy.
+	 *
+	 * @since 4.0.0
+	 *
+	 * @param WP_REST_Request $tax_data The tax data.
+	 */
+	public function get_tax_terms($request)
+	{
 
+
+
+
+		$postTypes = isset($request['postTypes']) ? $request['postTypes'] : [];
+		$search = isset($request['search']) ? $request['search'] : [];
+		// $taxonomy = $request['taxonomy'];
+		// $search = $request['search'];
+
+		error_log("$search");
+
+		$taxonomies = get_object_taxonomies($postTypes);
+
+
+
+		$taxonomiesArr = [];
+		$termsArr = [];
+		foreach ($taxonomies as $taxonomy) {
+
+
+			$terms = get_terms(
+				array(
+					'taxonomy' => $taxonomy,
+					'search' => $search,
+					'hide_empty' => false,
+				)
+			);
+
+			error_log(serialize($terms));
+
+
+			foreach ($terms as $term) {
+				$termsArr[] = $term;
+			}
+		}
+
+
+
+
+
+		if (is_wp_error($termsArr)) {
+			die(wp_json_encode(array()));
+		} else {
+			die(wp_json_encode($termsArr));
+		}
+	}
 
 
 	/**
@@ -789,7 +855,6 @@ class PostGridRest
 		$content = json_encode($content);
 		$content = wp_kses_post($content); // Sanitizes content for safe HTML output
 
-		error_log($content);
 
 		$my_post = array(
 			'ID'           => $postId,
