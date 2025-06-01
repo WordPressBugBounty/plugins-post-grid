@@ -176,6 +176,7 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
 {
 
     $item_class = isset($args['item_class']) ? $args['item_class'] : '';
+    $terms_class = isset($args['terms_class']) ? $args['terms_class'] : false;
 
 
 
@@ -412,7 +413,7 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
             $post_id = get_the_id();
 
 
-            $term_slugs = post_grid_term_slug_list($post_id);
+            $term_slugs = $terms_class ? post_grid_term_slug_list($post_id) : '';
 
 
             $postData = get_post($post_id);
@@ -606,6 +607,7 @@ function generate_element_html_layer($html, $postData, $element, $children)
 ?>
     <div class="<?php echo esc_attr($type); ?>" id="element-<?php echo esc_attr($id); ?>"
         <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>" <?php endif; ?>>
+
         <?php
         echo renderContentRecursive($postData, $children);
         ?>
@@ -797,7 +799,7 @@ function generate_element_html_postThumbnail($html, $postData, $element, $childr
 
 
 // postExcerpt
-add_filter('generate_element_html_postExcerpt', "generate_element_html_postExcerpt", 10, 4);
+// add_filter('generate_element_html_postExcerpt', "generate_element_html_postExcerpt", 10, 4);
 function generate_element_html_postExcerpt($html, $postData, $element, $children)
 {
 
@@ -1020,7 +1022,7 @@ function generate_element_html_postDate($html, $postData, $element, $children)
 }
 
 // postAuthor
-add_filter('generate_element_html_postAuthor', "generate_element_html_postAuthor", 10, 4);
+// add_filter('generate_element_html_postAuthor', "generate_element_html_postAuthor", 10, 4);
 function generate_element_html_postAuthor($html, $postData, $element, $children)
 {
 
@@ -2676,6 +2678,427 @@ function generate_element_html_wooTags($html, $postData, $element, $children)
 
 
 <?php
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+
+
+
+// postMeta
+add_filter('generate_element_html_postMeta', "generate_element_html_postMeta", 10, 4);
+function generate_element_html_postMeta($html, $postData, $element, $children)
+{
+
+    $type = isset($element['type']) ? $element['type'] : '';
+    $id = isset($element['id']) ? $element['id'] : '';
+    $options = isset($element['options']) ? $element['options'] : [];
+    $wrapperTag = isset($options['wrapperTag']) ? $options['wrapperTag'] : 'div';
+    $metaKey = isset($options['metaKey']) ? $options['metaKey'] : '';
+    $callback = isset($options['callback']) ? $options['callback'] : '';
+    $returnPrams = isset($options['returnPrams']) ? $options['returnPrams'] : [];
+    $prefixText = isset($options['prefixText']) ? $options['prefixText'] : "";
+    $postfixText = isset($options['postfixText']) ? $options['postfixText'] : "";
+
+    $outputType = isset($returnPrams['outputType']) ? $returnPrams['outputType'] : "";
+
+    if (empty($metaKey)) return;
+
+    $html = '';
+
+
+    $post_id = isset($postData->ID) ? $postData->ID : '';
+
+    $meta_output_args = [
+        "post_id" => $post_id,
+        "metaKey" => $metaKey,
+        "options" => $options,
+    ];
+
+    $html = apply_filters("post_grid_post_meta_output_" . $outputType, "", $meta_output_args);
+
+    //$html = apply_filters($callback, $meta_output_args);
+
+
+    ob_start();
+
+?>
+    <<?php echo tag_escape($wrapperTag) ?> class="<?php echo esc_attr($type); ?>" id="element-<?php echo esc_attr($id); ?>">
+        <?php if (!empty($prefixText)): ?>
+            <div class="prefix">
+                <?php echo wp_kses_post($prefixText); ?>
+            </div>
+        <?php endif; ?>
+
+
+        <?php echo wp_kses_post($html); ?>
+
+        <?php if (!empty($postfixText)): ?>
+            <div class="postfix">
+                <?php echo wp_kses_post($postfixText); ?>
+            </div>
+        <?php endif; ?>
+    </<?php echo tag_escape($wrapperTag) ?>>
+
+
+<?php
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+
+add_filter("post_grid_post_meta_output_string", "post_grid_post_meta_output_string", 10, 2);
+
+
+function post_grid_post_meta_output_string($html, $args)
+{
+
+    $post_id = isset($args['post_id']) ? $args['post_id'] : '';
+    $metaKey = isset($args['metaKey']) ? $args['metaKey'] : '';
+    $outputType = isset($args['outputType']) ? $args['outputType'] : "";
+    $outputtemplate = isset($args['outputtemplate']) ? $args['outputtemplate'] : "";
+
+    $options = isset($args['options']) ? $args['options'] : '';
+    $customFieldSrc = isset($options['customFieldSrc']) ? $options['customFieldSrc'] : "";
+
+    $returnPrams = isset($options['returnPrams']) ? $options['returnPrams'] : '';
+
+    $enableShortcodes = isset($returnPrams['enableShortcodes']) ? $returnPrams['enableShortcodes'] : "";
+    $enableEmbeds = isset($returnPrams['enableEmbeds']) ? $returnPrams['enableEmbeds'] : "";
+
+    var_dump($options);
+
+    ob_start();
+
+    if ($customFieldSrc == 'acf') {
+        //$field = get_field_object($metaKey);
+        $field_value = get_field($metaKey);
+
+        // $fieldValue = isset($field['value']) ? $field['value'] : '';
+        // $fieldLabel = isset($field['label']) ? $field['label'] : '';
+
+
+
+        $metaValue = $field_value;
+    } else {
+        $metaValue = get_post_meta($post_id, $metaKey, true);
+    }
+
+?>
+    <div class="meta-value"><?php echo wp_kses_post($metaValue); ?></div>
+<?php
+
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+add_filter("post_grid_post_meta_output_strToNumber", "post_grid_post_meta_output_strToNumber", 10, 2);
+
+
+function post_grid_post_meta_output_strToNumber($html, $args)
+{
+
+    $post_id = isset($args['post_id']) ? $args['post_id'] : '';
+    $metaKey = isset($args['metaKey']) ? $args['metaKey'] : '';
+    $customFieldSrc = isset($args['customFieldSrc']) ? $args['customFieldSrc'] : "";
+    $outputType = isset($args['outputType']) ? $args['outputType'] : "";
+    $outputtemplate = isset($args['outputtemplate']) ? $args['outputtemplate'] : "";
+
+    $options = isset($args['options']) ? $args['options'] : '';
+    $customFieldSrc = isset($options['customFieldSrc']) ? $options['customFieldSrc'] : "";
+
+    $returnPrams = isset($options['returnPrams']) ? $options['returnPrams'] : '';
+
+    $decimals = isset($returnPrams['decimals']) ? (int) $returnPrams['decimals'] : 2;
+    $decimalSeparator = isset($returnPrams['decimalSeparator']) ? $returnPrams['decimalSeparator'] : ".";
+    $thousandSeparator = isset($returnPrams['thousandSeparator']) ? $returnPrams['thousandSeparator'] : ",";
+
+
+
+    ob_start();
+
+    if ($customFieldSrc == 'acf') {
+        //$field = get_field_object($metaKey);
+        $field_value = get_field($metaKey);
+
+        // $fieldValue = isset($field['value']) ? $field['value'] : '';
+        // $fieldLabel = isset($field['label']) ? $field['label'] : '';
+
+        var_dump($field_value);
+
+        $metaValue = $field_value;
+    } else {
+        $metaValue = get_post_meta($post_id, $metaKey, true);
+    }
+
+    $number = '';
+
+    if (!empty($metaValue)) {
+        $number = number_format($metaValue, $decimals, $decimalSeparator, $thousandSeparator);
+    }
+
+
+
+
+?>
+    <div class="meta-value"><?php echo wp_kses_post($number); ?></div>
+<?php
+
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+
+add_filter("post_grid_post_meta_output_strToLink", "post_grid_post_meta_output_strToLink", 10, 2);
+
+function post_grid_post_meta_output_strToLink($html, $args)
+{
+
+    $post_id = isset($args['post_id']) ? $args['post_id'] : '';
+    $metaKey = isset($args['metaKey']) ? $args['metaKey'] : '';
+
+    $outputType = isset($args['outputType']) ? $args['outputType'] : "";
+    $outputtemplate = isset($args['outputtemplate']) ? $args['outputtemplate'] : "";
+
+    $options = isset($args['options']) ? $args['options'] : '';
+    $customFieldSrc = isset($options['customFieldSrc']) ? $options['customFieldSrc'] : "";
+
+    $returnPrams = isset($options['returnPrams']) ? $options['returnPrams'] : '';
+
+    $linkTextSrc = isset($returnPrams['linkTextSrc']) ?  $returnPrams['linkTextSrc'] : "";
+    $linkText = isset($returnPrams['linkText']) ? $returnPrams['linkText'] : "";
+    $target = isset($returnPrams['target']) ? $returnPrams['target'] : "";
+    $protocol = isset($returnPrams['protocol']) ? $returnPrams['protocol'] : "";
+
+    // echo serialize($args);
+
+
+
+    ob_start();
+
+    if ($customFieldSrc == 'acf') {
+        //$field = get_field_object($metaKey);
+        $field_value = get_field($metaKey);
+
+        $fieldValue = isset($field['value']) ? $field['value'] : '';
+        $fieldLabel = isset($field['label']) ? $field['label'] : '';
+
+
+
+        $metaValue = $field_value;
+    } else {
+        $metaValue = get_post_meta($post_id, $metaKey, true);
+    }
+
+?>
+    <a href="<?php echo esc_url($metaValue); ?>" target="<?php echo esc_attr($target); ?>" class="meta-value">
+        <?php if (!empty($linkText)): ?>
+            <?php echo wp_kses_post($linkText); ?>
+        <?php else: ?>
+            <?php echo wp_kses_post($metaValue); ?>
+        <?php endif; ?>
+
+
+    </a>
+    <?php
+
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+add_filter("post_grid_post_meta_output_idToImage", "post_grid_post_meta_output_idToImage", 10, 2);
+
+function post_grid_post_meta_output_idToImage($html, $args)
+{
+
+    $post_id = isset($args['post_id']) ? $args['post_id'] : '';
+    $metaKey = isset($args['metaKey']) ? $args['metaKey'] : '';
+
+    $outputType = isset($args['outputType']) ? $args['outputType'] : "";
+    $outputtemplate = isset($args['outputtemplate']) ? $args['outputtemplate'] : "";
+
+    $options = isset($args['options']) ? $args['options'] : '';
+    $customFieldSrc = isset($options['customFieldSrc']) ? $options['customFieldSrc'] : "";
+
+    $returnPrams = isset($options['returnPrams']) ? $options['returnPrams'] : '';
+
+    $linkTo = isset($returnPrams['linkTo']) ?  $returnPrams['linkTo'] : "";
+    $linkToUrl = isset($returnPrams['linkToUrl']) ? $returnPrams['linkToUrl'] : "";
+    $target = isset($returnPrams['target']) ? $returnPrams['target'] : "";
+    $thumbSize = isset($returnPrams['thumbSize']) ? $returnPrams['thumbSize'] : "";
+    $enableSrcSet = isset($returnPrams['enableSrcSet']) ? $returnPrams['enableSrcSet'] : "";
+
+    // echo serialize($args);
+
+    ob_start();
+
+    if ($customFieldSrc == 'acf') {
+        //$field = get_field_object($metaKey);
+        $field_value = get_field($metaKey);
+
+        // echo "<pre>" . var_export($field_value, true) . "</pre>";
+
+
+        $attachment_post = get_post($field_value);
+        $image_srcset = wp_get_attachment_image_srcset($field_value);
+        $attachment_metadata = wp_get_attachment_metadata($field_value);
+
+        $attachment_post = !empty($attachment_post) ? (array) $attachment_post : [];
+        $attachment_metadata = !empty($attachment_metadata) ? (array) $attachment_metadata : [];
+
+        // $fieldValue = isset($field['value']) ? $field['value'] : '';
+        // $fieldLabel = isset($field['label']) ? $field['label'] : '';
+        // echo "<pre>" . var_export($attachment_post, true) . "</pre>";
+        //echo "<pre>" . var_export($attachment_metadata, true) . "</pre>";
+
+        $attachment_data = array_merge((array)$attachment_post, $attachment_metadata);
+        $attachment_data['srcset'] = $image_srcset;
+        // echo "<pre>" . var_export($attachment_data, true) . "</pre>";
+
+
+        $metaValue = $field_value;
+    } else {
+        $metaValue = get_post_meta($post_id, $metaKey, true);
+    }
+
+    $altText = isset($attachment_data['post_excerpt']) ? $attachment_data['post_excerpt'] : '';
+    $imgSrc = isset($attachment_data['guid']) ? $attachment_data['guid'] : '';
+    $imgLinkUrl = isset($attachment_data['guid']) ? $attachment_data['guid'] : '';
+    $imgSrcset = isset($attachment_data['srcset']) ? $attachment_data['srcset'] : '';
+
+
+
+
+    //var_dump($imgSrcset);
+
+    if (!empty($linkTo)) {
+
+        if ($linkTo == 'postUrl') {
+            $imageUrl = get_permalink($post_id);
+        }
+        if ($linkTo == 'custom') {
+            $imageUrl = $linkToUrl;
+        }
+
+
+    ?>
+        <a href="<?php echo esc_url($imageUrl); ?>" target="<?php echo esc_attr($target);  ?>" class="meta-value">
+            <img src="<?php echo esc_url($imgSrc) ?>" alt="<?php echo esc_attr($altText) ?>" srcset="<?php echo esc_attr($imgSrcset); ?>">
+        </a>
+    <?php
+
+    }
+    if (empty($linkTo)) {
+
+    ?>
+        <img src="<?php echo esc_url($imgSrc) ?>" alt="<?php echo esc_attr($altText) ?>" srcset="<?php echo esc_attr($imgSrcset); ?>">
+    <?php
+
+    }
+    ?>
+
+<?php
+
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+add_filter("post_grid_post_meta_output_strToDateTime", "post_grid_post_meta_output_strToDateTime", 10, 2);
+
+
+function post_grid_post_meta_output_strToDateTime($html, $args)
+{
+
+    $post_id = isset($args['post_id']) ? $args['post_id'] : '';
+    $metaKey = isset($args['metaKey']) ? $args['metaKey'] : '';
+
+    $customFieldSrc = isset($args['customFieldSrc']) ? $args['customFieldSrc'] : "";
+    $outputType = isset($args['outputType']) ? $args['outputType'] : "";
+    $outputtemplate = isset($args['outputtemplate']) ? $args['outputtemplate'] : "";
+
+    $options = isset($args['options']) ? $args['options'] : '';
+    $returnPrams = isset($options['returnPrams']) ? $options['returnPrams'] : '';
+
+    $format = isset($returnPrams['format']) ?  $returnPrams['format'] : "";
+
+    // echo serialize($args);
+
+
+
+    ob_start();
+
+    if ($customFieldSrc == 'acf') {
+        //$field = get_field_object($metaKey);
+        $field_value = get_field($metaKey);
+
+        // $fieldValue = isset($field['value']) ? $field['value'] : '';
+        // $fieldLabel = isset($field['label']) ? $field['label'] : '';
+
+
+
+        $metaValue = $field_value;
+    } else {
+        $metaValue = get_post_meta($post_id, $metaKey, true);
+    }
+
+
+    $metaValue = date($format, strtotime($metaValue));
+
+?>
+    <div class="meta-value"><?php echo wp_kses_post($metaValue); ?></div>
+<?php
+
+    $html = ob_get_clean();
+
+    return $html;
+}
+
+add_filter("post_grid_post_meta_output_arrayLoop", "post_grid_post_meta_output_arrayLoop", 10, 2);
+
+
+function post_grid_post_meta_output_arrayLoop($html, $args)
+{
+
+    $post_id = isset($args['post_id']) ? $args['post_id'] : '';
+    $metaKey = isset($args['metaKey']) ? $args['metaKey'] : '';
+    $returnPrams = isset($args['returnPrams']) ? $args['returnPrams'] : '';
+    $customFieldSrc = isset($args['customFieldSrc']) ? $args['customFieldSrc'] : "";
+    $outputType = isset($args['outputType']) ? $args['outputType'] : "";
+    $outputtemplate = isset($args['outputtemplate']) ? $args['outputtemplate'] : "";
+
+    $returnPramsOptions = isset($args['options']) ? $args['options'] : '';
+
+    $enableShortcodes = isset($returnPramsOptions['enableShortcodes']) ? $returnPramsOptions['enableShortcodes'] : "";
+    $enableEmbeds = isset($returnPramsOptions['enableEmbeds']) ? $returnPramsOptions['enableEmbeds'] : "";
+
+
+
+    ob_start();
+
+    if ($customFieldSrc == 'acf') {
+        //$field = get_field_object($metaKey);
+        $field_value = get_field($metaKey);
+
+        $fieldValue = isset($field['value']) ? $field['value'] : '';
+        $fieldLabel = isset($field['label']) ? $field['label'] : '';
+
+
+
+        $metaValue = $field_value;
+    } else {
+        $metaValue = get_post_meta($post_id, $metaKey, true);
+    }
+
+?>
+    <div class="meta-value"><?php echo wp_kses_post($metaValue); ?></div>
+<?php
+
     $html = ob_get_clean();
 
     return $html;

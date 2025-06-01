@@ -4,7 +4,7 @@ Donate link: https://pickplugins.com/
 Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
 Tested up to: 6.8
-Stable tag: 2.3.16
+Stable tag: 2.3.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -210,6 +210,11 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 == Changelog ==
 
+= 2.3.16 =
+- 2025-05-30 - add - Custom number pagination access on post grid list.
+- 2025-05-30 - add - Add button to create new post grid.
+- 2025-05-30 - fix - layout editor issue fixed.
+- 2025-05-30 - fix - Templates library issue fixed.
 
 = 2.3.16 =
 - 2025-05-25 - update - Improved layout editor.

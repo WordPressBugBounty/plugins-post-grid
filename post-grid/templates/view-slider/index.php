@@ -22,7 +22,7 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
     $itemQueryArgs = isset($PostGridData["itemQueryArgs"]) ? $PostGridData["itemQueryArgs"] : [];
 
     if ($itemSource == "posts") {
-        $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts, ['item_class' => 'splide__slide']);
+        $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts, ['item_class' => 'splide__slide', 'terms_class' => false]);
 
         $postsHtml = isset($itemsQueryResponse['postsHtml']) ? $itemsQueryResponse['postsHtml'] : '';
         $posts_query = isset($itemsQueryResponse['posts_query']) ? $itemsQueryResponse['posts_query'] : [];
