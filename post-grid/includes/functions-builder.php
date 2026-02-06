@@ -1,6 +1,6 @@
 <?php
 if (! defined('ABSPATH')) exit;  // if direct access
-add_action('wp_footer', 'post_grid_builder_global_scripts', 999);
+add_action('wp_footer', 'post_grid_builder_global_scripts');
 
 function post_grid_builder_global_scripts()
 {
@@ -9,18 +9,17 @@ function post_grid_builder_global_scripts()
 
     if (empty($PostGridBuilderCss)) return;
 
+
+
     $PostGridBuilderCss = str_replace("&quot;", '"', $PostGridBuilderCss);
     $PostGridBuilderCss = str_replace("&gt;", '>', $PostGridBuilderCss);
 
 
-?>
-    <style>
-        <?php echo wp_strip_all_tags($PostGridBuilderCss); ?>
-    </style>
+    wp_register_style('PostGridBuilder', false);
+    wp_enqueue_style('PostGridBuilder');
 
-
-    <?php
-
+    $sanitized_css = wp_strip_all_tags($PostGridBuilderCss);
+    wp_add_inline_style('PostGridBuilder', $sanitized_css);
 }
 
 function generateLayoutsHTML($elements, $itemData)
@@ -95,9 +94,9 @@ function generateLayoutsElementHtml($element, $item)
     ob_start();
 
     if ($type == 'content') {
-    ?>
+?>
         <div id="element-<?php echo esc_attr($element['id']); ?>">
-            <?php echo wp_unslash(wp_specialchars_decode($content, ENT_QUOTES)) ?>
+            <?php echo wp_kses_post(wp_specialchars_decode($content, ENT_QUOTES)) ?>
         </div>
     <?php
     }
@@ -425,7 +424,6 @@ function post_grid_builder_post_query_items($queryArgs, $loopLayouts, $args = []
         $responses['postsHtml'] = $postsHtml;
         $responses['posts_query'] = $posts_query;
         // $responses['max_num_pages'] = isset($posts_query->max_num_pages) ? $posts_query->max_num_pages : 0;;
-        wp_reset_query();
         wp_reset_postdata();
     endif;
 
@@ -536,9 +534,7 @@ function generate_element_html_postTitle($html, $postData, $element, $children)
 
 
 <?php
-    $html = ob_get_clean();
-
-    return $html;
+    return wp_kses_post(ob_get_clean());
 }
 
 // container
@@ -568,15 +564,13 @@ function generate_element_html_container($html, $postData, $element, $children)
         <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>" <?php endif; ?>>
 
         <?php
-        echo renderContentRecursive($postData, $children);
+        echo wp_kses_post(renderContentRecursive($postData, $children));
         ?>
     </div>
 
 
 <?php
-    $html = ob_get_clean();
-
-    return $html;
+    return wp_kses_post(ob_get_clean());
 }
 
 
@@ -609,15 +603,13 @@ function generate_element_html_layer($html, $postData, $element, $children)
         <?php if (!empty($animateRules)): ?> data-animateOn="<?php echo esc_attr(json_encode($animateRules)) ?>" <?php endif; ?>>
 
         <?php
-        echo renderContentRecursive($postData, $children);
+        echo wp_kses_post(renderContentRecursive($postData, $children));
         ?>
     </div>
 
 
 <?php
-    $html = ob_get_clean();
-
-    return $html;
+    return wp_kses_post(ob_get_clean());
 }
 
 
@@ -967,7 +959,7 @@ function generate_element_html_postDate($html, $postData, $element, $children)
     $post_date = isset($the_post->post_date) ? $the_post->post_date : '';
 
 
-    $formatedPostDate = date($format, strtotime($post_date));
+    $formatedPostDate = gmdate($format, strtotime($post_date));
 
     if ($iconLibrary == 'fontAwesome') {
         wp_enqueue_style('fontawesome-icons');
@@ -1624,7 +1616,7 @@ function generate_element_html_wooAddToCart($html, $postData, $element, $childre
     $postfixText = isset($options['postfixText']) ? $options['postfixText'] : '';
     $post_title = isset($postData->post_title) ? $postData->post_title : '';
     $cartBtnAjax = isset($cartBtnOptions['ajax']) ? $cartBtnOptions['ajax'] : true;
-    $cartBtnText = __("View Product", 'combo-blocks');
+    $cartBtnText = __("View Product", 'post-grid');
 
     if ($iconLibrary == 'fontAwesome') {
         wp_enqueue_style('fontawesome-icons');
@@ -2768,7 +2760,6 @@ function post_grid_post_meta_output_string($html, $args)
     $enableShortcodes = isset($returnPrams['enableShortcodes']) ? $returnPrams['enableShortcodes'] : "";
     $enableEmbeds = isset($returnPrams['enableEmbeds']) ? $returnPrams['enableEmbeds'] : "";
 
-    var_dump($options);
 
     ob_start();
 
@@ -2826,8 +2817,6 @@ function post_grid_post_meta_output_strToNumber($html, $args)
 
         // $fieldValue = isset($field['value']) ? $field['value'] : '';
         // $fieldLabel = isset($field['label']) ? $field['label'] : '';
-
-        var_dump($field_value);
 
         $metaValue = $field_value;
     } else {
@@ -2974,7 +2963,6 @@ function post_grid_post_meta_output_idToImage($html, $args)
 
 
 
-    //var_dump($imgSrcset);
 
     if (!empty($linkTo)) {
 
@@ -3048,7 +3036,7 @@ function post_grid_post_meta_output_strToDateTime($html, $args)
     }
 
 
-    $metaValue = date($format, strtotime($metaValue));
+    $metaValue = gmdate($format, strtotime($metaValue));
 
 ?>
     <div class="meta-value"><?php echo wp_kses_post($metaValue); ?></div>

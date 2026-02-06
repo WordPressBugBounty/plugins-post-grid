@@ -33,31 +33,12 @@ function post_grid_metabox_tabs_content_shortcode($tab, $post_id)
                                                             echo '"); ?>'; ?></textarea> <span class="copied">Copied</span>
       <p class="description">To avoid conflict, PHP code you can use under theme .php files.</p>
     </div>
-    <style type="text/css">
-      .copy-to-clipboard {}
 
-      .copy-to-clipboard .copied {
-        display: none;
-        background: #e5e5e5;
-        padding: 4px 10px;
-        line-height: normal;
-      }
-    </style>
-    <script>
-      jQuery(document).ready(function($) {
-        $(document).on('click', '.copy-to-clipboard input, .copy-to-clipboard textarea', function() {
-          $(this).focus();
-          $(this).select();
-          document.execCommand('copy');
-          $(this).parent().children('.copied').fadeIn().fadeOut(2000);
-        })
-      })
-    </script>
     <?php
     $html = ob_get_clean();
     $args = array(
       'id'        => 'post_grid_shortcodes',
-      'title'        => __('Post Grid Shortcode', 'post-grid'),
+      'title'        => esc_html__('Post Grid Shortcode', 'post-grid'),
       'details'    => '',
       'type'        => 'custom_html',
       'html'        => $html,
@@ -65,6 +46,26 @@ function post_grid_metabox_tabs_content_shortcode($tab, $post_id)
     $settings_tabs_field->generate_field($args, $post_id);
     ?>
   </div>
+  <style type="text/css">
+    .copy-to-clipboard {}
+
+    .copy-to-clipboard .copied {
+      display: none;
+      background: #e5e5e5;
+      padding: 4px 10px;
+      line-height: normal;
+    }
+  </style>
+  <script>
+    jQuery(document).ready(function($) {
+      $(document).on('click', '.copy-to-clipboard input, .copy-to-clipboard textarea', function() {
+        $(this).focus();
+        $(this).select();
+        document.execCommand('copy');
+        $(this).parent().children('.copied').fadeIn().fadeOut(2000);
+      })
+    })
+  </script>
 <?php
 }
 add_action('post_grid_metabox_tabs_content_general', 'post_grid_metabox_tabs_content_general', 10, 2);
@@ -82,29 +83,29 @@ function post_grid_metabox_tabs_content_general($tab, $post_id)
   $items_wrapper_text_align = !empty($post_grid_meta_options['items_wrapper']['text_align']) ? $post_grid_meta_options['items_wrapper']['text_align'] : '';
 ?>
   <div class="section">
-    <div class="section-title"><?php echo __('Lazy load', 'post-grid'); ?></div>
-    <p class="description section-description"><?php echo __('Choose lazy load options.', 'post-grid'); ?></p>
+    <div class="section-title"><?php echo esc_html__('Lazy load', 'post-grid'); ?></div>
+    <p class="description section-description"><?php echo esc_html__('Choose lazy load options.', 'post-grid'); ?></p>
     <?php
     $args = array(
       'id'        => 'lazy_load_enable',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Enable lazy load', 'post-grid'),
-      'details'    => __('Choose enable or disable lazy load.', 'post-grid'),
+      'title'        => esc_html__('Enable lazy load', 'post-grid'),
+      'details'    => esc_html__('Choose enable or disable lazy load.', 'post-grid'),
       'type'        => 'radio',
       'multiple'        => true,
       'value'        => $lazy_load_enable,
       'default'        => 'no',
       'args'        => array(
-        'no' => __('No', 'post-grid'),
-        'yes' => __('Yes', 'post-grid'),
+        'no' => esc_html__('No', 'post-grid'),
+        'yes' => esc_html__('Yes', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'lazy_load_image_src',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Lazy load image source', 'post-grid'),
-      'details'    => __('Set custom lazy load image source.', 'post-grid'),
+      'title'        => esc_html__('Lazy load image source', 'post-grid'),
+      'details'    => esc_html__('Set custom lazy load image source.', 'post-grid'),
       'type'        => 'media_url',
       'placeholder'        => '',
       'placeholder_img'        => '',
@@ -115,8 +116,8 @@ function post_grid_metabox_tabs_content_general($tab, $post_id)
     $args = array(
       'id'        => 'lazy_load_alt_text',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Lazy load image alt text', 'post-grid'),
-      'details'    => __('Set custom lazy load image alt text.', 'post-grid'),
+      'title'        => esc_html__('Lazy load image alt text', 'post-grid'),
+      'details'    => esc_html__('Set custom lazy load image alt text.', 'post-grid'),
       'type'        => 'text',
       'value'        => $lazy_load_alt_text,
       'placeholder'        => 'Post Grid lazy load',
@@ -126,29 +127,29 @@ function post_grid_metabox_tabs_content_general($tab, $post_id)
     $args = array(
       'id'        => 'load_fontawesome',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Load font awesome', 'post-grid'),
-      'details'    => __('Choose enable or disable font-awesome load.', 'post-grid'),
+      'title'        => esc_html__('Load font awesome', 'post-grid'),
+      'details'    => esc_html__('Choose enable or disable font-awesome load.', 'post-grid'),
       'type'        => 'radio',
       'multiple'        => true,
       'value'        => $load_fontawesome,
       'default'        => 'no',
       'args'        => array(
-        'no' => __('No', 'post-grid'),
-        'yes' => __('Yes', 'post-grid'),
+        'no' => esc_html__('No', 'post-grid'),
+        'yes' => esc_html__('Yes', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     ?>
   </div>
   <div class="section">
-    <div class="section-title"><?php echo __('Container settings', 'post-grid'); ?></div>
-    <p class="description section-description"><?php echo __('Choose container options.', 'post-grid'); ?></p>
+    <div class="section-title"><?php echo esc_html__('Container settings', 'post-grid'); ?></div>
+    <p class="description section-description"><?php echo esc_html__('Choose container options.', 'post-grid'); ?></p>
     <?php
     $args = array(
       'id'        => 'padding',
       'parent'        => 'post_grid_meta_options[container]',
-      'title'        => __('Container padding', 'post-grid'),
-      'details'    => __('Set custom padding for grid container, ex: 10px 15px 10px 15px', 'post-grid'),
+      'title'        => esc_html__('Container padding', 'post-grid'),
+      'details'    => esc_html__('Set custom padding for grid container, ex: 10px 15px 10px 15px', 'post-grid'),
       'type'        => 'text',
       'value'        => $container_padding,
       'default'        => '',
@@ -157,8 +158,8 @@ function post_grid_metabox_tabs_content_general($tab, $post_id)
     $args = array(
       'id'        => 'bg_color',
       'parent'        => 'post_grid_meta_options[container]',
-      'title'        => __('Container background color', 'post-grid'),
-      'details'    => __('Set custom background color for grid container.', 'post-grid'),
+      'title'        => esc_html__('Container background color', 'post-grid'),
+      'details'    => esc_html__('Set custom background color for grid container.', 'post-grid'),
       'type'        => 'colorpicker',
       'value'        => $container_bg_color,
       'default'        => '',
@@ -167,8 +168,8 @@ function post_grid_metabox_tabs_content_general($tab, $post_id)
     $args = array(
       'id'        => 'bg_image',
       'parent'        => 'post_grid_meta_options[container]',
-      'title'        => __('Container background color', 'post-grid'),
-      'details'    => __('Set custom background color for grid container.', 'post-grid'),
+      'title'        => esc_html__('Container background color', 'post-grid'),
+      'details'    => esc_html__('Set custom background color for grid container.', 'post-grid'),
       'type'        => 'media_url',
       'value'        => $container_bg_image,
       'default'        => '',
@@ -177,21 +178,21 @@ function post_grid_metabox_tabs_content_general($tab, $post_id)
     ?>
   </div>
   <div class="section">
-    <div class="section-title"><?php echo __('Items wrapper settings', 'post-grid'); ?></div>
-    <p class="description section-description"><?php echo __('Choose items wrapper options.', 'post-grid'); ?></p>
+    <div class="section-title"><?php echo esc_html__('Items wrapper settings', 'post-grid'); ?></div>
+    <p class="description section-description"><?php echo esc_html__('Choose items wrapper options.', 'post-grid'); ?></p>
     <?php
     $args = array(
       'id'        => 'text_align',
       'parent'        => 'post_grid_meta_options[items_wrapper]',
-      'title'        => __('Text align', 'post-grid'),
-      'details'    => __('Container text align.', 'post-grid'),
+      'title'        => esc_html__('Text align', 'post-grid'),
+      'details'    => esc_html__('Container text align.', 'post-grid'),
       'type'        => 'select',
       'value'        => $items_wrapper_text_align,
       'default'        => 'center',
       'args'        => array(
-        'left' => __('Left', 'post-grid'),
-        'center' => __('Center', 'post-grid'),
-        'right' => __('Right', 'post-grid'),
+        'left' => esc_html__('Left', 'post-grid'),
+        'center' => esc_html__('Center', 'post-grid'),
+        'right' => esc_html__('Right', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
@@ -233,8 +234,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'post_types',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Post types', 'post-grid'),
-      'details'    => __('Select your desired post types here you want to display post from, you can choose multiple post type.', 'post-grid'),
+      'title'        => esc_html__('Post types', 'post-grid'),
+      'details'    => esc_html__('Select your desired post types here you want to display post from, you can choose multiple post type.', 'post-grid'),
       'type'        => 'select2',
       'multiple'        => true,
       'value'        => $post_types,
@@ -256,7 +257,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
               $terms_relation = isset($taxonomies[$taxonomy]['terms_relation']) ? $taxonomies[$taxonomy]['terms_relation'] : 'IN';
               $terms = isset($taxonomies[$taxonomy]['terms']) ? $taxonomies[$taxonomy]['terms'] : array();
               $checked = isset($taxonomies[$taxonomy]['checked']) ? $taxonomies[$taxonomy]['checked'] : '';
-              $taxonomy_terms = get_terms($taxonomy, array(
+              $taxonomy_terms = get_terms(array(
+                'taxonomy' => $taxonomy,
                 'hide_empty' => false,
               ));
               if (!empty($taxonomy_terms))
@@ -280,8 +282,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
                     'id'        => 'terms',
                     'css_id'        => 'terms-' . $taxonomyIndex,
                     'parent'        => 'post_grid_meta_options[taxonomies][' . $taxonomy . ']',
-                    'title'        => __('Categories or Terms', 'post-grid'),
-                    'details'    => __('Select post terms or categories', 'post-grid'),
+                    'title'        => esc_html__('Categories or Terms', 'post-grid'),
+                    'details'    => esc_html__('Select post terms or categories', 'post-grid'),
                     'type'        => 'select2',
                     'multiple'        => true,
                     'value'        => $terms,
@@ -292,19 +294,19 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
                   $args = array(
                     'id'        => 'terms_relation',
                     'parent'        => 'post_grid_meta_options[taxonomies][' . $taxonomy . ']',
-                    'title'        => __('Terms relation', 'post-grid'),
-                    'details'    => __('Choose term relation. some option only available in pro', 'post-grid'),
+                    'title'        => esc_html__('Terms relation', 'post-grid'),
+                    'details'    => esc_html__('Choose term relation. some option only available in pro', 'post-grid'),
                     'type'        => 'radio',
                     'for'        => $taxonomy,
                     'multiple'        => true,
                     'value'        => $terms_relation,
                     'default'        => 'IN',
                     'args'        => array(
-                      'IN' => __('IN', 'post-grid'),
-                      'NOT IN' => __('NOT IN', 'post-grid'),
-                      'AND' => __('AND', 'post-grid'),
-                      'EXISTS' => __('EXISTS', 'post-grid'),
-                      'NOT EXISTS' => __('NOT EXISTS', 'post-grid'),
+                      'IN' => esc_html__('IN', 'post-grid'),
+                      'NOT IN' => esc_html__('NOT IN', 'post-grid'),
+                      'AND' => esc_html__('AND', 'post-grid'),
+                      'EXISTS' => esc_html__('EXISTS', 'post-grid'),
+                      'NOT EXISTS' => esc_html__('NOT EXISTS', 'post-grid'),
                     ),
                   );
                   $settings_tabs_field->generate_field($args, $post_id);
@@ -314,35 +316,35 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
           <?php
             }
           else :
-            echo __('Please choose at least one post types. save/update post grid', 'post-grid');
+            echo esc_html__('Please choose at least one post types. save/update post grid', 'post-grid');
           endif;
           ?>
         </div>
-        <p class="description"><?php echo __('Select post categories & terms.', 'post-grid'); ?></p>
+        <p class="description"><?php echo esc_html__('Select post categories & terms.', 'post-grid'); ?></p>
       </div>
     </div>
     <?php
     $args = array(
       'id'        => 'categories_relation',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Taxonomies relation', 'post-grid'),
-      'details'    => __('Choose Taxonomies relation.', 'post-grid'),
+      'title'        => esc_html__('Taxonomies relation', 'post-grid'),
+      'details'    => esc_html__('Choose Taxonomies relation.', 'post-grid'),
       'type'        => 'radio',
       //'for'		=> $taxonomy,
       'multiple'        => true,
       'value'        => $categories_relation,
       'default'        => 'IN',
       'args'        => array(
-        'OR' => __('OR', 'post-grid'),
-        'AND' => __('AND', 'post-grid'),
+        'OR' => esc_html__('OR', 'post-grid'),
+        'AND' => esc_html__('AND', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'post_status',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Post status', 'post-grid'),
-      'details'    => __('Display post from following post status.', 'post-grid'),
+      'title'        => esc_html__('Post status', 'post-grid'),
+      'details'    => esc_html__('Display post from following post status.', 'post-grid'),
       'type'        => 'select2',
       'multiple'        => true,
       'value'        => $post_status,
@@ -353,24 +355,24 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'query_order',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Post query order', 'post-grid'),
-      'details'    => __('Query order ascending or descending.', 'post-grid'),
+      'title'        => esc_html__('Post query order', 'post-grid'),
+      'details'    => esc_html__('Query order ascending or descending.', 'post-grid'),
       'type'        => 'select',
       //'for'		=> $taxonomy,
       //'multiple'		=> true,
       'value'        => $query_order,
       'default'        => 'DESC',
       'args'        => array(
-        'ASC' => __('Ascending', 'post-grid'),
-        'DESC' => __('Descending', 'post-grid'),
+        'ASC' => esc_html__('Ascending', 'post-grid'),
+        'DESC' => esc_html__('Descending', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'query_orderby',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Post query orderby', 'post-grid'),
-      'details'    => __('Select post query orderby', 'post-grid'),
+      'title'        => esc_html__('Post query orderby', 'post-grid'),
+      'details'    => esc_html__('Select post query orderby', 'post-grid'),
       'type'        => 'select2',
       'multiple'        => true,
       'value'        => $query_orderby,
@@ -381,8 +383,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'query_orderby_meta_key',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Query orderby meta key', 'post-grid'),
-      'details'    => __('You can use custom meta field key for orderby meta key', 'post-grid'),
+      'title'        => esc_html__('Query orderby meta key', 'post-grid'),
+      'details'    => esc_html__('You can use custom meta field key for orderby meta key', 'post-grid'),
       'type'        => 'text',
       'value'        => $query_orderby_meta_key,
       'default'        => '',
@@ -392,8 +394,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'posts_per_page',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Posts per page', 'post-grid'),
-      'details'    => __('Number of post each pagination. -1 to display all. default is 10 if you left empty.', 'post-grid'),
+      'title'        => esc_html__('Posts per page', 'post-grid'),
+      'details'    => esc_html__('Number of post each pagination. -1 to display all. default is 10 if you left empty.', 'post-grid'),
       'type'        => 'text',
       'value'        => $posts_per_page,
       'default'        => '',
@@ -403,8 +405,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'offset',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Offset', 'post-grid'),
-      'details'    => __('Display posts from the n\'th, if you set Posts per page to -1 will not work offset.', 'post-grid'),
+      'title'        => esc_html__('Offset', 'post-grid'),
+      'details'    => esc_html__('Display posts from the n\'th, if you set Posts per page to -1 will not work offset.', 'post-grid'),
       'type'        => 'text',
       'value'        => $offset,
       'default'        => '',
@@ -414,24 +416,24 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'ignore_paged',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Ignore paged/page query', 'post-grid'),
-      'details'    => __('Ignore paged/page variable from query.', 'post-grid'),
+      'title'        => esc_html__('Ignore paged/page query', 'post-grid'),
+      'details'    => esc_html__('Ignore paged/page variable from query.', 'post-grid'),
       'type'        => 'select',
       //'for'		=> $taxonomy,
       //'multiple'		=> true,
       'value'        => $ignore_paged,
       'default'        => 'no',
       'args'        => array(
-        'no' => __('No', 'post-grid'),
-        'yes' => __('Yes', 'post-grid'),
+        'no' => esc_html__('No', 'post-grid'),
+        'yes' => esc_html__('Yes', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'exclude_post_id',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Exclude by post ID', 'post-grid'),
-      'details'    => __('You can exclude any post by ids here, use comma separate post id value, ex: 45,48', 'post-grid'),
+      'title'        => esc_html__('Exclude by post ID', 'post-grid'),
+      'details'    => esc_html__('You can exclude any post by ids here, use comma separate post id value, ex: 45,48', 'post-grid'),
       'type'        => 'text',
       'value'        => $exclude_post_id,
       'default'        => '',
@@ -441,8 +443,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'include_post_id',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Include by post ID', 'post-grid'),
-      'details'    => __('You can include any post by ids here, use comma separate post id value, ex: 45,48', 'post-grid'),
+      'title'        => esc_html__('Include by post ID', 'post-grid'),
+      'details'    => esc_html__('You can include any post by ids here, use comma separate post id value, ex: 45,48', 'post-grid'),
       'type'        => 'text',
       'value'        => $include_post_id,
       'default'        => '',
@@ -452,8 +454,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'keyword',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Search parameter', 'post-grid'),
-      'details'    => __('Query post by search keyword, please follow the reference https://codex.wordpress.org/Class_Reference/WP_Query#Search_Parameter', 'post-grid'),
+      'title'        => esc_html__('Search parameter', 'post-grid'),
+      'details'    => esc_html__('Query post by search keyword, please follow the reference https://codex.wordpress.org/Class_Reference/WP_Query#Search_Parameter', 'post-grid'),
       'type'        => 'text',
       'value'        => $keyword,
       'default'        => '',
@@ -463,8 +465,8 @@ function post_grid_metabox_tabs_content_query_post($tab, $post_id)
     $args = array(
       'id'        => 'no_post_text',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('No post found text', 'post-grid'),
-      'details'    => __('Custom text for no post found. default: No post found', 'post-grid'),
+      'title'        => esc_html__('No post found text', 'post-grid'),
+      'details'    => esc_html__('Custom text for no post found. default: No post found', 'post-grid'),
       'type'        => 'text',
       'value'        => $no_post_text,
       'default'        => '',
@@ -485,29 +487,29 @@ function post_grid_metabox_tabs_content_layouts($tab, $post_id)
   $import_layouts = isset($post_grid_info['import_layouts']) ? $post_grid_info['import_layouts'] : '';
 ?>
   <div class="section">
-    <div class="section-title"><?php echo __('Layouts', 'post-grid'); ?></div>
-    <p class="description section-description"><?php echo __('Choose item layouts.', 'post-grid'); ?></p>
+    <div class="section-title"><?php echo esc_html__('Layouts', 'post-grid'); ?></div>
+    <p class="description section-description"><?php echo esc_html__('Choose item layouts.', 'post-grid'); ?></p>
     <?php
     $layout_convert_url = get_permalink($post_id) . '?post_grid_layout_convert=true';
     $layout_convert_url = wp_nonce_url($layout_convert_url, 'post_grid_layout_convert');
     ob_start();
     ?>
-    <span><a target="_blank" class="button" href="<?php echo esc_url(admin_url() . 'post-new.php?post_type=post_grid_layout'); ?>"><?php echo __('Create layout', 'post-grid'); ?></a>
+    <span><a target="_blank" class="button" href="<?php echo esc_url(admin_url() . 'post-new.php?post_type=post_grid_layout'); ?>"><?php echo esc_html__('Create layout', 'post-grid'); ?></a>
     </span>
-    <span><a target="_blank" class="button" href="<?php echo esc_url(admin_url() . 'edit.php?post_type=post_grid_layout'); ?>"><?php echo __('Manage layouts', 'post-grid'); ?></a>
+    <span><a target="_blank" class="button" href="<?php echo esc_url(admin_url() . 'edit.php?post_type=post_grid_layout'); ?>"><?php echo esc_html__('Manage layouts', 'post-grid'); ?></a>
     </span>
     <?php
     //if ($import_layouts != 'done') :
     ?>
-    <span><a target="_blank" href="<?php echo esc_url(admin_url() . 'admin.php?page=import_layouts'); ?>" class="button import-default-layouts"><?php echo __('Layouts library', 'post-grid'); ?></a> </span>
+    <span><a target="_blank" href="<?php echo esc_url(admin_url() . 'admin.php?page=import_layouts'); ?>" class="button import-default-layouts"><?php echo esc_html__('Layouts library', 'post-grid'); ?></a> </span>
     <?php
     // endif;
     $html = ob_get_clean();
     $args = array(
       'id'        => 'create_post_grid_layout',
       'parent'        => 'post_grid_meta_options[query]',
-      'title'        => __('Create layout', 'post-grid'),
-      'details'    => __('Please follow the links to create layouts or manage.', 'post-grid'),
+      'title'        => esc_html__('Create layout', 'post-grid'),
+      'details'    => esc_html__('Please follow the links to create layouts or manage.', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -535,12 +537,12 @@ function post_grid_metabox_tabs_content_layouts($tab, $post_id)
     $args = array(
       'id'        => 'layout_id',
       'parent' => 'post_grid_meta_options',
-      'title'        => __('Item layouts', 'post-grid'),
-      'details'    => __('Choose grid item layout. When "Empty layout" is selecetd old layout data will be loaded.', 'post-grid'),
+      'title'        => esc_html__('Item layouts', 'post-grid'),
+      'details'    => esc_html__('Choose grid item layout. When "Empty layout" is selecetd old layout data will be loaded.', 'post-grid'),
       'type'        => 'radio_image',
       'value'        => $layout_id,
       'default'        => '',
-      'width'        => '250px',
+      'width'        => '300px',
       'lazy_load_img'        => post_grid_plugin_url . 'assets/images/loading.gif',
       'args'        => $item_layout_args,
     );
@@ -585,7 +587,7 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
             }
             ?>
           </select>
-          <a target="_blank" class="edit-layout button" href="<?php echo esc_url(admin_url() . 'edit.php?post_type=post_grid&page=layout_editor&layout_content=' . $layout_content); ?>"><?php echo __('Edit', 'post-grid'); ?></a>
+          <a target="_blank" class="edit-layout button" href="<?php echo esc_url(admin_url() . 'edit.php?post_type=post_grid&page=layout_editor&layout_content=' . $layout_content); ?>"><?php echo esc_html__('Edit', 'post-grid'); ?></a>
         </div>
         <script>
           jQuery(document).ready(function($) {
@@ -680,7 +682,7 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'content_layout',
-      'title'        => __('Content Layout', 'post-grid'),
+      'title'        => esc_html__('Content Layout', 'post-grid'),
       'details'    => 'Choose Content Layout',
       'type'        => 'custom_html',
       'html'        => $html,
@@ -798,7 +800,7 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     //
     //            $args = array(
     //                'id'		=> 'skins',
-    //                'title'		=> __('Skins','post-grid'),
+    //                'title'		=> esc_html__('Skins','post-grid'),
     //                'details'	=> 'Select grid Skins',
     //                'type'		=> 'custom_html',
     //                'html'		=> $html,
@@ -814,9 +816,9 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     $media_source = !empty($post_grid_meta_options['media_source']) ? $post_grid_meta_options['media_source'] : array();
     ob_start();
     ?>
-    <label><input <?php if ($items_media_height_style == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[media_height][style]" value="auto_height" /><?php _e('Auto height', 'post-grid'); ?></label><br />
-    <label><input <?php if ($items_media_height_style == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[media_height][style]" value="fixed_height" /><?php _e('Fixed height', 'post-grid'); ?></label><br />
-    <label><input <?php if ($items_media_height_style == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[media_height][style]" value="max_height" /><?php _e('Max height', 'post-grid'); ?></label><br />
+    <label><input <?php if ($items_media_height_style == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[media_height][style]" value="auto_height" /><?php esc_html_e('Auto height', 'post-grid'); ?></label><br />
+    <label><input <?php if ($items_media_height_style == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[media_height][style]" value="fixed_height" /><?php esc_html_e('Fixed height', 'post-grid'); ?></label><br />
+    <label><input <?php if ($items_media_height_style == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[media_height][style]" value="max_height" /><?php esc_html_e('Max height', 'post-grid'); ?></label><br />
     <div class="">
       <input type="text" name="post_grid_meta_options[media_height][fixed_height]" value="<?php echo esc_attr($items_media_fixed_height); ?>" />
     </div>
@@ -824,8 +826,8 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'skins',
-      'title'        => __('Media height', 'post-grid'),
-      'details'    => __('Grid item media height for different device, you can use % or px, em and etc, example: 80% or 250px', 'post-grid'),
+      'title'        => esc_html__('Media height', 'post-grid'),
+      'details'    => esc_html__('Grid item media height for different device, you can use % or px, em and etc, example: 80% or 250px', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -833,8 +835,8 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     $args = array(
       'id'        => 'featured_img_size',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Featured image size', 'post-grid'),
-      'details'    => __('Select media image size', 'post-grid'),
+      'title'        => esc_html__('Featured image size', 'post-grid'),
+      'details'    => esc_html__('Select media image size', 'post-grid'),
       'type'        => 'select',
       'value'        => $featured_img_size,
       'default'        => 'large',
@@ -844,15 +846,15 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     $args = array(
       'id'        => 'thumb_linked',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Featured image linked to post', 'post-grid'),
-      'details'    => __('Select if you want to link to post with featured image.', 'post-grid'),
+      'title'        => esc_html__('Featured image linked to post', 'post-grid'),
+      'details'    => esc_html__('Select if you want to link to post with featured image.', 'post-grid'),
       'type'        => 'radio',
       'multiple'        => true,
       'value'        => $thumb_linked,
       'default'        => 'yes',
       'args'        => array(
-        'yes' => __('Yes', 'post-grid'),
-        'no' => __('No', 'post-grid'),
+        'yes' => esc_html__('Yes', 'post-grid'),
+        'no' => esc_html__('No', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
@@ -872,7 +874,7 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
       ?>
         <div class="item">
           <div class="header">
-            <span class="move" title="<?php echo __('Move', 'post-grid'); ?>"><i class="fas fa-bars"></i></span>
+            <span class="move" title="<?php echo esc_html__('Move', 'post-grid'); ?>"><i class="fas fa-bars"></i></span>
             <input type="hidden" name="post_grid_meta_options[media_source][<?php echo esc_attr($source_info['id']); ?>][id]" value="<?php echo esc_attr($source_info['id']); ?>" />
             <input type="hidden" name="post_grid_meta_options[media_source][<?php echo esc_attr($source_info['id']); ?>][title]" value="<?php echo esc_attr($source_info['title']); ?>" />
             <label>
@@ -896,8 +898,8 @@ function post_grid_metabox_tabs_content_skin_layout($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'skins',
-      'title'        => __('Media source', 'post-grid'),
-      'details'    => __('Choose media source you want to display from.', 'post-grid'),
+      'title'        => esc_html__('Media source', 'post-grid'),
+      'details'    => esc_html__('Choose media source you want to display from.', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -934,9 +936,9 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
         <td style="padding: 0 20px 0  0">
           <div class="">
             <p><b>Desktop:</b>(min-width:1024px)</p>
-            <label><input <?php if ($items_height_style == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style]" value="auto_height" /><?php _e('Auto height', 'post-grid'); ?></label><br />
-            <label><input <?php if ($items_height_style == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style]" value="fixed_height" /><?php _e('Fixed height', 'post-grid'); ?></label><br />
-            <label><input <?php if ($items_height_style == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style]" value="max_height" /><?php _e('Max height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style]" value="auto_height" /><?php esc_html_e('Auto height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style]" value="fixed_height" /><?php esc_html_e('Fixed height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style]" value="max_height" /><?php esc_html_e('Max height', 'post-grid'); ?></label><br />
             <input type="text" name="post_grid_meta_options[item_height][fixed_height]" value="<?php echo esc_attr($items_fixed_height); ?>" />
           </div>
         </td>
@@ -945,9 +947,9 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
         <td style="padding:  0 20px 0  0">
           <div class="">
             <p><b>Tablet:</b>( min-width:768px )</p>
-            <label><input <?php if ($items_height_style_tablet == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_tablet]" value="auto_height" /><?php _e('Auto height', 'post-grid'); ?></label><br />
-            <label><input <?php if ($items_height_style_tablet == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_tablet]" value="fixed_height" /><?php _e('Fixed height', 'post-grid'); ?></label><br />
-            <label><input <?php if ($items_height_style_tablet == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_tablet]" value="max_height" /><?php _e('Max height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style_tablet == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_tablet]" value="auto_height" /><?php esc_html_e('Auto height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style_tablet == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_tablet]" value="fixed_height" /><?php esc_html_e('Fixed height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style_tablet == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_tablet]" value="max_height" /><?php esc_html_e('Max height', 'post-grid'); ?></label><br />
             <input type="text" name="post_grid_meta_options[item_height][fixed_height_tablet]" value="<?php echo esc_attr($items_fixed_height_tablet); ?>" />
           </div>
         </td>
@@ -956,9 +958,9 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
         <td style="padding: 0 20px 0  0">
           <div class="">
             <p><b>Mobile:</b>( min-width : 320px, )</p>
-            <label><input <?php if ($items_height_style_mobile == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_mobile]" value="auto_height" /><?php _e('Auto height', 'post-grid'); ?></label><br />
-            <label><input <?php if ($items_height_style_mobile == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_mobile]" value="fixed_height" /><?php _e('Fixed height', 'post-grid'); ?></label><br />
-            <label><input <?php if ($items_height_style_mobile == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_mobile]" value="max_height" /><?php _e('Max height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style_mobile == 'auto_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_mobile]" value="auto_height" /><?php esc_html_e('Auto height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style_mobile == 'fixed_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_mobile]" value="fixed_height" /><?php esc_html_e('Fixed height', 'post-grid'); ?></label><br />
+            <label><input <?php if ($items_height_style_mobile == 'max_height') echo 'checked'; ?> type="radio" name="post_grid_meta_options[item_height][style_mobile]" value="max_height" /><?php esc_html_e('Max height', 'post-grid'); ?></label><br />
             <input type="text" name="post_grid_meta_options[item_height][fixed_height_mobile]" value="<?php echo esc_attr($items_fixed_height_mobile); ?>" />
           </div>
         </td>
@@ -968,8 +970,8 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'items_height',
-      'title'        => __('Grid item height', 'post-grid'),
-      'details'    => __('Grid item height for different device, you can use % or px, em and etc, example: 80% or 250px', 'post-grid'),
+      'title'        => esc_html__('Grid item height', 'post-grid'),
+      'details'    => esc_html__('Grid item height for different device, you can use % or px, em and etc, example: 80% or 250px', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -977,22 +979,22 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
     $args = array(
       'id'        => 'items_bg_color_type',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Items background color type', 'post-grid'),
-      'details'    => __('Select items background color type.', 'post-grid'),
+      'title'        => esc_html__('Items background color type', 'post-grid'),
+      'details'    => esc_html__('Select items background color type.', 'post-grid'),
       'type'        => 'radio',
       'multiple'        => true,
       'value'        => $items_bg_color_type,
       'default'        => 'fixed',
       'args'        => array(
-        'fixed' => __('Fixed', 'post-grid'),
+        'fixed' => esc_html__('Fixed', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'items_bg_color',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Grid item background color', 'post-grid'),
-      'details'    => __('Set custom color for grid item.', 'post-grid'),
+      'title'        => esc_html__('Grid item background color', 'post-grid'),
+      'details'    => esc_html__('Set custom color for grid item.', 'post-grid'),
       'type'        => 'colorpicker',
       'value'        => $items_bg_color,
       'default'        => '',
@@ -1001,8 +1003,8 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
     $args = array(
       'id'        => 'margin',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Grid item margin', 'post-grid'),
-      'details'    => __('Grid item wrapper margin, you can use top right bottom left style, ex: 10px 15px 10px 15px', 'post-grid'),
+      'title'        => esc_html__('Grid item margin', 'post-grid'),
+      'details'    => esc_html__('Grid item wrapper margin, you can use top right bottom left style, ex: 10px 15px 10px 15px', 'post-grid'),
       'type'        => 'text',
       'value'        => $items_margin,
       'default'        => '',
@@ -1011,8 +1013,8 @@ function post_grid_metabox_tabs_content_item_style($tab, $post_id)
     $args = array(
       'id'        => 'item_padding',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Grid item padding', 'post-grid'),
-      'details'    => __('Grid item wrapper padding, you can use top right bottom left style, ex: 10px 15px 10px 15px', 'post-grid'),
+      'title'        => esc_html__('Grid item padding', 'post-grid'),
+      'details'    => esc_html__('Grid item wrapper padding, you can use top right bottom left style, ex: 10px 15px 10px 15px', 'post-grid'),
       'type'        => 'text',
       'value'        => $item_padding,
       'default'        => '',
@@ -1059,8 +1061,8 @@ function post_grid_metabox_tabs_content_grid_settings($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'skins',
-      'title'        => __('Grid item width or column number', 'post-grid'),
-      'details'    => __('Grid item width for different device, you can use % or px, em and  etc, example: 80% or 250px or column number(ex: 3)', 'post-grid'),
+      'title'        => esc_html__('Grid item width or column number', 'post-grid'),
+      'details'    => esc_html__('Grid item width for different device, you can use % or px, em and  etc, example: 80% or 250px or column number(ex: 3)', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -1104,15 +1106,15 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $pagination_types = apply_filters(
       'post_grid_pagination_types',
       array(
-        'none' => __('None', 'post-grid'),
-        'normal' => __('Normal Pagination', 'post-grid'),
+        'none' => esc_html__('None', 'post-grid'),
+        'normal' => esc_html__('Normal Pagination', 'post-grid'),
       )
     );
     $args = array(
       'id'        => 'pagination_type',
       'parent'        => 'post_grid_meta_options[nav_bottom]',
-      'title'        => __('Pagination type', 'post-grid'),
-      'details'    => __('Select pagination you want to display.', 'post-grid'),
+      'title'        => esc_html__('Pagination type', 'post-grid'),
+      'details'    => esc_html__('Select pagination you want to display.', 'post-grid'),
       'type'        => 'radio',
       'multiple'        => true,
       'value'        => $pagination_type,
@@ -1123,8 +1125,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'max_num_pages',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Max number of pagination', 'post-grid'),
-      'details'    => __('Display max number of pagination item, default: 0', 'post-grid'),
+      'title'        => esc_html__('Max number of pagination', 'post-grid'),
+      'details'    => esc_html__('Display max number of pagination item, default: 0', 'post-grid'),
       'type'        => 'text',
       'value'        => $max_num_pages,
       'default'        => 0,
@@ -1136,8 +1138,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'prev_text',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Previous text', 'post-grid'),
-      'details'    => __('Custom text for previous page', 'post-grid'),
+      'title'        => esc_html__('Previous text', 'post-grid'),
+      'details'    => esc_html__('Custom text for previous page', 'post-grid'),
       'type'        => 'text',
       'value'        => $prev_text,
       'default'        => '',
@@ -1147,8 +1149,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'next_text',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Next text', 'post-grid'),
-      'details'    => __('Custom text for next page', 'post-grid'),
+      'title'        => esc_html__('Next text', 'post-grid'),
+      'details'    => esc_html__('Custom text for next page', 'post-grid'),
       'type'        => 'text',
       'value'        => $next_text,
       'default'        => '',
@@ -1158,8 +1160,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'font_size',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Font size', 'post-grid'),
-      'details'    => __('Custom font size for pagination', 'post-grid'),
+      'title'        => esc_html__('Font size', 'post-grid'),
+      'details'    => esc_html__('Custom font size for pagination', 'post-grid'),
       'type'        => 'text',
       'value'        => $font_size,
       'default'        => '16px',
@@ -1169,8 +1171,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'font_color',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Text or link color', 'post-grid'),
-      'details'    => __('Set custom text or link color.', 'post-grid'),
+      'title'        => esc_html__('Text or link color', 'post-grid'),
+      'details'    => esc_html__('Set custom text or link color.', 'post-grid'),
       'type'        => 'colorpicker',
       'value'        => $font_color,
       'default'        => '#ddd',
@@ -1179,8 +1181,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'bg_color',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Default background color', 'post-grid'),
-      'details'    => __('Set custom background color.', 'post-grid'),
+      'title'        => esc_html__('Default background color', 'post-grid'),
+      'details'    => esc_html__('Set custom background color.', 'post-grid'),
       'type'        => 'colorpicker',
       'value'        => $bg_color,
       'default'        => '#ddd',
@@ -1189,8 +1191,8 @@ function post_grid_metabox_tabs_content_pagination($tab, $post_id)
     $args = array(
       'id'        => 'active_bg_color',
       'parent'        => 'post_grid_meta_options[pagination]',
-      'title'        => __('Active or hover background color', 'post-grid'),
-      'details'    => __('Set custom background color.', 'post-grid'),
+      'title'        => esc_html__('Active or hover background color', 'post-grid'),
+      'details'    => esc_html__('Set custom background color.', 'post-grid'),
       'type'        => 'colorpicker',
       'value'        => $active_bg_color,
       'default'        => '#ddd',
@@ -1221,46 +1223,46 @@ function post_grid_metabox_tabs_content_search($tab, $post_id)
     $args = array(
       'id'        => 'action_type',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Search action', 'post-grid'),
-      'details'    => __('Select search action type.', 'post-grid'),
+      'title'        => esc_html__('Search action', 'post-grid'),
+      'details'    => esc_html__('Select search action type.', 'post-grid'),
       'type'        => 'radio',
       'value'        => $search_action_type,
       'default'        => 'form_submit',
       'args'        => array(
-        'ajax' => __('Ajax - on change keyword', 'post-grid'),
-        'form_submit' => __('On form submit(GET method)', 'post-grid'),
+        'ajax' => esc_html__('Ajax - on change keyword', 'post-grid'),
+        'form_submit' => esc_html__('On form submit(GET method)', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'search',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Display search form', 'post-grid'),
-      'details'    => __('Display or hide search form at top.', 'post-grid'),
+      'title'        => esc_html__('Display search form', 'post-grid'),
+      'details'    => esc_html__('Display or hide search form at top.', 'post-grid'),
       'type'        => 'radio',
       'value'        => $nav_top_search,
       'default'        => 'no',
       'args'        => array(
-        'yes' => __('Yes', 'post-grid'),
-        'no' => __('No', 'post-grid'),
+        'yes' => esc_html__('Yes', 'post-grid'),
+        'no' => esc_html__('No', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'search_placeholder',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Placeholder text', 'post-grid'),
-      'details'    => __('Custom text for search input field', 'post-grid'),
+      'title'        => esc_html__('Placeholder text', 'post-grid'),
+      'details'    => esc_html__('Custom text for search input field', 'post-grid'),
       'type'        => 'text',
       'value'        => $nav_top_search_placeholder,
-      'default'        => __('Start typing', 'post-grid'),
+      'default'        => esc_html__('Start typing', 'post-grid'),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'search_icon',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Search icon', 'post-grid'),
-      'details'    => __('Custom icon for search input field, you can use <a target="_blank" href="https://fontawesome.com/icons">fontawesome</a> icons.', 'post-grid'),
+      'title'        => esc_html__('Search icon', 'post-grid'),
+      'details'    => esc_html__('Custom icon for search input field, you can use <a target="_blank" href="https://fontawesome.com/icons">fontawesome</a> icons.', 'post-grid'),
       'type'        => 'text',
       'value'        => $nav_top_search_icon,
       'default'        => '<i class="fas fa-search"></i>',
@@ -1269,8 +1271,8 @@ function post_grid_metabox_tabs_content_search($tab, $post_id)
     $args = array(
       'id'        => 'search_loading_icon',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Loading icon', 'post-grid'),
-      'details'    => __('Custom icon for search input field, you can use <a target="_blank" href="https://fontawesome.com/icons">fontawesome</a> icons.', 'post-grid'),
+      'title'        => esc_html__('Loading icon', 'post-grid'),
+      'details'    => esc_html__('Custom icon for search input field, you can use <a target="_blank" href="https://fontawesome.com/icons">fontawesome</a> icons.', 'post-grid'),
       'type'        => 'text',
       'value'        => $search_loading_icon,
       'default'        => '<i class="fas fa-spinner fa-spin"></i>',
@@ -1279,24 +1281,24 @@ function post_grid_metabox_tabs_content_search($tab, $post_id)
     $args = array(
       'id'        => 'query_order',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Post query order', 'post-grid'),
-      'details'    => __('Query order ascending or descending.', 'post-grid'),
+      'title'        => esc_html__('Post query order', 'post-grid'),
+      'details'    => esc_html__('Query order ascending or descending.', 'post-grid'),
       'type'        => 'select',
       //'for'		=> $taxonomy,
       //'multiple'		=> true,
       'value'        => $query_order,
       'default'        => 'DESC',
       'args'        => array(
-        'ASC' => __('Ascending', 'post-grid'),
-        'DESC' => __('Descending', 'post-grid'),
+        'ASC' => esc_html__('Ascending', 'post-grid'),
+        'DESC' => esc_html__('Descending', 'post-grid'),
       ),
     );
     $settings_tabs_field->generate_field($args, $post_id);
     $args = array(
       'id'        => 'query_orderby',
       'parent'        => 'post_grid_meta_options[nav_top]',
-      'title'        => __('Post query orderby', 'post-grid'),
-      'details'    => __('Select post query orderby', 'post-grid'),
+      'title'        => esc_html__('Post query orderby', 'post-grid'),
+      'details'    => esc_html__('Select post query orderby', 'post-grid'),
       'type'        => 'select2',
       'multiple'        => true,
       'value'        => $query_orderby,
@@ -1344,8 +1346,8 @@ function post_grid_metabox_tabs_content_masonry($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'html',
-      'title'        => __('Masonry Column number', 'post-grid'),
-      'details'    => __('Number of columns for responsive device', 'post-grid'),
+      'title'        => esc_html__('Masonry Column number', 'post-grid'),
+      'details'    => esc_html__('Number of columns for responsive device', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -1353,8 +1355,8 @@ function post_grid_metabox_tabs_content_masonry($tab, $post_id)
     $args = array(
       'id'        => 'gutter',
       'parent'        => 'post_grid_meta_options[masonry]',
-      'title'        => __('Masonry gutter', 'post-grid'),
-      'details'    => __('Set custom gutter size of masonry. ex: 5', 'post-grid'),
+      'title'        => esc_html__('Masonry gutter', 'post-grid'),
+      'details'    => esc_html__('Set custom gutter size of masonry. ex: 5', 'post-grid'),
       'type'        => 'number',
       'value'        => $masonry_gutter,
       'default'        => '20',
@@ -1399,8 +1401,8 @@ function post_grid_metabox_tabs_content_tiles($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'skins',
-      'title'        => __('Grid item width or column number', 'post-grid'),
-      'details'    => __('Number of columns for responsive device', 'post-grid'),
+      'title'        => esc_html__('Grid item width or column number', 'post-grid'),
+      'details'    => esc_html__('Number of columns for responsive device', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -1408,8 +1410,8 @@ function post_grid_metabox_tabs_content_tiles($tab, $post_id)
     $args = array(
       'id'        => 'gutter',
       'parent'        => 'post_grid_meta_options[tiles]',
-      'title'        => __('Tiles gutter', 'post-grid'),
-      'details'    => __('Set custom gutter size of tiles. ex: 5', 'post-grid'),
+      'title'        => esc_html__('Tiles gutter', 'post-grid'),
+      'details'    => esc_html__('Set custom gutter size of tiles. ex: 5', 'post-grid'),
       'type'        => 'number',
       'value'        => $tiles_gutter,
       'default'        => '20',
@@ -1455,8 +1457,8 @@ function post_grid_metabox_tabs_content_justified($tab, $post_id)
     $html = ob_get_clean();
     $args = array(
       'id'        => 'html',
-      'title'        => __('Column number', 'post-grid'),
-      'details'    => __('Number of columns for responsive device', 'post-grid'),
+      'title'        => esc_html__('Column number', 'post-grid'),
+      'details'    => esc_html__('Number of columns for responsive device', 'post-grid'),
       'type'        => 'custom_html',
       'html'        => $html,
     );
@@ -1464,8 +1466,8 @@ function post_grid_metabox_tabs_content_justified($tab, $post_id)
     $args = array(
       'id'        => 'gutter',
       'parent'        => 'post_grid_meta_options[justified]',
-      'title'        => __('Justified gutter', 'post-grid'),
-      'details'    => __('Set custom gutter size of justified. ex: 5', 'post-grid'),
+      'title'        => esc_html__('Justified gutter', 'post-grid'),
+      'details'    => esc_html__('Set custom gutter size of justified. ex: 5', 'post-grid'),
       'type'        => 'number',
       'value'        => $justified_gutter,
       'default'        => '20',
@@ -1474,8 +1476,8 @@ function post_grid_metabox_tabs_content_justified($tab, $post_id)
     $args = array(
       'id'        => 'maxHeight',
       'parent'        => 'post_grid_meta_options[justified]',
-      'title'        => __('Justified max height', 'post-grid'),
-      'details'    => __('Set custom max height', 'post-grid'),
+      'title'        => esc_html__('Justified max height', 'post-grid'),
+      'details'    => esc_html__('Set custom max height', 'post-grid'),
       'type'        => 'number',
       'value'        => $maxHeight,
       'default'        => '180',
@@ -1500,8 +1502,8 @@ function post_grid_metabox_tabs_content_custom_scripts($tab, $post_id)
     $args = array(
       'id'        => 'custom_js',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Custom Js.', 'post-grid'),
-      'details'    => __('You can add custom scripts here, do not use <code>&lt;script&gt; &lt;/script&gt;</code> tag', 'post-grid'),
+      'title'        => esc_html__('Custom Js.', 'post-grid'),
+      'details'    => esc_html__('You can add custom scripts here, do not use <code>&lt;script&gt; &lt;/script&gt;</code> tag', 'post-grid'),
       'type'        => 'scripts_js',
       'default'        => '',
       'value'        => $custom_js,
@@ -1512,8 +1514,8 @@ function post_grid_metabox_tabs_content_custom_scripts($tab, $post_id)
     $args = array(
       'id'        => 'custom_css',
       'parent'        => 'post_grid_meta_options',
-      'title'        => __('Custom CSS.', 'post-grid'),
-      'details'    => __('You can add custom css here, do not use <code>  &lt;style&gt; &lt;/style&gt;</code> tag', 'post-grid'),
+      'title'        => esc_html__('Custom CSS.', 'post-grid'),
+      'details'    => esc_html__('You can add custom css here, do not use <code>  &lt;style&gt; &lt;/style&gt;</code> tag', 'post-grid'),
       'type'        => 'scripts_css',
       'value'        => $custom_css,
       'default'        => '',
@@ -1529,8 +1531,8 @@ function post_grid_update_taxonomies_terms_by_posttypes()
   $response = array();
   //$taxonomies = array();
   if (current_user_can('manage_options')) {
-    $post_types = isset($_POST['post_types']) ? post_grid_recursive_sanitize_arr($_POST['post_types']) : array();
-    $grid_id = isset($_POST['grid_id']) ? sanitize_text_field($_POST['grid_id']) : '';
+    $post_types = isset($_POST['post_types']) ? post_grid_recursive_sanitize_arr(wp_unslash($_POST['post_types'])) : array();
+    $grid_id = isset($_POST['grid_id']) ? sanitize_text_field(wp_unslash($_POST['grid_id'])) : '';
     $post_grid_meta_options = get_post_meta($grid_id, 'post_grid_meta_options', true);
     $taxonomies = !empty($post_grid_meta_options['taxonomies']) ? $post_grid_meta_options['taxonomies'] : array();
     $post_taxonomies_arr = post_grid_get_taxonomies($post_types);
@@ -1542,7 +1544,8 @@ function post_grid_update_taxonomies_terms_by_posttypes()
         $terms_relation = isset($taxonomies[$taxonomy]['terms_relation']) ? $taxonomies[$taxonomy]['terms_relation'] : 'IN';
         $terms = isset($taxonomies[$taxonomy]['terms']) ? $taxonomies[$taxonomy]['terms'] : array();
         $checked = isset($taxonomies[$taxonomy]['checked']) ? $taxonomies[$taxonomy]['checked'] : '';
-        $taxonomy_terms = get_terms($taxonomy, array(
+        $taxonomy_terms = get_terms(array(
+          'taxonomy' => $taxonomy,
           'hide_empty' => false,
         ));
         if (!empty($taxonomy_terms))
@@ -1566,8 +1569,8 @@ function post_grid_update_taxonomies_terms_by_posttypes()
               'id'        => 'terms',
               'css_id'        => 'terms-' . esc_attr($taxonomyIndex),
               'parent'        => 'post_grid_meta_options[taxonomies][' . esc_attr($taxonomy) . ']',
-              'title'        => __('Categories or Terms', 'post-grid'),
-              'details'    => __('Select post terms or categories', 'post-grid'),
+              'title'        => esc_html__('Categories or Terms', 'post-grid'),
+              'details'    => esc_html__('Select post terms or categories', 'post-grid'),
               'type'        => 'select2',
               'multiple'        => true,
               'value'        => $terms,
@@ -1578,19 +1581,19 @@ function post_grid_update_taxonomies_terms_by_posttypes()
             $args = array(
               'id'        => 'terms_relation',
               'parent'        => 'post_grid_meta_options[taxonomies][' . esc_attr($taxonomy) . ']',
-              'title'        => __('Terms relation', 'post-grid'),
-              'details'    => __('Choose term relation.', 'post-grid'),
+              'title'        => esc_html__('Terms relation', 'post-grid'),
+              'details'    => esc_html__('Choose term relation.', 'post-grid'),
               'type'        => 'radio',
               'for'        => esc_attr($taxonomy),
               'multiple'        => true,
               'value'        => $terms_relation,
               'default'        => 'IN',
               'args'        => array(
-                'IN' => __('IN', 'post-grid'),
-                'NOT IN' => __('NOT IN', 'post-grid'),
-                'AND' => __('AND', 'post-grid'),
-                'EXISTS' => __('EXISTS', 'post-grid'),
-                'NOT EXISTS' => __('NOT EXISTS', 'post-grid'),
+                'IN' => esc_html__('IN', 'post-grid'),
+                'NOT IN' => esc_html__('NOT IN', 'post-grid'),
+                'AND' => esc_html__('AND', 'post-grid'),
+                'EXISTS' => esc_html__('EXISTS', 'post-grid'),
+                'NOT EXISTS' => esc_html__('NOT EXISTS', 'post-grid'),
               ),
             );
             $settings_tabs_field->generate_field($args, $grid_id);
@@ -1600,7 +1603,7 @@ function post_grid_update_taxonomies_terms_by_posttypes()
 <?php
       }
     else :
-      echo __('Please choose at least one post types. save/update post grid', 'post-grid');
+      echo esc_html__('Please choose at least one post types. save/update post grid', 'post-grid');
     endif;
     $response['html'] = ob_get_clean();
     echo wp_json_encode($response);

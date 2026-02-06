@@ -157,7 +157,7 @@ function post_grid_builder_viewSlider($post_id, $PostGridData)
             <ul class="splide__list items">
                 <?php
 
-                echo $postsHtml;
+                echo wp_kses_post($postsHtml);
                 ?>
             </ul>
         </div>

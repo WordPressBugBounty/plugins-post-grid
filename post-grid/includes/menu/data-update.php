@@ -7,7 +7,9 @@ if (! defined('ABSPATH')) exit;  // if direct access
 ?>
 <div class="wrap">
     <div id="icon-tools" class="icon32"><br></div>
-    <?php echo "<h2>" . esc_html(sprintf(__('%s - Data Update', 'post-grid'), post_grid_plugin_name)) . "</h2>"; ?>
+    <?php
+    /* translators: Icon HTML */
+    echo "<h2>" . esc_html(sprintf(__('%s - Data Update', 'post-grid'), post_grid_plugin_name)) . "</h2>"; ?>
     <div class=" post-grid-settings">
         <?php
         $default_query_args['post_type'] = array('post_grid');

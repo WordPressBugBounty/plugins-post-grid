@@ -14,5 +14,5 @@ function post_grid_today_date($atts, $content = null)
 		$atts
 	);
 	$format = $atts['format'];
-	return date($format);
+	return gmdate($format);
 }

@@ -20,32 +20,7 @@ if (!defined('ABSPATH')) exit;  // if direct access
 // }
 //add_image_size( 'custom-size', 435, 435, true );
 //add_image_size( 'center-435', 220, 220, array( 'center', 'center' ) );
-function eventQuery()
-{
-    $meta_query = array(
-        'relation' => 'OR',
-        array(
-            'key' => 'event_date',
-            'value' => 20220623,
-            'compare' => '<',
-            'type' => 'DATE',
-        )
-    );
-    $args = array(
-        'post_type'    => 'post',
-        'meta_query' => $meta_query,
-    );
-    $query = new WP_Query($args);
-    $html = ob_start();
-    while ($query->have_posts()) : $query->the_post();
-        $post_id = get_the_ID();
-        $title = get_the_title($post_id);
-        echo $title;
-        echo '<br/>';
-    endwhile;
-    return ob_get_clean();
-}
-add_shortcode('eventQuery', 'eventQuery');
+
 function post_grid_get_first_post($post_type = 'post')
 {
     $args = array(
@@ -454,9 +429,8 @@ function post_grid_media($post_id, $args)
     } else {
         do_action('post_grid_media', $post_id, $args);
     }
-    echo $html_thumb;
-    $html_thumb = ob_get_clean();
-    return $html_thumb;
+    echo wp_kses_post($html_thumb);
+    return wp_kses_post(ob_get_clean());
 }
 function post_grid_term_slug_list($post_id)
 {
@@ -477,7 +451,7 @@ function post_grid_term_slug_list($post_id)
 function post_grid_layout_content_ajax()
 {
     if (current_user_can('manage_options')) {
-        $layout_key = sanitize_text_field($_POST['layout']);
+        $layout_key = sanitize_text_field(wp_unslash($_POST['layout']));
         $class_post_grid_functions = new class_post_grid_functions();
         $post_grid_layout_content = get_option('post_grid_layout_content');
         if (empty($post_grid_layout_content)) {

@@ -5004,7 +5004,7 @@ function DOMContentLoadedImport() {
   var appData = {
     name: "Post Grid",
     version: "1.0.0",
-    demoUrl: "https://pickplugins.com/demo/post-grid/",
+    demoUrl: "https://demo.pickplugins.com/post-grid/",
     reviewsUrl: "https://wordpress.org/support/plugin/post-grid/reviews/#new-post/"
   };
   const url = new URL(window.location.href);
@@ -6956,9 +6956,9 @@ function Html(props) {
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
     className: "p-5",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    children: [JSON.stringify(postsData), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       id: `post-grid-${id}`,
       className: `${wrapper?.options?.class} `,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
@@ -7016,7 +7016,7 @@ function Html(props) {
           })]
         })
       })
-    })
+    })]
   });
 }
 class PreviewCarousel extends Component {
@@ -7504,6 +7504,9 @@ function Html(props) {
         className: `${itemsWrap?.options?.class} `,
         children: postsData?.map((item, loopIndex) => {
           var children = PostGridData.loopLayout[0]?.children ? PostGridData.loopLayout[0]?.children : [];
+
+          // console.log(children)
+
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: `${itemWrap?.options?.class} loop-item-${loopIndex}`,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LoopItems__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -8205,37 +8208,7 @@ function Html(props) {
     free: false,
     pro: true
   }];
-  const ourPlugins = [{
-    name: "Plugin Name 1",
-    description: "At  LLC, we have been looking for the best way to create FAQ pages or sections on WordPress sites.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-    link: "https://example.com"
-  }, {
-    name: "Plugin Name 2",
-    description: "At  LLC, we have been looking for the best way to create FAQ pages or sections on WordPress sites.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-    link: "https://example.com"
-  }, {
-    name: "Plugin Name 3",
-    description: "At  LLC, we have been looking for the best way to create FAQ pages or sections on WordPress sites.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-    link: "https://example.com"
-  }, {
-    name: "Plugin Name 4",
-    description: "At  LLC, we have been looking for the best way to create FAQ pages or sections on WordPress sites.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-    link: "https://example.com"
-  }, {
-    name: "Plugin Name 5",
-    description: "At  LLC, we have been looking for the best way to create FAQ pages or sections on WordPress sites.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-    link: "https://example.com"
-  }, {
-    name: "Plugin Name 6",
-    description: "At  LLC, we have been looking for the best way to create FAQ pages or sections on WordPress sites.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-    link: "https://example.com"
-  }];
+  const ourPlugins = [];
   const copyData = data => {
     navigator.clipboard.writeText(data).then(() => {
       addNotifications({
@@ -12961,17 +12934,35 @@ function Html(props) {
               size: 14,
               fill: "#fff"
             }), "Paste"]
-          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Popover, {
-            position: "bottom right",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
-              className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_20__["default"], {
+          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
+            className: "fixed h-full top-0 py-10 overflow-y-auto bg-slate-500 bg-opacity-70 left-0 w-full z-50",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
+              className: "w-[1400px] mx-auto ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
+                className: "flex justify-between bg-gray-700 p-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
+                  className: "text-white text-md",
+                  children: "Layout Editor"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
+                    className: "size-6 bg-red-500 flex items-center justify-center cursor-pointer",
+                    onClick: ev => {
+                      seteditLayouts(!editLayouts);
+                    },
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Icon, {
+                      icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_24__["default"],
+                      fill: "#fff",
+                      size: 18
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_20__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
                 onChange: onChangeLayouts,
                 layouts: PostGridData.loopLayout
-              })
+              })]
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
@@ -13724,9 +13715,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/help.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/copy.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/page.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pages.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/settings.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/brush.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pages.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/settings.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/brush.js");
 /* harmony import */ var _breakpoints__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../breakpoints */ "./src/breakpoints.js");
 /* harmony import */ var _inAnimation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../inAnimation */ "./src/inAnimation.js");
 /* harmony import */ var _outAnimation__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../outAnimation */ "./src/outAnimation.js");
@@ -14319,17 +14311,35 @@ function Html(props) {
               size: 14,
               fill: "#fff"
             }), "Paste"]
-          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Popover, {
-            position: "bottom right",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
-              className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_21__["default"], {
+          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+            className: "fixed h-full top-0 py-10 overflow-y-auto bg-slate-500 bg-opacity-70 left-0 w-full z-50",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+              className: "w-[1400px] mx-auto ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+                className: "flex justify-between bg-gray-700 p-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                  className: "text-white text-md",
+                  children: "Layout Editor"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("span", {
+                    className: "size-6 bg-red-500 flex items-center justify-center cursor-pointer",
+                    onClick: ev => {
+                      seteditLayouts(!editLayouts);
+                    },
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Icon, {
+                      icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_26__["default"],
+                      fill: "#fff",
+                      size: 18
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_21__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
                 onChange: onChangeLayouts,
                 layouts: PostGridData.loopLayout
-              })
+              })]
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
@@ -14411,7 +14421,7 @@ function Html(props) {
               // 								}}
               ,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Icon, {
-                icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_26__["default"],
+                icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
                 className: "fill-white ",
                 size: 14
               }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Paste", "post-grid")]
@@ -14964,12 +14974,12 @@ function Html(props) {
           tabs: [{
             name: "options",
             title: "Options",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
             className: "tab-settings"
           }, {
             name: "styles",
             title: "Styles",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
             className: "tab-style"
           }],
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -15019,12 +15029,12 @@ function Html(props) {
           tabs: [{
             name: "options",
             title: "Options",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
             className: "tab-settings"
           }, {
             name: "styles",
             title: "Styles",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
             className: "tab-style"
           }],
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -15074,12 +15084,12 @@ function Html(props) {
           tabs: [{
             name: "options",
             title: "Options",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
             className: "tab-settings"
           }, {
             name: "styles",
             title: "Styles",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
             className: "tab-style"
           }],
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -15252,12 +15262,12 @@ function Html(props) {
             tabs: [{
               name: "options",
               title: "Options",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
               className: "tab-settings"
             }, {
               name: "styles",
               title: "Styles",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
               className: "tab-style"
             }],
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -15307,12 +15317,12 @@ function Html(props) {
             tabs: [{
               name: "options",
               title: "Options",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
               className: "tab-settings"
             }, {
               name: "styles",
               title: "Styles",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
               className: "tab-style"
             }],
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -15362,12 +15372,12 @@ function Html(props) {
             tabs: [{
               name: "options",
               title: "Options",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
               className: "tab-settings"
             }, {
               name: "styles",
               title: "Styles",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
               className: "tab-style"
             }],
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_18__["default"], {
@@ -15479,10 +15489,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/help.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/copy.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/page.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/settings.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/brush.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pages.js");
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/close.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/settings.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/brush.js");
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pages.js");
 /* harmony import */ var _breakpoints__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../breakpoints */ "./src/breakpoints.js");
 /* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dropdown */ "./src/components/dropdown/index.js");
 /* harmony import */ var _input_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../input-select */ "./src/components/input-select/index.js");
@@ -15991,17 +16001,35 @@ function Html(props) {
               size: 14,
               fill: "#fff"
             }), "Paste"]
-          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Popover, {
-            position: "bottom right",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
-              className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
+            className: "fixed h-full top-0 py-10 overflow-y-auto bg-slate-500 bg-opacity-70 left-0 w-full z-50",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
+              className: "w-[1400px] mx-auto ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsxs)("div", {
+                className: "flex justify-between bg-gray-700 p-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
+                  className: "text-white text-md",
+                  children: "Layout Editor"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
+                    className: "size-6 bg-red-500 flex items-center justify-center cursor-pointer",
+                    onClick: ev => {
+                      seteditLayouts(!editLayouts);
+                    },
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
+                      icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+                      fill: "#fff",
+                      size: 18
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_14__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
                 onChange: onChangeLayouts,
                 layouts: PostGridData.loopLayout
-              })
+              })]
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("div", {
@@ -16025,12 +16053,12 @@ function Html(props) {
           tabs: [{
             name: "options",
             title: "Options",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
             className: "tab-settings"
           }, {
             name: "styles",
             title: "Styles",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
             className: "tab-style"
           }],
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -16124,7 +16152,7 @@ function Html(props) {
             },
             className: " flex gap-2 justify-center items-center cursor-pointer py-2 px-3 capitalize  !bg-gray-700 !text-white font-medium !rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-600",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_30__["default"],
               className: "fill-white ",
               size: 14
             }), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Paste", "post-grid")]
@@ -16155,7 +16183,7 @@ function Html(props) {
                     setnthItemStyle(nthItemStyleX);
                   },
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-                    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_30__["default"]
+                    icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"]
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)("span", {
                   className: "mx-2",
@@ -16205,12 +16233,12 @@ function Html(props) {
           tabs: [{
             name: "options",
             title: "Options",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
             className: "tab-settings"
           }, {
             name: "styles",
             title: "Styles",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
             className: "tab-style"
           }],
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -16260,12 +16288,12 @@ function Html(props) {
           tabs: [{
             name: "options",
             title: "Options",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
             className: "tab-settings"
           }, {
             name: "styles",
             title: "Styles",
-            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
             className: "tab-style"
           }],
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -16555,12 +16583,12 @@ function Html(props) {
             tabs: [{
               name: "options",
               title: "Options",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
               className: "tab-settings"
             }, {
               name: "styles",
               title: "Styles",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
               className: "tab-style"
             }],
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -16610,12 +16638,12 @@ function Html(props) {
             tabs: [{
               name: "options",
               title: "Options",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
               className: "tab-settings"
             }, {
               name: "styles",
               title: "Styles",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
               className: "tab-style"
             }],
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -16665,12 +16693,12 @@ function Html(props) {
             tabs: [{
               name: "options",
               title: "Options",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_27__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
               className: "tab-settings"
             }, {
               name: "styles",
               title: "Styles",
-              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_28__["default"],
+              icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_29__["default"],
               className: "tab-style"
             }],
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_23__.jsx)(_tab__WEBPACK_IMPORTED_MODULE_16__["default"], {
@@ -17424,17 +17452,35 @@ function Html(props) {
               size: 14,
               fill: "#fff"
             }), "Paste"]
-          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Popover, {
-            position: "bottom right",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
-              className: "w-[1200px] p-3",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          }), editLayouts && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+            className: "fixed h-full top-0 py-10 overflow-y-auto bg-slate-500 bg-opacity-70 left-0 w-full z-50",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+              className: "w-[1400px] mx-auto ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsxs)("div", {
+                className: "flex justify-between bg-gray-700 p-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                  className: "text-white text-md",
+                  children: "Layout Editor"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("span", {
+                    className: "size-6 bg-red-500 flex items-center justify-center cursor-pointer",
+                    onClick: ev => {
+                      seteditLayouts(!editLayouts);
+                    },
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
+                      icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_23__["default"],
+                      fill: "#fff",
+                      size: 18
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)(_layout_generator__WEBPACK_IMPORTED_MODULE_14__["default"], {
                 postData: postData,
                 customerData: customerData,
                 addNotifications: addNotifications,
                 onChange: onChangeLayouts,
                 layouts: PostGridData.loopLayout
-              })
+              })]
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_22__.jsx)("div", {
@@ -19096,11 +19142,11 @@ function Html(props) {
       label: "Slider/Carousel",
       value: "viewSlider"
     },
-    viewFilterable: {
-      label: "Filterable",
-      value: "viewFilterable"
-      //isPro: true
-    },
+    // viewFilterable: {
+    // 	label: "Filterable",
+    // 	value: "viewFilterable",
+    //  isPro: true	
+    // },
     viewMasonry: {
       label: "Masonry",
       value: "viewMasonry"
@@ -19800,9 +19846,7 @@ function Html(props) {
       viewType: queryLayouts.viewType
     };
     requestData = JSON.stringify(requestData);
-    fetch("https://pickplugins.com/demo/post-grid/wp-json/post-grid/v2/get_posts_post_grid",
-    // "http://localhost/wp/wp-json/post-grid/v2/get_posts_post_grid",
-    {
+    fetch("https://demo.pickplugins.com/post-grid/wp-json/post-grid/v2/get_posts_post_grid", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"
@@ -20227,7 +20271,6 @@ function Html(props) {
     "id": "paged",
     "val": "1"
   }];
-  function Prev() {}
   useEffect(() => {
     setisLoading(true);
     queryArgs.map(item => {
@@ -20792,9 +20835,7 @@ function Html(props) {
       viewType: queryLayouts.viewType
     };
     requestData = JSON.stringify(requestData);
-    fetch("https://pickplugins.com/demo/post-grid/wp-json/post-grid/v2/get_posts_post_grid",
-    // "http://localhost/wp/wp-json/post-grid/v2/get_posts_post_grid",
-    {
+    fetch("https://demo.pickplugins.com/post-grid/wp-json/post-grid/v2/get_posts_post_grid", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"
@@ -20938,16 +20979,16 @@ function Html(props) {
               var reponsiveCss = Object.values(PostGridDataX.reponsiveCss).join("");
               var reponsiveCss = reponsiveCss.replaceAll(presetId, postId);
               PostGridDataX.reponsiveCss = reponsiveCss;
-              var nthItemStyle = [];
               if (PostGridDataX.nthItemStyle != undefined) {
+                var nthItemStyle = [];
                 Object.entries(PostGridDataX.nthItemStyle).map(item => {
                   //console.log(item[1])
 
                   nthItemStyle.push(item[1]);
                 });
+                console.log(PostGridDataX);
+                PostGridDataX.nthItemStyle = nthItemStyle;
               }
-              console.log(PostGridDataX);
-              PostGridDataX.nthItemStyle = nthItemStyle;
               onApplyTemplate(PostGridDataX);
               addNotifications({
                 title: "Preset Applied",
@@ -28111,7 +28152,7 @@ function PostGridElementOptionspostMeta(html, selectedElement, handleChange) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
         htmlFor: "",
         className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Item tag", "post-grid")
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Wrapper tag", "post-grid")
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
         position: "bottom right",
         variant: "secondary",
@@ -28160,22 +28201,6 @@ function PostGridElementOptionspostMeta(html, selectedElement, handleChange) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
         htmlFor: "",
         className: "font-medium text-slate-900 ",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Field Src", "post-grid")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        position: "bottom right",
-        variant: "secondary",
-        options: customFieldSrcPrams,
-        buttonTitle: customFieldSrcPrams[selectedElement?.options?.customFieldSrc] != undefined ? customFieldSrcPrams[selectedElement?.options?.customFieldSrc].label : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
-        onChange: option => {
-          handleChange("customFieldSrc", option.value);
-        },
-        values: ""
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-      className: "mb-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-        htmlFor: "",
-        className: "font-medium text-slate-900 ",
         children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Output Type?", "post-grid")
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
         position: "bottom right",
@@ -28191,6 +28216,24 @@ function PostGridElementOptionspostMeta(html, selectedElement, handleChange) {
         },
         values: []
       })]
+    }), returnPrams?.outputType?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+        className: "mb-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+          htmlFor: "",
+          className: "font-medium text-slate-900 ",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Field Src", "post-grid")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          position: "bottom right",
+          variant: "secondary",
+          options: customFieldSrcPrams,
+          buttonTitle: customFieldSrcPrams[selectedElement?.options?.customFieldSrc] != undefined ? customFieldSrcPrams[selectedElement?.options?.customFieldSrc].label : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Choose", "post-grid"),
+          onChange: option => {
+            handleChange("customFieldSrc", option.value);
+          },
+          values: ""
+        })]
+      })
     }), returnPrams.outputType == 'string' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
         className: "mb-4",
@@ -30913,7 +30956,7 @@ var elements = {
     category: ['general'],
     options: {
       class: "",
-      wrapperTag: "ul",
+      wrapperTag: "div",
       metaKey: "",
       callback: "",
       returnPrams: [],
@@ -31487,7 +31530,7 @@ var elements = {
     options: {
       thumbnailSize: "full",
       defaultSrcId: "",
-      defaultSrcUrl: 'http://localhost/wordpress/wp-content/uploads/2024/11/Project_img-6.jpeg',
+      defaultSrcUrl: '',
       linkTo: 'postUrl'
     },
     styles: {
@@ -32004,7 +32047,7 @@ function LayoutGenerator({
     if (!isProcustomer) {
       if (isPro) {
         addNotifications({
-          title: "Opps it pro!",
+          title: "Opps its pro!",
           content: "Sorry this elemet is avilable in pro.",
           type: "error"
         });
@@ -58873,7 +58916,7 @@ function MyFunction(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: orientation == "vertical" ? `flex tabsWrapper ${tabsWrapperClass}` : ` relative tabsWrapper ${tabsWrapperClass}`,
     children: [stickyNavs && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "sticky top-0 z-[999]",
+      className: "",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: orientation == "vertical" ? "block w-[200px] " : `flex overflow-hidden  tabsNavs cursor-move ${navItemsWrapClass}`,
         onWheel: onWheel,

@@ -1,10 +1,10 @@
-=== Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry  ===
+=== Post Grid  ===
 Contributors: PickPlugins
 Donate link: https://pickplugins.com/
 Tags: Post Grid, Posts Slider, Posts Carousel, Post Filter, Post Masonry
 Requires at least: 5.0.0
-Tested up to: 6.8
-Stable tag: 2.3.17
+Tested up to: 6.9
+Stable tag: 2.3.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Post Grid is a powerful WordPress plugin designed to display posts, pages, or cu
 
 🚀 **Start creating beautiful post grids today!**
 
-🔗 **[Live Demo](https://pickplugins.com/demo/post-grid/)**  
+🔗 **[Live Demo](https://demo.pickplugins.com/post-grid/)**  
 🔗 **[Premium Features](https://pickplugins.com/post-grid/)**  
 🔗 **[Documentation](https://pickplugins.com/documentation/post-grid/)**  
 🔗 **[Support](https://www.pickplugins.com/support/)**  
@@ -135,6 +135,28 @@ Video Tutorial(with premium version interface)
 
 > Flexible plugin, excellent support,  We’ve been happily using it for nearly 5 years now. The plugin is flexible, we were able to customise to suit our needs. It is also simple to use despite all the flexibility. But best of all, the support, even for free users, is fast and good. I can’t recommend this enough. Thanks to everyone at PickPlugins for a great product!
 
+
+
+
+
+== External services ==
+
+This plugin connects to an API to obtain ready templates library https://demo.pickplugins.com/accordions/
+
+It send template query data like keywords, view types, page number to grab json data, so that json data can be used to generate slider templates.
+
+* [pickplugins.com/terms-conditions](https://pickplugins.com/terms-conditions/)
+* [pickplugins.com/privacy-policy/](https://pickplugins.com/privacy-policy/)
+* [pickplugins.com/about-us/](https://pickplugins.com/about-us/)
+
+
+
+
+
+
+
+
+
 == Installation ==
 
 1. Install as regular WordPress plugin.
@@ -210,7 +232,34 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 
 == Changelog ==
 
-= 2.3.16 =
+
+= 2.3.23 =
+- 2026-01-13 - fixed - Extra content under grid loop issue fixed
+
+= 2.3.22 =
+- 2026-01-11 - fixed - admin broken issue fixed
+- 2026-01-11 - fixed - Builder template library issue fixed
+
+
+= 2.3.21 =
+- 2025-12-24 - fixed - Remote file URL removed
+- 2025-12-24 - fixed - Local file URL removed
+- 2025-12-24 - fixed - mixitup.js removed due to GPL issue
+- 2025-12-24 - fixed - Output Escaping issue fixed
+- 2025-12-24 - fixed - Input Sanitize issue fixed
+
+= 2.3.20 =
+- 2025-12-18 - fixed - Escaping issue fixed
+- 2025-12-18 - update - Builder view css load optimized
+
+= 2.3.19 =
+- 2025-11-26 - fixed - Fixed builder template library URL issue fixed
+- 2025-11-26 - fixed - Loading builder templates issue fixed.
+
+= 2.3.18 =
+- 2025-11-08 - fix - Security issue fixed.
+
+= 2.3.17 =
 - 2025-05-30 - add - Custom number pagination access on post grid list.
 - 2025-05-30 - add - Add button to create new post grid.
 - 2025-05-30 - fix - layout editor issue fixed.

@@ -71,12 +71,13 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
 
     $loopLayout = isset($PostGridData["loopLayout"]) ? $PostGridData["loopLayout"] : [];
 
-    $loopLayouts = $loopLayout[0]['children'];
+    $loopLayouts = isset($loopLayout[0]['children']) ? $loopLayout[0]['children'] : [];
     $wrapper = isset($PostGridData["wrapper"]) ? $PostGridData["wrapper"] : [];
     $wrapperOptions = isset($wrapper["options"]) ? $wrapper["options"] : [];
     $wrapperTag = !empty($wrapperOptions["tag"]) ? $wrapperOptions["tag"] : "div";
     $wrapperClass = isset($wrapperOptions["class"]) ? $wrapperOptions["class"] : "";
 
+    $postsHtml = "";
 
     if ($itemSource == "posts") {
         $itemsQueryResponse = post_grid_builder_post_query_items($itemQueryArgs, $loopLayouts);
@@ -123,7 +124,7 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
         <div class="items">
             <?php
 
-            echo $postsHtml;
+            echo wp_kses_post($postsHtml);
 
             ?>
         </div>
@@ -205,7 +206,7 @@ function post_grid_builder_viewGrid($post_id, $PostGridData)
         <?php if ($paginationType == 'infinite') : ?>
             <div id="pagination-<?php echo esc_attr($blockId); ?>" class="pagination <?php echo esc_attr($blockId); ?> ComboBlocksPostGrid-pagination <?php echo esc_attr($paginationType); ?>" data-postqueryargs="<?php echo esc_attr(json_encode($blockArgs)); ?>">
                 <div class="infinite-loader box">
-                    <?php echo __('Loading...', 'combo-blocks'); ?>
+                    <?php echo wp_kses_post(__('Loading...', 'post-grid')); ?>
                 </div>
             </div>
         <?php endif; ?>

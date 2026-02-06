@@ -1,9 +1,9 @@
 <?php
 if (!defined('ABSPATH')) exit;  // if direct access
 if (!current_user_can('manage_options')) return;
-$keyword = isset($_GET['keyword']) ? sanitize_text_field($_GET['keyword']) : '';
-$paged = isset($_GET['paged']) ? sanitize_text_field($_GET['paged']) : '';
-$tabs = isset($_GET['tabs']) ? sanitize_text_field($_GET['tabs']) : 'latest';
+$keyword = isset($_GET['keyword']) ? sanitize_text_field(wp_unslash($_GET['keyword'])) : '';
+$paged = isset($_GET['paged']) ? sanitize_text_field(wp_unslash($_GET['paged'])) : '';
+$tabs = isset($_GET['tabs']) ? sanitize_text_field(wp_unslash($_GET['tabs'])) : 'latest';
 $post_grid_settings = get_option('post_grid_license');
 $license_key = isset($post_grid_settings['license_key']) ? $post_grid_settings['license_key'] : '';
 $max_num_pages = 0;
@@ -19,17 +19,17 @@ wp_localize_script(
 wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [], false, 'all');
 ?>
 <div class="wrap">
-  <h2><?php _e('Post Grid - Layouts library', 'post-grid'); ?></h2>
+  <h2><?php echo esc_html__('Post Grid - Layouts library', 'post-grid'); ?></h2>
   <div class="wpblockhub-search">
     <div class="wp-filter">
       <ul class="filter-links">
-        <li class=""><a href="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>&tabs=latest" class="<?php if ($tabs == 'latest') echo 'current'; ?>" aria-current="page"><?php _e('Latest', 'post-grid'); ?></a> </li>
-        <li class=""><a href="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>&tabs=free" class="<?php if ($tabs == 'free') echo 'current'; ?>" aria-current="page"><?php _e('Free', 'post-grid'); ?></a> </li>
-        <li class=""><a href="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>&tabs=pro" class="<?php if ($tabs == 'pro') echo 'current'; ?>" aria-current="page"><?php _e('Premium', 'post-grid'); ?></a> </li>
+        <li class=""><a href="<?php echo esc_url(sanitize_text_field( wp_unslash($_SERVER['REQUEST_URI']))); ?>&tabs=latest" class="<?php if ($tabs == 'latest') echo 'current'; ?>" aria-current="page"><?php echo esc_html__('Latest', 'post-grid'); ?></a> </li>
+        <li class=""><a href="<?php echo esc_url(sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI']))); ?>&tabs=free" class="<?php if ($tabs == 'free') echo 'current'; ?>" aria-current="page"><?php echo esc_html__('Free', 'post-grid'); ?></a> </li>
+        <li class=""><a href="<?php echo esc_url(sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI']))); ?>&tabs=pro" class="<?php if ($tabs == 'pro') echo 'current'; ?>" aria-current="page"><?php echo esc_html__('Premium', 'post-grid'); ?></a> </li>
       </ul>
       <form class="block-search-form">
         <span class="loading"></span>
-        <input id="block-keyword" type="search" placeholder="<?php _e('Start typing...', 'wp-block-hub'); ?>" value="<?php echo esc_attr($keyword); ?>">
+        <input id="block-keyword" type="search" placeholder="<?php echo esc_html__('Start typing...', 'post-grid'); ?>" value="<?php echo esc_attr($keyword); ?>">
       </form>
     </div>
     <?php
@@ -49,8 +49,8 @@ wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [
     ?>
       <div class="return-empty">
         <ul>
-          <li><?php echo __("Unexpected Error! The query returned with an error.", 'post-grid'); ?></li>
-          <li><?php echo __("Make sure your internet connection is up.", 'post-grid'); ?></li>
+          <li><?php echo esc_html__('Unexpected Error! The query returned with an error.', 'post-grid'); ?></li>
+          <li><?php echo esc_html__('Make sure your internet connection is up.', 'post-grid'); ?></li>
         </ul>
       </div>
     <?php
@@ -66,7 +66,7 @@ wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [
       if (!empty($post_data)) :
         foreach ($post_data as $item_index => $item) :
           $post_id      = isset($item->post_id) ? $item->post_id : '';
-          $block_title        = isset($item->title) ? $item->title : __('No title', 'post-grid');
+          $block_title        = isset($item->title) ? $item->title : esc_html__('No title', 'post-grid');
           $post_url           = isset($item->post_url) ? $item->post_url : '';
           $download_count           = isset($item->download_count) ? $item->download_count : 0;
           $layout_options           = isset($item->layout_options) ? unserialize($item->layout_options) : '';
@@ -112,7 +112,7 @@ wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [
       <?php
       $big = 999999999; // need an unlikely integer
       //$max_num_pages = 4;
-      echo paginate_links(
+      echo wp_kses_post(paginate_links(
         array(
           'base' => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
           //'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -122,7 +122,7 @@ wp_enqueue_style('post-grid-output', post_grid_plugin_url . 'dist/output.css', [
           'prev_text'          => '« Previous',
           'next_text'          => 'Next »',
         )
-      );
+      ));
       ?>
     </div>
   </div>

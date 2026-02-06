@@ -58,7 +58,7 @@ class PostGridRest
 				'methods' => 'POST',
 				'callback' => array($this, 'get_tax_terms'),
 				'permission_callback' => function () {
-					return current_user_can('edit_posts');
+					return current_user_can('manage_options');
 				},
 			)
 		);
@@ -136,8 +136,9 @@ class PostGridRest
 			array(
 				'methods' => 'POST',
 				'callback' => array($this, 'get_posts'),
-				'permission_callback' => '__return_true',
-
+				'permission_callback' => function () {
+					return current_user_can('manage_options');
+				},
 			)
 		);
 
@@ -223,7 +224,7 @@ class PostGridRest
 				'methods' => 'POST',
 				'callback' => array($this, 'get_post_data'),
 				'permission_callback' => function () {
-					return current_user_can('edit_posts');
+					return current_user_can('manage_options');
 				},
 			)
 		);
@@ -333,7 +334,7 @@ class PostGridRest
 
 		if (empty($postId)) {
 			$response->error = true;
-			$response->errorMessage = __("Post ID should not empty");
+			$response->errorMessage = __("Post ID should not empty", 'post-grid');
 			die(wp_json_encode($response));
 		}
 
@@ -341,7 +342,7 @@ class PostGridRest
 
 		if ($post->post_type != "post_grid") {
 			$response->error = true;
-			$response->errorMessage = __("Post type is not post_grid");
+			$response->errorMessage = __("Post type is not post_grid", 'post-grid');
 			die(wp_json_encode($response));
 		}
 
@@ -378,12 +379,12 @@ class PostGridRest
 			if ($new_post_id) {
 				$response->post_title = $post->post_title . ' - Copy of #' . $postId;
 				$response->success = true;
-				$response->successMessage = __("Post created");
+				$response->successMessage = __("Post created", 'post-grid');
 			}
 			$response->id = $new_post_id;
 		} else {
 			$response->error = true;
-			$response->errorMessage = __("Post creation failed.");
+			$response->errorMessage = __("Post creation failed.", 'post-grid');
 		}
 
 
@@ -408,7 +409,7 @@ class PostGridRest
 
 		if (empty($postId)) {
 			$response->error = true;
-			$response->errorMessage = __("Post ID should not empty");
+			$response->errorMessage = __("Post ID should not empty", 'post-grid');
 			die(wp_json_encode($response));
 		}
 
@@ -416,7 +417,7 @@ class PostGridRest
 
 		if ($post->post_type != "post_grid") {
 			$response->error = true;
-			$response->errorMessage = __("Post type is not post grid");
+			$response->errorMessage = __("Post type is not post grid", 'post-grid');
 			die(wp_json_encode($response));
 		}
 
@@ -427,11 +428,11 @@ class PostGridRest
 
 			if ($new_post_id) {
 				$response->success = true;
-				$response->successMessage = __("Post deleted");
+				$response->successMessage = __("Post deleted", 'post-grid');
 			}
 		} else {
 			$response->error = true;
-			$response->errorMessage = __("Post deletion failed.");
+			$response->errorMessage = __("Post deletion failed.", 'post-grid');
 		}
 
 
@@ -849,7 +850,7 @@ class PostGridRest
 		$response = new stdClass();
 
 		if (empty($postId)) {
-			$response["id_missing"] = __("Post Id should not empty");
+			$response["id_missing"] = __("Post Id should not empty", 'post-grid');
 		}
 
 		$content = json_encode($content);
@@ -886,7 +887,7 @@ class PostGridRest
 
 		if (empty($postTitle)) {
 			$response->error = true;
-			$response->errorMessage = __("Post title should not empty");
+			$response->errorMessage = __("Post title should not empty", 'post-grid');
 			die(wp_json_encode($response));
 		}
 
@@ -903,7 +904,7 @@ class PostGridRest
 
 		if ($updatep_post_id) {
 			$response->success = true;
-			$response->successMessage = __("Post created");
+			$response->successMessage = __("Post created", 'post-grid');
 		}
 		$response->id = $updatep_post_id;
 
@@ -926,7 +927,7 @@ class PostGridRest
 
 		if (empty($postTitle)) {
 			$response->error = true;
-			$response->errorMessage = __("Post title should not empty");
+			$response->errorMessage = __("Post title should not empty", 'post-grid');
 			die(wp_json_encode($response));
 		}
 
@@ -943,7 +944,7 @@ class PostGridRest
 
 		if ($updatep_post_id) {
 			$response->success = true;
-			$response->successMessage = __("Post created");
+			$response->successMessage = __("Post created", 'post-grid');
 		}
 		$response->id = $updatep_post_id;
 
@@ -1320,7 +1321,6 @@ class PostGridRest
 			$responses['posts'] = $posts;
 			$responses['pagination'] = $pages;
 
-			wp_reset_query();
 			wp_reset_postdata();
 		else :
 			$responses['noPosts'] = true;
@@ -1619,7 +1619,6 @@ class PostGridRest
 
 			$responses['posts'] = $posts;
 
-			wp_reset_query();
 			wp_reset_postdata();
 		else :
 			$responses['noPosts'] = true;

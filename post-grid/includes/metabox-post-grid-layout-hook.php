@@ -12,15 +12,17 @@ if (!function_exists('post_grid_layout_metabox_content_custom_scripts')) {
     $layout_preview_img = isset($layout_options['layout_preview_img']) ? $layout_options['layout_preview_img'] : '';
 ?>
     <div class="section">
-      <div class="section-title"><?php echo __('Custom scripts', 'post-grid'); ?></div>
+      <div class="section-title"><?php echo esc_html__('Custom scripts', 'post-grid'); ?></div>
       <p class="description section-description">
-        <?php echo __('Write custom scripts to override CSS and scripts.', 'post-grid'); ?></p>
+        <?php echo esc_html__('Write custom scripts to override CSS and scripts.', 'post-grid'); ?></p>
       <?php
       $args = array(
         'id'        => 'custom_css',
         'parent'        => 'custom_scripts',
-        'title'        => __('Custom CSS', 'post-grid'),
-        'details'    => __('Write custom CSS to override default style, do not use <code>&lt;style>&lt;/style></code> tag. use <code>__ID__</code> to replace by layout id <code>layout-' . $post_id . '</code>.', 'post-grid'),
+        'title'        => esc_html__('Custom CSS', 'post-grid'),
+        // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+        // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+        'details'    => sprintf(esc_html__('Write custom CSS to override default style, do not use <code>&lt;style>&lt;/style></code> tag. use <code>__ID__</code> to replace by layout id <code>layout-%s</code>.', 'post-grid'), $post_id),
         'type'        => 'scripts_css',
         'value'        => $custom_css,
         'default'        => '',
@@ -30,8 +32,8 @@ if (!function_exists('post_grid_layout_metabox_content_custom_scripts')) {
       $args = array(
         'id'        => 'custom_js',
         'parent'        => 'custom_scripts',
-        'title'        => __('Custom JS', 'post-grid'),
-        'details'    => __('Write custom JS to override default style, do not use <code>&lt;script>&lt;/script></code> tag.', 'post-grid'),
+        'title'        => esc_html__('Custom JS', 'post-grid'),
+        'details'    => esc_html__('Write custom JS to override default style, do not use <code>&lt;script>&lt;/script></code> tag.', 'post-grid'),
         'type'        => 'scripts_js',
         'value'        => $custom_js,
         'default'        => '',
@@ -41,8 +43,8 @@ if (!function_exists('post_grid_layout_metabox_content_custom_scripts')) {
       $args = array(
         'id'        => 'layout_preview_img',
         'parent'        => 'layout_options',
-        'title'        => __('Preview image', 'post-grid'),
-        'details'    => __('Set layout preview image.', 'post-grid'),
+        'title'        => esc_html__('Preview image', 'post-grid'),
+        'details'    => esc_html__('Set layout preview image.', 'post-grid'),
         'type'        => 'media_url',
         'value'        => $layout_preview_img,
         'default'        => '',
@@ -64,36 +66,36 @@ if (!function_exists('post_grid_layout_metabox_content_layout_builder')) {
     $preview_post_type = isset($layout_options['preview_post_type']) ? $layout_options['preview_post_type'] : 'post';
   ?>
     <div class="section">
-      <div class="section-title"><?php echo __('Layout Editor', 'post-grid'); ?></div>
-      <p class="description section-description"><?php echo __('Customize layout settings.', 'post-grid'); ?></p>
+      <div class="section-title"><?php echo esc_html__('Layout Editor', 'post-grid'); ?></div>
+      <p class="description section-description"><?php echo esc_html__('Customize layout settings.', 'post-grid'); ?></p>
       <div class="setting-field ">
         <?php
         $elements_group['general'] = array(
           'group_title' => 'General',
           'items' => array(
-            'wrapper_start' => array('name' => __('Wrapper start', 'post-grid')),
-            'wrapper_end' => array('name' => __('Wrapper end', 'post-grid')),
-            'wrapper_link_start' => array('name' => __('Wrapper Link start', 'post-grid')),
-            'wrapper_link_end' => array('name' => __('Wrapper Link end', 'post-grid')),
-            'media' => array('name' => __('Media', 'post-grid')),
-            'custom_text' => array('name' => __('Custom text', 'post-grid')),
-            'title' => array('name' => __('Post title', 'post-grid')),
-            'title_link' => array('name' => __('Title with link', 'post-grid')),
-            'read_more' => array('name' => __('Read more', 'post-grid')),
-            'thumb' => array('name' => __('Thumbnail', 'post-grid')),
-            'thumb_link' => array('name' => __('Thumbnail with link ', 'post-grid')),
-            'excerpt' => array('name' => __('Post excerpt', 'post-grid')),
-            'excerpt_read_more' => array('name' => __('Excerpt with read more', 'post-grid')),
-            'content' => array('name' => __('Content', 'post-grid')),
-            'post_date' => array('name' => __('Post date', 'post-grid')),
-            'author' => array('name' => __('Author', 'post-grid')),
-            'author_link' => array('name' => __('Author with link', 'post-grid')),
-            'categories' => array('name' => __('Categories', 'post-grid')),
-            'tags' => array('name' => __('Tags', 'post-grid')),
-            'comments_count' => array('name' => __('Comments count', 'post-grid')),
-            'share_button' => array('name' => __('Share button', 'post-grid')),
-            'hr' => array('name' => __('Horizontal line', 'post-grid')),
-            'five_star' => array('name' => __('Five star', 'post-grid')),
+            'wrapper_start' => array('name' => esc_html__('Wrapper start', 'post-grid')),
+            'wrapper_end' => array('name' => esc_html__('Wrapper end', 'post-grid')),
+            'wrapper_link_start' => array('name' => esc_html__('Wrapper Link start', 'post-grid')),
+            'wrapper_link_end' => array('name' => esc_html__('Wrapper Link end', 'post-grid')),
+            'media' => array('name' => esc_html__('Media', 'post-grid')),
+            'custom_text' => array('name' => esc_html__('Custom text', 'post-grid')),
+            'title' => array('name' => esc_html__('Post title', 'post-grid')),
+            'title_link' => array('name' => esc_html__('Title with link', 'post-grid')),
+            'read_more' => array('name' => esc_html__('Read more', 'post-grid')),
+            'thumb' => array('name' => esc_html__('Thumbnail', 'post-grid')),
+            'thumb_link' => array('name' => esc_html__('Thumbnail with link ', 'post-grid')),
+            'excerpt' => array('name' => esc_html__('Post excerpt', 'post-grid')),
+            'excerpt_read_more' => array('name' => esc_html__('Excerpt with read more', 'post-grid')),
+            'content' => array('name' => esc_html__('Content', 'post-grid')),
+            'post_date' => array('name' => esc_html__('Post date', 'post-grid')),
+            'author' => array('name' => esc_html__('Author', 'post-grid')),
+            'author_link' => array('name' => esc_html__('Author with link', 'post-grid')),
+            'categories' => array('name' => esc_html__('Categories', 'post-grid')),
+            'tags' => array('name' => esc_html__('Tags', 'post-grid')),
+            'comments_count' => array('name' => esc_html__('Comments count', 'post-grid')),
+            'share_button' => array('name' => esc_html__('Share button', 'post-grid')),
+            'hr' => array('name' => esc_html__('Horizontal line', 'post-grid')),
+            'five_star' => array('name' => esc_html__('Five star', 'post-grid')),
             //'collapsible_icon'=>array('name' =>__('Collapsible icon','post-grid')),
           ),
         );
@@ -172,14 +174,115 @@ if (!function_exists('post_grid_layout_metabox_content_layout_builder')) {
             else :
             ?>
               <div class="empty-element">
-                <?php echo sprintf(__('%s Click to add tags.', 'post-grid'), '<i class="far fa-hand-point-up"></i>') ?>
+                <?php
+                /* translators: Icon HTML */
+                echo wp_kses_post(sprintf(__('%s Click to add tags.', 'post-grid'), '<i class="far fa-hand-point-up"></i>')) ?>
               </div>
             <?php
             endif;
             ?>
           </div>
         </div>
-        <style type="text/css">
+        
+      </div>
+      <div class="clear"></div>
+      <?php
+      ob_start();
+      ?>
+      <?php
+      $html = ob_get_clean();
+      //            $args = array(
+      //                'id'		=> 'layout_builder',
+      //                //'parent'		=> '',
+      //                'title'		=> esc_html__('Layout elements','post-grid'),
+      //                'details'	=> esc_html__('Customize layout elements.','post-grid'),
+      //                'type'		=> 'custom_html',
+      //                'html'		=> $html,
+      //                'default'		=> '',
+      //            );
+      //
+      //            $settings_tabs_field->generate_field($args);
+      $post_types = post_grid_posttypes_array();
+      $args = array(
+        'id'        => 'preview_post_type',
+        'parent'        => 'layout_options',
+        'title'        => esc_html__('Preview post type', 'post-grid'),
+        'details'    => esc_html__('Set layout preview post type.', 'post-grid'),
+        'type'        => 'select',
+        'value'        => $preview_post_type,
+        'default'        => 'post',
+        'args'        => $post_types,
+      );
+      $settings_tabs_field->generate_field($args);
+      ob_start();
+      $layout_id = get_the_id();
+      $args['layout_id'] = $layout_id;
+      ?>
+      <div class="layout-preview">
+        <div class="elements-wrapper layout-<?php echo esc_attr($layout_id); ?>">
+          <?php
+          if (!empty($layout_elements_data))
+            foreach ($layout_elements_data as $elementGroupIndex => $elementGroupData) {
+              foreach ($elementGroupData as $elementIndex => $elementData) {
+                $args['post_id'] =  post_grid_get_first_post($preview_post_type);
+                $args['element'] = $elementData;
+                $args['index'] = $elementGroupIndex;
+                do_action('post_grid_layout_element_' . $elementIndex, $args);
+              }
+            }
+          ?>
+        </div>
+      </div>
+
+      
+      <?php
+      $html = ob_get_clean();
+      $args = array(
+        'id'        => 'layout_preview',
+        //'parent'		=> '',
+        'title'        => esc_html__('Layout preview', 'post-grid'),
+        'details'    => esc_html__('Layout preview, some layout require featured image set on post.', 'post-grid'),
+        'type'        => 'custom_html',
+        'html'        => $html,
+        'default'        => '',
+      );
+      $settings_tabs_field->generate_field($args);
+      ?>
+    </div>
+      <?php
+      if (!empty($layout_elements_data))
+        foreach ($layout_elements_data as $elementGroupIndex => $elementGroupData) {
+          foreach ($elementGroupData as $elementIndex => $elementData) {
+            $args['element'] = $elementData;
+            $args['index'] = $elementGroupIndex;
+            do_action('post_grid_layout_element_css_' . $elementIndex, $args);
+          }
+        }
+      $custom_scripts = get_post_meta($layout_id, 'custom_scripts', true);
+      $custom_css = isset($custom_scripts['custom_css']) ? $custom_scripts['custom_css'] : '';
+      ?>
+<style type="text/css">
+        .layout-preview {
+          background: url(<?php echo esc_url(post_grid_plugin_url . 'assets/images/tile.png');
+                          ?>);
+          padding: 20px;
+        }
+
+        .layout-preview .elements-wrapper {
+          width: 400px;
+          overflow: hidden;
+          margin: 0 auto;
+        }
+
+        .layout-preview img {
+          width: 100%;
+          height: auto;
+        }
+
+        <?php echo esc_attr(str_replace('__ID__', 'layout-' . $layout_id, $custom_css));
+        ?>
+      </style>
+<style type="text/css">
           .layout-builder {
             clear: both;
           }
@@ -229,112 +332,16 @@ if (!function_exists('post_grid_layout_metabox_content_layout_builder')) {
             }
           }
         </style>
-      </div>
-      <div class="clear"></div>
-      <?php
-      ob_start();
-      ?>
-      <?php
-      $html = ob_get_clean();
-      //            $args = array(
-      //                'id'		=> 'layout_builder',
-      //                //'parent'		=> '',
-      //                'title'		=> __('Layout elements','post-grid'),
-      //                'details'	=> __('Customize layout elements.','post-grid'),
-      //                'type'		=> 'custom_html',
-      //                'html'		=> $html,
-      //                'default'		=> '',
-      //            );
-      //
-      //            $settings_tabs_field->generate_field($args);
-      $post_types = post_grid_posttypes_array();
-      $args = array(
-        'id'        => 'preview_post_type',
-        'parent'        => 'layout_options',
-        'title'        => __('Preview post type', 'post-grid'),
-        'details'    => __('Set layout preview post type.', 'post-grid'),
-        'type'        => 'select',
-        'value'        => $preview_post_type,
-        'default'        => 'post',
-        'args'        => $post_types,
-      );
-      $settings_tabs_field->generate_field($args);
-      ob_start();
-      $layout_id = get_the_id();
-      $args['layout_id'] = $layout_id;
-      ?>
-      <div class="layout-preview">
-        <div class="elements-wrapper layout-<?php echo esc_attr($layout_id); ?>">
-          <?php
-          if (!empty($layout_elements_data))
-            foreach ($layout_elements_data as $elementGroupIndex => $elementGroupData) {
-              foreach ($elementGroupData as $elementIndex => $elementData) {
-                $args['post_id'] =  post_grid_get_first_post($preview_post_type);
-                $args['element'] = $elementData;
-                $args['index'] = $elementGroupIndex;
-                do_action('post_grid_layout_element_' . $elementIndex, $args);
-              }
-            }
-          ?>
-        </div>
-      </div>
-      <?php
-      if (!empty($layout_elements_data))
-        foreach ($layout_elements_data as $elementGroupIndex => $elementGroupData) {
-          foreach ($elementGroupData as $elementIndex => $elementData) {
-            $args['element'] = $elementData;
-            $args['index'] = $elementGroupIndex;
-            do_action('post_grid_layout_element_css_' . $elementIndex, $args);
-          }
-        }
-      $custom_scripts = get_post_meta($layout_id, 'custom_scripts', true);
-      $custom_css = isset($custom_scripts['custom_css']) ? $custom_scripts['custom_css'] : '';
-      ?>
-      <style type="text/css">
-        .layout-preview {
-          background: url(<?php echo esc_url(post_grid_plugin_url . 'assets/images/tile.png');
-                          ?>);
-          padding: 20px;
-        }
-
-        .layout-preview .elements-wrapper {
-          width: 400px;
-          overflow: hidden;
-          margin: 0 auto;
-        }
-
-        .layout-preview img {
-          width: 100%;
-          height: auto;
-        }
-
-        <?php echo esc_attr(str_replace('__ID__', 'layout-' . $layout_id, $custom_css));
-        ?>
-      </style>
-      <?php
-      $html = ob_get_clean();
-      $args = array(
-        'id'        => 'layout_preview',
-        //'parent'		=> '',
-        'title'        => __('Layout preview', 'post-grid'),
-        'details'    => __('Layout preview, some layout require featured image set on post.', 'post-grid'),
-        'type'        => 'custom_html',
-        'html'        => $html,
-        'default'        => '',
-      );
-      $settings_tabs_field->generate_field($args);
-      ?>
-    </div>
 <?php
   }
 }
 add_action('post_grid_layout_metabox_save', 'post_grid_layout_metabox_save');
 function post_grid_layout_metabox_save($job_id)
 {
-  $layout_options = isset($_POST['layout_options']) ? post_grid_recursive_sanitize_arr($_POST['layout_options']) : '';
+  $layout_options = isset($_POST['layout_options']) ? post_grid_recursive_sanitize_arr(wp_unslash($_POST['layout_options'])) : '';
   update_post_meta($job_id, 'layout_options', $layout_options);
-  $layout_elements_data = isset($_POST['layout_elements_data']) ? post_grid_recursive_sanitize_arr($_POST['layout_elements_data']) : '';
+  $layout_elements_data = isset($_POST['layout_elements_data']) ? post_grid_recursive_sanitize_arr(wp_unslash($_POST['layout_elements_data'])) : '';
   update_post_meta($job_id, 'layout_elements_data', $layout_elements_data);
-  $custom_scripts = isset($_POST['custom_scripts']) ? post_grid_recursive_sanitize_arr($_POST['custom_scripts']) : '';
+  $custom_scripts = isset($_POST['custom_scripts']) ? post_grid_recursive_sanitize_arr(wp_unslash($_POST['custom_scripts'])) : '';
   update_post_meta($job_id, 'custom_scripts', $custom_scripts);
 }

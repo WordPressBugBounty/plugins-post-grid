@@ -30,14 +30,14 @@ if (!function_exists('post_grid_pagination_ajax_pagination_22032023')) {
         <div grid-id="<?php echo esc_attr($grid_id); ?>" data-nonce="<?php echo esc_attr(wp_create_nonce('post_grid_ajax_nonce')); ?>" id="paginate-ajax-<?php echo esc_attr($grid_id); ?>" class="paginate-ajax">
             <?php
             $big = 999999999; // need an unlikely integer
-            echo paginate_links(array(
+            echo wp_kses_post(paginate_links(array(
                 'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
                 'format' => '?paged=%#%',
                 'current' => max(1, $paged),
                 'total' => $pagination_max_num_pages,
                 'prev_text'          => $pagination_prev_text,
                 'next_text'          => $pagination_next_text,
-            ));
+            )));
             ?>
         </div>
         <style type="text/css">
@@ -66,18 +66,18 @@ if (!function_exists('post_grid_paginate_ajax_free')) {
     function post_grid_paginate_ajax_free()
     {
         $response = array();
-        $formData = isset($_POST['formData']) ? ($_POST['formData']) : '';
+        $formData = isset($_POST['formData']) ? wp_unslash($_POST['formData']) : '';
         parse_str($formData, $form_data);
-        $nonce = isset($_POST['_wpnonce']) ? ($_POST['_wpnonce']) : '';
+        $nonce = isset($_POST['_wpnonce']) ? sanitize_text_field(wp_unslash($_POST['_wpnonce'])) : '';
         if (!wp_verify_nonce($nonce, 'post_grid_ajax_nonce')) {
-            $response['html'] = __("Sorry! you are not allowed to do that.");
+            $response['html'] = __("Sorry! you are not allowed to do that.", 'post-grid');
             $response['pagination'] = "";
-            echo json_encode($response);
+            echo wp_json_encode($response, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
             die();
         }
         $keyword = isset($form_data['keyword']) ? sanitize_text_field($form_data['keyword']) : '';
-        $grid_id = isset($_POST['grid_id']) ? sanitize_text_field($_POST['grid_id']) : '';
-        $paged = isset($_POST['current_page']) ? sanitize_text_field($_POST['current_page']) : '';
+        $grid_id = isset($_POST['grid_id']) ? sanitize_text_field(wp_unslash($_POST['grid_id'])) : '';
+        $paged = isset($_POST['current_page']) ? sanitize_text_field(wp_unslash($_POST['current_page'])) : '';
         //$paged = sanitize_text_field($_POST['current_page']);
         $post_grid_options = get_post_meta($grid_id, 'post_grid_meta_options', true);
         //$keyword = isset($_POST['keyword']) ? sanitize_text_field($_POST['keyword']) : '';
@@ -177,12 +177,11 @@ if (!function_exists('post_grid_paginate_ajax_free')) {
                 'prev_text'          => $pagination_prev_text,
                 'next_text'          => $pagination_next_text,
             ));
-            wp_reset_query();
             wp_reset_postdata();
         endif;
         $html = ob_get_clean();
         $response['pagination'] = $html_pagination;
-        echo json_encode($response);
+            echo wp_json_encode($response, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         die();
     }
 }
@@ -191,17 +190,17 @@ add_action('wp_ajax_nopriv_post_grid_paginate_ajax_free', 'post_grid_paginate_aj
 function post_grid_ajax_search_free()
 {
     $response = array();
-    $grid_id = isset($_POST['grid_id']) ? sanitize_text_field($_POST['grid_id']) : '';
+    $grid_id = isset($_POST['grid_id']) ? sanitize_text_field(wp_unslash($_POST['grid_id'])) : '';
     $post_grid_options = get_post_meta($grid_id, 'post_grid_meta_options', true);
-    $formData = isset($_POST['formData']) ? ($_POST['formData']) : '';
+    $formData = isset($_POST['formData']) ? post_grid_recursive_sanitize_arr(wp_unslash($_POST['formData'])) : '';
     parse_str($formData, $form_data);
     $form_data = apply_filters('_form_data', $form_data);
     $keyword = isset($form_data['keyword']) ? sanitize_text_field($form_data['keyword']) : '';
     $_wpnonce = isset($form_data['_wpnonce']) ? sanitize_text_field($form_data['_wpnonce']) : '';
     if (!wp_verify_nonce($_wpnonce, 'post_grid_search_nonce')) {
-        $response['html'] = __("Sorry! you are not allowed to do that.");
+        $response['html'] = __("Sorry! you are not allowed to do that.", 'post-grid');
         $response['pagination'] = "";
-        echo json_encode($response);
+            echo wp_json_encode($response, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         die();
     }
     $post_types = isset($post_grid_options['post_types']) ? $post_grid_options['post_types'] : array('post');
@@ -297,7 +296,6 @@ function post_grid_ajax_search_free()
         $args['grid_id'] = $grid_id;
         do_action('post_grid_pagination_' . $pagination_type, $args, $post_grid_wp_query);
         $response['pagination'] = ob_get_clean();
-        wp_reset_query();
         wp_reset_postdata();
     endif;
     //$html = ob_get_clean();

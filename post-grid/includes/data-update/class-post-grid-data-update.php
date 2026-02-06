@@ -21,12 +21,13 @@ class class_post_grid_data_update
 ?>
             <div class="update-nag">
                 <?php
-                echo sprintf(__('Data update required for  <b>%s &raquo; <a href="%sedit.php?post_type=post_grid&page=data-update">Update</a></b>', 'post-grid'), post_grid_plugin_name, $admin_url)
+                /* translators: 1: PLugin Name, 2: Link. */
+                echo wp_kses_post(sprintf(__('Data update required for  <b>%1$s &raquo; <a href="%2$sedit.php?post_type=post_grid&page=data-update">Update</a></b>', 'post-grid'), wp_kses_post(post_grid_plugin_name), wp_kses_post($admin_url)));
                 ?>
             </div>
 <?php
         endif;
-        echo (ob_get_clean());
+        echo wp_kses_post(ob_get_clean());
     }
 }
 new class_post_grid_data_update();

@@ -3,7 +3,7 @@ if (! defined('ABSPATH')) exit;  // if direct access
 add_filter('post_grid_layout_elements', 'post_grid_pro_yith_layout_elements');
 function post_grid_pro_yith_layout_elements($elements_group)
 {
-  $elements_group['wishlist']['items']['yith_add_to_wishlist'] = array('name' => __('YITH - Add to Wishlist', 'post-grid'));
+  $elements_group['wishlist']['items']['yith_add_to_wishlist'] = array('name' => esc_html__('YITH - Add to Wishlist', 'post-grid'));
   return $elements_group;
 }
 add_action('post_grid_layout_element_option_yith_add_to_wishlist', 'post_grid_layout_element_option_yith_add_to_wishlist');
@@ -27,7 +27,7 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
     <div class="element-title header ">
       <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
       <span class="sort"><i class="fas fa-sort"></i></span>
-      <span class="expand"><?php echo __('YITH - Wishlist', 'post-grid'); ?></span>
+      <span class="expand"><?php echo esc_html__('YITH - Wishlist', 'post-grid'); ?></span>
     </div>
     <div class="element-options options">
       <?php
@@ -35,8 +35,8 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
         'id'    => 'color',
         'css_id'    => $element_index . '_yith_add_to_wishlist',
         'parent' => $input_name . '[yith_add_to_wishlist]',
-        'title'    => __('Color', 'post-grid'),
-        'details'  => __('Title text color.', 'post-grid'),
+        'title'    => esc_html__('Color', 'post-grid'),
+        'details'  => esc_html__('Title text color.', 'post-grid'),
         'type'    => 'colorpicker',
         'value'    => $color,
         'default'    => '',
@@ -46,8 +46,8 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
         'id'    => 'font_size',
         'css_id'    => $element_index . '_font_size',
         'parent' => $input_name . '[yith_add_to_wishlist]',
-        'title'    => __('Font size', 'post-grid'),
-        'details'  => __('Set font size.', 'post-grid'),
+        'title'    => esc_html__('Font size', 'post-grid'),
+        'details'  => esc_html__('Set font size.', 'post-grid'),
         'type'    => 'text',
         'value'    => $font_size,
         'default'    => '',
@@ -58,8 +58,8 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
         'id'    => 'margin',
         'css_id'    => $element_index . '_margin',
         'parent' => $input_name . '[yith_add_to_wishlist]',
-        'title'    => __('Margin', 'post-grid'),
-        'details'  => __('Set margin.', 'post-grid'),
+        'title'    => esc_html__('Margin', 'post-grid'),
+        'details'  => esc_html__('Set margin.', 'post-grid'),
         'type'    => 'text',
         'value'    => $margin,
         'default'    => '',
@@ -70,20 +70,20 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
         'id'    => 'text_align',
         'css_id'    => $element_index . '_text_align',
         'parent' => $input_name . '[yith_add_to_wishlist]',
-        'title'    => __('Text align', 'post-grid'),
-        'details'  => __('Choose text align.', 'post-grid'),
+        'title'    => esc_html__('Text align', 'post-grid'),
+        'details'  => esc_html__('Choose text align.', 'post-grid'),
         'type'    => 'select',
         'value'    => $text_align,
         'default'    => 'left',
-        'args'    => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+        'args'    => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
       );
       $settings_tabs_field->generate_field($args);
       $args = array(
         'id'    => 'css',
         'css_id'    => $element_index . '_css',
         'parent' => $input_name . '[yith_add_to_wishlist]',
-        'title'    => __('Custom CSS', 'post-grid'),
-        'details'  => __('Set csutom CSS.', 'post-grid'),
+        'title'    => esc_html__('Custom CSS', 'post-grid'),
+        'details'  => esc_html__('Set csutom CSS.', 'post-grid'),
         'type'    => 'textarea',
         'value'    => $css,
         'default'    => '',
@@ -94,8 +94,8 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
         'id'    => 'css_hover',
         'css_id'    => $element_index . '_css_hover',
         'parent' => $input_name . '[yith_add_to_wishlist]',
-        'title'    => __('Hover CSS', 'post-grid'),
-        'details'  => __('Set hover custom CSS.', 'post-grid'),
+        'title'    => esc_html__('Hover CSS', 'post-grid'),
+        'details'  => esc_html__('Set hover custom CSS.', 'post-grid'),
         'type'    => 'textarea',
         'value'    => $css_hover,
         'default'    => '',
@@ -110,8 +110,8 @@ function post_grid_layout_element_option_yith_add_to_wishlist($parameters)
       $html = ob_get_clean();
       $args = array(
         'id'    => 'use_css',
-        'title'    => __('Use of CSS', 'post-grid'),
-        'details'  => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+        'title'    => esc_html__('Use of CSS', 'post-grid'),
+        'details'  => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
         'type'    => 'custom_html',
         'html'    => $html,
       );

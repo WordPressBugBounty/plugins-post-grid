@@ -6,9 +6,9 @@ function post_grid_pro_wck_layout_elements($elements_group)
     $elements_group['wck'] = array(
         'group_title' => 'WCK - Custom Fields Creator',
         'items' => array(
-            'wck_text' => array('name' => __('Text', 'post-grid')),
-            'wck_textarea' => array('name' => __('Textarea', 'post-grid')),
-            'wck_number' => array('name' => __('Number', 'post-grid')),
+            'wck_text' => array('name' => esc_html__('Text', 'post-grid')),
+            'wck_textarea' => array('name' => esc_html__('Textarea', 'post-grid')),
+            'wck_number' => array('name' => esc_html__('Number', 'post-grid')),
             //            'wck_range'=>array('name' =>__('Range','post-grid')),
             //            'wck_email'=>array('name' =>__('Email','post-grid')),
             //            'wck_url'=>array('name' =>__('URL','post-grid')),
@@ -19,17 +19,17 @@ function post_grid_pro_wck_layout_elements($elements_group)
             //            'wck_taxonomy'=>array('name' =>__('Taxonomy','post-grid')),
             //            'wck_user'=>array('name' =>__('User','post-grid')),
             //            'wck_relationship'=>array('name' =>__('Relationship','post-grid')),
-            'wck_upload' => array('name' => __('Upload', 'post-grid')),
+            'wck_upload' => array('name' => esc_html__('Upload', 'post-grid')),
             //            'wck_file'=>array('name' =>__('File','post-grid')),
-            'wck_wysiwyg' => array('name' => __('Wysiwyg', 'post-grid')),
+            'wck_wysiwyg' => array('name' => esc_html__('Wysiwyg', 'post-grid')),
             //            'wck_oembed'=>array('name' =>__('oEmbed','post-grid')),
-            'wck_select' => array('name' => __('Select', 'post-grid')),
-            'wck_checkbox' => array('name' => __('Checkbox', 'post-grid')),
-            'wck_radio' => array('name' => __('Radio', 'post-grid')),
+            'wck_select' => array('name' => esc_html__('Select', 'post-grid')),
+            'wck_checkbox' => array('name' => esc_html__('Checkbox', 'post-grid')),
+            'wck_radio' => array('name' => esc_html__('Radio', 'post-grid')),
             //            'wck_buttongroup'=>array('name' =>__('Button group','post-grid')),
             //            'wck_true_false'=>array('name' =>__('True / False','post-grid')),
             //            'wck_date_picker'=>array('name' =>__('Date picker','post-grid')),
-            'wck_time_picker' => array('name' => __('Time picker', 'post-grid')),
+            'wck_time_picker' => array('name' => esc_html__('Time picker', 'post-grid')),
             //            'wck_datetime_picker'=>array('name' =>__('Datetime picker','post-grid')),
             //            'wck_google_map'=>array('name' =>__('Google Map','post-grid')),
             //'wck_colorpicker'=>array('name' =>__('Color picker','post-grid')),
@@ -57,7 +57,7 @@ function post_grid_layout_element_option_wck_text($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -65,8 +65,8 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -77,8 +77,8 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_text',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -88,8 +88,8 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -100,8 +100,8 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -112,8 +112,8 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -124,20 +124,20 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -148,8 +148,8 @@ function post_grid_layout_element_option_wck_text($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_text]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -163,8 +163,8 @@ function post_grid_layout_element_option_wck_text($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -263,7 +263,7 @@ function post_grid_layout_element_option_wck_textarea($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Textarea', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Textarea', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -271,8 +271,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -283,8 +283,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_textarea',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -294,8 +294,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        =>   esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -306,8 +306,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        =>   esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -318,8 +318,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -330,20 +330,20 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -354,8 +354,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_textarea]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -369,8 +369,8 @@ function post_grid_layout_element_option_wck_textarea($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -469,7 +469,7 @@ function post_grid_layout_element_option_wck_number($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Number', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Number', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -477,8 +477,8 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -489,8 +489,8 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_number',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -500,8 +500,8 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -512,8 +512,8 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -524,8 +524,8 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -536,20 +536,20 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -560,8 +560,8 @@ function post_grid_layout_element_option_wck_number($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_number]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -575,8 +575,8 @@ function post_grid_layout_element_option_wck_number($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -676,7 +676,7 @@ function post_grid_layout_element_option_wck_email($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Email', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Email', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -684,8 +684,8 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -696,8 +696,11 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Email: &lt;a href="mailto:%s">Send mail&lt;/a></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Email: &lt;a href="mailto:%s">Send mail&lt;/a></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -708,8 +711,8 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_email',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -719,8 +722,8 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -731,8 +734,8 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -743,8 +746,8 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -755,20 +758,20 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -779,8 +782,8 @@ function post_grid_layout_element_option_wck_email($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_email]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -794,8 +797,8 @@ function post_grid_layout_element_option_wck_email($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -897,7 +900,7 @@ function post_grid_layout_element_option_wck_url($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK URL', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK URL', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -905,8 +908,8 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -917,8 +920,11 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Link: &lt;a href="%s">Visit link&lt;/a></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Link: &lt;a href="%s">Visit link&lt;/a></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -929,8 +935,8 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_url',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -940,8 +946,8 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -952,8 +958,8 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -964,8 +970,8 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -976,20 +982,20 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1000,8 +1006,8 @@ function post_grid_layout_element_option_wck_url($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_url]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1015,8 +1021,8 @@ function post_grid_layout_element_option_wck_url($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1118,7 +1124,7 @@ function post_grid_layout_element_option_wck_range($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Range', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Range', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1126,8 +1132,8 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -1138,8 +1144,11 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>value: %s</code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>value: %s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1150,8 +1159,8 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_range',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1161,8 +1170,8 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1173,8 +1182,8 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1185,8 +1194,8 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1197,20 +1206,20 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1221,8 +1230,8 @@ function post_grid_layout_element_option_wck_range($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_range]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1236,8 +1245,8 @@ function post_grid_layout_element_option_wck_range($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1338,7 +1347,7 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Wysiwyg', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Wysiwyg', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1346,8 +1355,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -1358,8 +1367,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_wysiwyg',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1369,8 +1378,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1381,8 +1390,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1393,8 +1402,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1405,20 +1414,20 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1429,8 +1438,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_wysiwyg]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1444,8 +1453,8 @@ function post_grid_layout_element_option_wck_wysiwyg($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1545,7 +1554,7 @@ function post_grid_layout_element_option_wck_upload($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Image', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Image', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1553,8 +1562,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -1565,8 +1574,11 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>,<br> Return type: File URL<br> <code>File: &lt;a href="%s">Click to Download&lt;/a> </code> <br> Return type: File ID<br> <code>File id: %s</code> <br> Return type: File Array<br> <code>Link HTML: &lt;a href="{url}">{filename}&lt;/a> </code> <br> <code>Image HTML: &lt;img src="{url}"/> </code> <br>Parameter<br> <code>{ID}, {id}, {title}, {filename}, {filesize}, {url}, {link}, {alt}, {author}, {description}, {caption}, {name}, {date}, {mime_type}, {icon},{width}, {height} </code> <br>Sizes parameter:<br> <code>{sizes_$id} => {sizes_thumbnail}</code><br><code> {sizes_$id-width} => {sizes_thumbnail-width}</code><br><code> {sizes_$id-height} => {sizes_thumbnail-height}</code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>,<br> Return type: File URL<br> <code>File: &lt;a href="%s">Click to Download&lt;/a> </code> <br> Return type: File ID<br> <code>File id: %s</code> <br> Return type: File Array<br> <code>Link HTML: &lt;a href="{url}">{filename}&lt;/a> </code> <br> <code>Image HTML: &lt;img src="{url}"/> </code> <br>Parameter<br> <code>{ID}, {id}, {title}, {filename}, {filesize}, {url}, {link}, {alt}, {author}, {description}, {caption}, {name}, {date}, {mime_type}, {icon},{width}, {height} </code> <br>Sizes parameter:<br> <code>{sizes_$id} => {sizes_thumbnail}</code><br><code> {sizes_$id-width} => {sizes_thumbnail-width}</code><br><code> {sizes_$id-height} => {sizes_thumbnail-height}</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1577,8 +1589,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_upload',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1588,8 +1600,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1600,8 +1612,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1612,8 +1624,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1624,20 +1636,20 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1648,8 +1660,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_upload]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1663,8 +1675,8 @@ function post_grid_layout_element_option_wck_upload($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1796,7 +1808,7 @@ function post_grid_layout_element_option_wck_file($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK File', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK File', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1804,8 +1816,8 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -1816,8 +1828,11 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>,<br> Return type: File URL<br> <code>File: &lt;a href="%s">Click to Download&lt;/a> </code> <br> Return type: File ID<br> <code>File id: %s</code> <br> Return type: File Array<br> <code>Link HTML: &lt;a href="{url}">{filename}&lt;/a> </code> <br> <code>Image HTML: &lt;img src="{url}"/> </code> <br>Parameter<br> <code>{ID}, {id}, {title}, {filename}, {filesize}, {url}, {link}, {alt}, {author}, {description}, {caption}, {name}, {date}, {mime_type}, {icon},{width}, {height} </code> <br>Sizes parameter:<br> <code>{sizes_$id} => {sizes_thumbnail}</code><br><code> {sizes_$id-width} => {sizes_thumbnail-width}</code><br><code> {sizes_$id-height} => {sizes_thumbnail-height}</code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>,<br> Return type: File URL<br> <code>File: &lt;a href="%s">Click to Download&lt;/a> </code> <br> Return type: File ID<br> <code>File id: %s</code> <br> Return type: File Array<br> <code>Link HTML: &lt;a href="{url}">{filename}&lt;/a> </code> <br> <code>Image HTML: &lt;img src="{url}"/> </code> <br>Parameter<br> <code>{ID}, {id}, {title}, {filename}, {filesize}, {url}, {link}, {alt}, {author}, {description}, {caption}, {name}, {date}, {mime_type}, {icon},{width}, {height} </code> <br>Sizes parameter:<br> <code>{sizes_$id} => {sizes_thumbnail}</code><br><code> {sizes_$id-width} => {sizes_thumbnail-width}</code><br><code> {sizes_$id-height} => {sizes_thumbnail-height}</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1828,8 +1843,8 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_file',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1839,8 +1854,8 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1851,8 +1866,8 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1863,8 +1878,8 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1875,20 +1890,20 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1899,8 +1914,8 @@ function post_grid_layout_element_option_wck_file($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_file]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1914,8 +1929,8 @@ function post_grid_layout_element_option_wck_file($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2047,7 +2062,7 @@ function post_grid_layout_element_option_wck_select($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Select', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Select', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2055,8 +2070,8 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -2067,8 +2082,10 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'item_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Item wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> <br>Return Format: Both(Array)<br> ex: <code>Label: %s</code> <code>Value: %s</code> list item ex: <code>&lt;li>%s&lt;/li></code>', 'post-grid'),
+                /* translators: Field title for item wrapper HTML setting */
+                'title'        => esc_html__('Item wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for select item value/label in wrapper HTML */
+                'details'    => esc_html__('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> <br>Return Format: Both(Array)<br> ex: <code>Label: %s</code> <code>Value: %s</code> list item ex: <code>&lt;li>%s&lt;/li></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $item_wrapper_html,
                 'default'        => '',
@@ -2079,8 +2096,11 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -2091,8 +2111,8 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_select',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -2102,8 +2122,8 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -2114,8 +2134,8 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -2126,8 +2146,8 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2138,20 +2158,20 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2162,8 +2182,8 @@ function post_grid_layout_element_option_wck_select($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_select]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2177,8 +2197,8 @@ function post_grid_layout_element_option_wck_select($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2290,7 +2310,7 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Checkbox', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Checkbox', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2298,8 +2318,8 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -2310,8 +2330,10 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'item_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Item wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> <br>Return Format: Both(Array)<br> ex: <code>Label: %s</code> <code>Value: %s</code> list item ex: <code>&lt;li>%s&lt;/li></code>', 'post-grid'),
+                /* translators: Field title for item wrapper HTML setting */
+                'title'        => esc_html__('Item wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for checkbox item value/label in wrapper HTML */
+                'details'    => esc_html__('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> <br>Return Format: Both(Array)<br> ex: <code>Label: %s</code> <code>Value: %s</code> list item ex: <code>&lt;li>%s&lt;/li></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $item_wrapper_html,
                 'default'        => '',
@@ -2322,8 +2344,10 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -2334,8 +2358,8 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_checkbox',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -2345,8 +2369,10 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                /* translators: Field title for font size setting */
+                'title'        => esc_html__('Font size', 'post-grid'),
+                /* translators: Description for font size field */
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -2357,8 +2383,8 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -2369,8 +2395,8 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2381,20 +2407,20 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2405,8 +2431,8 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_checkbox]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2420,8 +2446,8 @@ function post_grid_layout_element_option_wck_checkbox($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2533,7 +2559,7 @@ function post_grid_layout_element_option_wck_radio($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Radio', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Radio', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2541,8 +2567,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -2553,8 +2579,10 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'item_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Item wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> list item ex: <code>&lt;li>%s&lt;/li></code>', 'post-grid'),
+                /* translators: Field title for item wrapper HTML setting */
+                'title'        => esc_html__('Item wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for radio item value/label in wrapper HTML */
+                'details'    => esc_html__('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> list item ex: <code>&lt;li>%s&lt;/li></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $item_wrapper_html,
                 'default'        => '',
@@ -2565,8 +2593,11 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -2577,8 +2608,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_radio',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -2588,8 +2619,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -2600,8 +2631,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -2612,8 +2643,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2624,20 +2655,20 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2648,8 +2679,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_radio]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2663,8 +2694,8 @@ function post_grid_layout_element_option_wck_radio($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2781,7 +2812,7 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Button group', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Button group', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2789,8 +2820,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -2801,8 +2832,9 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'item_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Item wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> <br>list item ex: <code>&lt;li>%1$s : %2$s&lt;/li></code>', 'post-grid'),
+                'title'        => esc_html__('Item wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for button group item, %1$s and %2$s: Placeholders for label and value */
+                'details'    => esc_html__('Write item wrapper html, use <code>%s</code> to replace output. <br>Return Format: Label or Value<br> ex: <code>Value: %s</code> <br>list item ex: <code>&lt;li>%1$s : %2$s&lt;/li></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $item_wrapper_html,
                 'default'        => '',
@@ -2813,8 +2845,11 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Links: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Links: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -2825,8 +2860,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_buttongroup',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -2836,8 +2871,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -2848,8 +2883,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -2860,8 +2895,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2872,20 +2907,20 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2896,8 +2931,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_buttongroup]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2911,8 +2946,8 @@ function post_grid_layout_element_option_wck_buttongroup($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3029,7 +3064,7 @@ function post_grid_layout_element_option_wck_page_link($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Page link', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Page link', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3037,8 +3072,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -3049,8 +3084,10 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'link_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Link wrapper html', 'post-grid'),
-                'details'    => __('Write link wrapper html, use <code>%s</code> to replace output. ex: <code>&lt;a href="%s">Visit link&lt;/a></code> list item ex: <code>&lt;li>&lt;a href="%s">Visit link&lt;/a>&lt;/li></code>', 'post-grid'),
+                /* translators: Field title for link wrapper HTML setting */
+                'title'        => esc_html__('Link wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for page link URL in wrapper HTML */
+                'details'    => esc_html__('Write link wrapper html, use <code>%s</code> to replace output. ex: <code>&lt;a href="%s">Visit link&lt;/a></code> list item ex: <code>&lt;li>&lt;a href="%s">Visit link&lt;/a>&lt;/li></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $link_wrapper_html,
                 'default'        => '',
@@ -3061,8 +3098,11 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Links: %s</code>, <code>&lt;a href="%s">Visit link&lt;/a></code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Links: %s</code>, <code>&lt;a href="%s">Visit link&lt;/a></code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3073,8 +3113,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_page_link',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3084,8 +3124,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3096,8 +3136,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -3108,8 +3148,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3120,20 +3160,20 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3144,8 +3184,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_page_link]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3159,8 +3199,8 @@ function post_grid_layout_element_option_wck_page_link($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3272,7 +3312,7 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Taxonomy', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Taxonomy', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3280,8 +3320,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -3292,8 +3332,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'item_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Item wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, <br> <code>Link HTML: &lt;a href="{term_link}">{name}&lt;/a> </code> <br> <code>List HTML: &lt;li>&lt;a href="{term_link}">{name}&lt;/a>&lt;/li> </code>  <br>Parameter<br> <code>{term_id}, {term_link},{name}, {term_group}, {slug},{term_taxonomy_id}, {taxonomy}, {description}, {count} </code>', 'post-grid'),
+                'title'        => esc_html__('Item wrapper html', 'post-grid'),
+                'details'    => esc_html__('Write item wrapper html, <br> <code>Link HTML: &lt;a href="{term_link}">{name}&lt;/a> </code> <br> <code>List HTML: &lt;li>&lt;a href="{term_link}">{name}&lt;/a>&lt;/li> </code>  <br>Parameter<br> <code>{term_id}, {term_link},{name}, {term_group}, {slug},{term_taxonomy_id}, {taxonomy}, {description}, {count} </code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $item_wrapper_html,
                 'default'        => '',
@@ -3304,8 +3344,11 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Tags: %s</code>, <br> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Tags: %s</code>, <br> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3316,8 +3359,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_taxonomy',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3327,8 +3370,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3339,8 +3382,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -3351,8 +3394,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3363,20 +3406,20 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3387,8 +3430,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_taxonomy]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3402,8 +3445,8 @@ function post_grid_layout_element_option_wck_taxonomy($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3525,7 +3568,7 @@ function post_grid_layout_element_option_wck_user($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK User', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK User', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3533,8 +3576,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -3545,8 +3588,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, <br> <code>Link HTML: &lt;a href="{user_posts_url}">{display_name}&lt;/a> </code> <br>Parameter<br> <code>{ID}, {user_login},{user_nicename}, {user_email}, {user_url},{display_name}, {user_posts_url}, {user_avtar} </code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                'details'    => esc_html__('Write item wrapper html, <br> <code>Link HTML: &lt;a href="{user_posts_url}">{display_name}&lt;/a> </code> <br>Parameter<br> <code>{ID}, {user_login},{user_nicename}, {user_email}, {user_url},{display_name}, {user_posts_url}, {user_avtar} </code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3557,8 +3600,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_user',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3568,8 +3611,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3580,8 +3623,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -3592,8 +3635,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3604,20 +3647,20 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3628,8 +3671,8 @@ function post_grid_layout_element_option_wck_user($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_user]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3643,8 +3686,8 @@ function post_grid_layout_element_option_wck_user($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3761,7 +3804,7 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Date picker', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Date picker', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3769,8 +3812,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -3781,8 +3824,11 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Date: %s</code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Date: %s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3793,8 +3839,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_date_picker',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3804,8 +3850,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3816,8 +3862,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -3828,8 +3874,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3840,20 +3886,20 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3864,8 +3910,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_date_picker]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3879,8 +3925,8 @@ function post_grid_layout_element_option_wck_date_picker($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3982,7 +4028,7 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Time picker', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Time picker', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3990,8 +4036,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -4002,8 +4048,11 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Date: %s</code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Date: %s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -4014,8 +4063,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_time_picker',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -4025,8 +4074,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4037,8 +4086,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -4049,8 +4098,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -4061,20 +4110,20 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4085,8 +4134,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_time_picker]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4100,8 +4149,8 @@ function post_grid_layout_element_option_wck_time_picker($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4203,7 +4252,7 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Datetime picker', 'post-grid'); ?> -
+            <span class="expand"><?php echo esc_html__('WCK Datetime picker', 'post-grid'); ?> -
                 <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
@@ -4212,8 +4261,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -4224,8 +4273,10 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Date: %s</code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Date: %s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -4236,8 +4287,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_datetime_picker',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -4247,8 +4298,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4259,8 +4310,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -4271,8 +4322,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -4283,20 +4334,20 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4307,8 +4358,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_datetime_picker]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4322,8 +4373,8 @@ function post_grid_layout_element_option_wck_datetime_picker($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4424,7 +4475,7 @@ function post_grid_layout_element_option_wck_google_map($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Google map', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Google map', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4432,8 +4483,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -4444,8 +4495,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_google_map',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -4455,8 +4506,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4467,8 +4518,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -4479,8 +4530,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -4491,20 +4542,20 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4515,8 +4566,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_google_map]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4530,8 +4581,8 @@ function post_grid_layout_element_option_wck_google_map($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4630,7 +4681,7 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Color picker', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Color picker', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4638,8 +4689,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -4650,8 +4701,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_colorpicker',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -4661,8 +4712,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4673,8 +4724,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -4685,8 +4736,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -4697,20 +4748,20 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4721,8 +4772,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_colorpicker]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4736,8 +4787,8 @@ function post_grid_layout_element_option_wck_colorpicker($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4837,7 +4888,7 @@ function post_grid_layout_element_option_wck_link($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Link', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Link', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4845,8 +4896,8 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -4857,8 +4908,11 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Link: %s</code> or <code>Link: &lt;a href="%s">Visit link&lt/a> </code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Link: %s</code> or <code>Link: &lt;a href="%s">Visit link&lt/a> </code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -4869,8 +4923,8 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_link',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -4880,8 +4934,8 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4892,8 +4946,8 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -4904,8 +4958,8 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -4916,20 +4970,20 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4940,8 +4994,8 @@ function post_grid_layout_element_option_wck_link($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_link]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4955,8 +5009,8 @@ function post_grid_layout_element_option_wck_link($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5063,7 +5117,7 @@ function post_grid_layout_element_option_wck_post_object($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5071,8 +5125,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -5083,8 +5137,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_post_object',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -5094,8 +5148,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -5106,8 +5160,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -5118,8 +5172,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -5130,20 +5184,20 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -5154,8 +5208,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_post_object]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -5169,8 +5223,8 @@ function post_grid_layout_element_option_wck_post_object($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5269,7 +5323,7 @@ function post_grid_layout_element_option_wck_oembed($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5277,8 +5331,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -5289,8 +5343,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_oembed',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -5300,8 +5354,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -5312,8 +5366,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -5324,8 +5378,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -5336,20 +5390,20 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -5360,8 +5414,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_oembed]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -5375,8 +5429,8 @@ function post_grid_layout_element_option_wck_oembed($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5476,7 +5530,7 @@ function post_grid_layout_element_option_wck_password($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5484,8 +5538,8 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -5496,8 +5550,11 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Pass: %s</code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Pass: %s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -5508,8 +5565,8 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_password',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -5519,8 +5576,8 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -5531,8 +5588,8 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -5543,8 +5600,8 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -5555,20 +5612,20 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -5579,8 +5636,8 @@ function post_grid_layout_element_option_wck_password($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_password]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -5594,8 +5651,8 @@ function post_grid_layout_element_option_wck_password($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5698,7 +5755,7 @@ function post_grid_layout_element_option_wck_relationship($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Relationship', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Relationship', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5706,8 +5763,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -5718,8 +5775,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'item_wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Item wrapper html', 'post-grid'),
-                'details'    => __('Write item wrapper html, list item example <br>Post title <code>&lt;li>{post_title}&lt;/li></code><br> Title link: <code>&lt;li>&lt;a href="{permalink}">{post_title}&lt;/a> &lt;/li></code> <br> Post parameters<br> {ID}, {post_author}, {post_date}, {post_date_gmt}, {post_content}, {post_title}, {post_excerpt}, {post_status}, {comment_status}, {ping_status},{post_password}, {post_name}, {post_type}, {comment_count}, {permalink}', 'post-grid'),
+                'title'        => esc_html__('Item wrapper html', 'post-grid'),
+                'details'    => esc_html__('Write item wrapper html, list item example <br>Post title <code>&lt;li>{post_title}&lt;/li></code><br> Title link: <code>&lt;li>&lt;a href="{permalink}">{post_title}&lt;/a> &lt;/li></code> <br> Post parameters<br> {ID}, {post_author}, {post_date}, {post_date_gmt}, {post_content}, {post_title}, {post_excerpt}, {post_status}, {comment_status}, {ping_status},{post_password}, {post_name}, {post_type}, {comment_count}, {permalink}', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $item_wrapper_html,
                 'default'        => '',
@@ -5730,8 +5787,11 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Value: %s</code>, <code>Values: %s</code> list item wrapper ex: <code>&lt;ul>%s&lt;/ul></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -5742,8 +5802,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_relationship',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -5753,8 +5813,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -5765,8 +5825,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -5777,8 +5837,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -5789,20 +5849,20 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -5813,8 +5873,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_relationship]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -5828,8 +5888,8 @@ function post_grid_layout_element_option_wck_relationship($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5953,7 +6013,7 @@ function post_grid_layout_element_option_wck_true_false($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
+            <span class="expand"><?php echo esc_html__('WCK Text', 'post-grid'); ?> - <?php echo esc_html($wck_key); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5961,8 +6021,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'wck_key',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('WCK key', 'post-grid'),
-                'details'    => __('Write WCK meta key or field name.', 'post-grid'),
+                'title'        => esc_html__('WCK key', 'post-grid'),
+                'details'    => esc_html__('Write WCK meta key or field name.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wck_key,
                 'default'        => '',
@@ -5973,8 +6033,11 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Values: %s</code> <code>Is true: Yes</code> ', 'post-grid'),
+                /* translators: Field title for wrapper HTML setting */
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Values: %s</code> <code>Is true: Yes</code> ', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -5985,8 +6048,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_wck_true_false',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -5996,8 +6059,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -6008,8 +6071,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -6020,8 +6083,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -6032,20 +6095,20 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -6056,8 +6119,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wck_true_false]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -6071,8 +6134,8 @@ function post_grid_layout_element_option_wck_true_false($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );

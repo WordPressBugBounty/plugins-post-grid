@@ -9,7 +9,7 @@ function post_grid_duplicate_post_as_draft()
     /*
 	 * Nonce verification
 	 */
-    if (!isset($_GET['duplicate_nonce']) || !wp_verify_nonce($_GET['duplicate_nonce'], basename(__FILE__)))
+    if (!isset($_GET['duplicate_nonce']) || !wp_verify_nonce(wp_unslash($_GET['duplicate_nonce']), basename(__FILE__)))
         return;
     /*
 	 * get the original post id
@@ -72,10 +72,10 @@ function post_grid_duplicate_post_as_draft()
         /*
 		 * finally, redirect to the edit post screen for the new draft
 		 */
-        wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
+        wp_safe_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
         exit;
     } else {
-        wp_die('Post creation failed, could not find original post: ' . $post_id);
+        wp_die('Post creation failed, could not find original post: ' . wp_kses_post($post_id));
     }
 }
 add_action('admin_action_post_grid_duplicate_post_as_draft', 'post_grid_duplicate_post_as_draft');

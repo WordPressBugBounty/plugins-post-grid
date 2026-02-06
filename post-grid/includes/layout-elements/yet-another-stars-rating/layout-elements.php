@@ -25,8 +25,8 @@ if (! defined('ABSPATH')) exit;  // if direct access
 add_filter('post_grid_layout_elements', 'post_grid_pro_yasr_layout_elements');
 function post_grid_pro_yasr_layout_elements($elements_group)
 {
-  $elements_group['star_rating']['items']['yasr_visitor_votes'] = array('name' => __('YASR - visitor votes', 'post-grid'));
-  $elements_group['star_rating']['items']['yasr_overall_rating'] = array('name' => __('YASR- overall rating', 'post-grid'));
+  $elements_group['star_rating']['items']['yasr_visitor_votes'] = array('name' => esc_html__('YASR - visitor votes', 'post-grid'));
+  $elements_group['star_rating']['items']['yasr_overall_rating'] = array('name' => esc_html__('YASR- overall rating', 'post-grid'));
   //    $elements_group['star_rating'] = array(
   //        'group_title'=>'Star Rating',
   //        'items'=>array(
@@ -58,7 +58,7 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
     <div class="element-title header ">
       <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
       <span class="sort"><i class="fas fa-sort"></i></span>
-      <span class="expand"><?php echo __('YASR - Visitor votes', 'post-grid'); ?></span>
+      <span class="expand"><?php echo esc_html__('YASR - Visitor votes', 'post-grid'); ?></span>
     </div>
     <div class="element-options options">
       <?php
@@ -66,20 +66,20 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
         'id'    => 'size',
         'css_id'    => $element_index . '_text',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Icon size', 'post-grid'),
-        'details'  => __('Choose icon size.', 'post-grid'),
+        'title'    => esc_html__('Icon size', 'post-grid'),
+        'details'  => esc_html__('Choose icon size.', 'post-grid'),
         'type'    => 'select',
         'value'    => $text_align,
         'default'    => 'small',
-        'args'    => array('small' => __('Small', 'post-grid'), 'medium' => __('Medium', 'post-grid'), 'large' => __('Large', 'post-grid')),
+        'args'    => array('small' => esc_html__('Small', 'post-grid'), 'medium' => esc_html__('Medium', 'post-grid'), 'large' => esc_html__('Large', 'post-grid')),
       );
       $settings_tabs_field->generate_field($args);
       $args = array(
         'id'    => 'color',
         'css_id'    => $element_index . '_yasr_visitor_votes',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Color', 'post-grid'),
-        'details'  => __('Title text color.', 'post-grid'),
+        'title'    => esc_html__('Color', 'post-grid'),
+        'details'  => esc_html__('Title text color.', 'post-grid'),
         'type'    => 'colorpicker',
         'value'    => $color,
         'default'    => '',
@@ -89,8 +89,8 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
         'id'    => 'font_size',
         'css_id'    => $element_index . '_font_size',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Font size', 'post-grid'),
-        'details'  => __('Set font size.', 'post-grid'),
+        'title'    => esc_html__('Font size', 'post-grid'),
+        'details'  => esc_html__('Set font size.', 'post-grid'),
         'type'    => 'text',
         'value'    => $font_size,
         'default'    => '',
@@ -101,8 +101,8 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
         'id'    => 'margin',
         'css_id'    => $element_index . '_margin',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Margin', 'post-grid'),
-        'details'  => __('Set margin.', 'post-grid'),
+        'title'    => esc_html__('Margin', 'post-grid'),
+        'details'  => esc_html__('Set margin.', 'post-grid'),
         'type'    => 'text',
         'value'    => $margin,
         'default'    => '',
@@ -113,20 +113,20 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
         'id'    => 'text_align',
         'css_id'    => $element_index . '_text_align',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Text align', 'post-grid'),
-        'details'  => __('Choose text align.', 'post-grid'),
+        'title'    => esc_html__('Text align', 'post-grid'),
+        'details'  => esc_html__('Choose text align.', 'post-grid'),
         'type'    => 'select',
         'value'    => $text_align,
         'default'    => 'left',
-        'args'    => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+        'args'    => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
       );
       $settings_tabs_field->generate_field($args);
       $args = array(
         'id'    => 'css',
         'css_id'    => $element_index . '_css',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Custom CSS', 'post-grid'),
-        'details'  => __('Set csutom CSS.', 'post-grid'),
+        'title'    => esc_html__('Custom CSS', 'post-grid'),
+        'details'  => esc_html__('Set csutom CSS.', 'post-grid'),
         'type'    => 'textarea',
         'value'    => $css,
         'default'    => '',
@@ -137,8 +137,8 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
         'id'    => 'css_hover',
         'css_id'    => $element_index . '_css_hover',
         'parent' => $input_name . '[yasr_visitor_votes]',
-        'title'    => __('Hover CSS', 'post-grid'),
-        'details'  => __('Set hover custom CSS.', 'post-grid'),
+        'title'    => esc_html__('Hover CSS', 'post-grid'),
+        'details'  => esc_html__('Set hover custom CSS.', 'post-grid'),
         'type'    => 'textarea',
         'value'    => $css_hover,
         'default'    => '',
@@ -153,8 +153,8 @@ function post_grid_layout_element_option_yasr_visitor_votes($parameters)
       $html = ob_get_clean();
       $args = array(
         'id'    => 'use_css',
-        'title'    => __('Use of CSS', 'post-grid'),
-        'details'  => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+        'title'    => esc_html__('Use of CSS', 'post-grid'),
+        'details'  => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
         'type'    => 'custom_html',
         'html'    => $html,
       );
@@ -250,7 +250,7 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
     <div class="element-title header ">
       <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
       <span class="sort"><i class="fas fa-sort"></i></span>
-      <span class="expand"><?php echo __('YASR - Visitor votes', 'post-grid'); ?></span>
+      <span class="expand"><?php echo esc_html__('YASR - Visitor votes', 'post-grid'); ?></span>
     </div>
     <div class="element-options options">
       <?php
@@ -258,20 +258,20 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
         'id'    => 'size',
         'css_id'    => $element_index . '_text',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Icon size', 'post-grid'),
-        'details'  => __('Choose icon size.', 'post-grid'),
+        'title'    => esc_html__('Icon size', 'post-grid'),
+        'details'  => esc_html__('Choose icon size.', 'post-grid'),
         'type'    => 'select',
         'value'    => $text_align,
         'default'    => 'small',
-        'args'    => array('small' => __('Small', 'post-grid'), 'medium' => __('Medium', 'post-grid'), 'large' => __('Large', 'post-grid')),
+        'args'    => array('small' => esc_html__('Small', 'post-grid'), 'medium' => esc_html__('Medium', 'post-grid'), 'large' => esc_html__('Large', 'post-grid')),
       );
       $settings_tabs_field->generate_field($args);
       $args = array(
         'id'    => 'color',
         'css_id'    => $element_index . '_yasr_overall_rating',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Color', 'post-grid'),
-        'details'  => __('Title text color.', 'post-grid'),
+        'title'    => esc_html__('Color', 'post-grid'),
+        'details'  => esc_html__('Title text color.', 'post-grid'),
         'type'    => 'colorpicker',
         'value'    => $color,
         'default'    => '',
@@ -281,8 +281,8 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
         'id'    => 'font_size',
         'css_id'    => $element_index . '_font_size',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Font size', 'post-grid'),
-        'details'  => __('Set font size.', 'post-grid'),
+        'title'    => esc_html__('Font size', 'post-grid'),
+        'details'  => esc_html__('Set font size.', 'post-grid'),
         'type'    => 'text',
         'value'    => $font_size,
         'default'    => '',
@@ -293,8 +293,8 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
         'id'    => 'margin',
         'css_id'    => $element_index . '_margin',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Margin', 'post-grid'),
-        'details'  => __('Set margin.', 'post-grid'),
+        'title'    => esc_html__('Margin', 'post-grid'),
+        'details'  => esc_html__('Set margin.', 'post-grid'),
         'type'    => 'text',
         'value'    => $margin,
         'default'    => '',
@@ -305,20 +305,20 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
         'id'    => 'text_align',
         'css_id'    => $element_index . '_text_align',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Text align', 'post-grid'),
-        'details'  => __('Choose text align.', 'post-grid'),
+        'title'    => esc_html__('Text align', 'post-grid'),
+        'details'  => esc_html__('Choose text align.', 'post-grid'),
         'type'    => 'select',
         'value'    => $text_align,
         'default'    => 'left',
-        'args'    => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+        'args'    => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
       );
       $settings_tabs_field->generate_field($args);
       $args = array(
         'id'    => 'css',
         'css_id'    => $element_index . '_css',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Custom CSS', 'post-grid'),
-        'details'  => __('Set csutom CSS.', 'post-grid'),
+        'title'    => esc_html__('Custom CSS', 'post-grid'),
+        'details'  => esc_html__('Set csutom CSS.', 'post-grid'),
         'type'    => 'textarea',
         'value'    => $css,
         'default'    => '',
@@ -329,8 +329,8 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
         'id'    => 'css_hover',
         'css_id'    => $element_index . '_css_hover',
         'parent' => $input_name . '[yasr_overall_rating]',
-        'title'    => __('Hover CSS', 'post-grid'),
-        'details'  => __('Set hover custom CSS.', 'post-grid'),
+        'title'    => esc_html__('Hover CSS', 'post-grid'),
+        'details'  => esc_html__('Set hover custom CSS.', 'post-grid'),
         'type'    => 'textarea',
         'value'    => $css_hover,
         'default'    => '',
@@ -345,8 +345,8 @@ function post_grid_layout_element_option_yasr_overall_rating($parameters)
       $html = ob_get_clean();
       $args = array(
         'id'    => 'use_css',
-        'title'    => __('Use of CSS', 'post-grid'),
-        'details'  => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+        'title'    => esc_html__('Use of CSS', 'post-grid'),
+        'details'  => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
         'type'    => 'custom_html',
         'html'    => $html,
       );

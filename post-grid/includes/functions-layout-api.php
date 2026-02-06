@@ -10,7 +10,7 @@ function post_grid_ajax_fetch_block_hub_by_id()
     check_ajax_referer('post_grid_ajax_nonce', 'post_grid_ajax_nonce');
     if (!current_user_can('manage_options')) return;
     $responses = array();
-    $post_id = isset($_POST['post_id']) ? sanitize_text_field($_POST['post_id']) : 51616;
+    $post_id = isset($_POST['post_id']) ? sanitize_text_field(wp_unslash($_POST['post_id'])) : 51616;
     $post_grid_settings = get_option('post_grid_license');
     $license_key = isset($post_grid_settings['license_key']) ? $post_grid_settings['license_key'] : '';
     $api_params = array(

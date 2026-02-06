@@ -1,10 +1,11 @@
 <?php
 /*
-Plugin Name: Post Grid By PickPlugins
+Plugin Name: Post Grid
 Plugin URI: https://pickplugins.com/post-grid/
 Description: Post Grid is extremely easy to use for creating grid-layout and post-layout.
-Version: 2.3.17
+Version: 2.3.23
 Author: PickPlugins
+Text Domain: post-grid
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,8 +28,8 @@ if (!class_exists('PostGrid')) {
       define('post_grid_plugin_dir', plugin_dir_path(__FILE__));
       define('post_grid_plugin_basename', plugin_basename(__FILE__));
       define('post_grid_plugin_name', 'Post Grid');
-      define('post_grid_version', '2.3.17');
-      define('post_grid_server_url', 'https://pickplugins.com/demo/post-grid/');
+      define('post_grid_version', '2.3.23');
+      define('post_grid_server_url', 'https://demo.pickplugins.com/post-grid/');
 
       $postGridFonts = [];
 
@@ -85,7 +86,6 @@ if (!class_exists('PostGrid')) {
       include('templates/view-grid/index.php');
       include('templates/view-slider/index.php');
       include('templates/view-masonry/index.php');
-      include('templates/view-filterable/index.php');
 
 
 
@@ -123,8 +123,6 @@ if (!class_exists('PostGrid')) {
 
       $locale = apply_filters('plugin_locale', get_locale(), 'post-grid');
       load_textdomain('post-grid', WP_LANG_DIR . '/post-grid/post-grid-' . $locale . '.mo');
-
-      load_plugin_textdomain('post-grid', false, plugin_basename(dirname(__FILE__)) . '/languages/');
     }
 
 
@@ -216,21 +214,15 @@ if (!class_exists('PostGrid')) {
       wp_register_style('splide_core', post_grid_plugin_url . 'assets/css/splide-core.min.css');
 
 
-      wp_register_script('imagesloaded', post_grid_plugin_url . 'assets/js/imagesloaded.pkgd.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('imagesloaded', post_grid_plugin_url . 'assets/js/imagesloaded.pkgd.min.js', [], '5.0.0', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('fslightbox', post_grid_plugin_url . 'assets/js/fslightbox.js', [], '3.7.4', true);
+      wp_register_script('lazyLoad', post_grid_plugin_url . 'assets/js/lazy-load.js', [], '1.0.0', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('splide.min', post_grid_plugin_url . 'assets/js/splide.min.js', [], '4.1.6', ['in_footer' => true, 'strategy' => 'defer']);
 
-      wp_register_script('masonry', post_grid_plugin_url . 'assets/js/masonry.pkgd.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
-      wp_register_script('masonry.min', post_grid_plugin_url . 'assets/js/masonry.pkgd.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
-      wp_register_script('fslightbox', post_grid_plugin_url . 'assets/js/fslightbox.js', [], '', true);
-      wp_register_script('lazyLoad', post_grid_plugin_url . 'assets/js/lazy-load.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
-      wp_register_script('splide.min', post_grid_plugin_url . 'assets/js/splide.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
 
-      wp_register_script('pgpostgrid_mixitup', post_grid_plugin_url . 'assets/js/mixitup.min.js', []);
-      wp_register_script('pgpostgrid_mixitup_multifilter', post_grid_plugin_url . 'assets/js/mixitup-multifilter.js', []);
-      wp_register_script('pgpostgrid_mixitup_pagination', post_grid_plugin_url . 'assets/js/mixitup-pagination.js', []);
-      wp_register_script('pgpostgrid_builder-js', post_grid_plugin_url . 'assets/js/builder-js.js', []);
+      wp_register_script('pgpostgrid_builder-js', post_grid_plugin_url . 'assets/js/builder-js.js', [], '1.0.0', []);
 
-      wp_register_script('post-grid-slider-front', post_grid_plugin_url . 'templates/view-slider/front-scripts.js', []);
-      wp_register_script('post-grid-filterable-front', post_grid_plugin_url . 'templates/view-filterable/front-scripts.js', []);
+      wp_register_script('post-grid-slider-front', post_grid_plugin_url . 'templates/view-slider/front-scripts.js', [], '1.0.0', ['in_footer' => true, 'strategy' => 'defer']);
 
       wp_register_script('scrollto', post_grid_plugin_url . 'assets/js/jquery-scrollto.js', array('jquery'));
 

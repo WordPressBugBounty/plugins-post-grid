@@ -1,15 +1,17 @@
 <?php
 if (!defined('ABSPATH')) exit;  // if direct access
-$current_tab = isset($_REQUEST['tab']) ? sanitize_text_field($_REQUEST['tab']) : 'general';
+$current_tab = isset($_REQUEST['tab']) ? sanitize_text_field(wp_unslash($_REQUEST['tab'])) : 'general';
 $post_grid_settings_tab = array();
 $post_grid_settings_tab[] = array(
   'id' => 'general',
+  /* translators: Icon HTML */
   'title' => sprintf(__('%s General', 'post-grid'), '<i class="fas fa-list-ul"></i>'),
   'priority' => 1,
   'active' => ($current_tab == 'general') ? true : false,
 );
 // $post_grid_settings_tab[] = array(
 //   'id' => 'disable_blocks',
+/* translators: Icon HTML */
 //   'title' => sprintf(__('%s Disable Blocks', 'post-grid'), '<i class="fas fa-list-ul"></i>'),
 //   'priority' => 10,
 //   'active' => ($current_tab == 'disable_blocks') ? true : false,
@@ -39,7 +41,7 @@ $post_grid_settings = get_option('post_grid_settings');
             </svg>
           </div>
           <div>
-            PostGrid - <?php echo post_grid_version; ?>
+            PostGrid - <?php echo esc_html(post_grid_version); ?>
           </div>
         </div>
       </div>
@@ -50,17 +52,17 @@ $post_grid_settings = get_option('post_grid_settings');
       </div>
     </div>
   </div>
-  <form method="post" action="<?php echo esc_url(str_replace('%7E', '~', esc_url($_SERVER['REQUEST_URI']))); ?>">
+  <form method="post" action="<?php echo esc_url(str_replace('%7E', '~', sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])))); ?>">
     <input type="hidden" name="post_grid_hidden" value="Y">
     <input type="hidden" name="tab" value="<?php echo esc_attr($current_tab); ?>">
     <?php
     if (!empty($_POST['post_grid_hidden'])) {
-      $nonce = sanitize_text_field($_POST['_wpnonce']);
+      $nonce = sanitize_text_field(wp_unslash($_POST['_wpnonce']));
       if (wp_verify_nonce($nonce, 'post_grid_nonce') && $_POST['post_grid_hidden'] == 'Y') {
         do_action('post_grid_settings_save');
     ?>
         <div class="updated notice  is-dismissible">
-          <p><strong><?php _e('Changes Saved.', 'post-grid'); ?></strong></p>
+          <p><strong><?php esc_html_e('Changes Saved.', 'post-grid'); ?></strong></p>
         </div>
     <?php
       }
@@ -97,7 +99,7 @@ $post_grid_settings = get_option('post_grid_settings');
             $pro_text = isset($tab['pro_text']) ? $tab['pro_text'] : '';
         ?>
           <li <?php if (!empty($data_visible)) :  ?> data_visible="<?php echo esc_attr($data_visible); ?>" <?php endif; ?> class="tab-nav <?php if ($hidden) echo 'hidden'; ?> <?php if ($active) echo 'active'; ?>" data-id="<?php echo esc_attr($id); ?>">
-            <?php echo ($title); ?>
+            <?php echo wp_kses_post($title); ?>
             <?php
             if ($is_pro) :
             ?><span class="pro-feature"><?php echo esc_html($pro_text); ?></span> <?php
@@ -126,7 +128,7 @@ $post_grid_settings = get_option('post_grid_settings');
       <div class="clear clearfix"></div>
       <p class="submit">
         <?php wp_nonce_field('post_grid_nonce'); ?>
-        <input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes', 'post-grid'); ?>" />
+        <input class="button button-primary" type="submit" name="Submit" value="<?php esc_html_e('Save Changes', 'post-grid'); ?>" />
       </p>
     </div>
   </form>

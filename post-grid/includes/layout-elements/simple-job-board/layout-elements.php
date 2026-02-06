@@ -6,15 +6,15 @@ function post_grid_simplejobboard_layout_elements($elements_group)
     $elements_group['simplejobboard'] = array(
         'group_title' => 'Simple Job Board',
         'items' => array(
-            'simplejobboard_job_expires' => array('name' => __('Job expire date', 'post-grid')),
-            'simplejobboard_category' => array('name' => __('Category', 'post-grid')),
-            'simplejobboard_job_type' => array('name' => __('Job type', 'post-grid')),
-            'simplejobboard_job_feature' => array('name' => __('Job feature', 'post-grid')),
-            'simplejobboard_location' => array('name' => __('Location', 'post-grid')),
-            'simplejobboard_company_name' => array('name' => __('Company name', 'post-grid')),
-            'simplejobboard_company_website' => array('name' => __('Company website', 'post-grid')),
-            'simplejobboard_company_tagline' => array('name' => __('Company tagline', 'post-grid')),
-            'simplejobboard_company_logo' => array('name' => __('Company logo', 'post-grid')),
+            'simplejobboard_job_expires' => array('name' => esc_html__('Job expire date', 'post-grid')),
+            'simplejobboard_category' => array('name' => esc_html__('Category', 'post-grid')),
+            'simplejobboard_job_type' => array('name' => esc_html__('Job type', 'post-grid')),
+            'simplejobboard_job_feature' => array('name' => esc_html__('Job feature', 'post-grid')),
+            'simplejobboard_location' => array('name' => esc_html__('Location', 'post-grid')),
+            'simplejobboard_company_name' => array('name' => esc_html__('Company name', 'post-grid')),
+            'simplejobboard_company_website' => array('name' => esc_html__('Company website', 'post-grid')),
+            'simplejobboard_company_tagline' => array('name' => esc_html__('Company tagline', 'post-grid')),
+            'simplejobboard_company_logo' => array('name' => esc_html__('Company logo', 'post-grid')),
         ),
     );
     return $elements_group;
@@ -42,15 +42,15 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Location', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Location', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
             $args = array(
                 'id'        => 'max_count',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Max count', 'post-grid'),
-                'details'    => __('Write max count', 'post-grid'),
+                'title'        => esc_html__('Max count', 'post-grid'),
+                'details'    => esc_html__('Write max count', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $max_count,
                 'default'        => 3,
@@ -61,8 +61,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'separator',
                 'css_id'        => $element_index . '_separator',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Link separator', 'post-grid'),
-                'details'    => __('Choose link separator.', 'post-grid'),
+                'title'        => esc_html__('Link separator', 'post-grid'),
+                'details'    => esc_html__('Choose link separator.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $separator,
                 'default'        => '',
@@ -73,8 +73,9 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Location: %s</code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for output replacement in wrapper HTML, %2$s: Placeholder for output replacement in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s</code> to replace output. ex: <code>Location: %2$s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -85,8 +86,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'link_color',
                 'css_id'        => $element_index . '_link_color',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Link color', 'post-grid'),
-                'details'    => __('Choose link color.', 'post-grid'),
+                'title'        => esc_html__('Link color', 'post-grid'),
+                'details'    => esc_html__('Choose link color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $link_color,
                 'default'        => '',
@@ -96,8 +97,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Text Color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text Color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -107,8 +108,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -119,8 +120,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -131,8 +132,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -143,20 +144,20 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -167,8 +168,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_location]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -183,8 +184,8 @@ function post_grid_layout_element_option_simplejobboard_location($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -317,15 +318,15 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Categories', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Categories', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
             $args = array(
                 'id'        => 'max_count',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Max count', 'post-grid'),
-                'details'    => __('Write max count', 'post-grid'),
+                'title'        => esc_html__('Max count', 'post-grid'),
+                'details'    => esc_html__('Write max count', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $max_count,
                 'default'        => 3,
@@ -336,8 +337,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'separator',
                 'css_id'        => $element_index . '_separator',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Link separator', 'post-grid'),
-                'details'    => __('Choose link separator.', 'post-grid'),
+                'title'        => esc_html__('Link separator', 'post-grid'),
+                'details'    => esc_html__('Choose link separator.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $separator,
                 'default'        => '',
@@ -348,8 +349,9 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Categories: %s</code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for output replacement in wrapper HTML, %2$s: Placeholder for output replacement in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s</code> to replace output. ex: <code>Categories: %2$s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -360,8 +362,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'link_color',
                 'css_id'        => $element_index . '_link_color',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Link color', 'post-grid'),
-                'details'    => __('Choose link color.', 'post-grid'),
+                'title'        => esc_html__('Link color', 'post-grid'),
+                'details'    => esc_html__('Choose link color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $link_color,
                 'default'        => '',
@@ -371,8 +373,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Text Color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text Color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -382,8 +384,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -394,8 +396,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -406,8 +408,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -418,20 +420,20 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -442,8 +444,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_category]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -458,8 +460,8 @@ function post_grid_layout_element_option_simplejobboard_category($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -592,15 +594,15 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Job type', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Job type', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
             $args = array(
                 'id'        => 'max_count',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Max count', 'post-grid'),
-                'details'    => __('Write max count', 'post-grid'),
+                'title'        => esc_html__('Max count', 'post-grid'),
+                'details'    => esc_html__('Write max count', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $max_count,
                 'default'        => 3,
@@ -611,8 +613,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'separator',
                 'css_id'        => $element_index . '_separator',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Link separator', 'post-grid'),
-                'details'    => __('Choose link separator.', 'post-grid'),
+                'title'        => esc_html__('Link separator', 'post-grid'),
+                'details'    => esc_html__('Choose link separator.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $separator,
                 'default'        => '',
@@ -623,8 +625,9 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Job type: %s</code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for output replacement in wrapper HTML, %2$s: Placeholder for output replacement in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s</code> to replace output. ex: <code>Job type: %2$s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -635,8 +638,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'link_color',
                 'css_id'        => $element_index . '_link_color',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Link color', 'post-grid'),
-                'details'    => __('Choose link color.', 'post-grid'),
+                'title'        => esc_html__('Link color', 'post-grid'),
+                'details'    => esc_html__('Choose link color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $link_color,
                 'default'        => '',
@@ -646,8 +649,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Text Color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text Color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -657,8 +660,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -669,8 +672,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -681,8 +684,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -693,20 +696,20 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -717,8 +720,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_job_type]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -733,8 +736,8 @@ function post_grid_layout_element_option_simplejobboard_job_type($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -864,7 +867,7 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Company Name', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Company Name', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -872,8 +875,9 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Company name: %s</code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for output replacement in wrapper HTML, %2$s: Placeholder for output replacement in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s</code> to replace output. ex: <code>Company name: %2$s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -884,8 +888,8 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'color',
                 'css_id'        => $element_index . '_simplejobboard_company_name',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -895,8 +899,8 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -907,8 +911,8 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -919,8 +923,8 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -931,20 +935,20 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -955,8 +959,8 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_company_name]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -971,8 +975,8 @@ function post_grid_layout_element_option_simplejobboard_company_name($parameters
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1072,7 +1076,7 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Company website', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Company website', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1080,8 +1084,9 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Website: &lt;a href="%s">Go link&lt;/a></code> <code>Website: &lt;a href="%1$s">%2$s&lt;/a></code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for output replacement in wrapper HTML, %1$s and %2$s: Placeholders for URL and link text */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output. ex: <code>Website: &lt;a href="%s">Go link&lt;/a></code> <code>Website: &lt;a href="%1$s">%2$s&lt;/a></code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1092,8 +1097,8 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'color',
                 'css_id'        => $element_index . '_simplejobboard_company_website',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1103,8 +1108,8 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1115,8 +1120,8 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1127,8 +1132,8 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1139,20 +1144,20 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1163,8 +1168,8 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_company_website]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1179,8 +1184,8 @@ function post_grid_layout_element_option_simplejobboard_company_website($paramet
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1280,7 +1285,7 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Company tagline', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Company tagline', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1288,8 +1293,9 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output, <code>Tagline: %s</code>', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for output replacement in wrapper HTML, %2$s: Placeholder for output replacement in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s</code> to replace output, <code>Tagline: %2$s</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1300,8 +1306,8 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'color',
                 'css_id'        => $element_index . '_simplejobboard_company_tagline',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1311,8 +1317,8 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1323,8 +1329,8 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1335,8 +1341,8 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1347,20 +1353,20 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1371,8 +1377,8 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_company_tagline]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1387,8 +1393,8 @@ function post_grid_layout_element_option_simplejobboard_company_tagline($paramet
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1488,7 +1494,7 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Job expire date', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Job expire date', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1496,8 +1502,9 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %s: Placeholder for output replacement in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace output.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1508,8 +1515,8 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_simplejobboard_job_expires',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1519,8 +1526,8 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1531,8 +1538,8 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1543,8 +1550,8 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1555,20 +1562,20 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1579,8 +1586,8 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_job_expires]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1595,8 +1602,8 @@ function post_grid_layout_element_option_simplejobboard_job_expires($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1697,7 +1704,7 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Job feature', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Job feature', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1705,8 +1712,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'jobfeature_name',
                 'css_id'        => $element_index . '_jobfeature_name',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Jobfeature name', 'post-grid'),
-                'details'    => __('Write jobfeature id, ex: <code>jobfeature_id</code>', 'post-grid'),
+                'title'        => esc_html__('Jobfeature name', 'post-grid'),
+                'details'    => esc_html__('Write jobfeature id, ex: <code>jobfeature_id</code>', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $jobfeature_name,
                 'default'        => '',
@@ -1717,8 +1724,9 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%1$s : %2$s</code> to replace output. <code>Label: %1$s</code> <code>Value: %2$s</code> ', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for label, %2$s: Placeholder for value in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s : %2$s</code> to replace output. <code>Label: %1$s</code> <code>Value: %2$s</code> ', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1729,8 +1737,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_simplejobboard_job_feature',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1740,8 +1748,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1752,8 +1760,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1764,8 +1772,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1776,20 +1784,20 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1800,8 +1808,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_job_feature]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1816,8 +1824,8 @@ function post_grid_layout_element_option_simplejobboard_job_feature($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1923,7 +1931,7 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="expand"><?php echo __('Company logo', 'post-grid'); ?></span>
+            <span class="expand"><?php echo esc_html__('Company logo', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1931,8 +1939,9 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace output, ex: Image output<code>&lt;img src="%s" /></code> ', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: %1$s: Placeholder for output replacement in wrapper HTML, %2$s: Placeholder for image URL in wrapper HTML */
+                'details'    => esc_html__('Write wrapper html, use <code>%1$s</code> to replace output, ex: Image output<code>&lt;img src="%2$s" /></code> ', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -1943,8 +1952,8 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'color',
                 'css_id'        => $element_index . '_simplejobboard_company_logo',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1954,8 +1963,8 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1966,8 +1975,8 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1978,8 +1987,8 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1990,20 +1999,20 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2014,8 +2023,8 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[simplejobboard_company_logo]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2030,8 +2039,8 @@ function post_grid_layout_element_option_simplejobboard_company_logo($parameters
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );

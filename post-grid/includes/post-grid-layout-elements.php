@@ -17,7 +17,7 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand  "><?php echo __('Wrapper Link start', 'post-grid'); ?></span>
+            <span class="header-text expand  "><?php echo esc_html__('Wrapper Link start', 'post-grid'); ?></span>
             <span class="handle-start"><i class="fas fa-level-up-alt"></i></span>
         </div>
         <div class="element-options options">
@@ -25,8 +25,8 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
             $args = array(
                 'id'        => 'wrapper_id',
                 'parent' => $input_name . '[wrapper_link_start]',
-                'title'        => __('Wrapper id', 'post-grid'),
-                'details'    => __('Write wrapper id, ex: my-unique-id.', 'post-grid'),
+                'title'        => esc_html__('Wrapper id', 'post-grid'),
+                'details'    => esc_html__('Write wrapper id, ex: my-unique-id.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_id,
                 'default'        => '',
@@ -35,8 +35,8 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
             $args = array(
                 'id'        => 'wrapper_class',
                 'parent' => $input_name . '[wrapper_link_start]',
-                'title'        => __('Wrapper class', 'post-grid'),
-                'details'    => __('Write wrapper class, ex: layer-thumbnail', 'post-grid'),
+                'title'        => esc_html__('Wrapper class', 'post-grid'),
+                'details'    => esc_html__('Write wrapper class, ex: layer-thumbnail', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_class,
                 'default'        => '',
@@ -46,8 +46,8 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wrapper_link_start]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -58,8 +58,8 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wrapper_link_start]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -70,8 +70,8 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wrapper_link_start]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -86,8 +86,8 @@ function post_grid_layout_element_option_wrapper_link_start($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -108,7 +108,7 @@ function post_grid_layout_element_wrapper_link_start($args)
     $wrapper_id = isset($element['wrapper_id']) ? $element['wrapper_id'] : '';
 ?>
     <a class="<?php echo esc_attr($wrapper_class); ?> <?php echo esc_attr($element_class); ?>"
-        id="<?php echo esc_attr($wrapper_id); ?>" href="<?php echo esc_url_raw(get_permalink($post_id)); ?>">
+        id="<?php echo esc_attr($wrapper_id); ?>" href="<?php echo esc_url(get_permalink($post_id)); ?>">
     <?php
 }
 add_action('post_grid_layout_element_option_wrapper_link_end', 'post_grid_layout_element_option_wrapper_link_end');
@@ -123,7 +123,7 @@ function post_grid_layout_element_option_wrapper_link_end($parameters)
             <div class="element-title header ">
                 <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
                 <span class="sort"><i class="fas fa-sort"></i></span>
-                <span class="header-text expand"><?php echo __('Wrapper Link end', 'post-grid'); ?></span>
+                <span class="header-text expand"><?php echo esc_html__('Wrapper Link end', 'post-grid'); ?></span>
                 <span class="handle-end"><i class="fas fa-level-down-alt"></i></span>
             </div>
             <div class="element-options options">
@@ -132,8 +132,8 @@ function post_grid_layout_element_option_wrapper_link_end($parameters)
                     'id'        => 'wrapper_id',
                     'wraper_class'        => 'hidden',
                     'parent' => $input_name . '[wrapper_link_end]',
-                    'title'        => __('Wrapper id', 'post-grid'),
-                    'details'    => __('Write wrapper id, ex: div, p, span.', 'post-grid'),
+                    'title'        => esc_html__('Wrapper id', 'post-grid'),
+                    'details'    => esc_html__('Write wrapper id, ex: div, p, span.', 'post-grid'),
                     'type'        => 'hidden',
                     'value'        => $wrapper_id,
                     'default'        => '',
@@ -168,7 +168,7 @@ function post_grid_layout_element_option_wrapper_start($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Wrapper start', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Wrapper start', 'post-grid'); ?></span>
             <span class="handle-start"><i class="fas fa-level-up-alt"></i></span>
         </div>
         <div class="element-options options">
@@ -176,8 +176,8 @@ function post_grid_layout_element_option_wrapper_start($parameters)
             $args = array(
                 'id'        => 'wrapper_id',
                 'parent' => $input_name . '[wrapper_start]',
-                'title'        => __('Wrapper id', 'post-grid'),
-                'details'    => __('Write wrapper id, ex: my-unique-id.', 'post-grid'),
+                'title'        => esc_html__('Wrapper id', 'post-grid'),
+                'details'    => esc_html__('Write wrapper id, ex: my-unique-id.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_id,
                 'default'        => '',
@@ -186,8 +186,8 @@ function post_grid_layout_element_option_wrapper_start($parameters)
             $args = array(
                 'id'        => 'wrapper_class',
                 'parent' => $input_name . '[wrapper_start]',
-                'title'        => __('Wrapper class', 'post-grid'),
-                'details'    => __('Write wrapper class, ex: layer-thumbnail', 'post-grid'),
+                'title'        => esc_html__('Wrapper class', 'post-grid'),
+                'details'    => esc_html__('Write wrapper class, ex: layer-thumbnail', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_class,
                 'default'        => '',
@@ -197,8 +197,8 @@ function post_grid_layout_element_option_wrapper_start($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[wrapper_start]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -209,8 +209,8 @@ function post_grid_layout_element_option_wrapper_start($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[wrapper_start]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -221,8 +221,8 @@ function post_grid_layout_element_option_wrapper_start($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[wrapper_start]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -237,8 +237,8 @@ function post_grid_layout_element_option_wrapper_start($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -294,7 +294,7 @@ function post_grid_layout_element_css_wrapper_start($args)
                 ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                                 ?>;
                 <?php endif;
-                ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+                ?><?php if (!empty($css)): ?><?php echo esc_html(esc_html(wp_strip_all_tags($css)));
                                                 ?><?php endif;
                                                     ?>
             }
@@ -302,7 +302,7 @@ function post_grid_layout_element_css_wrapper_start($args)
             <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                                 ?><?php echo esc_attr(' .element_' . $index);
                                                     ?>:hover {
-                <?php echo wp_strip_all_tags($css_hover);
+                <?php echo esc_html(wp_strip_all_tags($css_hover));
                 ?>
             }
 
@@ -323,7 +323,7 @@ function post_grid_layout_element_option_wrapper_end($parameters)
             <div class="element-title header ">
                 <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
                 <span class="sort"><i class="fas fa-sort"></i></span>
-                <span class="header-text expand"><?php echo __('Wrapper end', 'post-grid'); ?></span>
+                <span class="header-text expand"><?php echo esc_html__('Wrapper end', 'post-grid'); ?></span>
                 <span class="handle-end"><i class="fas fa-level-down-alt"></i></span>
             </div>
             <div class="element-options options">
@@ -332,8 +332,8 @@ function post_grid_layout_element_option_wrapper_end($parameters)
                     'id'        => 'wrapper_id',
                     'wraper_class'        => 'hidden',
                     'parent' => $input_name . '[wrapper_end]',
-                    'title'        => __('Wrapper id', 'post-grid'),
-                    'details'    => __('Write wrapper id, ex: div, p, span.', 'post-grid'),
+                    'title'        => esc_html__('Wrapper id', 'post-grid'),
+                    'details'    => esc_html__('Write wrapper id, ex: div, p, span.', 'post-grid'),
                     'type'        => 'hidden',
                     'value'        => $wrapper_id,
                     'default'        => '',
@@ -372,7 +372,7 @@ function post_grid_layout_element_option_custom_text($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Custom text', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Custom text', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -380,8 +380,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -392,8 +392,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'text',
                 'css_id'        => $element_index . '_text',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Custom text', 'post-grid'),
-                'details'    => __('Write custom text.', 'post-grid'),
+                'title'        => esc_html__('Custom text', 'post-grid'),
+                'details'    => esc_html__('Write custom text.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $text,
                 'default'        => '',
@@ -404,8 +404,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_custom_text',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -415,8 +415,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -427,8 +427,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -439,8 +439,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -451,20 +451,20 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -475,8 +475,8 @@ function post_grid_layout_element_option_custom_text($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[custom_text]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -491,8 +491,8 @@ function post_grid_layout_element_option_custom_text($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -552,15 +552,16 @@ function post_grid_layout_element_css_custom_text($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
-                                            ?><?php endif;
-                                                ?>
+            ?><?php if (!empty($css)): ?><?php echo esc_html(esc_html(wp_strip_all_tags($css)));
+
+                                        endif;
+                                            ?>
         }
 
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -592,7 +593,7 @@ function post_grid_layout_element_option_title($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Post title', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Post title', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -600,8 +601,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -612,16 +613,16 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'post_link',
                 'args'        => apply_filters(
                     'post_grid_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -630,16 +631,16 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -647,8 +648,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'char_limit',
                 'css_id'        => $element_index . '_char_limit',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Character limit', 'post-grid'),
-                'details'    => __('Set character limit.', 'post-grid'),
+                'title'        => esc_html__('Character limit', 'post-grid'),
+                'details'    => esc_html__('Set character limit.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $char_limit,
                 'default'        => '',
@@ -659,8 +660,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_title_color',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -670,8 +671,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '20px',
@@ -682,8 +683,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -694,8 +695,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '10px 0',
@@ -706,20 +707,20 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[title]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[title]',
-                'title'        => __('CSS', 'post-grid'),
-                'details'    => __('Set css.', 'post-grid'),
+                'title'        => esc_html__('CSS', 'post-grid'),
+                'details'    => esc_html__('Set css.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -730,8 +731,8 @@ function post_grid_layout_element_option_title($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[title]',
-                'title'        => __('CSS hover', 'post-grid'),
-                'details'    => __('Set hover css.', 'post-grid'),
+                'title'        => esc_html__('CSS hover', 'post-grid'),
+                'details'    => esc_html__('Set hover css.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -746,8 +747,8 @@ function post_grid_layout_element_option_title($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -829,7 +830,7 @@ function post_grid_layout_element_css_title($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -837,7 +838,7 @@ function post_grid_layout_element_css_title($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -860,7 +861,7 @@ function post_grid_layout_element_css_title($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -890,7 +891,7 @@ function post_grid_layout_element_option_title_link($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Post title with link', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Post title with link', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -898,8 +899,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -910,16 +911,16 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -928,16 +929,16 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -945,8 +946,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'char_limit',
                 'css_id'        => $element_index . '_char_limit',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Character limit', 'post-grid'),
-                'details'    => __('Set character limit.', 'post-grid'),
+                'title'        => esc_html__('Character limit', 'post-grid'),
+                'details'    => esc_html__('Set character limit.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $char_limit,
                 'default'        => '',
@@ -957,8 +958,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -968,8 +969,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -980,8 +981,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -992,8 +993,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1004,20 +1005,20 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('CSS', 'post-grid'),
-                'details'    => __('Set css.', 'post-grid'),
+                'title'        => esc_html__('CSS', 'post-grid'),
+                'details'    => esc_html__('Set css.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1028,8 +1029,8 @@ function post_grid_layout_element_option_title_link($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[title_link]',
-                'title'        => __('CSS hover', 'post-grid'),
-                'details'    => __('Set hover css.', 'post-grid'),
+                'title'        => esc_html__('CSS hover', 'post-grid'),
+                'details'    => esc_html__('Set hover css.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1044,8 +1045,8 @@ function post_grid_layout_element_option_title_link($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1125,7 +1126,7 @@ function post_grid_layout_element_css_title_link($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -1133,7 +1134,7 @@ function post_grid_layout_element_css_title_link($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -1173,7 +1174,7 @@ function post_grid_layout_element_option_content($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Content', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Content', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1181,8 +1182,8 @@ function post_grid_layout_element_option_content($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[content]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -1193,8 +1194,8 @@ function post_grid_layout_element_option_content($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[content]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -1205,20 +1206,20 @@ function post_grid_layout_element_option_content($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[content]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[content]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1229,8 +1230,8 @@ function post_grid_layout_element_option_content($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[content]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1241,8 +1242,8 @@ function post_grid_layout_element_option_content($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[content]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1257,8 +1258,8 @@ function post_grid_layout_element_option_content($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1285,7 +1286,7 @@ function post_grid_layout_element_content($args)
     $post_content = do_shortcode($post_content);
 ?>
     <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> content ">
-        <?php echo $post_content; ?>
+        <?php echo wp_kses_post($post_content); ?>
     </div>
 <?php
 }
@@ -1315,7 +1316,7 @@ function post_grid_layout_element_option_excerpt($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Post excerpt', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Post excerpt', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1323,8 +1324,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -1335,15 +1336,15 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'excerpt_source',
                 'css_id'        => $element_index . '_excerpt_source',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Excerpt source', 'post-grid'),
-                'details'    => __('Choose excerpt source.', 'post-grid'),
+                'title'        => esc_html__('Excerpt source', 'post-grid'),
+                'details'    => esc_html__('Choose excerpt source.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $excerpt_source,
                 'default'        => 'post_link',
                 'args'        => array(
-                    'excerpt_field' => __('Excerpt field', 'post-grid'),
-                    'content' => __('Content', 'post-grid'),
-                    'excerpt_content' => __('Excerpt first then Content', 'post-grid'),
+                    'excerpt_field' => esc_html__('Excerpt field', 'post-grid'),
+                    'content' => esc_html__('Content', 'post-grid'),
+                    'excerpt_content' => esc_html__('Excerpt first then Content', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -1351,8 +1352,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'char_limit',
                 'css_id'        => $element_index . '_char_limit',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Word limit', 'post-grid'),
-                'details'    => __('Set word limit.', 'post-grid'),
+                'title'        => esc_html__('Word limit', 'post-grid'),
+                'details'    => esc_html__('Set word limit.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $char_limit,
                 'default'        => '',
@@ -1364,14 +1365,14 @@ function post_grid_layout_element_option_excerpt($parameters)
             //                'id'		=> 'remove_html',
             //                'css_id'		=> $element_index.'_remove_html',
             //                'parent' => $input_name.'[excerpt]',
-            //                'title'		=> __('Remove HTML','post-grid'),
-            //                'details'	=> __('Choose option to remove html on excerpt.','post-grid'),
+            //                'title'		=> esc_html__('Remove HTML','post-grid'),
+            //                'details'	=> esc_html__('Choose option to remove html on excerpt.','post-grid'),
             //                'type'		=> 'select',
             //                'value'		=> $remove_html,
             //                'default'		=> 'yes',
             //                'args'		=> array(
-            //                    'yes'=> __('Yes', 'post-grid'),
-            //                    'no'=> __('No', 'post-grid'),
+            //                    'yes'=> esc_html__('Yes', 'post-grid'),
+            //                    'no'=> esc_html__('No', 'post-grid'),
             //
             //
             //                ),
@@ -1384,14 +1385,14 @@ function post_grid_layout_element_option_excerpt($parameters)
             //                'id'		=> 'remove_shortcodes',
             //                'css_id'		=> $element_index.'_remove_shortcodes',
             //                'parent' => $input_name.'[excerpt]',
-            //                'title'		=> __('Remove shortcodes','post-grid'),
-            //                'details'	=> __('Choose option to remove shortcodes on excerpt.','post-grid'),
+            //                'title'		=> esc_html__('Remove shortcodes','post-grid'),
+            //                'details'	=> esc_html__('Choose option to remove shortcodes on excerpt.','post-grid'),
             //                'type'		=> 'select',
             //                'value'		=> $remove_shortcodes,
             //                'default'		=> 'yes',
             //                'args'		=> array(
-            //                    'yes'=> __('Yes', 'post-grid'),
-            //                    'no'=> __('No', 'post-grid'),
+            //                    'yes'=> esc_html__('Yes', 'post-grid'),
+            //                    'no'=> esc_html__('No', 'post-grid'),
             //                ),
             //            );
             //
@@ -1400,8 +1401,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'read_more_text',
                 'css_id'        => $element_index . '_read_more_text',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Read more text', 'post-grid'),
-                'details'    => __('Custom read more text.', 'post-grid'),
+                'title'        => esc_html__('Read more text', 'post-grid'),
+                'details'    => esc_html__('Custom read more text.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $read_more_text,
                 'default'        => '',
@@ -1412,16 +1413,16 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -1429,8 +1430,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '10px 0',
@@ -1441,8 +1442,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Text Color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text Color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1452,20 +1453,20 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '15px',
@@ -1476,8 +1477,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1488,8 +1489,8 @@ function post_grid_layout_element_option_excerpt($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[excerpt]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1504,8 +1505,8 @@ function post_grid_layout_element_option_excerpt($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1604,7 +1605,7 @@ function post_grid_layout_element_css_excerpt($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -1612,7 +1613,7 @@ function post_grid_layout_element_css_excerpt($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -1659,7 +1660,7 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Excerpt read more', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Excerpt read more', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1667,8 +1668,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -1679,15 +1680,15 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'excerpt_source',
                 'css_id'        => $element_index . '_excerpt_source',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Excerpt source', 'post-grid'),
-                'details'    => __('Choose excerpt source.', 'post-grid'),
+                'title'        => esc_html__('Excerpt source', 'post-grid'),
+                'details'    => esc_html__('Choose excerpt source.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $excerpt_source,
                 'default'        => 'post_link',
                 'args'        => array(
-                    'excerpt_field' => __('Excerpt field', 'post-grid'),
-                    'content' => __('Content', 'post-grid'),
-                    'excerpt_content' => __('Excerpt first then Content', 'post-grid'),
+                    'excerpt_field' => esc_html__('Excerpt field', 'post-grid'),
+                    'content' => esc_html__('Content', 'post-grid'),
+                    'excerpt_content' => esc_html__('Excerpt first then Content', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -1695,8 +1696,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'char_limit',
                 'css_id'        => $element_index . '_char_limit',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Word limit', 'post-grid'),
-                'details'    => __('Set word limit.', 'post-grid'),
+                'title'        => esc_html__('Word limit', 'post-grid'),
+                'details'    => esc_html__('Set word limit.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $char_limit,
                 'default'        => '',
@@ -1707,8 +1708,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'read_more_text',
                 'css_id'        => $element_index . '_read_more_text',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Read more text', 'post-grid'),
-                'details'    => __('Custom read more text.', 'post-grid'),
+                'title'        => esc_html__('Read more text', 'post-grid'),
+                'details'    => esc_html__('Custom read more text.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $read_more_text,
                 'default'        => '',
@@ -1719,16 +1720,16 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -1736,8 +1737,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Text Color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text Color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -1747,8 +1748,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -1759,8 +1760,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -1771,20 +1772,20 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -1795,8 +1796,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[excerpt_read_more]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -1811,8 +1812,8 @@ function post_grid_layout_element_option_excerpt_read_more($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -1866,7 +1867,7 @@ function post_grid_layout_element_excerpt_read_more($args)
 ?>
     <div
         class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> excerpt_read_more ">
-        <?php echo $post_excerpt; ?>
+        <?php echo wp_kses_post($post_excerpt); ?>
         <a target="<?php echo esc_attr($link_target); ?>"
             href="<?php echo esc_url($post_link); ?>"><?php echo esc_html($read_more_text); ?></a>
     </div>
@@ -1905,7 +1906,7 @@ function post_grid_layout_element_css_excerpt_read_more($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -1913,7 +1914,7 @@ function post_grid_layout_element_css_excerpt_read_more($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -1959,7 +1960,7 @@ function post_grid_layout_element_option_read_more($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Read more', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Read more', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -1967,8 +1968,8 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -1979,8 +1980,8 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'read_more_text',
                 'css_id'        => $element_index . '_read_more_text',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Read more text', 'post-grid'),
-                'details'    => __('Custom read more text.', 'post-grid'),
+                'title'        => esc_html__('Read more text', 'post-grid'),
+                'details'    => esc_html__('Custom read more text.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $read_more_text,
                 'default'        => '',
@@ -1991,16 +1992,16 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -2009,16 +2010,16 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -2026,8 +2027,8 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Text Color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text Color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -2037,8 +2038,8 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2049,8 +2050,8 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -2061,20 +2062,20 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2085,8 +2086,8 @@ function post_grid_layout_element_option_read_more($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[read_more]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2101,8 +2102,8 @@ function post_grid_layout_element_option_read_more($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2179,7 +2180,7 @@ function post_grid_layout_element_css_read_more($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -2187,7 +2188,7 @@ function post_grid_layout_element_css_read_more($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -2228,10 +2229,10 @@ function post_grid_layout_element_option_media($parameters)
     $media_sources_list = apply_filters(
         'post_grid_media_source_list',
         array(
-            'featured_image' => __('Featured Image', 'post-grid'),
-            'first_image' => __('First images from content', 'post-grid'),
-            'empty_thumb' => __('Empty thumbnail', 'post-grid'),
-            'siteorigin_first_image' => __('SiteOrigin first image', 'post-grid'),
+            'featured_image' => esc_html__('Featured Image', 'post-grid'),
+            'first_image' => esc_html__('First images from content', 'post-grid'),
+            'empty_thumb' => esc_html__('Empty thumbnail', 'post-grid'),
+            'siteorigin_first_image' => esc_html__('SiteOrigin first image', 'post-grid'),
         )
     );
 ?>
@@ -2239,7 +2240,7 @@ function post_grid_layout_element_option_media($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Media', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Media', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2247,8 +2248,8 @@ function post_grid_layout_element_option_media($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[media]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -2305,8 +2306,8 @@ function post_grid_layout_element_option_media($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id' => 'media_source',
-                'title' => __('Media source', 'post-grid'),
-                'details' => __('Choose media sources.', 'post-grid'),
+                'title' => esc_html__('Media source', 'post-grid'),
+                'details' => esc_html__('Choose media sources.', 'post-grid'),
                 'type' => 'custom_html',
                 'html' => $html,
             );
@@ -2320,26 +2321,26 @@ function post_grid_layout_element_option_media($parameters)
             $media_height_small_type = isset($media_height['small_type']) ? $media_height['small_type'] : '';
             $args = array(
                 'id'        => 'media_height',
-                'title'        => __('Media height', 'post-grid'),
-                'details'    => __('Set media height.', 'post-grid'),
+                'title'        => esc_html__('Media height', 'post-grid'),
+                'details'    => esc_html__('Set media height.', 'post-grid'),
                 'type'        => 'option_group',
                 'options'        => array(
                     array(
                         'id'        => 'large_type',
                         'css_id'        => $element_index . '_text_align',
                         'parent'        => $input_name . '[media][media_height]',
-                        'title'        => __('In desktop', 'post-grid'),
-                        'details'    => __('min-width: 1200px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In desktop', 'post-grid'),
+                        'details'    => esc_html__('min-width: 1200px, ex: 280px', 'post-grid'),
                         'type'        => 'select',
                         'value'        => $media_height_large_type,
                         'default'        => 'left',
-                        'args'        => array('auto_height' => __('Auto height', 'post-grid'), 'fixed_height' => __('Fixed height', 'post-grid'), 'max_height' => __('Max height', 'post-grid')),
+                        'args'        => array('auto_height' => esc_html__('Auto height', 'post-grid'), 'fixed_height' => esc_html__('Fixed height', 'post-grid'), 'max_height' => esc_html__('Max height', 'post-grid')),
                     ),
                     array(
                         'id'        => 'large',
                         'parent'        => $input_name . '[media][media_height]',
-                        'title'        => __('Height value', 'post-grid'),
-                        //'details'	=> __('','post-grid'),
+                        'title'        => esc_html__('Height value', 'post-grid'),
+                        //'details'	=> esc_html__('','post-grid'),
                         'type'        => 'text',
                         'value'        => $media_height_large,
                         'default'        => '',
@@ -2349,18 +2350,18 @@ function post_grid_layout_element_option_media($parameters)
                         'id'        => 'medium_type',
                         'css_id'        => $element_index . '_text_align',
                         'parent'        => $input_name . '[media][media_height]',
-                        'title'        => __('In tablet & small desktop', 'post-grid'),
-                        'details'    => __('min-width: 992px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In tablet & small desktop', 'post-grid'),
+                        'details'    => esc_html__('min-width: 992px, ex: 280px', 'post-grid'),
                         'type'        => 'select',
                         'value'        => $media_height_medium_type,
                         'default'        => 'left',
-                        'args'        => array('auto_height' => __('Auto height', 'post-grid'), 'fixed_height' => __('Fixed height', 'post-grid'), 'max_height' => __('Max height', 'post-grid')),
+                        'args'        => array('auto_height' => esc_html__('Auto height', 'post-grid'), 'fixed_height' => esc_html__('Fixed height', 'post-grid'), 'max_height' => esc_html__('Max height', 'post-grid')),
                     ),
                     array(
                         'id'        => 'medium',
                         'parent'        => $input_name . '[media][media_height]',
-                        'title'        => __('Height value', 'post-grid'),
-                        //'details'	=> __('','post-grid'),
+                        'title'        => esc_html__('Height value', 'post-grid'),
+                        //'details'	=> esc_html__('','post-grid'),
                         'type'        => 'text',
                         'value'        => $media_height_medium,
                         'default'        => '',
@@ -2370,18 +2371,18 @@ function post_grid_layout_element_option_media($parameters)
                         'id'        => 'small_type',
                         'css_id'        => $element_index . '_text_align',
                         'parent'        => $input_name . '[media][media_height]',
-                        'title'        => __('In mobile', 'post-grid'),
-                        'details'    => __('max-width: 768px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In mobile', 'post-grid'),
+                        'details'    => esc_html__('max-width: 768px, ex: 280px', 'post-grid'),
                         'type'        => 'select',
                         'value'        => $media_height_small_type,
                         'default'        => 'left',
-                        'args'        => array('auto_height' => __('Auto height', 'post-grid'), 'fixed_height' => __('Fixed height', 'post-grid'), 'max_height' => __('Max height', 'post-grid')),
+                        'args'        => array('auto_height' => esc_html__('Auto height', 'post-grid'), 'fixed_height' => esc_html__('Fixed height', 'post-grid'), 'max_height' => esc_html__('Max height', 'post-grid')),
                     ),
                     array(
                         'id'        => 'small',
                         'parent'        => $input_name . '[media][media_height]',
-                        'title'        => __('Height value', 'post-grid'),
-                        //'details'	=> __('','post-grid'),
+                        'title'        => esc_html__('Height value', 'post-grid'),
+                        //'details'	=> esc_html__('','post-grid'),
                         'type'        => 'text',
                         'value'        => $media_height_small,
                         'default'        => '',
@@ -2394,8 +2395,8 @@ function post_grid_layout_element_option_media($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[media]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2406,8 +2407,8 @@ function post_grid_layout_element_option_media($parameters)
                 'id'        => 'padding',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[media]',
-                'title'        => __('Padding', 'post-grid'),
-                'details'    => __('Set padding.', 'post-grid'),
+                'title'        => esc_html__('Padding', 'post-grid'),
+                'details'    => esc_html__('Set padding.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $padding,
                 'default'        => '',
@@ -2418,8 +2419,8 @@ function post_grid_layout_element_option_media($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[media]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2430,8 +2431,8 @@ function post_grid_layout_element_option_media($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[media]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2446,8 +2447,8 @@ function post_grid_layout_element_option_media($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2493,7 +2494,7 @@ function post_grid_layout_element_media($args)
                     }
                 }
             }
-        echo ($html_media);
+        echo wp_kses_post($html_media);
         ?>
     </div>
 <?php
@@ -2527,7 +2528,7 @@ function post_grid_layout_element_css_media($args)
                                                         ?>;
             <?php endif;
             ?>overflow: hidden;
-            <?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            <?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                         ?><?php endif;
                                             ?>
         }
@@ -2542,7 +2543,7 @@ function post_grid_layout_element_css_media($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -2621,7 +2622,7 @@ function post_grid_layout_element_option_thumb($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Thumbnail', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Thumbnail', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2629,8 +2630,8 @@ function post_grid_layout_element_option_thumb($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -2638,7 +2639,7 @@ function post_grid_layout_element_option_thumb($parameters)
             );
             $settings_tabs_field->generate_field($args);
             $thumbnail_sizes = array();
-            $thumbnail_sizes['full'] = __('Full', '');
+            $thumbnail_sizes['full'] = __('Full', 'post-grid');
             $get_intermediate_image_sizes =  get_intermediate_image_sizes();
             if (!empty($get_intermediate_image_sizes))
                 foreach ($get_intermediate_image_sizes as $size_key) {
@@ -2649,8 +2650,8 @@ function post_grid_layout_element_option_thumb($parameters)
             $args = array(
                 'id'        => 'thumb_size',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Thumbnail size', 'post-grid'),
-                'details'    => __('Choose thumbnail size.', 'post-grid'),
+                'title'        => esc_html__('Thumbnail size', 'post-grid'),
+                'details'    => esc_html__('Choose thumbnail size.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $thumb_size,
                 'default'        => 'large',
@@ -2661,16 +2662,16 @@ function post_grid_layout_element_option_thumb($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -2679,30 +2680,30 @@ function post_grid_layout_element_option_thumb($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'thumb_height',
-                'title'        => __('Thumbnail height', 'post-grid'),
-                'details'    => __('Set thumbnail height.', 'post-grid'),
+                'title'        => esc_html__('Thumbnail height', 'post-grid'),
+                'details'    => esc_html__('Set thumbnail height.', 'post-grid'),
                 'type'        => 'option_group',
                 'options'        => array(
                     array(
                         'id'        => 'large',
                         'parent'        => $input_name . '[thumb][thumb_height]',
-                        'title'        => __('In desktop', 'post-grid'),
-                        'details'    => __('min-width: 1200px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In desktop', 'post-grid'),
+                        'details'    => esc_html__('min-width: 1200px, ex: 280px', 'post-grid'),
                         'type'        => 'text',
                         'value'        => $thumb_height_large,
                         'default'        => '',
@@ -2711,8 +2712,8 @@ function post_grid_layout_element_option_thumb($parameters)
                     array(
                         'id'        => 'medium',
                         'parent'        => $input_name . '[thumb][thumb_height]',
-                        'title'        => __('In tablet & small desktop', 'post-grid'),
-                        'details'    => __('min-width: 992px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In tablet & small desktop', 'post-grid'),
+                        'details'    => esc_html__('min-width: 992px, ex: 280px', 'post-grid'),
                         'type'        => 'text',
                         'value'        => $thumb_height_medium,
                         'default'        => '',
@@ -2721,8 +2722,8 @@ function post_grid_layout_element_option_thumb($parameters)
                     array(
                         'id'        => 'small',
                         'parent'        => $input_name . '[thumb][thumb_height]',
-                        'title'        => __('In mobile', 'post-grid'),
-                        'details'    => __('max-width: 768px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In mobile', 'post-grid'),
+                        'details'    => esc_html__('max-width: 768px, ex: 280px', 'post-grid'),
                         'type'        => 'text',
                         'value'        => $thumb_height_small,
                         'default'        => '',
@@ -2734,8 +2735,8 @@ function post_grid_layout_element_option_thumb($parameters)
             $args = array(
                 'id'        => 'default_thumb_src',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Default thumbnail', 'post-grid'),
-                'details'    => __('Choose default thumbnail.', 'post-grid'),
+                'title'        => esc_html__('Default thumbnail', 'post-grid'),
+                'details'    => esc_html__('Choose default thumbnail.', 'post-grid'),
                 'type'        => 'media_url',
                 'value'        => $default_thumb_src,
                 'default'        => '',
@@ -2745,8 +2746,8 @@ function post_grid_layout_element_option_thumb($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -2757,8 +2758,8 @@ function post_grid_layout_element_option_thumb($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -2769,8 +2770,8 @@ function post_grid_layout_element_option_thumb($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[thumb]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -2785,8 +2786,8 @@ function post_grid_layout_element_option_thumb($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -2929,7 +2930,7 @@ function post_grid_layout_element_option_thumb_link($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Thumbnail with link', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Thumbnail with link', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -2937,8 +2938,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -2946,7 +2947,7 @@ function post_grid_layout_element_option_thumb_link($parameters)
             );
             $settings_tabs_field->generate_field($args);
             $thumbnail_sizes = array();
-            $thumbnail_sizes['full'] = __('Full', '');
+            $thumbnail_sizes['full'] = __('Full', 'post-grid');
             $get_intermediate_image_sizes =  get_intermediate_image_sizes();
             if (!empty($get_intermediate_image_sizes))
                 foreach ($get_intermediate_image_sizes as $size_key) {
@@ -2957,8 +2958,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
             $args = array(
                 'id'        => 'thumb_size',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Thumbnail size', 'post-grid'),
-                'details'    => __('Choose thumbnail size.', 'post-grid'),
+                'title'        => esc_html__('Thumbnail size', 'post-grid'),
+                'details'    => esc_html__('Choose thumbnail size.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $thumb_size,
                 'default'        => 'large',
@@ -2969,16 +2970,16 @@ function post_grid_layout_element_option_thumb_link($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -2987,30 +2988,30 @@ function post_grid_layout_element_option_thumb_link($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'thumb_height',
-                'title'        => __('Thumbnail height', 'post-grid'),
-                'details'    => __('Set thumbnail height.', 'post-grid'),
+                'title'        => esc_html__('Thumbnail height', 'post-grid'),
+                'details'    => esc_html__('Set thumbnail height.', 'post-grid'),
                 'type'        => 'option_group',
                 'options'        => array(
                     array(
                         'id'        => 'large',
                         'parent'        => $input_name . '[thumb_link][thumb_height]',
-                        'title'        => __('In desktop', 'post-grid'),
-                        'details'    => __('min-width: 1200px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In desktop', 'post-grid'),
+                        'details'    => esc_html__('min-width: 1200px, ex: 280px', 'post-grid'),
                         'type'        => 'text',
                         'value'        => $thumb_height_large,
                         'default'        => '',
@@ -3019,8 +3020,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
                     array(
                         'id'        => 'medium',
                         'parent'        => $input_name . '[thumb_link][thumb_height]',
-                        'title'        => __('In tablet & small desktop', 'post-grid'),
-                        'details'    => __('min-width: 992px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In tablet & small desktop', 'post-grid'),
+                        'details'    => esc_html__('min-width: 992px, ex: 280px', 'post-grid'),
                         'type'        => 'text',
                         'value'        => $thumb_height_medium,
                         'default'        => '',
@@ -3029,8 +3030,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
                     array(
                         'id'        => 'small',
                         'parent'        => $input_name . '[thumb_link][thumb_height]',
-                        'title'        => __('In mobile', 'post-grid'),
-                        'details'    => __('max-width: 768px, ex: 280px', 'post-grid'),
+                        'title'        => esc_html__('In mobile', 'post-grid'),
+                        'details'    => esc_html__('max-width: 768px, ex: 280px', 'post-grid'),
                         'type'        => 'text',
                         'value'        => $thumb_height_small,
                         'default'        => '',
@@ -3042,8 +3043,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
             $args = array(
                 'id'        => 'default_thumb_src',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Default thumbnail', 'post-grid'),
-                'details'    => __('Choose default thumbnail.', 'post-grid'),
+                'title'        => esc_html__('Default thumbnail', 'post-grid'),
+                'details'    => esc_html__('Choose default thumbnail.', 'post-grid'),
                 'type'        => 'media_url',
                 'value'        => $default_thumb_src,
                 'default'        => '',
@@ -3053,8 +3054,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3065,8 +3066,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3077,8 +3078,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[thumb_link]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3093,8 +3094,8 @@ function post_grid_layout_element_option_thumb_link($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3236,7 +3237,7 @@ function post_grid_layout_element_option_post_date($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Post date', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Post date', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3244,8 +3245,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -3256,8 +3257,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'date_format',
                 'css_id'        => $element_index . '_background_colorpost_date',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Date format', 'post-grid'),
-                'details'    => __('Choose date format.', 'post-grid'),
+                'title'        => esc_html__('Date format', 'post-grid'),
+                'details'    => esc_html__('Choose date format.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $date_format,
                 'default'        => '',
@@ -3268,8 +3269,9 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace date output.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: example use of %s */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace date output.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3280,16 +3282,16 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -3298,8 +3300,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_custom_text',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3309,8 +3311,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3321,8 +3323,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -3333,8 +3335,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3345,20 +3347,20 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3369,8 +3371,8 @@ function post_grid_layout_element_option_post_date($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[post_date]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3385,8 +3387,8 @@ function post_grid_layout_element_option_post_date($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3469,7 +3471,7 @@ function post_grid_layout_element_css_post_date($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -3477,7 +3479,7 @@ function post_grid_layout_element_css_post_date($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -3520,7 +3522,7 @@ function post_grid_layout_element_option_author($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Author name', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Author name', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3528,8 +3530,8 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -3540,17 +3542,17 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_author_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'author_posts_link' => __('Author posts link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'author_posts_link' => esc_html__('Author posts link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -3559,8 +3561,8 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                'details'    => esc_html__('Write wrapper html.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3571,8 +3573,8 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Text color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3582,8 +3584,8 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Choose text font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Choose text font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3594,8 +3596,8 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_padding',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Choose padding.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Choose padding.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3606,20 +3608,20 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3630,8 +3632,8 @@ function post_grid_layout_element_option_author($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[author]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3646,8 +3648,8 @@ function post_grid_layout_element_option_author($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -3738,7 +3740,7 @@ function post_grid_layout_element_css_author($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -3746,7 +3748,7 @@ function post_grid_layout_element_css_author($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -3790,7 +3792,7 @@ function post_grid_layout_element_option_author_link($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Author name with link', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Author name with link', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -3798,8 +3800,8 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -3810,17 +3812,17 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'link_to',
                 'css_id'        => $element_index . '_link_to',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Link to', 'post-grid'),
-                'details'    => __('Choose option to link title.', 'post-grid'),
+                'title'        => esc_html__('Link to', 'post-grid'),
+                'details'    => esc_html__('Choose option to link title.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_to,
                 'default'        => 'none',
                 'args'        => apply_filters(
                     'post_grid_author_link_to_args',
                     array(
-                        'post_link' => __('Post link', 'post-grid'),
-                        'author_posts_link' => __('Author posts link', 'post-grid'),
-                        'none' => __('None', 'post-grid'),
+                        'post_link' => esc_html__('Post link', 'post-grid'),
+                        'author_posts_link' => esc_html__('Author posts link', 'post-grid'),
+                        'none' => esc_html__('None', 'post-grid'),
                     )
                 ),
             );
@@ -3829,8 +3831,9 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace on-sale output.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: example use of %s */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace author output.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -3841,8 +3844,8 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Text color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -3852,8 +3855,8 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Choose text font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Choose text font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -3864,8 +3867,8 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_padding',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Choose padding.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Choose padding.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -3876,20 +3879,20 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -3900,8 +3903,8 @@ function post_grid_layout_element_option_author_link($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[author_link]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -3916,8 +3919,8 @@ function post_grid_layout_element_option_author_link($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4005,7 +4008,7 @@ function post_grid_layout_element_css_author_link($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -4013,7 +4016,7 @@ function post_grid_layout_element_css_author_link($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -4060,7 +4063,7 @@ function post_grid_layout_element_option_categories($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Post categories', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Post categories', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4068,8 +4071,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -4079,8 +4082,8 @@ function post_grid_layout_element_option_categories($parameters)
             $args = array(
                 'id'        => 'max_count',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Max count', 'post-grid'),
-                'details'    => __('Write max count', 'post-grid'),
+                'title'        => esc_html__('Max count', 'post-grid'),
+                'details'    => esc_html__('Write max count', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $max_count,
                 'default'        => 3,
@@ -4091,8 +4094,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'separator',
                 'css_id'        => $element_index . '_position_color',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Link separator', 'post-grid'),
-                'details'    => __('Choose link separator.', 'post-grid'),
+                'title'        => esc_html__('Link separator', 'post-grid'),
+                'details'    => esc_html__('Choose link separator.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $separator,
                 'default'        => '',
@@ -4103,16 +4106,16 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -4120,8 +4123,9 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace category output.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: example use of %s */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace category output.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -4132,8 +4136,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'wrapper_margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_margin,
                 'default'        => '',
@@ -4144,8 +4148,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Choose font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Choose font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4156,8 +4160,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'link_color',
                 'css_id'        => $element_index . '_link_color',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Link color', 'post-grid'),
-                'details'    => __('Choose link color.', 'post-grid'),
+                'title'        => esc_html__('Link color', 'post-grid'),
+                'details'    => esc_html__('Choose link color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $link_color,
                 'default'        => '',
@@ -4167,8 +4171,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'text_color',
                 'css_id'        => $element_index . '_text_color',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Text color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $text_color,
                 'default'        => '',
@@ -4178,20 +4182,20 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4202,8 +4206,8 @@ function post_grid_layout_element_option_categories($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[categories]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4218,8 +4222,8 @@ function post_grid_layout_element_option_categories($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4261,7 +4265,7 @@ function post_grid_layout_element_categories($args)
         }
 ?>
     <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> categories ">
-        <?php echo sprintf($wrapper_html, $categories_html); ?>
+        <?php echo wp_kses_post(sprintf($wrapper_html, $categories_html)); ?>
     </div>
 <?php
 }
@@ -4299,7 +4303,7 @@ function post_grid_layout_element_css_categories($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -4322,7 +4326,7 @@ function post_grid_layout_element_css_categories($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -4355,7 +4359,7 @@ function post_grid_layout_element_option_tags($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Post tag', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Post tag', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4363,8 +4367,8 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -4374,8 +4378,8 @@ function post_grid_layout_element_option_tags($parameters)
             $args = array(
                 'id'        => 'max_count',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Max count', 'post-grid'),
-                'details'    => __('Write max count', 'post-grid'),
+                'title'        => esc_html__('Max count', 'post-grid'),
+                'details'    => esc_html__('Write max count', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $max_count,
                 'default'        => 3,
@@ -4386,8 +4390,8 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'separator',
                 'css_id'        => $element_index . '_position_color',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Link separator', 'post-grid'),
-                'details'    => __('Choose link separator.', 'post-grid'),
+                'title'        => esc_html__('Link separator', 'post-grid'),
+                'details'    => esc_html__('Choose link separator.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $separator,
                 'default'        => '',
@@ -4398,16 +4402,16 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'link_target',
                 'css_id'        => $element_index . '_link_target',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Link target', 'post-grid'),
-                'details'    => __('Choose option link target.', 'post-grid'),
+                'title'        => esc_html__('Link target', 'post-grid'),
+                'details'    => esc_html__('Choose option link target.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $link_target,
                 'default'        => 'post_link',
                 'args'        => array(
-                    '_blank' => __('_blank', 'post-grid'),
-                    '_parent' => __('_parent', 'post-grid'),
-                    '_self' => __('_self', 'post-grid'),
-                    '_top' => __('_top', 'post-grid'),
+                    '_blank' => esc_html__('_blank', 'post-grid'),
+                    '_parent' => esc_html__('_parent', 'post-grid'),
+                    '_self' => esc_html__('_self', 'post-grid'),
+                    '_top' => esc_html__('_top', 'post-grid'),
                 ),
             );
             $settings_tabs_field->generate_field($args);
@@ -4415,8 +4419,9 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace tags output.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: example use of %s */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace tags output.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -4427,8 +4432,8 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'wrapper_margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_margin,
                 'default'        => '',
@@ -4439,8 +4444,8 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'link_color',
                 'css_id'        => $element_index . '_link_color',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Link color', 'post-grid'),
-                'details'    => __('Choose link color.', 'post-grid'),
+                'title'        => esc_html__('Link color', 'post-grid'),
+                'details'    => esc_html__('Choose link color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $link_color,
                 'default'        => '',
@@ -4450,20 +4455,20 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4474,8 +4479,8 @@ function post_grid_layout_element_option_tags($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[tags]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4490,8 +4495,8 @@ function post_grid_layout_element_option_tags($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4533,7 +4538,7 @@ function post_grid_layout_element_tags($args)
         }
 ?>
     <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> tags ">
-        <?php echo sprintf($wrapper_html, $categories_html); ?>
+        <?php echo wp_kses_post(sprintf($wrapper_html, $categories_html)); ?>
     </div>
 <?php
 }
@@ -4571,7 +4576,7 @@ function post_grid_layout_element_css_tags($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -4594,7 +4599,7 @@ function post_grid_layout_element_css_tags($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -4624,7 +4629,7 @@ function post_grid_layout_element_option_comments_count($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Comment count', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Comment count', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4632,8 +4637,8 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -4644,8 +4649,9 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'wrapper_html',
                 'css_id'        => $element_index . '_wrapper_html',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Wrapper html', 'post-grid'),
-                'details'    => __('Write wrapper html, use <code>%s</code> to replace comment count output.', 'post-grid'),
+                'title'        => esc_html__('Wrapper html', 'post-grid'),
+                /* translators: example use of %s */
+                'details'    => esc_html__('Write wrapper html, use <code>%s</code> to replace comment count output.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $wrapper_html,
                 'default'        => '',
@@ -4656,8 +4662,8 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Color', 'post-grid'),
-                'details'    => __('Title text color.', 'post-grid'),
+                'title'        => esc_html__('Color', 'post-grid'),
+                'details'    => esc_html__('Title text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -4667,8 +4673,8 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Set font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Set font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4679,8 +4685,8 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'font_family',
                 'css_id'        => $element_index . '_font_family',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Font family', 'post-grid'),
-                'details'    => __('Set font family.', 'post-grid'),
+                'title'        => esc_html__('Font family', 'post-grid'),
+                'details'    => esc_html__('Set font family.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_family,
                 'default'        => '',
@@ -4691,8 +4697,8 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Set margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Set margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -4703,20 +4709,20 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4727,8 +4733,8 @@ function post_grid_layout_element_option_comments_count($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[comments_count]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4743,8 +4749,8 @@ function post_grid_layout_element_option_comments_count($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4770,13 +4776,14 @@ function post_grid_layout_element_comments_count($args)
         if ($comments_number == 0) {
             $comments_count_html .= __('No Comments', 'post-grid');
         } elseif ($comments_number > 1) {
+            /* translators: NUmber of comments */
             $comments_count_html .= sprintf(__('%s Comments', 'post-grid'), $comments_number);
         } else {
             $comments_count_html .= __('1 Comment', 'post-grid');
         }
     ?>
         <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> tags ">
-            <?php echo sprintf($wrapper_html, $comments_count_html); ?>
+            <?php echo wp_kses_post(sprintf($wrapper_html, $comments_count_html)); ?>
         </div>
     <?php
     }
@@ -4814,7 +4821,7 @@ function post_grid_layout_element_css_comments_count($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -4822,7 +4829,7 @@ function post_grid_layout_element_css_comments_count($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -4849,7 +4856,7 @@ function post_grid_layout_element_option_share_button($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Share button', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Share button', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -4857,8 +4864,8 @@ function post_grid_layout_element_option_share_button($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[share_button]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -4869,8 +4876,8 @@ function post_grid_layout_element_option_share_button($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[share_button]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Choose text font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Choose text font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -4881,8 +4888,8 @@ function post_grid_layout_element_option_share_button($parameters)
                 'id'        => 'icon_margin',
                 'css_id'        => $element_index . '_icon_margin',
                 'parent' => $input_name . '[share_button]',
-                'title'        => __('Icon margin', 'post-grid'),
-                'details'    => __('Set icon margin.', 'post-grid'),
+                'title'        => esc_html__('Icon margin', 'post-grid'),
+                'details'    => esc_html__('Set icon margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $icon_margin,
                 'default'        => '',
@@ -4893,8 +4900,8 @@ function post_grid_layout_element_option_share_button($parameters)
                 'id'        => 'icon_color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[share_button]',
-                'title'        => __('Icon color', 'post-grid'),
-                'details'    => __('Choose icon color.', 'post-grid'),
+                'title'        => esc_html__('Icon color', 'post-grid'),
+                'details'    => esc_html__('Choose icon color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $icon_color,
                 'default'        => '',
@@ -4904,8 +4911,8 @@ function post_grid_layout_element_option_share_button($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[share_button]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -4916,8 +4923,8 @@ function post_grid_layout_element_option_share_button($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[share_button]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -4932,8 +4939,8 @@ function post_grid_layout_element_option_share_button($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -4971,7 +4978,7 @@ function post_grid_layout_element_share_button($args)
 ?>
     <div
         class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> share_button ">
-        <?php echo sprintf($wrapper_html, $share_button_html); ?>
+        <?php echo wp_kses_post(sprintf($wrapper_html, $share_button_html)); ?>
     </div>
 <?php
 }
@@ -5006,7 +5013,7 @@ function post_grid_layout_element_css_share_button($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -5029,7 +5036,7 @@ function post_grid_layout_element_css_share_button($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -5056,7 +5063,7 @@ function post_grid_layout_element_option_hr($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Horizontal line', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Horizontal line', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5064,8 +5071,8 @@ function post_grid_layout_element_option_hr($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[hr]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -5076,8 +5083,8 @@ function post_grid_layout_element_option_hr($parameters)
                 'id'        => 'background_color',
                 'css_id'        => $element_index . '_background_coloradd_to_cart',
                 'parent' => $input_name . '[hr]',
-                'title'        => __('Background color', 'post-grid'),
-                'details'    => __('Choose background color.', 'post-grid'),
+                'title'        => esc_html__('Background color', 'post-grid'),
+                'details'    => esc_html__('Choose background color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $background_color,
                 'default'        => '',
@@ -5087,8 +5094,8 @@ function post_grid_layout_element_option_hr($parameters)
                 'id'        => 'height',
                 'css_id'        => $element_index . '_height',
                 'parent' => $input_name . '[hr]',
-                'title'        => __('Height', 'post-grid'),
-                'details'    => __('Choose height.', 'post-grid'),
+                'title'        => esc_html__('Height', 'post-grid'),
+                'details'    => esc_html__('Choose height.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $height,
                 'default'        => '',
@@ -5099,8 +5106,8 @@ function post_grid_layout_element_option_hr($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_padding',
                 'parent' => $input_name . '[hr]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Choose margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Choose margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -5111,8 +5118,8 @@ function post_grid_layout_element_option_hr($parameters)
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[hr]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -5123,8 +5130,8 @@ function post_grid_layout_element_option_hr($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[hr]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -5139,8 +5146,8 @@ function post_grid_layout_element_option_hr($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5193,7 +5200,7 @@ function post_grid_layout_element_css_hr($args)
             ?><?php if (!empty($height)): ?>padding: <?php echo esc_attr($height);
                                                         ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -5201,7 +5208,7 @@ function post_grid_layout_element_css_hr($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 
@@ -5229,7 +5236,7 @@ function post_grid_layout_element_option_five_star($parameters)
         <div class="element-title header ">
             <span class="remove" onclick="jQuery(this).parent().parent().remove()"><i class="fas fa-times"></i></span>
             <span class="sort"><i class="fas fa-sort"></i></span>
-            <span class="header-text expand"><?php echo __('Five star', 'post-grid'); ?></span>
+            <span class="header-text expand"><?php echo esc_html__('Five star', 'post-grid'); ?></span>
         </div>
         <div class="element-options options">
             <?php
@@ -5237,8 +5244,8 @@ function post_grid_layout_element_option_five_star($parameters)
                 'id'        => 'custom_class',
                 'css_id'        => $element_index . '_custom_class',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Wrapper custom class', 'post-grid'),
-                'details'    => __('Set custom class.', 'post-grid'),
+                'title'        => esc_html__('Wrapper custom class', 'post-grid'),
+                'details'    => esc_html__('Set custom class.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $custom_class,
                 'default'        => '',
@@ -5249,8 +5256,8 @@ function post_grid_layout_element_option_five_star($parameters)
                 'id'        => 'color',
                 'css_id'        => $element_index . '_color',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Text color', 'post-grid'),
-                'details'    => __('Choose text color.', 'post-grid'),
+                'title'        => esc_html__('Text color', 'post-grid'),
+                'details'    => esc_html__('Choose text color.', 'post-grid'),
                 'type'        => 'colorpicker',
                 'value'        => $color,
                 'default'        => '',
@@ -5260,8 +5267,8 @@ function post_grid_layout_element_option_five_star($parameters)
                 'id'        => 'font_size',
                 'css_id'        => $element_index . '_font_size',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Font size', 'post-grid'),
-                'details'    => __('Choose text font size.', 'post-grid'),
+                'title'        => esc_html__('Font size', 'post-grid'),
+                'details'    => esc_html__('Choose text font size.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $font_size,
                 'default'        => '',
@@ -5272,8 +5279,8 @@ function post_grid_layout_element_option_five_star($parameters)
                 'id'        => 'margin',
                 'css_id'        => $element_index . '_margin',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Margin', 'post-grid'),
-                'details'    => __('Choose margin.', 'post-grid'),
+                'title'        => esc_html__('Margin', 'post-grid'),
+                'details'    => esc_html__('Choose margin.', 'post-grid'),
                 'type'        => 'text',
                 'value'        => $margin,
                 'default'        => '',
@@ -5284,20 +5291,20 @@ function post_grid_layout_element_option_five_star($parameters)
                 'id'        => 'text_align',
                 'css_id'        => $element_index . '_text_align',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Text align', 'post-grid'),
-                'details'    => __('Choose text align.', 'post-grid'),
+                'title'        => esc_html__('Text align', 'post-grid'),
+                'details'    => esc_html__('Choose text align.', 'post-grid'),
                 'type'        => 'select',
                 'value'        => $text_align,
                 'default'        => 'left',
-                'args'        => array('left' => __('Left', 'post-grid'), 'right' => __('Right', 'post-grid'), 'center' => __('Center', 'post-grid')),
+                'args'        => array('left' => esc_html__('Left', 'post-grid'), 'right' => esc_html__('Right', 'post-grid'), 'center' => esc_html__('Center', 'post-grid')),
             );
             $settings_tabs_field->generate_field($args);
             $args = array(
                 'id'        => 'css',
                 'css_id'        => $element_index . '_css',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Custom CSS', 'post-grid'),
-                'details'    => __('Set csutom CSS.', 'post-grid'),
+                'title'        => esc_html__('Custom CSS', 'post-grid'),
+                'details'    => esc_html__('Set csutom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css,
                 'default'        => '',
@@ -5308,8 +5315,8 @@ function post_grid_layout_element_option_five_star($parameters)
                 'id'        => 'css_hover',
                 'css_id'        => $element_index . '_css_hover',
                 'parent' => $input_name . '[five_star]',
-                'title'        => __('Hover CSS', 'post-grid'),
-                'details'    => __('Set hover custom CSS.', 'post-grid'),
+                'title'        => esc_html__('Hover CSS', 'post-grid'),
+                'details'    => esc_html__('Set hover custom CSS.', 'post-grid'),
                 'type'        => 'textarea',
                 'value'        => $css_hover,
                 'default'        => '',
@@ -5324,8 +5331,8 @@ function post_grid_layout_element_option_five_star($parameters)
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'use_css',
-                'title'        => __('Use of CSS', 'post-grid'),
-                'details'    => __('Use following class selector to add custom CSS for this element.', 'post-grid'),
+                'title'        => esc_html__('Use of CSS', 'post-grid'),
+                'details'    => esc_html__('Use following class selector to add custom CSS for this element.', 'post-grid'),
                 'type'        => 'custom_html',
                 'html'        => $html,
             );
@@ -5366,7 +5373,7 @@ function post_grid_layout_element_five_star($args)
     }
 ?>
     <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> five_star ">
-        <?php echo sprintf($wrapper_html, $five_star_html); ?>
+        <?php echo wp_kses_post(sprintf($wrapper_html, $five_star_html)); ?>
     </div>
 <?php
 }
@@ -5399,7 +5406,7 @@ function post_grid_layout_element_css_five_star($args)
             ?><?php if (!empty($text_align)): ?>text-align: <?php echo esc_attr($text_align);
                                                             ?>;
             <?php endif;
-            ?><?php if (!empty($css)): ?><?php echo wp_strip_all_tags($css);
+            ?><?php if (!empty($css)): ?><?php echo esc_html(wp_strip_all_tags($css));
                                             ?><?php endif;
                                                 ?>
         }
@@ -5407,7 +5414,7 @@ function post_grid_layout_element_css_five_star($args)
         <?php if (!empty($css_hover)) : ?><?php echo esc_attr('.layout-' . $layout_id);
                                             ?><?php echo esc_attr(' .element_' . $index);
                                                 ?>:hover {
-            <?php echo wp_strip_all_tags($css_hover);
+            <?php echo esc_html(wp_strip_all_tags($css_hover));
             ?>
         }
 

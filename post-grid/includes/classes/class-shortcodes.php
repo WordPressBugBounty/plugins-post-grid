@@ -78,6 +78,7 @@ class class_post_grid_shortcodes
         }
         //include( post_grid_plugin_dir . 'templates/post-grid.php');
         do_action('post_grid_main', $atts);
+
         wp_enqueue_script('post-grid-shortcode-scripts');
         wp_localize_script('post-grid-shortcode-scripts', 'post_grid_ajax', array(
             'post_grid_ajaxurl' => admin_url('admin-ajax.php'),

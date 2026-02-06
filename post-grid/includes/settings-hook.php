@@ -14,14 +14,14 @@ function post_grid_settings_content_general()
     $posttypes_array = post_grid_posttypes_array();
 ?>
     <div class="section">
-        <div class="section-title"><?php echo __('General', 'post-grid'); ?></div>
-        <p class="description section-description"><?php echo __('Choose some general options.', 'post-grid'); ?></p>
+        <div class="section-title"><?php echo esc_html__('General', 'post-grid'); ?></div>
+        <p class="description section-description"><?php echo esc_html__('Choose some general options.', 'post-grid'); ?></p>
         <?php
         $args = array(
             'id'        => 'post_options_post_types',
             'parent'        => 'post_grid_settings',
-            'title'        => __('Post option by post types', 'post-grid'),
-            'details'    => __('Enable post options for selected post types', 'post-grid'),
+            'title'        => esc_html__('Post option by post types', 'post-grid'),
+            'details'    => esc_html__('Enable post options for selected post types', 'post-grid'),
             'type'        => 'select',
             'value'        => $post_options_post_types,
             'default'        => array(),
@@ -32,23 +32,23 @@ function post_grid_settings_content_general()
         $args = array(
             'id'        => 'font_aw_version',
             'parent'        => 'post_grid_settings',
-            'title'        => __('Font-awesome version', 'post-grid'),
-            'details'    => __('Choose font awesome version you want to load.', 'post-grid'),
+            'title'        => esc_html__('Font-awesome version', 'post-grid'),
+            'details'    => esc_html__('Choose font awesome version you want to load.', 'post-grid'),
             'type'        => 'select',
             'value'        => $font_aw_version,
             'default'        => '',
-            'args'        => array('v_5' => __('Version 5+', 'post-grid'), 'v_4' => __('Version 4+', 'post-grid'), 'none' => __('None', 'post-grid')),
+            'args'        => array('v_5' => esc_html__('Version 5+', 'post-grid'), 'v_4' => esc_html__('Version 4+', 'post-grid'), 'none' => esc_html__('None', 'post-grid')),
         );
         $settings_tabs_field->generate_field($args);
         $args = array(
             'id'        => 'post_grid_preview',
             'parent'        => 'post_grid_settings',
-            'title'        => __('Enable post grid preview', 'post-grid'),
-            'details'    => __('You can enable preview post grid.', 'post-grid'),
+            'title'        => esc_html__('Enable post grid preview', 'post-grid'),
+            'details'    => esc_html__('You can enable preview post grid.', 'post-grid'),
             'type'        => 'select',
             'value'        => $post_grid_preview,
             'default'        => 'yes',
-            'args'        => array('yes' => __('Yes', 'post-grid'), 'no' => __('No', 'post-grid')),
+            'args'        => array('yes' => esc_html__('Yes', 'post-grid'), 'no' => esc_html__('No', 'post-grid')),
         );
         $settings_tabs_field->generate_field($args);
         ?>
@@ -70,9 +70,9 @@ if (!function_exists('post_grid_settings_content_help_support')) {
         $layouts_free_url_json = post_grid_plugin_url . 'sample-data/post-grid-layouts.json';
     ?>
         <div class="section">
-            <div class="section-title"><?php echo __('Get support', 'post-grid'); ?></div>
+            <div class="section-title"><?php echo esc_html__('Get support', 'post-grid'); ?></div>
             <p class="description section-description">
-                <?php echo __('Use following to get help and support from our expert team.', 'post-grid'); ?></p>
+                <?php echo esc_html__('Use following to get help and support from our expert team.', 'post-grid'); ?></p>
             <?php
             ob_start();
             ?>
@@ -87,7 +87,7 @@ if (!function_exists('post_grid_settings_content_help_support')) {
             $args = array(
                 'id'        => 'export_layouts',
                 //'parent'		=> '',
-                'title'        => __('Export layouts', 'post-grid'),
+                'title'        => esc_html__('Export layouts', 'post-grid'),
                 'details'    => '',
                 'type'        => 'custom_html',
                 'html'        => $html,
@@ -96,21 +96,21 @@ if (!function_exists('post_grid_settings_content_help_support')) {
             ob_start();
             ?>
             <p>
-                <?php echo __('Ask question for free on our forum and get quick reply from our expert team members.', 'post-grid'); ?>
+                <?php echo esc_html__('Ask question for free on our forum and get quick reply from our expert team members.', 'post-grid'); ?>
             </p>
             <a class="button"
-                href="https://www.pickplugins.com/create-support-ticket/"><?php echo __('Create support ticket', 'post-grid'); ?></a>
-            <p><?php echo __('Read our documentation before asking your question.', 'post-grid'); ?></p>
-            <a class="button" href="https://comboblocks.com/documentations/"><?php echo __('Documentation', 'post-grid'); ?></a>
-            <p><?php echo __('Watch video tutorials.', 'post-grid'); ?></p>
+                href="https://www.pickplugins.com/create-support-ticket/"><?php echo esc_html__('Create support ticket', 'post-grid'); ?></a>
+            <p><?php echo esc_html__('Read our documentation before asking your question.', 'post-grid'); ?></p>
+            <a class="button" href="https://comboblocks.com/documentations/"><?php echo esc_html__('Documentation', 'post-grid'); ?></a>
+            <p><?php echo esc_html__('Watch video tutorials.', 'post-grid'); ?></p>
             <a class="button" href="https://www.youtube.com/playlist?list=PL0QP7T2SN94Yut5Y0MSVg1wqmqWz0UYpt"><i
-                    class="fab fa-youtube"></i> <?php echo __('All tutorials', 'post-grid'); ?></a>
+                    class="fab fa-youtube"></i> <?php echo esc_html__('All tutorials', 'post-grid'); ?></a>
             <?php
             $html = ob_get_clean();
             $args = array(
                 'id'        => 'get_support',
                 //'parent'		=> '',
-                'title'        => __('Ask question', 'post-grid'),
+                'title'        => esc_html__('Ask question', 'post-grid'),
                 'details'    => '',
                 'type'        => 'custom_html',
                 'html'        => $html,
@@ -128,7 +128,7 @@ if (!function_exists('post_grid_settings_content_help_support')) {
             $args = array(
                 'id'        => 'reviews',
                 //'parent'		=> '',
-                'title'        => __('Submit reviews', 'post-grid'),
+                'title'        => esc_html__('Submit reviews', 'post-grid'),
                 'details'    => '',
                 'type'        => 'custom_html',
                 'html'        => $html,
@@ -145,8 +145,8 @@ if (!function_exists('post_grid_settings_content_help_support')) {
 add_action('post_grid_settings_save', 'post_grid_settings_save');
 function post_grid_settings_save()
 {
-    $post_grid_settings = isset($_POST['post_grid_settings']) ?  post_grid_recursive_sanitize_arr($_POST['post_grid_settings']) : array();
+    $post_grid_settings = isset($_POST['post_grid_settings']) ?  post_grid_recursive_sanitize_arr(wp_unslash($_POST['post_grid_settings'])) : array();
     update_option('post_grid_settings', $post_grid_settings);
-    $post_grid_license = isset($_POST['post_grid_license']) ?  post_grid_recursive_sanitize_arr($_POST['post_grid_license']) : array();
+    $post_grid_license = isset($_POST['post_grid_license']) ?  post_grid_recursive_sanitize_arr(wp_unslash($_POST['post_grid_license'])) : array();
     update_option('post_grid_license', $post_grid_license);
 }

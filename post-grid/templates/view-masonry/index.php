@@ -111,7 +111,6 @@ function post_grid_builder_viewMasonry($post_id, $PostGridData)
     wp_enqueue_script('jquery');
     wp_enqueue_script('imagesloaded');
     wp_enqueue_script('masonry');
-    wp_enqueue_script('masonry.min');
     wp_enqueue_script('post-grid-masonry-front');
 
 
@@ -136,7 +135,7 @@ function post_grid_builder_viewMasonry($post_id, $PostGridData)
 
         <div class="items" data-masonry="<?php echo esc_attr(json_encode($masonryOptions)) ?>" data-block-id="<?php echo esc_attr(json_encode($dataBlockId)) ?>">
             <?php
-            echo $postsHtml;
+            echo wp_kses_post($postsHtml);
             ?>
         </div>
 
@@ -217,7 +216,7 @@ function post_grid_builder_viewMasonry($post_id, $PostGridData)
         <?php if ($paginationType == 'infinite') : ?>
             <div id="pagination-<?php echo esc_attr($blockId); ?>" class="pagination <?php echo esc_attr($blockId); ?> ComboBlocksPostGrid-pagination <?php echo esc_attr($paginationType); ?>" data-postqueryargs="<?php echo esc_attr(json_encode($blockArgs)); ?>">
                 <div class="infinite-loader box">
-                    <?php echo __('Loading...', 'combo-blocks'); ?>
+                    <?php echo wp_kses_post(__('Loading...', 'post-grid')); ?>
                 </div>
             </div>
         <?php endif; ?>

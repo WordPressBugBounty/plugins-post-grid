@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) exit;  // if direct access
-add_filter('the_content', 'post_grid_preview_content');
+//add_filter('the_content', 'post_grid_preview_content');
 function post_grid_preview_content($content)
 {
     if (is_singular('post_grid')) {

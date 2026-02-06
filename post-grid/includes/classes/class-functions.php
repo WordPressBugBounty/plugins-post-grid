@@ -206,7 +206,7 @@ class class_post_grid_functions
                             'enable' => 'no',
                             'link_to' => 'post_link',
                             'link_target' => '_self',
-                            'default_thumb_src' => 'http://localhost/wp/wp-content/uploads/2020/02/single-1.jpg',
+                            'default_thumb_src' => '',
                         ),
                         'siteorigin_first_image' =>
                         array(

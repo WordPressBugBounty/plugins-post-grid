@@ -103,11 +103,11 @@ function post_grid_search_keyword_field($args)
   // 7 is grid ID where you want to display this input field
   $nav_top_search_placeholder = isset($post_grid_options['nav_top']['search_placeholder']) ? $post_grid_options['nav_top']['search_placeholder'] : __('Start typing', 'post-grid');
   $nav_top_search_icon = isset($post_grid_options['nav_top']['search_icon']) ? $post_grid_options['nav_top']['search_icon'] : $nav_top_search_icon;
-  $keyword = isset($_GET['keyword']) ? sanitize_text_field($_GET['keyword']) : '';
+  $keyword = isset($_GET['keyword']) ? sanitize_text_field(wp_unslash($_GET['keyword'])) : '';
 ?>
   <div class="field-wrap field-wrap-keyword">
-    <span class="search-icon"><?php echo $nav_top_search_icon; ?></span>
-    <input grid_id="<?php echo esc_attr($grid_id); ?>" title="<?php echo __('Press enter to reset', 'post-grid'); ?>" class="search" type="text" name="keyword" placeholder="<?php echo esc_attr($nav_top_search_placeholder); ?>" value="<?php echo esc_attr($keyword); ?>">
+    <span class="search-icon"><?php echo wp_kses_post($nav_top_search_icon); ?></span>
+    <input grid_id="<?php echo esc_attr($grid_id); ?>" title="<?php echo esc_html__('Press enter to reset', 'post-grid'); ?>" class="search" type="text" name="keyword" placeholder="<?php echo esc_attr($nav_top_search_placeholder); ?>" value="<?php echo esc_attr($keyword); ?>">
   </div>
 <?php
 }
@@ -130,8 +130,8 @@ function post_grid_search_submit_field($args)
 ?>
   <div class="field-wrap field-wrap-submit">
     <?php wp_nonce_field('post_grid_search_nonce', '_wpnonce', false); ?>
-    <input type="submit" value="<?php echo __('Search', 'post-grid'); ?>">
-    <span class="search-loading"><?php echo $search_loading_icon; ?></span>
+    <input type="submit" value="<?php echo esc_html__('Search', 'post-grid'); ?>">
+    <span class="search-loading"><?php echo wp_kses_post($search_loading_icon); ?></span>
   </div>
   <?php
 }
@@ -217,15 +217,21 @@ function post_grid_posts_loop($args)
   if (!empty($tax_query))
     $query_args['tax_query'] = $tax_query;
   if (!empty($_GET['lang']))
-    $query_args['lang'] = sanitize_text_field($_GET['lang']);
+    $query_args['lang'] = sanitize_text_field(wp_unslash($_GET['lang']));
   $query_args = apply_filters('post_grid_filter_query_args', $query_args, $grid_id);
   $query_args = apply_filters('post_grid_query_args', $query_args, $args);
+
+
+
   $post_grid_wp_query = new WP_Query($query_args);
   $wp_query = $post_grid_wp_query;
   $loop_count = 0;
   if ($post_grid_wp_query->have_posts()) :
     do_action('post_grid_loop_top', $args);
   ?>
+
+
+
     <div class="<?php echo esc_attr(apply_filters('post_grid_grid_items_class', 'grid-items', $args)); ?>">
       <?php
       do_action('post_grid_before_loop', $args);
@@ -234,6 +240,7 @@ function post_grid_posts_loop($args)
         $args['post_id'] = $post_id;
         $args['loop_count'] = $loop_count;
         do_action('post_grid_loop', $args);
+
         $loop_count++;
       endwhile;
       do_action('post_grid_after_loop', $args);
@@ -250,14 +257,14 @@ function post_grid_posts_loop($args)
     </div>
   <?php
   endif;
-  wp_reset_query();
   wp_reset_postdata();
+wp_reset_query();
 }
 add_filter('post_grid_query_args', 'post_grid_query_args_search', 10, 2);
 function post_grid_query_args_search($query_args, $args)
 {
-  if (isset($_GET['_wpnonce']) &&  wp_verify_nonce($_GET['_wpnonce'], 'post_grid_search_nonce')) {
-    $keyword = isset($_GET['keyword']) ? sanitize_text_field($_GET['keyword']) : '';
+  if (isset($_GET['_wpnonce']) &&  wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'post_grid_search_nonce')) {
+    $keyword = isset($_GET['keyword']) ? sanitize_text_field(wp_unslash($_GET['keyword'])) : '';
     if (!empty($keyword))
       $query_args['s'] = $keyword;
   }
@@ -270,7 +277,7 @@ function post_grid_loop_no_post($args)
   $no_post_text = !empty($post_grid_options['no_post_text']) ? $post_grid_options['no_post_text'] : __('No post found', 'post-grid');
   ?>
   <div class="no-post-found">
-    <?php echo apply_filters('post_grid_no_post_text', $no_post_text); ?>
+    <?php echo wp_kses_post(apply_filters('post_grid_no_post_text', $no_post_text)); ?>
   </div>
 <?php
 }
@@ -340,7 +347,7 @@ function post_grid_loop($args)
         }
         $html_media = apply_filters('post_grid_filter_html_media', $html_media);
         ?>
-  <div class="layer-media"><?php echo $html_media; ?></div>
+  <div class="layer-media"><?php echo wp_kses_post($html_media); ?></div>
 <?php
       }
       add_action('post_grid_item_layout', 'post_grid_item_layout_content', 20);
@@ -545,7 +552,7 @@ function post_grid_loop($args)
   <div class="paginate">
     <?php
         $big = 999999999; // need an unlikely integer
-        echo paginate_links(
+        echo wp_kses_post(paginate_links(
           array(
             'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
             'format' => '?paged=%#%',
@@ -554,7 +561,7 @@ function post_grid_loop($args)
             'prev_text'          => $pagination_prev_text,
             'next_text'          => $pagination_next_text,
           )
-        );
+        ));
     ?>
   </div>
   <style type="text/css">
@@ -962,7 +969,7 @@ function post_grid_loop($args)
         } elseif ($items_media_height_style == 'max_height') {
           echo 'max-height:' . esc_attr($items_media_height) . ';';
         } else {
-          echo 'height:' . $items_media_height . ';';
+          echo 'height:' . esc_attr($items_media_height) . ';';
         }
       ?>
     }
@@ -971,7 +978,7 @@ function post_grid_loop($args)
       <?php echo '#post-grid-' . esc_attr($grid_id) . ' .item';
       ?> {
         <?php $masonry_gutter_mobile = $masonry_gutter * ($columns_mobile - 1);
-        ?>width: calc((100% - <?php echo $masonry_gutter_mobile; ?>px) / <?php echo esc_attr($columns_mobile); ?>);
+        ?>width: calc((100% - <?php echo esc_attr($masonry_gutter_mobile); ?>px) / <?php echo esc_attr($columns_mobile); ?>);
         <?php if ($items_height_style == 'fixed_height') {
           echo 'height:' . esc_attr($items_height) . ';';
         } elseif ($items_height_style == 'max_height') {
@@ -989,7 +996,7 @@ function post_grid_loop($args)
       <?php echo '#post-grid-' . esc_attr($grid_id) . ' .item';
       ?> {
         <?php $masonry_gutter_tablet = $masonry_gutter * ($columns_tablet - 1);
-        ?>width: calc((100% - <?php echo $masonry_gutter_tablet; ?>px) / <?php echo esc_attr($columns_tablet); ?>);
+        ?>width: calc((100% - <?php echo esc_attr($masonry_gutter_tablet); ?>px) / <?php echo esc_attr($columns_tablet); ?>);
         <?php if ($items_height_style_tablet == 'fixed_height') {
           echo 'height:' . esc_attr($items_fixed_height_tablet) . ';';
         } elseif ($items_height_style_tablet == 'max_height') {
@@ -1006,7 +1013,7 @@ function post_grid_loop($args)
     @media only screen and (min-width: 1024px) {
       <?php echo '#post-grid-' . esc_attr($grid_id) . ' .item';
       ?> {
-        <?php $masonry_gutter_desktop = $masonry_gutter * ($columns_desktop - 1) ?>width: calc((100% - <?php echo $masonry_gutter_desktop; ?>px) / <?php echo esc_attr($columns_desktop); ?>);
+        <?php $masonry_gutter_desktop = $masonry_gutter * ($columns_desktop - 1) ?>width: calc((100% - <?php echo esc_attr($masonry_gutter_desktop); ?>px) / <?php echo esc_attr($columns_desktop); ?>);
         <?php if ($items_height_style == 'fixed_height') {
           echo 'height:' . esc_attr($items_height) . ';';
         } elseif ($items_height_style == 'max_height') {
@@ -1177,7 +1184,7 @@ function post_grid_loop($args)
 
     <?php echo '#post-grid-' . esc_attr($grid_id) . ' .item';
     ?> {
-      padding: <?php echo $tiles_gutter;
+      padding: <?php echo esc_attr($tiles_gutter);
                 ?>px;
     }
 
@@ -1197,7 +1204,7 @@ function post_grid_loop($args)
         } elseif ($items_media_height_style == 'max_height') {
           echo 'max-height:' . esc_attr($items_media_height) . ';';
         } else {
-          echo 'height:' . $items_media_height . ';';
+          echo 'height:' . esc_attr($items_media_height) . ';';
         }
       ?>
     }
@@ -1208,10 +1215,10 @@ function post_grid_loop($args)
         <?php $colDesktop = 100 / $columns_mobile;
         $parcentWidth = number_format($colDesktop, 0);
         $masonry_gutter_mobile = $masonry_gutter * ($columns_mobile - 1);
-        ?>width: calc((100% - <?php echo $masonry_gutter_mobile; ?>px) / <?php echo esc_attr($columns_mobile); ?>);
-        flex: 0 0 <?php echo $parcentWidth;
+        ?>width: calc((100% - <?php echo esc_attr($masonry_gutter_mobile); ?>px) / <?php echo esc_attr($columns_mobile); ?>);
+        flex: 0 0 <?php echo esc_attr($parcentWidth);
                   ?>%;
-        max-width: <?php echo $parcentWidth;
+        max-width: <?php echo esc_attr($parcentWidth);
                     ?>%;
         <?php if ($items_height_style == 'fixed_height') {
           echo 'height:' . esc_attr($items_height) . ';';
@@ -1232,10 +1239,10 @@ function post_grid_loop($args)
         <?php $masonry_gutter_tablet = $masonry_gutter * ($columns_tablet - 1);
         $colDesktop = 100 / $columns_tablet;
         $parcentWidth = number_format($colDesktop, 0);
-        ?>width: calc((100% - <?php echo $masonry_gutter_tablet; ?>px) / <?php echo esc_attr($columns_tablet); ?>);
-        flex: 0 0 <?php echo $parcentWidth;
+        ?>width: calc((100% - <?php echo esc_attr($masonry_gutter_tablet); ?>px) / <?php echo esc_attr($columns_tablet); ?>);
+        flex: 0 0 <?php echo esc_attr($parcentWidth);
                   ?>%;
-        max-width: <?php echo $parcentWidth;
+        max-width: <?php echo esc_attr($parcentWidth);
                     ?>%;
         <?php if ($items_height_style_tablet == 'fixed_height') {
           echo 'height:' . esc_attr($items_fixed_height_tablet) . ';';
@@ -1256,10 +1263,10 @@ function post_grid_loop($args)
         <?php $masonry_gutter_desktop = $masonry_gutter * ($columns_desktop - 1);
         $colDesktop = 100 / $columns_desktop;
         $parcentWidth = number_format($colDesktop, 0);
-        ?>width: calc((100% - <?php echo $masonry_gutter_desktop; ?>px) / <?php echo esc_attr($columns_desktop); ?>);
-        flex: 0 0 <?php echo $parcentWidth;
+        ?>width: calc((100% - <?php echo esc_attr($masonry_gutter_desktop); ?>px) / <?php echo esc_attr($columns_desktop); ?>);
+        flex: 0 0 <?php echo esc_attr($parcentWidth);
                   ?>%;
-        max-width: <?php echo $parcentWidth;
+        max-width: <?php echo esc_attr($parcentWidth);
                     ?>%;
         <?php if ($items_height_style == 'fixed_height') {
           echo 'height:' . esc_attr($items_height) . ';';
@@ -1321,13 +1328,13 @@ function post_grid_loop($args)
 ?>
   <?php if (!empty($custom_css)) : ?>
     <style type="text/css">
-      <?php echo htmlspecialchars_decode($custom_css, ENT_QUOTES);
+      <?php echo wp_kses_post(htmlspecialchars_decode(wp_strip_all_tags(str_replace('__ID__', 'post-grid-' . esc_attr($grid_id), ($custom_css))), ENT_QUOTES));
       ?>
     </style>
   <?php endif; ?>
   <?php if (!empty($layout_custom_css)) : ?>
     <style type="text/css">
-      <?php echo htmlspecialchars_decode(wp_strip_all_tags(str_replace('__ID__', 'layout-' . esc_attr($layout_id), ($layout_custom_css))), ENT_QUOTES);
+      <?php echo wp_kses_post(htmlspecialchars_decode(wp_strip_all_tags(str_replace('__ID__', 'layout-' . esc_attr($layout_id), ($layout_custom_css))), ENT_QUOTES));
       ?>
     </style>
   <?php endif; ?>
@@ -1381,8 +1388,8 @@ function post_grid_loop($args)
       add_action('post_grid_container', 'post_grid_main_convert_layout', 90);
       function post_grid_main_convert_layout($args)
       {
-        $post_grid_layout_convert = isset($_GET['post_grid_layout_convert']) ? sanitize_text_field($_GET['post_grid_layout_convert']) : '';
-        $_wpnonce = isset($_GET['_wpnonce']) ? sanitize_text_field($_GET['_wpnonce']) : '';
+        $post_grid_layout_convert = isset($_GET['post_grid_layout_convert']) ? sanitize_text_field(wp_unslash($_GET['post_grid_layout_convert'])) : '';
+        $_wpnonce = isset($_GET['_wpnonce']) ? sanitize_text_field(wp_unslash($_GET['_wpnonce'])) : '';
         if (empty($post_grid_layout_convert)) return;
         $layout_converted = false;
         if (wp_verify_nonce($_wpnonce, 'post_grid_layout_convert')) {

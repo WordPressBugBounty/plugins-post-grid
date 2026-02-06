@@ -95,9 +95,9 @@ class class_post_grid_notices
     ob_start();
     if ($screen->id == 'edit-post_grid_layout' || $screen->id == 'post_grid_layout' || $screen->id == 'dashboard'  || $screen->id == 'edit-post_grid' || $screen->id == 'post-grid_page_overview'  || $screen->id == 'post_grid' || $screen->id == 'edit-post_grid_template' || $screen->id == 'post_grid_template' || $screen->id == 'post-grid_page_post-grid-settings' || $screen->id == 'post-grid_page_import_layouts') :
       if ($license_status == 'expired' && $license_expired != 'hidden') :
-        $actionurl = $_SERVER['REQUEST_URI'];
+        $actionurl = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : '';
         $actionurl = wp_nonce_url($actionurl,  'license_expired');
-        $nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field($_REQUEST['_wpnonce']) : '';
+        $nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
         if (wp_verify_nonce($nonce, 'license_expired')) {
           $post_grid_notices['license_expired'] = 'hidden';
           update_option('post_grid_notices', $post_grid_notices);
@@ -108,16 +108,16 @@ class class_post_grid_notices
           <p class="text-lg flex justify-between">
             <span>
               <span class="dashicons dashicons-warning align-middle text-red-600"></span> Your license for Post Grid plugin has
-              expried, please <a target="_blank" class="bg-blue-600 rounded-sm inline-block text-white hover:text-white hover:bg-blue-700 px-5 py-1" href="https://pickplugins.com/post-grid/purchase-license/?licenseKey=<?php echo $license_key; ?>">Renew</a>
+              expried, please <a target="_blank" class="bg-blue-600 rounded-sm inline-block text-white hover:text-white hover:bg-blue-700 px-5 py-1" href="https://pickplugins.com/post-grid/purchase-license/?licenseKey=<?php echo wp_kses_post($license_key); ?>">Renew</a>
               <span class="text-amber-500 rounded-sm px-2 py-1 font-bold">Grab 25% Off!</span>
             </span>
-            <a href="<?php echo esc_url_raw($actionurl); ?>" class="bg-red-600 inline-block cursor-pointer  rounded-sm text-white hover:text-white hover:bg-red-400 px-2  py-1"><span class="align-middle dashicons dashicons-no"></span> Hide this</a>
+            <a href="<?php echo esc_url($actionurl); ?>" class="bg-red-600 inline-block cursor-pointer  rounded-sm text-white hover:text-white hover:bg-red-400 px-2  py-1"><span class="align-middle dashicons dashicons-no"></span> Hide this</a>
           </p>
         </div>
 <?php
       endif;
     endif;
-    echo ob_get_clean();
+    echo wp_kses_post(ob_get_clean());
   }
 }
 new class_post_grid_notices();

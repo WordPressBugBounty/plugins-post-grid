@@ -38,12 +38,14 @@ class post_grid_meta_boxs
     $post_grid_settings_tab = array();
     $post_grid_settings_tab[] = array(
       'id' => 'layout_builder',
+      /* translators: %s: Icon HTML for Layout editor tab */
       'title' => sprintf(__('%s Layout editor', 'post-grid'), '<i class="fas fa-qrcode"></i>'),
       'priority' => 4,
       'active' => true,
     );
     $post_grid_settings_tab[] = array(
       'id' => 'custom_scripts',
+      /* translators: %s: Icon HTML for Custom scripts tab */
       'title' => sprintf(__('%s Custom scripts', 'post-grid'), '<i class="far fa-building"></i>'),
       'priority' => 5,
       'active' => false,
@@ -76,7 +78,7 @@ class post_grid_meta_boxs
         ?>
           <li <?php if (!empty($data_visible)) :  ?> data_visible="<?php echo esc_attr($data_visible); ?>" <?php endif; ?>
             class="tab-nav <?php if ($hidden) echo 'hidden'; ?> <?php if ($active) echo 'active'; ?>"
-            data-id="<?php echo esc_attr($id); ?>"><?php echo ($title); ?></li>
+            data-id="<?php echo esc_attr($id); ?>"><?php echo wp_kses_post($title); ?></li>
         <?php
         }
         ?>
@@ -109,7 +111,7 @@ class post_grid_meta_boxs
     // Check if our nonce is set.
     if (!isset($_POST['post_grid_nonce_check_value']))
       return $post_id;
-    $nonce = sanitize_text_field($_POST['post_grid_nonce_check_value']);
+    $nonce = sanitize_text_field(wp_unslash($_POST['post_grid_nonce_check_value']));
     // Verify that the nonce is valid.
     if (!wp_verify_nonce($nonce, 'post_grid_nonce_check'))
       return $post_id;
@@ -146,18 +148,21 @@ class post_grid_meta_boxs
     $settings_tabs = array();
     $settings_tabs[] = array(
       'id' => 'shortcode',
+      /* translators: %s: Icon HTML for Shortcode tab */
       'title' => sprintf(__('%s Shortcode', 'post-grid'), '<i class="fas fa-laptop-code"></i>'),
       'priority' => 5,
       'active' => ($current_tab == 'shortcode') ? true : false,
     );
     $settings_tabs[] = array(
       'id' => 'general',
+      /* translators: %s: Icon HTML for General tab */
       'title' => sprintf(__('%s General', 'post-grid'), '<i class="fas fa-cogs"></i>'),
       'priority' => 10,
       'active' => ($current_tab == 'general') ? true : false,
     );
     $settings_tabs[] = array(
       'id' => 'query_post',
+      /* translators: %s: Icon HTML for Query Post tab */
       'title' => sprintf(__('%s Query Post', 'post-grid'), '<i class="fas fa-cubes"></i>'),
       'priority' => 15,
       'active' => ($current_tab == 'query_post') ? true : false,
@@ -170,6 +175,7 @@ class post_grid_meta_boxs
     //        );
     $settings_tabs[] = array(
       'id' => 'grid_settings',
+      /* translators: %s: Icon HTML for Grid settings tab */
       'title' => sprintf(__('%s Grid settings', 'post-grid'), '<i class="fas fa-th"></i>'),
       'priority' => 30,
       'active' => ($current_tab == 'grid_settings') ? true : false,
@@ -178,18 +184,21 @@ class post_grid_meta_boxs
     );
     $settings_tabs[] = array(
       'id' => 'layouts',
+      /* translators: %s: Icon HTML for Layouts tab */
       'title' => sprintf(__('%s Layouts', 'post-grid'), '<i class="fas fa-qrcode"></i>'),
       'priority' => 35,
       'active' => ($current_tab == 'layouts') ? true : false,
     );
     $settings_tabs[] = array(
       'id' => 'item_style',
+      /* translators: %s: Icon HTML for Item style tab */
       'title' => sprintf(__('%s Item style', 'post-grid'), '<i class="fas fa-qrcode"></i>'),
       'priority' => 38,
       'active' => ($current_tab == 'item_style') ? true : false,
     );
     $settings_tabs[] = array(
       'id' => 'masonry',
+      /* translators: %s: Icon HTML for Masonry tab */
       'title' => sprintf(__('%s Masonry', 'post-grid'), '<i class="fas fa-th-large"></i>'),
       'priority' => 40,
       'active' => ($current_tab == 'masonry') ? true : false,
@@ -198,6 +207,7 @@ class post_grid_meta_boxs
     );
     $settings_tabs[] = array(
       'id' => 'justified',
+      /* translators: %s: Icon HTML for Justified tab */
       'title' => sprintf(__('%s Justified', 'post-grid'), '<i class="fas fa-th-large"></i>'),
       'priority' => 40,
       'active' => ($current_tab == 'justified') ? true : false,
@@ -206,6 +216,7 @@ class post_grid_meta_boxs
     );
     $settings_tabs[] = array(
       'id' => 'tiles',
+      /* translators: %s: Icon HTML for Tiles tab */
       'title' => sprintf(__('%s Tiles', 'post-grid'), '<i class="fas fa-th-large"></i>'),
       'priority' => 40,
       'active' => ($current_tab == 'tiles') ? true : false,
@@ -214,6 +225,7 @@ class post_grid_meta_boxs
     );
     $settings_tabs[] = array(
       'id' => 'pagination',
+      /* translators: %s: Icon HTML for Pagination tab */
       'title' => sprintf(__('%s Pagination', 'post-grid'), '<i class="fas fa-pager"></i>'),
       'priority' => 45,
       'active' => ($current_tab == 'pagination') ? true : false,
@@ -222,12 +234,14 @@ class post_grid_meta_boxs
     );
     $settings_tabs[] = array(
       'id' => 'custom_scripts',
+      /* translators: %s: Icon HTML for Custom Scripts tab */
       'title' => sprintf(__('%s Custom Scripts', 'post-grid'), '<i class="fas fa-code"></i>'),
       'priority' => 50,
       'active' => ($current_tab == 'custom_scripts') ? true : false,
     );
     $settings_tabs[] = array(
       'id' => 'search',
+      /* translators: %s: Icon HTML for Search tab */
       'title' => sprintf(__('%s Search', 'post-grid'), '<i class="fas fa-search"></i>'),
       'priority' => 55,
       'active' => ($current_tab == 'search') ? true : false,
@@ -338,7 +352,7 @@ class post_grid_meta_boxs
           ?>
             <li <?php if (!empty($data_visible)) :  ?> data_visible="<?php echo esc_attr($data_visible); ?>" <?php endif; ?>
               class="tab-nav <?php if ($hidden) echo 'hidden'; ?> <?php if ($active) echo 'active'; ?>"
-              data-id="<?php echo esc_attr($id); ?>"><?php echo $title; ?></li>
+              data-id="<?php echo esc_attr($id); ?>"><?php echo wp_kses_post($title); ?></li>
           <?php
           }
           ?>
@@ -371,7 +385,7 @@ class post_grid_meta_boxs
     // Check if our nonce is set.
     if (!isset($_POST['meta_boxes_post_grid_input_nonce']))
       return $post_id;
-    $nonce = sanitize_text_field($_POST['meta_boxes_post_grid_input_nonce']);
+    $nonce = sanitize_text_field(wp_unslash($_POST['meta_boxes_post_grid_input_nonce']));
     // Verify that the nonce is valid.
     if (!wp_verify_nonce($nonce, 'meta_boxes_post_grid_input'))
       return $post_id;
@@ -381,7 +395,7 @@ class post_grid_meta_boxs
     /* OK, its safe for us to save the data now. */
     // Sanitize user input.
     //$post_grid_collapsible = sanitize_text_field( $_POST['post_grid_collapsible'] );
-    $post_grid_meta_options = post_grid_recursive_sanitize_arr($_POST['post_grid_meta_options']);
+    $post_grid_meta_options = post_grid_recursive_sanitize_arr(wp_unslash($_POST['post_grid_meta_options']));
     update_post_meta($post_id, 'post_grid_meta_options', $post_grid_meta_options);
   }
   function post_grid_side($post)
@@ -437,6 +451,7 @@ class post_grid_meta_boxs
     $current_tab = isset($post_grid_post_settings['current_tab']) ? $post_grid_post_settings['current_tab'] : 'options';
     $post_grid_settings_tab[] = array(
       'id' => 'options',
+      /* translators: %s: Icon HTML for Options tab */
       'title' => sprintf(__('%s Options', 'post-grid'), '<i class="fas fas fa-tools"></i>'),
       'priority' => 1,
       'active' => ($current_tab == 'options') ? true : false,
@@ -462,7 +477,7 @@ class post_grid_meta_boxs
         ?>
           <li <?php if (!empty($data_visible)) :  ?> data_visible="<?php echo esc_attr($data_visible); ?>" <?php endif; ?>
             class="tab-nav <?php if ($hidden) echo 'hidden'; ?> <?php if ($active) echo 'active'; ?>"
-            data-id="<?php echo esc_attr($id); ?>"><?php echo ($title); ?></li>
+            data-id="<?php echo esc_attr($id); ?>"><?php echo wp_kses_post($title); ?></li>
         <?php
         }
         ?>
@@ -494,7 +509,7 @@ class post_grid_meta_boxs
     // Check if our nonce is set.
     if (!isset($_POST['post_grid_post_settings_input_nonce']))
       return $post_id;
-    $nonce = sanitize_text_field($_POST['post_grid_post_settings_input_nonce']);
+    $nonce = sanitize_text_field(wp_unslash($_POST['post_grid_post_settings_input_nonce']));
     // Verify that the nonce is valid.
     if (!wp_verify_nonce($nonce, 'post_grid_post_settings_input'))
       return $post_id;
@@ -503,7 +518,7 @@ class post_grid_meta_boxs
       return $post_id;
     /* OK, its safe for us to save the data now. */
     // Sanitize user input.
-    $post_grid_post_settings = post_grid_recursive_sanitize_arr($_POST['post_grid_post_settings']);
+    $post_grid_post_settings = post_grid_recursive_sanitize_arr(wp_unslash($_POST['post_grid_post_settings']));
     update_post_meta($post_id, 'post_grid_post_settings', $post_grid_post_settings);
   }
 }

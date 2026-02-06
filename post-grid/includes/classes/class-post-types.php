@@ -245,19 +245,32 @@ class class_post_grid_post_types
 					'name'                     => $plural,
 					'singular_name'         => $singular,
 					'menu_name'             => $singular,
+					/* translators: %s: Post type plural name */
 					'all_items'             => sprintf(__('All %s', 'post-grid'), $plural),
+					/* translators: Add new post type item label */
 					'add_new'                 => __('Add New', 'post-grid'),
+					/* translators: %s: Post type singular name */
 					'add_new_item'             => sprintf(__('Add %s', 'post-grid'), $singular),
+					/* translators: Edit label */
 					'edit'                     => __('Edit', 'post-grid'),
+					/* translators: %s: Post type singular name */
 					'edit_item'             => sprintf(__('Edit %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'new_item'                 => sprintf(__('New %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'view'                     => sprintf(__('View %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'view_item'             => sprintf(__('View %s', 'post-grid'), $singular),
+					/* translators: %s: Post type plural name */
 					'search_items'             => sprintf(__('Search %s', 'post-grid'), $plural),
+					/* translators: %s: Post type plural name */
 					'not_found'             => sprintf(__('No %s found', 'post-grid'), $plural),
+					/* translators: %s: Post type plural name */
 					'not_found_in_trash'     => sprintf(__('No %s found in trash', 'post-grid'), $plural),
+					/* translators: %s: Post type singular name */
 					'parent'                 => sprintf(__('Parent %s', 'post-grid'), $singular)
 				),
+				/* translators: %s: Post type plural name */
 				'description' => sprintf(__('This is where you can create and manage %s.', 'post-grid'), $plural),
 				'public'                 => false,
 				'show_ui'                 => true,
@@ -298,19 +311,32 @@ class class_post_grid_post_types
 					'name'                     => $plural,
 					'singular_name'         => $singular,
 					'menu_name'             => $singular,
+					/* translators: %s: Post type plural name */
 					'all_items'             => sprintf(__('All %s', 'post-grid'), $plural),
+					/* translators: Add new post type item label */
 					'add_new'                 => __('Add New', 'post-grid'),
+					/* translators: %s: Post type singular name */
 					'add_new_item'             => sprintf(__('Add %s', 'post-grid'), $singular),
+					/* translators: Edit label */
 					'edit'                     => __('Edit', 'post-grid'),
+					/* translators: %s: Post type singular name */
 					'edit_item'             => sprintf(__('Edit %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'new_item'                 => sprintf(__('New %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'view'                     => sprintf(__('View %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'view_item'             => sprintf(__('View %s', 'post-grid'), $singular),
+					/* translators: %s: Post type plural name */
 					'search_items'             => sprintf(__('Search %s', 'post-grid'), $plural),
+					/* translators: %s: Post type plural name */
 					'not_found'             => sprintf(__('No %s found', 'post-grid'), $plural),
+					/* translators: %s: Post type plural name */
 					'not_found_in_trash'     => sprintf(__('No %s found in trash', 'post-grid'), $plural),
+					/* translators: %s: Post type singular name */
 					'parent'                 => sprintf(__('Parent %s', 'post-grid'), $singular)
 				),
+				/* translators: %s: Post type plural name */
 				'description' => sprintf(__('This is where you can create and manage %s.', 'post-grid'), $plural),
 				'public'                 => false,
 				'show_ui'                 => true,
@@ -350,13 +376,21 @@ class class_post_grid_post_types
 					'name'              => $plural,
 					'singular_name'     => $singular,
 					'menu_name'         => ucwords($plural),
+					/* translators: %s: Taxonomy plural name */
 					'search_items'      => sprintf(__('Search %s', 'post-grid'), $plural),
+					/* translators: %s: Taxonomy plural name */
 					'all_items'         => sprintf(__('All %s', 'post-grid'), $plural),
+					/* translators: %s: Taxonomy singular name */
 					'parent_item'       => sprintf(__('Parent %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'parent_item_colon' => sprintf(__('Parent %s:', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'edit_item'         => sprintf(__('Edit %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'update_item'       => sprintf(__('Update %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'add_new_item'      => sprintf(__('Add New %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'new_item_name'     => sprintf(__('New %s Name', 'post-grid'),  $singular)
 				),
 				'show_ui'                 => true,
@@ -384,19 +418,32 @@ class class_post_grid_post_types
 					'name'                     => $plural,
 					'singular_name'         => $singular,
 					'menu_name'             => $singular,
+					/* translators: %s: Post type plural name */
 					'all_items'             => sprintf(__('All %s', 'post-grid'), $plural),
+					/* translators: Add new post type item label */
 					'add_new'                 => __('Add New', 'post-grid'),
+					/* translators: %s: Post type singular name */
 					'add_new_item'             => sprintf(__('Add %s', 'post-grid'), $singular),
+					/* translators: Edit label */
 					'edit'                     => __('Edit', 'post-grid'),
+					/* translators: %s: Post type singular name */
 					'edit_item'             => sprintf(__('Edit %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'new_item'                 => sprintf(__('New %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'view'                     => sprintf(__('View %s', 'post-grid'), $singular),
+					/* translators: %s: Post type singular name */
 					'view_item'             => sprintf(__('View %s', 'post-grid'), $singular),
+					/* translators: %s: Post type plural name */
 					'search_items'             => sprintf(__('Search %s', 'post-grid'), $plural),
+					/* translators: %s: Post type plural name */
 					'not_found'             => sprintf(__('No %s found', 'post-grid'), $plural),
+					/* translators: %s: Post type plural name */
 					'not_found_in_trash'     => sprintf(__('No %s found in trash', 'post-grid'), $plural),
+					/* translators: %s: Post type singular name */
 					'parent'                 => sprintf(__('Parent %s', 'post-grid'), $singular)
 				),
+				/* translators: %s: Post type plural name */
 				'description' => sprintf(__('This is where you can create and manage %s.', 'post-grid'), $plural),
 				'public'                 => true,
 				'show_ui'                 => true,
@@ -436,13 +483,21 @@ class class_post_grid_post_types
 					'name'              => $plural,
 					'singular_name'     => $singular,
 					'menu_name'         => ucwords($plural),
+					/* translators: %s: Taxonomy plural name */
 					'search_items'      => sprintf(__('Search %s', 'post-grid'), $plural),
+					/* translators: %s: Taxonomy plural name */
 					'all_items'         => sprintf(__('All %s', 'post-grid'), $plural),
+					/* translators: %s: Taxonomy singular name */
 					'parent_item'       => sprintf(__('Parent %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'parent_item_colon' => sprintf(__('Parent %s:', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'edit_item'         => sprintf(__('Edit %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'update_item'       => sprintf(__('Update %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'add_new_item'      => sprintf(__('Add New %s', 'post-grid'), $singular),
+					/* translators: %s: Taxonomy singular name */
 					'new_item_name'     => sprintf(__('New %s Name', 'post-grid'),  $singular)
 				),
 				'show_ui'                 => true,

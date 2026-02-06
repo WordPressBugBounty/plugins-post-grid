@@ -684,6 +684,10 @@ video {
   top: 100%;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .z-\[99999\] {
   z-index: 99999;
 }
@@ -1153,12 +1157,12 @@ video {
   width: 100px;
 }
 
-.w-\[1200px\] {
-  width: 1200px;
-}
-
 .w-\[12px\] {
   width: 12px;
+}
+
+.w-\[1400px\] {
+  width: 1400px;
 }
 
 .w-\[140px\] {
@@ -1486,6 +1490,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .overflow-y-scroll {
@@ -1986,6 +1994,10 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
+.bg-opacity-70 {
+  --tw-bg-opacity: 0.7;
+}
+
 .bg-opacity-80 {
   --tw-bg-opacity: 0.8;
 }
@@ -2146,6 +2158,11 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-2 {
@@ -2753,6 +2770,11 @@ video {
   background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1)) !important;
 }
 
+.hover\:bg-amber-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 119 6 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:bg-amber-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(180 83 9 / var(--tw-bg-opacity, 1));
@@ -2851,11 +2873,6 @@ video {
 .hover\:bg-slate-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1));
-}
-
-.hover\:bg-amber-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 119 6 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-red-700:hover {
